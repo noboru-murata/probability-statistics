@@ -9,7 +9,7 @@ weight = 1002
 ## 講義資料 {#講義資料}
 
 <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html"
-	width="1000" height="600" frameborder="0"
+	width="800" height="600" frameborder="0"
 	allowfullscreen="allowfullscreen"
 	allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
 </iframe>
