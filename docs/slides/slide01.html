@@ -7,31 +7,20 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
+<link rel="stylesheet" href="./reveal.js/dist/font/source-sans-pro/source-sans-pro.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/mycourse.css"/>
-<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-    if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = './reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
-</script>
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -58,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-orga5e366a">
-<h2 id="orga5e366a">試行と見本空間</h2>
+<section id="slide-org37867eb">
+<h2 id="org37867eb">試行と見本空間</h2>
 <aside class="notes">
 <p>
 不確定性のある現象を記述するための数学的な枠組である
@@ -70,8 +59,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge8b7660">
-<h3 id="orge8b7660">試行と見本点</h3>
+<section id="slide-org1369df3">
+<h3 id="org1369df3">試行と見本点</h3>
 <dl>
 <dt>試行 (trial)</dt><dd>現象を観測する
 <span style="color:darkred;">実験</span></dd>
@@ -84,8 +73,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org630e0a9">
-<h3 id="org630e0a9">試行の例</h3>
+<section id="slide-org01a6256">
+<h3 id="org01a6256">試行の例</h3>
 <ul>
 <li><p>
 骰子(サイコロ)振り
@@ -120,8 +109,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org64e2a1a">
-<h3 id="org64e2a1a">見本空間</h3>
+<section id="slide-org3daf5cb">
+<h3 id="org3daf5cb">見本空間</h3>
 <dl>
 <dt>見本空間 (sample space)</dt><dd>観測される全ての見本点を集めた集合<br />
 <span style="color:darkorange;">標本空間</span>
@@ -136,8 +125,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org37e2bcf">
-<h3 id="org37e2bcf">見本空間の例</h3>
+<section id="slide-org82f1b60">
+<h3 id="org82f1b60">見本空間の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -166,8 +155,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2e8a2ef">
-<h3 id="org2e8a2ef">見本空間による試行の分類</h3>
+<section id="slide-org031e201">
+<h3 id="org031e201">見本空間による試行の分類</h3>
 <dl>
 <dt>有限試行</dt><dd>見本空間が有限集合(要素数が
 <b>有限個</b>
@@ -180,8 +169,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9987c8f">
-<h3 id="org9987c8f">試行の分類の例</h3>
+<section id="slide-org164c531">
+<h3 id="org164c531">試行の分類の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -228,8 +217,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgc65602f" data-background="#fef4f4">
-<h2 id="orgc65602f">演習</h2>
+<section id="slide-org99017ea" data-background="#fef4f4">
+<h2 id="org99017ea">演習</h2>
 <ul>
 <li>「コインを10回投げる」試行を考える．
 <ul>
@@ -255,8 +244,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgeff4193">
-<h2 id="orgeff4193">事象とその表現</h2>
+<section id="slide-org071017c">
+<h2 id="org071017c">事象とその表現</h2>
 <aside class="notes">
 <p>
 確率を考える対象としては，
@@ -270,8 +259,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org18cd9f4">
-<h3 id="org18cd9f4">事象</h3>
+<section id="slide-orgc9a5b9f">
+<h3 id="orgc9a5b9f">事象</h3>
 <dl>
 <dt>事象 (event)</dt><dd><p>
 見本点の集合，すなわち見本空間の部分集合
@@ -290,8 +279,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb26f0db">
-<h3 id="orgb26f0db">事象の例</h3>
+<section id="slide-org776d90f">
+<h3 id="org776d90f">事象の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -334,8 +323,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgeafe6c6">
-<h3 id="orgeafe6c6">事象の演算 (集合の演算)</h3>
+<section id="slide-org3dda0a0">
+<h3 id="org3dda0a0">事象の演算 (集合の演算)</h3>
 <dl>
 <dt>和事象 (sum event)</dt><dd>\(A\) または \(B\) が起こること．<br />
 \(A,B\) の和集合 (union) \(A\cup B\)</dd>
@@ -360,8 +349,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6e06651">
-<h3 id="org6e06651">事象の演算の例</h3>
+<section id="slide-orgbebab01">
+<h3 id="orgbebab01">事象の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -395,8 +384,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd9e2ab9">
-<h3 id="orgd9e2ab9">条件による事象の表現</h3>
+<section id="slide-orgafb18af">
+<h3 id="orgafb18af">条件による事象の表現</h3>
 <ul>
 <li><p>
 事象は見本点 \(\omega\) に関する
@@ -417,8 +406,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org34a953f">
-<h3 id="org34a953f">条件による事象の例</h3>
+<section id="slide-orgbe976f3">
+<h3 id="orgbe976f3">条件による事象の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -455,8 +444,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgddaf9f3">
-<h3 id="orgddaf9f3">条件による事象の演算</h3>
+<section id="slide-orge1d4449">
+<h3 id="orge1d4449">条件による事象の演算</h3>
 <dl>
 <dt>和事象 (\(\alpha\) または \(\beta\)) : \(\alpha\vee\beta\)</dt><dd><div>
 \begin{equation}
@@ -486,8 +475,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9927fd5">
-<h3 id="org9927fd5">条件による事象の演算の例</h3>
+<section id="slide-orgf4d920f">
+<h3 id="orgf4d920f">条件による事象の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -521,8 +510,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org3afc11c" data-background="#fef4f4">
-<h2 id="org3afc11c">演習</h2>
+<section id="slide-orgf78e0b0" data-background="#fef4f4">
+<h2 id="orgf78e0b0">演習</h2>
 <ul>
 <li>和事象，交事象，差事象，余事象，排反事象，固有差，直和を
 ベン図 (Venn diagram) を描いて説明せよ．</li>
@@ -534,8 +523,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org018eb2d">
-<h2 id="org018eb2d">有限試行の確率空間</h2>
+<section id="slide-org052bff5">
+<h2 id="org052bff5">有限試行の確率空間</h2>
 <aside class="notes">
 <p>
 これまでの準備をもとに，
@@ -548,8 +537,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org58a1ef4">
-<h3 id="org58a1ef4">有限試行の確率測度</h3>
+<section id="slide-org6596309">
+<h3 id="org6596309">有限試行の確率測度</h3>
 <ul>
 <li><p>
 定義
@@ -587,8 +576,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb2b2d0f">
-<h3 id="orgb2b2d0f">確率測度の条件の意味</h3>
+<section id="slide-orgbc2395c">
+<h3 id="orgbc2395c">確率測度の条件の意味</h3>
 <dl>
 <dt>(P.1)</dt><dd>ある事象の起こる確率は \(0\) または正の値を取る</dd>
 <dt>(P.2)</dt><dd>排反な事象の和の確率はそれぞれの事象の確率の和となる</dd>
@@ -599,8 +588,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org31a5a50">
-<h3 id="org31a5a50">確率測度の例</h3>
+<section id="slide-org7b82fc6">
+<h3 id="org7b82fc6">確率測度の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -629,8 +618,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc175e26">
-<h3 id="orgc175e26">確率空間</h3>
+<section id="slide-org1bb1ab9">
+<h3 id="org1bb1ab9">確率空間</h3>
 <ul>
 <li><p>
 定義
@@ -661,8 +650,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb2b5bf3">
-<h3 id="orgb2b5bf3">確率測度の演算</h3>
+<section id="slide-orge9f36b3">
+<h3 id="orge9f36b3">確率測度の演算</h3>
 <ul>
 <li><p>
 事象の演算に関しては以下の関係が成り立つ．
@@ -687,8 +676,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaccf09b">
-<h3 id="orgaccf09b">確率測度の演算の例</h3>
+<section id="slide-org2853e86">
+<h3 id="org2853e86">確率測度の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
@@ -720,8 +709,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org74de5cf" data-background="#fef4f4">
-<h2 id="org74de5cf">演習</h2>
+<section id="slide-orgc3afd0e" data-background="#fef4f4">
+<h2 id="orgc3afd0e">演習</h2>
 <ul>
 <li><p>
 確率測度の定義にもとづいて以下を証明せよ．
@@ -744,8 +733,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgffa3e5e">
-<h2 id="orgffa3e5e">試行が有限でない場合の問題点</h2>
+<section id="slide-org768ee9f">
+<h2 id="org768ee9f">試行が有限でない場合の問題点</h2>
 <aside class="notes">
 <p>
 次に一般の試行 \(T\) と，
@@ -759,8 +748,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7f51270">
-<h3 id="org7f51270">無限試行の例</h3>
+<section id="slide-org025dcb4">
+<h3 id="org025dcb4">無限試行の例</h3>
 <ul>
 <li><p>
 「1が出るまで骰子を振り続ける」試行
@@ -808,8 +797,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9b35942">
-<h3 id="org9b35942">無限試行の例</h3>
+<section id="slide-org1a36053">
+<h3 id="org1a36053">無限試行の例</h3>
 <ul>
 <li><p>
 ルーレット回し
@@ -924,8 +913,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org6a450fb">
-<h2 id="org6a450fb">まとめ</h2>
+<section id="slide-org630f46f">
+<h2 id="org630f46f">まとめ</h2>
 <ul>
 <li>有限試行の確率空間
 <ul>
@@ -943,8 +932,11 @@
 </section>
 </div>
 </div>
-<script src="./reveal.js/lib/js/head.min.js"></script>
-<script src="./reveal.js/js/reveal.js"></script>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
@@ -964,79 +956,18 @@ pdfSeparateFragments: false,
 
 overview: true,
 
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
+transition: 'fade',
 transitionSpeed: 'default',
+chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
-{ src: './reveal.js/plugin/anything/anything.js' },
-{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
-{ src: './reveal.js/plugin/jump/jump.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'}]
 
-,audioStartAtFragment: true,
-  audio: {
-    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-anything: [
-        // Following initialization code for class animate from anything-demo.html.
-        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
-	{className: "animate",  initialize: (function(container, options){
-		Reveal.addEventListener( 'fragmentshown', function( event ) {
-			if (typeof event.fragment.beginElement === "function" ) {
-				event.fragment.beginElement();
-			}
-		});
-		Reveal.addEventListener( 'fragmenthidden', function( event ) {
-			if (event.fragment.hasAttribute('data-reverse') ) {
-				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
-				if ( reverse && typeof reverse.beginElement === "function" ) {
-					reverse.beginElement();
-				}
-			}
-		});
-		if ( container.getAttribute("data-svg-src") ) {
-			var xhr = new XMLHttpRequest();
-			xhr.onload = function() {
-				if (xhr.readyState === 4) {
-					var svg = container.querySelector('svg');
-					container.removeChild( svg );
-					container.innerHTML = xhr.responseText + container.innerHTML;
-					if ( svg ) {
-						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
-					}
-				}
-				else {
-					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
-				}
-			};
-			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
-			xhr.send();
-		}
-	}) },
-	{className: "randomPic",
-	 defaults: {imgalt: "Dummy alt text",
-		    imgcaption: "Image by {name}",
-		    choices: [ {name: "dummyname", path: "dummypath"} ]},
-	 initialize: (function(container, options){
-	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
-	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
-	     container.innerHTML = img + caption;
-	 }) },
-	{className: "notes",
-	 initialize: (function(container, options){
-	     container.addEventListener('click', function(e) { RevealNotes.open(); });
-	 }) }
-],
-coursemod: { enabled: true, shown: false },
 });
 </script>
 </body>

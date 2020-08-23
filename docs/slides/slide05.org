@@ -1,0 +1,550 @@
+#+TITLE: 条件付確率と独立性
+#+SUBTITLE: 確率・統計 第5回
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+# #+DATE: Time-stamp: <2020-06-09 08:34:39 mura>
+:reveal:
+#+INCLUDE: "./reveal.js/org/mycourse.org"
+#+STARTUP: hidestars content
+# C-c C-x C-v でinlineを切り替え
+# <m C-i でlatex block (math env用)
+# C-c '
+:end:
+
+* 条件付確率
+  #+begin_notes
+  条件付確率とは，
+  時間的な前後とは関係なく事象の間に定義される
+  一種の因果関係を記述するための確率論の枠組である．
+  #+end_notes
+  
+** 条件付確率
+   - 定義
+     #+begin_quote
+     確率空間 $(\Omega,\mathcal{F},P)$ において
+     2つの事象 $A,B\subset\Omega$ を考える．
+     事象 $A$ のもとにおける事象 $B$ の
+     *条件付確率* (conditional probability) 
+     を
+     #+begin_src latex
+       \begin{equation}
+	 P(B|A)=P_A(B)=\frac{P(A\cap B)}{P(A)}
+       \end{equation}
+     #+end_src
+     で定義する．
+     #+end_quote
+
+** 同時確率と条件付確率
+   - *同時確率* $P(A\cap B)$
+     #+begin_quote
+     "事象 $A$ と事象 $B$ が同時に起きている" 確率
+     #+end_quote
+   - *条件付確率* $P(B|A)$
+     #+begin_quote
+     "事象 $A$ が起きたときに事象 $B$ が起きている" 確率
+     #+end_quote
+** 条件付確率に関する注意
+   - 事象 $A$ は空でない $A\not=\emptyset$ とする．
+   - $P(A)=0$ のときは $P(B|A)$ は意味がないが，
+     適当に一点 $\omega_0\in A$ を選び
+     #+begin_src latex
+       \begin{equation}
+         P(B|A)=
+         \begin{cases}
+           1,& \omega_0\in B\\
+           0,& \omega_0\not\in B
+         \end{cases}
+       \end{equation}
+     #+end_src
+     とすることがある．
+
+** 条件付確率の例
+   - 骰子を一回振る試行
+     #+begin_quote
+     以下の事象を定義する．
+     #+begin_src latex
+       \begin{align}
+         A&=\{\text{偶数の目が出る}\}\\
+         B&=\{\text{素数の目が出る}\}
+       \end{align}
+     #+end_src
+     このとき以下の確率は条件付確率で表される．
+     - "偶数の目が出たとき，それが素数である" 確率
+     - "偶数の目が出たとき，それが素数でない" 確率
+     #+end_quote
+   #+reveal: split
+   - "偶数の目が出たとき，それが素数である" 確率
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 P(B|A)
+	 &=\frac{P(A\cap B)}{P(A)}\\
+         &=\frac{P(\text{偶数かつ素数の目が出る})}{P(\text{偶数の目が出る})}\\
+	 &=\frac{P\{2\}}{P(\{2,4,6\})}
+	   =\frac{1/6}{1/2}=\frac{1}{3}
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - "偶数の目が出たとき，それが素数でない" 確率
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         P(B^c|A)
+         &=\frac{P(A\cap B^{c})}{P(A)}\\
+         &=\frac{P(\text{偶数かつ素数でない目が出る})}{P(\text{偶数の目が出る})}\\
+         &=\frac{2/6}{1/2}=\frac{2}{3}
+           =1-P(B|A)
+       \end{align}
+     #+end_src
+     #+end_quote
+   # #+begin_src latex
+   #   \begin{align}
+   #     P(B|A)
+   #     &=P(\text{偶数の目が出たとき，それが素数である})\\
+   #     &=\frac{P(A\cap B)}{P(A)}
+   #       =\frac{P(\text{偶数かつ素数の目が出る})}{P(\text{偶数の目が出る})}\\
+   #     &=\frac{P\{2\}}{P(\{2,4,6\})}
+   #       =\frac{1/6}{1/2}=\frac{1}{3}\\
+   #     P(B^c|A)
+   #     &=P(\text{偶数の目が出たとき，それが素数でない})\\
+   #     &=\frac{2/6}{1/2}=\frac{2}{3}
+   #       =1-P(B|A)
+   #   \end{align}
+   # #+end_src
+
+** 確率変数による条件の表現
+   - 確率変数が一つの値を取る場合
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         A&=\{\omega|X(\omega)=x\} \Leftrightarrow
+            A=X^{-1}(x)\; (x\in\Omega^X) \\
+         B&=\{\omega|Y(\omega)=y\} \Leftrightarrow
+            B=Y^{-1}(y)\; (y\in\Omega^Y) 
+       \end{align}
+     #+end_src
+     のようにある事象に対応づけられるので，
+     #+begin_src latex
+       \begin{equation}
+         P(Y\!=\!y|X\!=\!x)\quad\text{または}\quad P_{X=x}(Y\!=\!y)
+       \end{equation}
+     #+end_src
+     という条件付確率を考えることができる．
+     #+end_quote
+   #+reveal: split
+   - 確率変数がある集合に含まれる場合
+     #+begin_quote
+     同様に
+     #+begin_src latex
+       \begin{align}
+         A&=\{\omega|X(\omega)\in E\} \Leftrightarrow
+            A=X^{-1}(E)\; (E\subset\Omega^X) \\
+         B&=\{\omega|Y(\omega)\in F\} \Leftrightarrow
+            B=Y^{-1}(F)\; (F\subset\Omega^Y)
+       \end{align}
+     #+end_src
+     と事象と対応づけられるので，
+     #+begin_src latex
+       \begin{equation}
+         P(Y\!\in F|X\!\in E)\quad\text{または}\quad P_{X\in E}(Y\in F)
+       \end{equation}
+     #+end_src
+     のように表した条件付確率を考えることができる．
+     #+end_quote
+   #+reveal: split
+   - 同時確率の表現
+     #+begin_quote
+     単に変数を並べて
+     #+begin_src latex
+       \begin{align}
+         P(X\!=\!x,Y\!=\!y)
+         &=P(\{\omega|X(\omega)=x\}\cap\{\omega|Y(\omega)=y\})\\
+         P(X\!\in E,Y\!\in F)
+         &=P(\{\omega|X(\omega)\in E\}\cap\{\omega|Y(\omega)\in F\})
+       \end{align}
+     #+end_src
+     と表すことが多い．
+     #+end_quote
+   #+reveal: split
+   - 確率法則(確率分布)の表現
+     #+begin_quote
+     確率変数 $X$,$Y$ のいろいろな値に対する
+     同時確率や条件付確率をまとめて表現する場合
+     #+begin_src latex
+       \begin{equation}
+         P(X,Y),\quad P(Y|X)
+       \end{equation}
+     #+end_src
+     といった記述を行うことが多い．
+     #+end_quote
+
+** 条件付確率の性質
+   - 定理
+     #+begin_quote
+     条件付確率には次の性質がある．
+     1. $\Big.P(A\cap B)=P(A)P(B|A)$
+     2. $\Big.P(A|A)=1$
+     3. $\Big.P(A_1\cap A_2\cap\dotsb\cap A_n)
+	=P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})$
+     4. $\Big.P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$
+     #+end_quote
+     - 証明は定義から明らか
+
+** 条件付確率分布と平均値
+   - 確率分布
+     #+begin_quote
+     定理の2. より
+     $P(\cdot|A)$ は $A$ を見本空間とする確率法則になっている．
+     これを $A$ のもとにおける
+     *条件付確率分布* (conditional probability distribution) 
+     という．
+     #+end_quote
+   - 平均値
+     #+begin_quote
+     条件付確率分布のもとでの平均値
+     #+begin_src latex
+       \begin{align}
+         \mathbb{E}[Y|A]
+         &=\sum_{\omega\in A}Y(\omega)P(\omega|A)
+           \quad\text{(離散分布の場合)}\\
+         \mathbb{E}[Y|A]
+         &=\int_{A}Y(\omega)P(d\omega|A)
+           \quad\text{(連続分布の場合)}
+       \end{align}
+     #+end_src
+     を
+     *条件付平均値* (conditional expectation) 
+     と呼ぶ．
+     #+end_quote
+
+* Bayesの定理
+  #+begin_notes
+  事象をうまく分解することによって導かれるBayesの定理を利用して
+  条件が逆向きとなる関係を陽に計算することもできる．
+  確率的な推論には欠くことのできない重要な概念となっている．
+  #+end_notes
+
+** Bayesの定理 (基本形)
+   - 定理
+     #+begin_quote
+     条件付確率では次の等式が成り立つ．
+     #+begin_src latex
+       \begin{equation}
+         P(A|B)
+         =\frac{P(A)P(B|A)}{P(B)}.
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - 定理の4.より導かれる
+     - 左辺と右辺で事象 $A,B$ の役割が異なる
+
+** Bayesの定理 (一般形)
+   - 定理
+     #+begin_quote
+     $\Omega=A_1+A_2+\dotsb+A_n$ のとき
+     #+begin_src latex
+       \begin{equation}
+         P(A_i|B)
+         =\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^nP(A_k)P(B|A_k)}
+       \end{equation}
+     #+end_src
+     が成り立つ．
+     #+end_quote
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+  - 以下の問に答えよ．
+    - Bayes の定理(一般形)を証明せよ．
+
+** 解答例
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+  - 証明
+    #+begin_quote
+    事象 $B$ と $A_i$ との関係は
+    全事象を利用すると
+    #+begin_src latex
+      \begin{equation}
+        P(B)
+        =P(\Omega\cap B)
+        =P(\sum_{k=1}^nA_k\cap B)
+        =\sum_{k=1}^nP(A_k\cap B)
+      \end{equation}
+    #+end_src
+    と分解できる．
+    すなわち
+    $\Omega=A_1+A_2+\dotsb+A_n$ のとき
+    $A_k\cap B$ は互いに排反な事象となる．
+    これと定理を用いれば分母の表現が得られる．
+    #+end_quote
+
+* 独立性
+  #+begin_notes
+  独立性とは2つの確率変数が
+  確率法則の意味で無関係となることである．
+  その定義の仕方はいくつかあるが，
+  本質は条件付確率の性質によって理解できる．
+  #+end_notes
+
+** 確率変数の独立性
+   - 定義 (有限試行の場合)
+     #+begin_quote
+     二つの確率変数
+     $X,Y$ が互いに
+     *独立* (independent) 
+     であるとは，
+     任意の $x,y$ に対して
+     #+begin_src latex
+       \begin{equation}
+         P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y)
+       \end{equation}
+     #+end_src
+     となることである．
+     #+end_quote
+   #+reveal: split
+   - 条件付確率による意味付け
+     #+begin_quote
+     条件付確率を用いて同時確率を書き直すと
+     #+begin_src latex
+       \begin{equation}
+         P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y|X\!=\!x)
+       \end{equation}
+     #+end_src
+     であるが，
+     独立性の定義から
+     #+begin_src latex
+       \begin{equation}
+         P(Y\!=\!y|X\!=\!x)=P(Y\!=\!y)
+       \end{equation}
+     #+end_src
+     となり，$Y$ の確率は $X$ に左右されないことを示す．
+     #+end_quote
+   #+reveal: split
+   - 定義 (無限試行の場合)
+     #+begin_quote
+     任意の事象(集合)
+     $E\subset\Omega^X$,$F\subset\Omega^Y$
+     に対して
+     #+begin_src latex
+       \begin{equation}
+         P(X\!\in E,Y\!\in F)=P(X\!\in E)P(Y\!\in F)
+       \end{equation}
+     #+end_src
+     が成り立つことである．
+     #+end_quote
+     
+   #+reveal: split
+   - 定義 (確率密度を持つ場合)
+     #+begin_quote
+     $X,Y$ の同時確率分布の密度関数
+     (*同時確率密度*; joint probability density) 
+     を $f(x,y)$ ，$X,Y$ のそれぞれの確率分布の密度関数
+     (*周辺確率密度*; marginal probability density) 
+     を $g(x),h(y)$ とすると，
+     確率変数 $X,Y$ が互いに独立とは
+     任意の $x,y$ に対して
+     #+begin_src latex
+       \begin{equation}
+         f(x,y)=g(x)h(y)
+       \end{equation}
+     #+end_src
+     となることである．
+     #+end_quote
+
+   #+reveal: split
+   - 特性関数による表現 (Kacの定理)
+     #+begin_quote
+     確率変数 $X,Y$ が互いに独立とは，
+     特性関数を用いて
+     #+begin_src latex
+       \begin{equation}
+         \mathbb{E}[e^{isX+itY}]=\mathbb{E}[e^{isX}]\mathbb{E}[e^{itY}]
+       \end{equation}
+     #+end_src
+     が成り立つことと同値である．
+     #+end_quote
+
+** 独立性の性質
+   - 定理
+     #+begin_quote
+     独立性に関しては以下の性質が成り立つ．
+     - 確率変数 $X,Y$ が独立 
+       $\Leftrightarrow$ 
+       $\Big.P(Y|X)=P(Y)\ \text{a.s.}$ \\
+       (周辺分布 $P(Y)$ と
+       条件付分布 $P(Y|X)$ が確率1で等しい)
+     - 確率変数$X_1,X_2,\dotsc,X_n$ が独立 
+       $\Rightarrow$
+       変数変換した確率変数
+       #+begin_src latex
+	 \begin{equation}
+	   Y_1=\phi_1(X_1),Y_2=\phi_2(X_2),\dotsc,Y_n=\phi_n(X_n)
+	 \end{equation}
+       #+end_src
+       は独立 (逆が成り立つとは限らないことに注意)
+     #+end_quote
+   #+reveal: split
+   - (定理のつづき)
+     #+begin_quote
+     - 確率変数 $X_1,X_2,\dotsc,X_n$ が独立
+       $\Rightarrow$ 
+       #+begin_src latex
+	 \begin{equation}
+	   \mathbb{E}[X_1X_2\dotsm X_n]
+	   =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+	 \end{equation}
+       #+end_src
+       (平均値の乗法性)
+     - 確率変数 $X_1,X_2,\dotsc,X_n$ の任意の2変数が独立
+       $\Rightarrow$ 
+       #+begin_src latex
+         \begin{equation}
+           \mathrm{Var}(X_1+X_2+\dotsb+X_n)
+           =\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+         \end{equation}
+       #+end_src
+       (分散の加法性)
+     #+end_quote
+  
+** 事象の独立性
+   - 指示関数
+     #+begin_quote
+     集合 $A$ の *指示関数 (定義関数)* を
+     #+begin_src latex
+       \begin{equation}
+	 1_A(\omega)=
+	 \begin{cases}
+	   1,& \omega\in A\\
+	   0,& \omega\not\in A
+	 \end{cases}
+       \end{equation}
+     #+end_src
+     で定義する．
+     #+end_quote
+     - 指示関数は実数値関数
+     - $Y=1_A(\omega)$ 確率変数 \\
+       (見本点 $\omega$ が事象 $A$ に含まれたかどうかを表す)
+   #+reveal: split
+   - 定義
+     #+begin_quote
+     事象 $A_1,A_2,\dotsc,A_n$ の
+     それぞれの指示関数で定義される確率変数
+     $Y_1,Y_2,\dotsc,Y_n$
+     が互いに独立である場合，
+     事象
+     $A_1,A_2,\dotsc,A_n$
+     は独立であるという．
+     #+end_quote
+
+** 定理
+   - 定理
+     #+begin_quote
+     以下の3つは同値である．
+     1. 事象 $A_1,A_2,\dotsc,A_n$ が独立
+     2. $B_i=A_i$ または $B_i=A_i^c$ としたとき
+        #+begin_src latex
+          \begin{equation}
+            P(B_1\cap B_2\cap\dotsb\cap B_n)
+            =P(B_1)P(B_2)\dotsm P(B_n)
+          \end{equation}
+        #+end_src
+     3. $\forall k=2,3,\dotsc,n$, 
+	$1\leq\forall i_1<\forall i_2<\dotsb\forall i_k\leq n$
+        #+begin_src latex
+          \begin{equation}
+            P(A_{i_1}\cap A_{i_2}\cap\dotsb\cap A_{i_k})
+            =P(A_{i_1})P(A_{i_2})\dotsm P(A_{i_k})
+          \end{equation}
+        #+end_src
+     #+end_quote
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+  - 以下の問に答えよ．
+    #+begin_quote
+    高田馬場のラーメン屋Aの売上は，
+    前の週の口コミサイトBとCにおける評価に強く影響される．
+    詳しく調べた結果以下のことが判った．
+    - 売上，および評価は上がるか下がるかの二通りしかない
+    - B,C共に評価が上がったときに売上が上がる確率は $0.9$ である
+    - B,Cの一方のみ評価が上がったときに売上が上がる確率は $0.6$ である
+    - B,C共に評価が下がったときに売上が下がる確率は $0.8$ である
+    - Bの評価が上がる確率は $0.5$ である
+    - Cの評価が上がる確率は $0.6$ である
+    - Bの評価が上がるとき $X=1$, 下がるとき $X=0$, 
+      Cの評価が上がるとき $Y=1$, 下がるとき $Y=0$ となる
+      確率変数 $X,Y$ を考えると，$X,Y$ の共分散は $0.1$ である
+    #+end_quote
+  #+reveal: split   
+  - このとき以下の確率を求めよ．
+    - B,C共に評価が上がる確率はいくつか？
+    - Aの売上が下がったとき，
+      B,C共に評価が下がった確率はいくつか？
+    - Aの売上が上がったとき，
+      B,Cの一方のみ評価が上がった確率はいくつか？
+
+** ヒント
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+  - 扱う事象を整理する
+    #+begin_quote
+    #+begin_src latex
+      \begin{align}
+        A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
+        B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
+        C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
+      \end{align}
+    #+end_src
+    #+end_quote
+  #+reveal: split
+  - 前提条件を書き下す
+    #+begin_quote
+    #+begin_src latex
+      \begin{align}
+        &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
+        &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
+        &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
+        &P(B)=0.5&&P(B^{c})=0.5\\
+        &P(C)=0.6&&P(C^{c})=0.4\\
+        &\mathrm{Cov}(X,Y)=0.1
+      \end{align}
+    #+end_src
+    #+end_quote
+  #+reveal: split
+  - 求める確率は以下のとおり
+    #+begin_quote
+    #+begin_src latex
+      \begin{align}
+        &P(B\cap C)\\
+        &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+        &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+        &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
+      \end{align}
+    #+end_src
+    #+end_quote
+    - 第1問は共分散の計算を利用すれば求められる
+      #+begin_src latex
+        \begin{align}
+          \mathrm{Cov}(X,Y)
+          &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+          &=P(X=1,Y=1)-P(X=1)P(Y=1)
+        \end{align}
+      #+end_src
+    - 第1問の結果を利用すると前提条件から 
+      $P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})$
+      も求められる
+    - 第2,3問は必要な確率を整理して Bayes の定理を用いればよい
+
+* まとめ
+  - 条件付確率と独立性
+    - 同時確率，周辺確率，条件付確率
+    - 条件付確率分布，条件付確率密度，条件付平均値
+    - 条件付確率とBeyesの定理
+    - 確率変数と事象の独立性
