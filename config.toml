@@ -32,3 +32,6 @@ publishDir = "docs"
 
   # brand color
   brand_color = "#7300ac"
+
+[markup.goldmark.renderer]
+  unsafe = true

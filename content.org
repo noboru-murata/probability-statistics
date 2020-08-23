@@ -21,9 +21,18 @@
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
 ** スライド
-#+BEGIN_EXPORT html
-<iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
-#+END_EXPORT
+
+   ここにスライドをはりつける
+   #+begin_export html
+   <div>
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   </div>
+#+end_export
+   ここまでスライドをはりつける
 
 #   [[github:slides/slide01.html][講義1]]
    
