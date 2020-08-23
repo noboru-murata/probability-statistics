@@ -12,7 +12,7 @@
   :EXPORT_DATE: <2020-03-18 Wed>
   :END:
 
-  講義の資料を掲載します．
+  講義資料を掲載します．
   必要な参考書については講義中に指示します．
   
 * 講義1
@@ -31,6 +31,182 @@
    - [[github:slides/slide01.html][slide (URL)]]
    - [[github:pdfs/slide01.pdf][handout (PDF)]]
 
+* 講義2
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture02
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide02.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide02.html][slide (URL)]]
+   - [[github:pdfs/slide02.pdf][handout (PDF)]]
+
+* 講義3
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture03
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide03.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide03.html][slide (URL)]]
+   - [[github:pdfs/slide03.pdf][handout (PDF)]]
+
+* 講義4
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture04
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide04.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide04.html][slide (URL)]]
+   - [[github:pdfs/slide04.pdf][handout (PDF)]]
+
+* 講義5
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture05
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide05.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide05.html][slide (URL)]]
+   - [[github:pdfs/slide05.pdf][handout (PDF)]]
+
+* 講義6
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture06
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide06.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide06.html][slide (URL)]]
+   - [[github:pdfs/slide06.pdf][handout (PDF)]]
+
+* 講義8
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture08
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide08.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide08.html][slide (URL)]]
+   - [[github:pdfs/slide08.pdf][handout (PDF)]]
+
+* 講義9
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture09
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide09.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide09.html][slide (URL)]]
+   - [[github:pdfs/slide09.pdf][handout (PDF)]]
+
+* 講義10
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture10
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide10.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide10.html][slide (URL)]]
+   - [[github:pdfs/slide10.pdf][handout (PDF)]]
+
+* 講義12
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture12
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide12.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide12.html][slide (URL)]]
+   - [[github:pdfs/slide12.pdf][handout (PDF)]]
+
+* 講義13
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture13
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide13.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide13.html][slide (URL)]]
+   - [[github:pdfs/slide13.pdf][handout (PDF)]]
+
+* 講義14
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture14
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+** 講義資料
+   #+begin_export html
+     <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide14.html"
+	     width="1000" height="600" frameborder="0"
+	     allowfullscreen="allowfullscreen"
+	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
+     </iframe>
+   #+end_export
+   - [[github:slides/slide14.html][slide (URL)]]
+   - [[github:pdfs/slide14.pdf][handout (PDF)]]
+
 * COMMENT お知らせ
   おしらせは以下を利用     
 
@@ -44,11 +220,10 @@
   後半は統計学の基礎を学びます．
 
 ** 講義ノート
-   あんなことやこんなこと
+   Moodle に掲載しました．
 
 ** 過去の試験問題
-   それもこれも
-
+   5年分 Moodle に掲載しました．
 
 * COMMENT ローカル変数
 # Local Variables:
