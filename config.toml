@@ -15,8 +15,8 @@ publishDir = "docs"
   author_url= "https://github.com/noboru-murata"
 
   # Point readers to your repo and invite them to edit pages 
-  # repo_host = "GitHub"
-  # repo = "https://github.com/noboru-murata/probability-statistics"
+  repo_host = "GitHub"
+  repo = "https://github.com/noboru-murata/probability-statistics"
 
   # Add a reference to a logo, which will appear in the top right
   # logourl = ""
