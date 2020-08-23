@@ -2,7 +2,7 @@
 #+SUBTITLE: 確率・統計 第6回
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-06-16 08:38:46 mura>
+# #+DATE: Time-stamp: <2020-08-23 22:09:02 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -660,7 +660,7 @@
   - 独立変数の和の性質
     - 大数の法則とその条件
     - 中心極限定理とその条件
-** 注意
+** COMMENT 注意
    - 確認テスト (講義6の中)
      - 期間: 6/16講義終了-6/22 13:00
      - 時間制限: 1時間 

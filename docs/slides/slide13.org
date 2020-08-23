@@ -2,7 +2,7 @@
 #+SUBTITLE: 確率・統計 講義13
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-07-21 10:31:32 mura>
+# #+DATE: Time-stamp: <2020-08-23 22:10:24 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -873,7 +873,7 @@
   - 最尤推定量を用いた検定
     - 漸近正規性
     - 正規分布を用いた検定に帰着
-** 注意
+** COMMENT 注意
    - 確認テスト (講義13の中)
      - 期間: 7/21講義終了-7/26 13:00
      - 時間制限: 1時間 

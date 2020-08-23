@@ -23,12 +23,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide01.html][slide (URL)]]
+   - [[github:slides/slide01.html][slide (html)]]
    - [[github:pdfs/slide01.pdf][handout (PDF)]]
 
 * 講義2
@@ -39,12 +39,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide02.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide02.html][slide (URL)]]
+   - [[github:slides/slide02.html][slide (html)]]
    - [[github:pdfs/slide02.pdf][handout (PDF)]]
 
 * 講義3
@@ -55,12 +55,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide03.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide03.html][slide (URL)]]
+   - [[github:slides/slide03.html][slide (html)]]
    - [[github:pdfs/slide03.pdf][handout (PDF)]]
 
 * 講義4
@@ -71,12 +71,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide04.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide04.html][slide (URL)]]
+   - [[github:slides/slide04.html][slide (html)]]
    - [[github:pdfs/slide04.pdf][handout (PDF)]]
 
 * 講義5
@@ -87,12 +87,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide05.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide05.html][slide (URL)]]
+   - [[github:slides/slide05.html][slide (html)]]
    - [[github:pdfs/slide05.pdf][handout (PDF)]]
 
 * 講義6
@@ -103,12 +103,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide06.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide06.html][slide (URL)]]
+   - [[github:slides/slide06.html][slide (html)]]
    - [[github:pdfs/slide06.pdf][handout (PDF)]]
 
 * 講義8
@@ -119,12 +119,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide08.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide08.html][slide (URL)]]
+   - [[github:slides/slide08.html][slide (html)]]
    - [[github:pdfs/slide08.pdf][handout (PDF)]]
 
 * 講義9
@@ -135,12 +135,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide09.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide09.html][slide (URL)]]
+   - [[github:slides/slide09.html][slide (html)]]
    - [[github:pdfs/slide09.pdf][handout (PDF)]]
 
 * 講義10
@@ -151,12 +151,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide10.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide10.html][slide (URL)]]
+   - [[github:slides/slide10.html][slide (html)]]
    - [[github:pdfs/slide10.pdf][handout (PDF)]]
 
 * 講義12
@@ -167,12 +167,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide12.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide12.html][slide (URL)]]
+   - [[github:slides/slide12.html][slide (html)]]
    - [[github:pdfs/slide12.pdf][handout (PDF)]]
 
 * 講義13
@@ -183,12 +183,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide13.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide13.html][slide (URL)]]
+   - [[github:slides/slide13.html][slide (html)]]
    - [[github:pdfs/slide13.pdf][handout (PDF)]]
 
 * 講義14
@@ -199,12 +199,12 @@
 ** 講義資料
    #+begin_export html
      <iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide14.html"
-	     width="800" height="600" frameborder="0"
+	     width="800" height="500" frameborder="0"
 	     allowfullscreen="allowfullscreen"
 	     allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
      </iframe>
    #+end_export
-   - [[github:slides/slide14.html][slide (URL)]]
+   - [[github:slides/slide14.html][slide (html)]]
    - [[github:pdfs/slide14.pdf][handout (PDF)]]
 
 * COMMENT お知らせ

@@ -2,7 +2,7 @@
 #+SUBTITLE: 確率・統計 第4回
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-06-06 13:43:16 mura>
+# #+DATE: Time-stamp: <2020-08-23 22:08:20 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -1153,7 +1153,7 @@
     - 複数の確率変数の同時確率(結合確率)
     - 確率変数の平均，分散，モーメント
     - 確率変数の特性関数
-** 注意
+** COMMENT 注意
    - 確認テスト (講義4の中)
      - 期間: 6/2講義終了-6/8正午
      - 時間制限: 1時間 

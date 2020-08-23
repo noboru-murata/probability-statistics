@@ -2,7 +2,7 @@
 #+SUBTITLE: 確率・統計 第8回
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-06-23 08:35:22 mura>
+# #+DATE: Time-stamp: <2020-08-23 22:09:38 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -724,7 +724,7 @@
     - 推定量の平均値の不偏性
     - 推定量の分散の大きさ
       
-** 注意
+** COMMENT 注意
    - 確認テスト (講義8の中)
      - 期間: 6/23講義終了-6/30 13:00
      - 時間制限: 1時間 
