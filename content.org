@@ -1,0 +1,58 @@
+#+HUGO_BASE_DIR: ./
+#+HUGO_SECTION: page
+#+HUGO_WEIGHT: auto
+#+author: Noboru Murata
+#+link: github https://noboru-murata.github.io/probability-statistics/
+# C-c C-e H A (generate MDs for all subtrees)
+
+* 概要
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: _index
+  :EXPORT_HUGO_SECTION: ./
+  :EXPORT_DATE: <2020-03-18 Wed>
+  :END:
+
+  講義の資料と過去の試験問題を掲載します．
+
+  必要な参考資料については講義中に指示します．
+
+** おしらせ
+  
+* 講義1
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: lecture01
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+
+** スライド
+#+BEGIN_EXPORT html
+<iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+#+END_EXPORT
+#   [[github:slides/slide01.html][講義1]]
+   
+** 講義資料
+#   [[github:pdfs/slide12.pdf][講義1]]
+
+* COMMENT お知らせ
+  おしらせは以下を利用     
+
+* 講義の進め方
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: ./post
+  :EXPORT_FILE_NAME: post1
+  :EXPORT_DATE: <2020-04-01 Wed>
+  :END:
+  前半は確率論を，
+  後半は統計学の基礎を学びます．
+
+** 講義ノート
+   あんなことやこんなこと
+
+** 過去の試験問題
+   それもこれも
+
+
+* COMMENT ローカル変数
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:

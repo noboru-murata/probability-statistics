@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>さまざまな検定</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">さまざまな検定</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 講義13</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-orgc9186c7">
+<h2 id="orgc9186c7">復習</h2>
+<div class="outline-text-2" id="text-orgc9186c7">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5b2a135">
+<h3 id="org5b2a135">統計的仮説検定</h3>
+<ul>
+<li>ある現象・母集団に対して仮定された仮説の真偽を
+データに基づいて統計的に検証する方法</li>
+<li>推定と大きく異なるのは，
+母集団の分布に対して何らかの仮説を考えるところ</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb028db1">
+<h3 id="orgb028db1">検定における仮説</h3>
+<ul>
+<li><p>
+帰無仮説 \(H_0\)
+</p>
+<blockquote>
+<p>
+検定統計量の分布を予想するために立てる仮説
+</p>
+</blockquote></li>
+<li><p>
+対立仮説 \(H_1\) 
+</p>
+<blockquote>
+<p>
+&ldquo;帰無仮説が誤っているときに起こりうるシナリオ&rdquo;として想定する仮説
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6e4058c">
+<h3 id="org6e4058c">検定の基本的手続き</h3>
+<ol>
+<li>仮説を立てる</li>
+<li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
+<li>実際のデータから検定統計量の値を計算する</li>
+<li>計算された検定統計量の値が
+仮説が正しいときに十分高い確率で
+得られるかどうかを判断する</li>
+
+</ol>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfdc8e1f">
+<h3 id="orgfdc8e1f">検定の用語</h3>
+<ul>
+<li>仮説の判定
+<ul>
+<li>帰無仮説を棄却: 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を受容: 帰無仮説を積極的に棄却できないこと</li>
+
+</ul></li>
+<li>検定の誤り
+<ul>
+<li>第一種過誤: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
+<li>第二種過誤: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
+
+</ul></li>
+<li>検定の設計
+<ul>
+<li>サイズ: &ldquo;第一種過誤が起きる確率&rdquo; を小さく</li>
+<li>検出力: &ldquo;第二種過誤が起きない確率&rdquo; を大きく</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org65b8490">
+<h3 id="org65b8490">有意水準と \(p\) 値</h3>
+<ul>
+<li><p>
+有意水準
+</p>
+<blockquote>
+<p>
+第一種過誤が起きる確率(サイズ)として許容する上限
+</p>
+</blockquote></li>
+<li><p>
+\(p\) 値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+</p>
+<blockquote>
+<p>
+検定統計量の値が棄却域に含まれる有意水準の最小値
+</p>
+<div>
+\begin{equation}
+  \text{($p$ 値)}
+  =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+有意水準と \(p\) 値の関係
+</p>
+<blockquote>
+<p>
+\(p\) 値が有意水準未満のときに帰無仮説を棄却する
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org94374c3">
+<h3 id="org94374c3">正規分布を用いた平均値の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+確率変数列の平均値が \(\mu\) と等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X_i=\theta+\varepsilon_{i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
+\end{equation}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta=\mu
+  \quad\text{vs}\quad
+  H_{1}: \theta\not=\mu
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は 帰無仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2d99404">
+<h3 id="org2d99404">正規分布を用いた平均値の差の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2つの確率変数列の平均値が等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n, \qquad
+  Y_1,Y_2,\dotsc,Y_m 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\theta_{1}+\varepsilon_{1i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
+  Y_j&=\theta_{2}+\varepsilon_{2j},
+  \quad j=1,\dotsc,m
+  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
+\end{align}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta_{1}=\theta_{2}
+  \quad\text{vs}\quad
+  H_{1}: \theta_{1}\not=\theta_{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org3c18220">
+<h3 id="org3c18220">両側検定と片側検定</h3>
+<ul>
+<li>対立仮説によって棄却域の形は変わりうる
+<ul>
+<li>例: 2つの薬の治験結果に対する仮説:
+<ul>
+<li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
+<li>古い薬に比べて新しい薬の効能が改善した</li>
+
+</ul></li>
+
+</ul></li>
+<li>右片側検定: 棄却域がある定数 \(a\) によって \((a,\infty)\)</li>
+<li>左片側検定: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
+<ul>
+<li>右片側検定と左片側検定を合わせて片側検定と呼ぶ</li>
+
+</ul></li>
+<li>両側検定: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<div class="leftcol">
+
+<div id="org0445495" class="figure">
+<p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+
+<div id="org03591b5" class="figure">
+<p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
+</p>
+</div>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc4d723a" data-background="#fef4f4">
+<h2 id="orgc4d723a">演習</h2>
+<ul>
+<li><p>
+以下の問に答えよ．
+</p>
+<blockquote>
+<p>
+Y県とF県で生産されたの桃の甘さの違いを調べるために，
+ある八百屋で売られているそれぞれの桃一山の糖度を調べたとする．
+一つ一つの甘さはばらついているが，
+どちらの県でも分散
+\(\sigma^{2}=0.6\)
+の正規分布に従うことが知られている．
+それぞれの標本平均を計算したところ
+</p>
+<div>
+\begin{align}
+  X_1,X_2,\dotsc,X_6 & \to \bar{X}=15.2\\
+  Y_1,Y_2,\dotsc,Y_{10} & \to \bar{Y}=14.5
+\end{align}
+
+</div>
+
+<p>
+となった．
+本来の平均値が等しいと言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org46d8508" data-background="#fef4f4">
+<h3 id="org46d8508">解答例</h3>
+<ul>
+<li><p>
+観測値の確率モデル
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\theta_{1}+\varepsilon_{1i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
+  Y_j&=\theta_{2}+\varepsilon_{2j},
+  \quad j=1,\dotsc,m
+  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>\(n=6\), \(m=10\), \(\sigma^{2}=0.6\)</li>
+
+</ul></li>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.975}=1.96\))
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定統計量の計算 
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T
+  =\sqrt{\frac{6\times 10}{6+10}}\frac{15.2-14.5}{\sqrt{0.6}}
+  =1.75
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li>&ldquo;Y県の方がF県より甘い&rdquo; という対立仮説の場合 <br />
+(右片側検定)</li>
+<li><p>
+棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.95}=1.64\))
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(z_{1{-}\alpha},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orga6404d7">
+<h2 id="orga6404d7">正規分布にもとづいたいろいろな検定</h2>
+<div class="outline-text-2" id="text-orga6404d7">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc211483">
+<h3 id="orgc211483">観測値の仮定</h3>
+<ul>
+<li><p>
+確率モデル
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X=\mu+\varepsilon,
+  \qquad \varepsilon\sim\mathcal{N}(0,\sigma^2)
+\end{equation}
+
+</div>
+
+<div>
+\begin{equation}
+  X\sim\mathcal{N}(\mu,\sigma^2)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>\(\sigma^{2}\) が未知の場合を考える</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd2e6993">
+<h3 id="orgd2e6993">平均の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+\(\mu_0\) を既知の定数として，
+平均 \(\mu\) が真の平均 \(\mu_0\) であるか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\mu=\mu_0\quad\text{vs}\quad H_1:\mu\neq\mu_0
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org77c60bc">
+<h3 id="org77c60bc">考え方</h3>
+<ul>
+<li>平均と分散の推定量の性質
+<ul>
+<li><p>
+標本平均: (正規分布に従う)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+不偏分散: (\(\chi^2\) 分布に従う)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>標本平均と不偏分散は互いに独立</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd75be6d">
+<h3 id="orgd75be6d">\(\chi^{2}\) -分布</h3>
+<div class="leftcol">
+
+<div id="orgc14e30b" class="figure">
+<p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 3: </span>\(\chi^{2}\) -分布 (自由度\(3\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \([0,\infty)\)</li>
+<li>母数: 自由度 \(\nu\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{multline}
+  f(x)=
+  \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
+  \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
+\end{multline}
+
+</div>
+
+<ul>
+<li>備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
+検定に利用される．</li>
+
+</ul></li>
+
+</ul>
+</blockquote>
+
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org599fb12">
+<h3 id="org599fb12">\(t\) -分布</h3>
+<div class="leftcol">
+
+<div id="org210835a" class="figure">
+<p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 4: </span>\(t\) -分布 (自由度\(3\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \((-\infty,\infty)\)</li>
+<li>母数: 自由度 \(\nu\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
+  {\sqrt{\nu\pi}\;\Gamma\left(\frac{\nu}{2}\right)}
+  \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
+\end{equation}
+
+</div>
+
+<ul>
+<li>備考: 標準正規分布と
+自由度 \(\nu\) の \(\chi^{2}\) -分布の比の分布で，
+検定に利用される．</li>
+
+</ul></li>
+
+</ul>
+</blockquote>
+
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8e605ec">
+<h3 id="org8e605ec">Studentの \(t\) 検定</h3>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\sqrt{n}(\bar{X}-\mu_0)}{s}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>帰無分布は自由度 \(n{-}1\) の \(t\) -分布</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(t_{1{-}\alpha/2}(n{-}1)\):
+</p>
+<blockquote>
+<p>
+自由度 \(n{-}1\) の \(t\) 分布の \(1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(-\infty,-t_{1{-}\alpha/2}(n{-}1)\right)
+  \cup\left(t_{1{-}\alpha/2}(n{-}1),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4493133">
+<h3 id="org4493133">平均の差の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2種類のデータの平均が等しいか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\mu_1=\mu_2\quad\text{vs}\quad H_1:\mu_1\neq\mu_2
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>Behrens-Fisher 問題
+<ul>
+<li>正確かつ適切な検定を導出することは実は難しい</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org524ea7b">
+<h3 id="org524ea7b">考え方</h3>
+<ul>
+<li><p>
+\(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  s_1^2=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^2,\quad
+  s_2^2=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^2.
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>標本平均と不偏分散の性質:
+<ul>
+<li>\(\bar{X}-\bar{Y},s_1^2,s_2^2\) は互いに独立</li>
+<li>\((m{-}1)s_1^2/\sigma_1^2\)
+は自由度 \(m{-}1\) の \(\chi^2\) 分布に従う</li>
+<li>\((n{-}1)s_2^2/\sigma_2^2\)
+は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgdf96f2c">
+<h3 id="orgdf96f2c">Welchの \(t\) 検定</h3>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_1^2/m+s_2^2/n}}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+帰無分布は自由度 \(\hat{\nu}\) の \(t\) -分布 (<b>Welchの近似</b>)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \hat{\nu}
+  =\frac{(s_1^2/m+s_2^2/n)^2}
+  {\frac{(s_1^2/m)^2}{m{-}1}+\frac{(s_2^2/n)^2}{n{-}1}}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(t_{1{-}\alpha/2}(\hat{\nu})\):
+</p>
+<blockquote>
+<p>
+自由度 \(\hat{\nu}\) の \(t\) 分布の \(1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(-\infty,-t_{1{-}\alpha/2}(\hat{\nu})\right)
+  \cup\left(t_{1{-}\alpha/2}(\hat{\nu}),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgaab4639">
+<h3 id="orgaab4639">分散の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+\(\sigma_0^2\) を既知の定数として，
+分散 \(\sigma^2\) が \(\sigma_0^2\) であるか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\sigma^2=\sigma_0^2\quad\text{vs}\quad H_1:\sigma^2\neq\sigma_0^2
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb3e1766">
+<h3 id="orgb3e1766">考え方</h3>
+<ul>
+<li>分散の推定量の性質:
+<ul>
+<li><p>
+不偏分散: (\(\chi^2\) 分布に従う)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2 
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org02eb5b1">
+<h3 id="org02eb5b1">\(\chi^2\) 検定</h3>
+<ul>
+<li><p>
+検定統計量:
+</p>
+<div>
+\begin{equation}
+  \chi^2=\frac{(n{-}1)s^2}{\sigma_0^2}
+\end{equation}
+
+</div></li>
+
+<li>帰無分布は自由度 \(n{-}1\) の \(\chi^2\) 分布</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(\chi^2_{\alpha/2}(n{-}1)\),
+\(\chi^2_{1{-}\alpha/2}(n{-}1)\):
+</p>
+<blockquote>
+<p>
+自由度 \(n{-}1\) の \(\chi^2\) 分布の
+\(\alpha/2\), \(1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(0,\chi^2_{\alpha/2}(n{-}1)\right)
+  \cup\left(\chi^2_{1{-}\alpha/2}(n{-}1),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgca55457">
+<h3 id="orgca55457">分散の比の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2種類のデータの分散が等しいか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\sigma_1^2=\sigma_2^2\quad\text{vs}\quad H_1:\sigma_1^2\neq\sigma_2^2
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org3e3fbc0">
+<h3 id="org3e3fbc0">考え方</h3>
+<ul>
+<li><p>
+\(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  s_1^2=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^2,\quad
+  s_2^2=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^2.
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>分散の推定量の性質:
+<ul>
+<li>\(s_1^2,s_2^2\) は互いに独立</li>
+<li>\((m{-}1)s_1^2/\sigma_1^2\)
+自由度 \(m{-}1\) の \(\chi^2\) 分布に従う</li>
+<li>\((n{-}1)s_2^2/\sigma_2^2\)
+は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org505b9ed">
+<h3 id="org505b9ed">\(F\) -分布</h3>
+<div class="leftcol">
+
+<div id="orgfcec096" class="figure">
+<p><img src="figs/pdf_f.png" alt="pdf_f.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 5: </span>\(F\) -分布 (自由度\(5,10\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \([0,\infty)\)</li>
+<li>母数: 自由度 \(\nu_{1},\nu_{2}\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{multline}
+  f(x)=
+  \frac{(\frac{\nu_{1}}{\nu_{2}})^{\frac{\nu_{1}}{2}}}{B(\frac{\nu_{1}}{2},\frac{\nu_{2}}{2})}
+  \frac{x^{\frac{\nu_{1}}{2}-1}}{(1+\frac{\nu_{1}}{\nu_{2}}x)^{\frac{\nu_{1}+\nu_{2}}{2}}}\\
+  B(x,y)=\int_{0}^{1}t^{x-1}(1-t)^{y-1}dt
+\end{multline}
+
+</div>
+
+<ul>
+<li>備考: \(\nu_{1},\nu_{2}\) 個の標準正規分布の2乗和の比の分布で，
+検定に利用される．</li>
+
+</ul></li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge4bd977">
+<h3 id="orge4bd977">\(F\) 検定</h3>
+<ul>
+<li><p>
+検定統計量:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  F=\frac{s_1^2}{s_2^2}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\) -分布</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(F_{\alpha/2}(m{-}1,n{-}1)\),
+\(F_{1{-}\alpha/2}(m{-}1,n{-}1)\):
+</p>
+<blockquote>
+<p>
+自由度 \(m{-}1,n{-}1\) の \(F\) 分布の
+\(\alpha/2,\,1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
+  \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orge5b1d9c">
+<h2 id="orge5b1d9c">漸近正規性にもとづく検定</h2>
+<div class="outline-text-2" id="text-orge5b1d9c">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org1d657a7">
+<h3 id="org1d657a7">推定量の漸近正規性</h3>
+<ul>
+<li><p>
+漸近正規性 (データ数が多いときの性質)
+</p>
+<blockquote>
+<p>
+多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+</p>
+</blockquote>
+<ul>
+<li>モーメントに基づく記述統計量は漸近正規性をもつ</li>
+<li>最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ</li>
+<li>いずれも中心極限定理にもとづく</li>
+
+</ul></li>
+<li>信頼区間と同様に正規分布を用いて検定を考えることができる</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgaa6ee02">
+<h3 id="orgaa6ee02">最尤推定量の漸近正規性</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(f(x)>0\)
+が連続で2階微分可能ならば
+\(\sqrt{n}(\hat\theta^*-\theta_0)\)
+は
+\(n\to\infty\)
+で正規分布
+\(\mathcal{N}(0,I(\theta_0)^{-1})\)
+に近づく．
+</p>
+</blockquote>
+<ul>
+<li>観測データが十分多ければ，
+最尤推定量の誤差(分散)は
+Cramer-Rao 下界に一致する</li>
+<li><p>
+Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+</p>
+<blockquote>
+<div>
+\begin{align}
+  I(\theta_0)
+  &=\mathbb{E}_{\theta_0}
+    \left[
+      -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+    \right]
+    \\
+  &=\mathbb{E}_{\theta_0}\left[\left(
+    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4b3835c">
+<h3 id="org4b3835c">最尤推定量の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+\(\theta_0\) を既知の定数として，
+母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\theta=\theta_0\quad\text{vs}\quad H_1:\theta\neq\theta_0
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>上記は両側検定</li>
+<li>片側検定も同様に考えることができる</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org42fd8df">
+<h3 id="org42fd8df">考え方</h3>
+<ul>
+<li><p>
+最尤の推定量の性質
+</p>
+<blockquote>
+<p>
+観測データ数 \(n\) が十分大きいとき，
+1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\hat\theta]=\theta_{0},\quad
+  \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
+\end{equation}
+
+</div>
+
+<p>
+の正規分布で近似できる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org81865dc">
+<h3 id="org81865dc">\(Z\) 検定 (正規分布による検定)</h3>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>帰無分布は標準正規分布</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(z_{1{-}\alpha/2}\):
+</p>
+<blockquote>
+<p>
+標準正規分布の \(1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup\left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org564f41c">
+<h3 id="org564f41c">例題 (McNemar検定)</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+A社とB社の開発した2つの文字認識機械がある．
+\(n\) 個の文字に対してその性能を調べたところ
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">&#x2026;</th>
+<th scope="col" class="org-left">n</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A社</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">×</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.1%</td>
+</tr>
+
+<tr>
+<td class="org-left">B社</td>
+<td class="org-left">×</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.0%</td>
+</tr>
+</tbody>
+</table>
+<p>
+のような正答率を示した．
+このときA社の機械はB社より優れていると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li>試験した結果によって判断は異なるべき <br />
+(n=10,000)</li>
+
+</ul>
+<div class="leftcol">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9800</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">10</td>
+<td class="org-right">190</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="rightcol">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9610</td>
+<td class="org-right">190</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">200</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdfde668" data-background="#fef4f4">
+<h2 id="orgdfde668">演習</h2>
+<ul>
+<li><p>
+以下の問に答えよ
+</p>
+<blockquote>
+<p>
+A社とB社の開発した2つの文字認識機械がある．
+10,000文字に対してその性能を調べたところ
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9500</td>
+<td class="org-right">180</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">220</td>
+<td class="org-right">100</td>
+</tr>
+</tbody>
+</table>
+<p>
+のような正答率を示した．
+このときA社の機械はB社より優れていると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org28a79ed" data-background="#fef4f4">
+<h3 id="org28a79ed">解答例</h3>
+<ul>
+<li>以下のように考える．
+<ul>
+<li>両者が正解: 簡単な文字 (比較しても意味がない)</li>
+<li>両者が不正解: 難しい文字 (比較しても意味がない)</li>
+<li>どちらかが正解: 認識すべき文字 (比較すべき)</li>
+
+</ul></li>
+<li><p>
+以下の確率変数を考える．
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X=
+  \begin{cases}
+    1, &\text{A社のみ正解}\\
+    0, &\text{B社のみ正解}
+  \end{cases}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+確率質量関数
+</p>
+<blockquote>
+<p>
+A社のみ正解の確率を \(\theta\) とし，
+確率変数 \(X\) の確率質量関数を以下で定義する．
+</p>
+<div>
+\begin{equation}
+  f(x)=\theta^{x}(1-\theta)^{1-x}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+Fisher 情報量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  I(\theta)
+  =\mathbb{E}
+  \left[
+    -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
+  \right]
+  =\frac{1}{\theta(1-\theta)}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+対数尤度
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \ell(\theta)
+  =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+最尤推定量
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \ell'(\hat\theta)
+  &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
+  \hat\theta&=\bar{X}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+以下の検定を考える．
+</p>
+<blockquote>
+<ul>
+<li>帰無仮説: A社とB社の性能に違いはない (\(\theta_{0}=0.5\))</li>
+<li>対立仮説: A社の方がB社より性能が良い</li>
+
+</ul>
+<div>
+\begin{equation}
+  H_0:\theta=\theta_{0}\quad\text{vs}\quad H_1:\theta>\theta_{0}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>帰無分布は標準正規分布</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+有意水準と棄却域(両側・片側)に応じて以下の分位点を用いれば良い
+</p>
+<blockquote>
+<div>
+\begin{align}
+  &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
+  &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
+  &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
+\end{align}
+
+</div>
+</blockquote></li>
+<li><p>
+検定統計量の計算
+</p>
+<blockquote>
+<p>
+題意より
+</p>
+<div>
+\begin{equation}
+  Z=\sqrt{400/0.5^{2}}(220/400-0.5)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org3b510bd">
+<h2 id="org3b510bd">まとめ</h2>
+<ul>
+<li>分散未知の正規分布を用いた検定
+<ul>
+<li>平均値の検定</li>
+<li>平均値の差の検定</li>
+<li>分散の検定</li>
+<li>分散の比の検定</li>
+
+</ul></li>
+<li>最尤推定量を用いた検定
+<ul>
+<li>漸近正規性</li>
+<li>正規分布を用いた検定に帰着</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org041f72a">
+<h3 id="org041f72a">注意</h3>
+<ul>
+<li>確認テスト (講義13の中)
+<ul>
+<li>期間: 7/20講義終了-7/26 13:00</li>
+<li>時間制限: 1時間</li>
+<li>4問 (検定の計算問題，数値をよく確認すること)</li>
+<li>試験の意味を考えて誠実な対応をすること</li>
+<li>ネットワーク環境等には自身で配慮すること</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)', 'body'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { Reveal.getPlugins().notes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>

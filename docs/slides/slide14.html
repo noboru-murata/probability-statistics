@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>検定のまとめ</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">検定のまとめ</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 講義14</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-orgfbf832a">
+<h2 id="orgfbf832a">復習</h2>
+<div class="outline-text-2" id="text-orgfbf832a">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0e9e96e">
+<h3 id="org0e9e96e">統計的仮説検定</h3>
+<ul>
+<li>ある現象・母集団に対して仮定された仮説の真偽を
+データに基づいて統計的に検証する方法</li>
+<li>推定と大きく異なるのは，
+母集団の分布に対して何らかの仮説を考えるところ</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7de9ae8">
+<h3 id="org7de9ae8">検定における仮説</h3>
+<ul>
+<li><p>
+帰無仮説 \(H_0\)
+</p>
+<blockquote>
+<p>
+検定統計量の分布を予想するために立てる仮説
+</p>
+</blockquote></li>
+<li><p>
+対立仮説 \(H_1\) 
+</p>
+<blockquote>
+<p>
+&ldquo;帰無仮説が誤っているときに起こりうるシナリオ&rdquo;として想定する仮説
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf7a37a4">
+<h3 id="orgf7a37a4">検定の基本的手続き</h3>
+<ol>
+<li>仮説を立てる</li>
+<li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
+<li>実際のデータから検定統計量の値を計算する</li>
+<li>計算された検定統計量の値が
+仮説が正しいときに十分高い確率で
+得られるかどうかを判断する</li>
+
+</ol>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6269160">
+<h3 id="org6269160">検定の用語</h3>
+<ul>
+<li>仮説の判定
+<ul>
+<li>帰無仮説を棄却: 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を受容: 帰無仮説を積極的に棄却できないこと</li>
+
+</ul></li>
+<li>検定の誤り
+<ul>
+<li>第一種過誤: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
+<li>第二種過誤: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
+
+</ul></li>
+<li>検定の設計
+<ul>
+<li>サイズ: &ldquo;第一種過誤が起きる確率&rdquo; を小さく</li>
+<li>検出力: &ldquo;第二種過誤が起きない確率&rdquo; を大きく</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org18e8bd5">
+<h3 id="org18e8bd5">有意水準と \(p\) 値</h3>
+<ul>
+<li><p>
+有意水準
+</p>
+<blockquote>
+<p>
+第一種過誤が起きる確率(サイズ)として許容する上限
+</p>
+</blockquote></li>
+<li><p>
+\(p\) 値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+</p>
+<blockquote>
+<p>
+検定統計量の値が棄却域に含まれる有意水準の最小値
+</p>
+<div>
+\begin{equation}
+  \text{($p$ 値)}
+  =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+有意水準と \(p\) 値の関係
+</p>
+<blockquote>
+<p>
+\(p\) 値が有意水準未満のときに帰無仮説を棄却する
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb4e87f0">
+<h3 id="orgb4e87f0">正規分布を用いた平均値の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+確率変数列の平均値が \(\mu\) と等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X_i=\theta+\varepsilon_{i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
+\end{equation}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta=\mu
+  \quad\text{vs}\quad
+  H_{1}: \theta\not=\mu
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は 帰無仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2f967b3">
+<h3 id="org2f967b3">正規分布を用いた平均値の差の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2つの確率変数列の平均値が等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n, \qquad
+  Y_1,Y_2,\dotsc,Y_m 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\theta_{1}+\varepsilon_{1i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
+  Y_j&=\theta_{2}+\varepsilon_{2j},
+  \quad j=1,\dotsc,m
+  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
+\end{align}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta_{1}=\theta_{2}
+  \quad\text{vs}\quad
+  H_{1}: \theta_{1}\not=\theta_{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org111061e">
+<h3 id="org111061e">両側検定と片側検定</h3>
+<ul>
+<li>対立仮説によって棄却域の形は変わりうる
+<ul>
+<li>例: 2つの薬の治験結果に対する仮説:
+<ul>
+<li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
+<li>古い薬に比べて新しい薬の効能が改善した</li>
+
+</ul></li>
+
+</ul></li>
+<li>右片側検定: 棄却域がある定数 \(a\) によって \((a,\infty)\)</li>
+<li>左片側検定: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
+<ul>
+<li>右片側検定と左片側検定を合わせて片側検定と呼ぶ</li>
+
+</ul></li>
+<li>両側検定: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<div class="leftcol">
+
+<div id="org6ee2110" class="figure">
+<p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+
+<div id="orgede4067" class="figure">
+<p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
+</p>
+</div>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org1f98014">
+<h3 id="org1f98014">推定量の漸近正規性</h3>
+<ul>
+<li><p>
+漸近正規性 (データ数が多いときの性質)
+</p>
+<blockquote>
+<p>
+多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+</p>
+</blockquote>
+<ul>
+<li>モーメントに基づく記述統計量は漸近正規性をもつ</li>
+<li>最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ</li>
+<li>いずれも中心極限定理にもとづく</li>
+
+</ul></li>
+<li>信頼区間と同様に正規分布を用いて検定を考えることができる</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb74f6c6">
+<h3 id="orgb74f6c6">最尤推定量の漸近正規性</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(f(x)>0\)
+が連続で2階微分可能ならば
+\(\sqrt{n}(\hat\theta^*-\theta_0)\)
+は
+\(n\to\infty\)
+で正規分布
+\(\mathcal{N}(0,I(\theta_0)^{-1})\)
+に近づく．
+</p>
+</blockquote>
+<ul>
+<li>観測データが十分多ければ，
+最尤推定量の誤差(分散)は
+Cramer-Rao 下界に一致する</li>
+<li><p>
+Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+</p>
+<blockquote>
+<div>
+\begin{align}
+  I(\theta_0)
+  &=\mathbb{E}_{\theta_0}
+    \left[
+      -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+    \right]
+    \\
+  &=\mathbb{E}_{\theta_0}\left[\left(
+    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgaae83c4">
+<h3 id="orgaae83c4">最尤推定量の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+\(\theta_0\) を既知の定数として，
+母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
+</p>
+<div>
+\begin{equation}
+  H_0:\theta=\theta_0\quad\text{vs}\quad H_1:\theta\neq\theta_0
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>上記は両側検定</li>
+<li>片側検定も同様に考えることができる</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge1669b4">
+<h3 id="orge1669b4">\(Z\) 検定 (正規分布による検定)</h3>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>帰無分布は標準正規分布</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(z_{1{-}\alpha/2}\):
+</p>
+<blockquote>
+<p>
+標準正規分布の \(1{-}\alpha/2\) 分位点
+</p>
+</blockquote></li>
+<li><p>
+棄却域:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup\left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgeb39024">
+<h2 id="orgeb39024">課題の説明</h2>
+<div class="outline-text-2" id="text-orgeb39024">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org3ba2b82">
+<h3 id="org3ba2b82">注意</h3>
+<ul>
+<li>提出するのは解答用紙1枚のみ</li>
+<li>形式はPDFまたは画像</li>
+<li>提出物が可読でない場合は評価できない</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)', 'body'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { Reveal.getPlugins().notes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>

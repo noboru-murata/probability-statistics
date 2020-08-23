@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>母数推定</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">母数推定</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 第7回</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-orgeb594bf">
+<h2 id="orgeb594bf">復習</h2>
+<div class="outline-text-2" id="text-orgeb594bf">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0840d01">
+<h3 id="org0840d01">演習問題</h3>
+<ul>
+<li><p>
+偏りのないコインを投げたとき表なら1，
+裏なら-1となる確率変数 \(X\) を考える．
+n回投げたときに得られた結果を
+\(X_1,X_2,\dotsc,X_n\) と書くことにする．
+</p>
+<div>
+\begin{equation}
+  Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
+\end{equation}
+
+</div>
+
+<p>
+とするとき，以下の問に答えよ．
+</p>
+<ul>
+<li>\(Y_{n}\) の平均と分散を求めよ．</li>
+<li>\(Y_{n}\) の特性関数 \(\phi_n(s)\) を求めよ．</li>
+<li>特性関数 \(\phi_n(s)\) の極限 \(\lim_{n\to\infty}\phi_n(s)\) を求めよ．</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge1e7136">
+<h3 id="orge1e7136">解答例</h3>
+<ul>
+<li><p>
+題意より
+</p>
+<div>
+\begin{equation}
+  P(X=1)=\frac{1}{2},\quad
+  P(X=-1)=\frac{1}{2}
+\end{equation}
+
+</div>
+
+<p>
+\(X_1,X_2,\dotsc,X_n\) は独立として計算
+</p>
+<ul>
+<li><p>
+\(X\) の平均と分散が
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X]=0,\quad
+  \mathrm{Var}(X)=\mathbb{E}[X^2]=1
+\end{equation}
+
+</div>
+
+<p>
+であることより
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[Y_{n}]=0,\quad
+  \mathrm{Var}(Y_{n})
+  =\frac{1}{n}\cdot n\mathrm{Var}(X)=1
+\end{equation}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+特性関数は
+</p>
+<div>
+\begin{align}
+  \phi_{n}(s)
+  &=\mathbb{E}[e^{isY_{n}}]\\
+  &=(\mathbb{E}[e^{isX/\sqrt{n}}])^{n}
+    =\left(\frac{e^{is/\sqrt{n}}+e^{-is/\sqrt{n}}}{2}\right)^{n}\\
+  &=\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+\end{align}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+余弦関数の Taylor 展開は以下となる
+</p>
+<div>
+\begin{equation}
+  \cos(x)=1-\frac{x^2}{2}+\frac{x^4}{24}+\dotsb
+\end{equation}
+
+</div>
+
+<ul>
+<li>定義通り計算してもよいし，
+指数関数の展開と Euler の式を用いてもよい</li>
+
+</ul>
+<div>
+\begin{align}
+  \lim_{n\to\infty}\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+  &=\lim_{n\to\infty}\left(1-\frac{s^{2}}{2n}
+    +\dotsb\right)^{n}\\
+  &=e^{-\frac{s^{2}}{2}}
+\end{align}
+
+</div>
+
+<p>
+となり標準正規分布の特性関数となる．
+</p></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfce8a54">
+<h2 id="orgfce8a54">統計的推測</h2>
+<div class="outline-text-2" id="text-orgfce8a54">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0eb0194">
+<h3 id="org0eb0194">統計的推測の考え方</h3>
+<ul>
+<li><p>
+確率
+</p>
+<blockquote>
+<p>
+ある決まった確率法則のもとで，
+確率変数がどのような性質を持つか論じる
+</p>
+</blockquote></li>
+<li><p>
+統計
+</p>
+<blockquote>
+<p>
+ある確率法則に従うと考えられる確率変数の実現値を観測して，
+それを生成する確率法則について何らかの推測を行う
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge2d7cdb">
+<h3 id="orge2d7cdb">確率変数と確率分布</h3>
+<ul>
+<li>確率変数 \(X\) : 
+<ul>
+<li>値がランダムに決定される変数</li>
+<li>任意の区間 \([a,b]\) に含まれる確率が定められている</li>
+
+</ul></li>
+<li>確率分布 \(P\) (または単に分布):
+<ul>
+<li><p>
+区間 \([a,b]\) \((a\leq b)\) に \(X\) が含まれる確率
+</p>
+<div>
+\begin{equation}
+  P(a\leq X\leq b)
+\end{equation}
+
+</div></li>
+
+<li>「確率変数 \(X\) は確率分布 \(P\) に従う」という</li>
+<li>現象の理解のためには実現値より確率分布にこそ興味がある</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgeeba741">
+<h3 id="orgeeba741">同時分布</h3>
+<ul>
+<li>観測データは確率変数の集合</li>
+<li>確率変数の <b>列</b> \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+&ldquo;\(X_1\) が \(x_1\) という値をとり，
+\(X_2\) が \(x_2\) という値をとり， \(\dots\) ，
+\(X_n\) が \(x_n\) という値をとる&rdquo;
+という事象が起きる確率を
+<b>同時分布</b>
+という
+</p>
+<div>
+\begin{equation}
+  P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgbac6111">
+<h3 id="orgbac6111">独立性</h3>
+<ul>
+<li>無関係にサンプリングされた観測データの性質</li>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+\(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が <b>独立</b> であるとは，
+\(a_i\leq b_i\) \((i=1,\dots,n)\) なる
+任意の実数 \(a_{1},b_{1},\dots,a_n,b_n\) に対して
+</p>
+<div>
+\begin{multline}
+  P(a_{1}\leq X_{1}\leq b_{1},a_{2}\leq X_{2}\leq b_{2},\dots,a_n\leq X_n\leq b_n)\\
+  =P(a_{1}\leq X_{1}\leq b_{1})P(a_{2}\leq X_{2}\leq b_{2})\cdots P(a_n\leq X_n\leq b_n)
+\end{multline}
+
+</div>
+
+<p>
+が成り立つことをいう．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb9c5f59">
+<h3 id="orgb9c5f59">同分布性</h3>
+<ul>
+<li>同一の法則に従って生成された観測データの性質</li>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+\(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が <b>同分布</b> であるとは，
+\(a\leq b\) なる任意の実数 \(a,b\) に対して
+</p>
+<div>
+\begin{equation}
+  P(a\leq X_{1}\leq b)=P(a\leq X_{2}\leq b)=\cdots=P(a\leq X_n\leq b)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つことをいう．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org44d6866">
+<h3 id="org44d6866">独立同分布性</h3>
+<ul>
+<li>一般に分析対象のデータには
+<b>独立性</b> と <b>同分布性</b> 
+が同時に仮定される</li>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+独立かつ同分布な確率変数列を
+<b>独立同分布</b>
+もしくは
+<b>i.i.d.</b> 
+であるという
+</p>
+
+<p>
+(i.i.d. はindependent and identically distributedの略)
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgefba47e">
+<h2 id="orgefba47e">極限定理</h2>
+<div class="outline-text-2" id="text-orgefba47e">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org35c6ea4">
+<h3 id="org35c6ea4">極限定理</h3>
+<ul>
+<li>大数の法則，
+中心極限定理など</li>
+<li>緩やかな条件のもとで確率変数の列について成立する法則
+<ul>
+<li>大数の法則は平均が存在すれば成立する</li>
+<li>2次のモーメントをもたない(計算できない)場合には
+中心極限定理は成立しない</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0e1d71c">
+<h3 id="org0e1d71c">無限列の独立性と同分布性</h3>
+<ul>
+<li>無限列に対しては任意の部分列について考える</li>
+<li><p>
+独立性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>独立</b> であるとは，
+任意の正整数 \(n\) に対して \(X_1,X_2,\dotsc,X_n\) が
+独立であることをいう
+</p>
+</blockquote></li>
+<li><p>
+同分布性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>同分布</b> であるとは，
+任意の正整数 \(n\) に対して \(X_1,X_2,\dotsc,X_n\) が
+同分布であることをいう
+</p>
+</blockquote></li>
+<li><p>
+独立同分布性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>独立同分布</b>
+もしくは <b>i.i.d.</b> であるとは，
+\(X_1,X_2,\dotsc\) が独立かつ同分布であることをいう
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf8605be">
+<h3 id="orgf8605be">大数の法則の概要</h3>
+<ul>
+<li>同一の法則に従って生成された集団から
+<b>ランダムな</b> 観測を多数繰り返すと，
+<b>観測値の標本平均</b> は <b>真の平均値</b> に近づく</li>
+<li>具体的な例: 
+<ul>
+<li>歪みの無いコインの表が出た回数の割合</li>
+<li>視聴率の調査</li>
+
+</ul></li>
+<li>この法則を数学的に定式化した定理が <b>大数の法則</b></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5771b28">
+<h3 id="org5771b28">大数の法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
+その平均を \(\mu\) とする．
+このとき,  \(X_1,\dotsc,X_n\) の標本平均
+</p>
+<div>
+\begin{equation}
+  \bar{X}_n
+  = \frac{1}{n}\sum_{i=1}^nX_i
+\end{equation}
+
+</div>
+
+<p>
+が \(n\to\infty\) のとき \(\mu\) に収束する確率は1である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4c6b8cc">
+<h3 id="org4c6b8cc">中心極限定理の概要</h3>
+<ul>
+<li>大数の法則の主張: 
+<ul>
+<li>\(n\) を大きくすると標本平均 \(\bar{X}_n\) は真の平均 \(\mu\) に近づく</li>
+<li>推定誤差 \(\bar{X}_n-\mu\) は \(n\) を大きくすると0に近づく</li>
+<li>どの程度の大きさになるのか定量的な評価は与えていない</li>
+
+</ul></li>
+<li>誤差の評価の定量化:
+<ul>
+<li><p>
+推定誤差がある区間 \([\alpha,\beta]\) に入る確率で定量的に評価可能
+</p>
+<div>
+\begin{equation}
+  P(\alpha\leq \bar{X}_n-\mu\leq \beta)
+\end{equation}
+
+</div></li>
+
+<li>上式の正確な計算は一般には困難</li>
+
+</ul></li>
+<li>サンプル数が大きい場合の定量的な評価の近似方法を述べたのが <b>中心極限定理</b></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org365d101">
+<h3 id="org365d101">中心極限定理</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
+その平均を \(\mu\) ，標準偏差を \(\sigma\) とする．
+このとき，すべての実数 \(a < b\) に対して
+</p>
+<div>
+\begin{equation}
+  P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
+  \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
+  (n\to\infty)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org46b8659">
+<h2 id="org46b8659">確率モデル</h2>
+<div class="outline-text-2" id="text-org46b8659">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge1fcf04">
+<h3 id="orge1fcf04">観測値の生成モデル</h3>
+<ul>
+<li><p>
+加法的雑音モデル
+</p>
+<blockquote>
+<p>
+同じ条件の元で繰り返し測定した実験データを考える．
+データには測定毎に誤差が生じるが，
+この偶然に変動するばらつきを確率的なものとして捉えることによって
+</p>
+<div>
+\begin{equation}
+  \begin{array}{c@{}c@{}c@{}c@{}cl}
+    X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
+    \text{(確率変数)}&&\text{(未知母数)}&&
+					   \text{(誤差)}
+  \end{array}
+\end{equation}
+
+</div>
+
+<p>
+という確率モデルを設定することができる．
+</p>
+</blockquote></li>
+<li><p>
+母数推定
+</p>
+<blockquote>
+<p>
+実験を何回か行なって得られる観測値
+\(X_{1},X_{2},\dotsc,X_{n}\) を用いて
+未知母数 \(\theta\) を推定する方法を考える．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8f7578a">
+<h3 id="org8f7578a">誤差の性質の仮定</h3>
+<ul>
+<li><p>
+仮定0
+</p>
+<blockquote>
+<p>
+\(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
+ある同時確率分布に従う確率変数である．
+</p>
+
+<p>
+誤差自体が確率変数であるという
+確率モデルの前提条件の言い換え
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+仮定1 (独立性)
+</p>
+<blockquote>
+<p>
+\(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
+互いに独立に分布する．
+</p>
+
+<p>
+実験が十分注意深く行われていることを前提とした仮定
+</p>
+</blockquote></li>
+<li><p>
+仮定2 (同分布性)
+</p>
+<blockquote>
+<p>
+\(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
+同じ分布に従う．
+</p>
+
+<p>
+各回の実験が完全に同じ条件で行われることを仮定
+</p>
+</blockquote>
+<ul>
+<li>仮定1，2をあわせて <b>独立同分布 (i.i.d.)</b> であると言う</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+仮定3 (誤差の不偏性)
+</p>
+<blockquote>
+<p>
+\(\Ex{\varepsilon_{i}}=0,\ i=1,\dotsc,n\) 
+</p>
+
+<p>
+観測に偏りがないことを仮定
+(偏りがあったとしてもデータからは知ることができない)
+</p>
+</blockquote></li>
+<li><p>
+仮定4 (極限定理のための条件)
+</p>
+<blockquote>
+<p>
+\(\Ex{\varepsilon_{i}^{2}}<\infty,\ i=1,\dotsc,n\) 
+</p>
+
+<p>
+大数の法則や中心極限定理などを使ってデータの性質を調べる際に必要な仮定
+(実験データでは測定値が発散するような状況はほとんどないので特に不合理な制約ではない)
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org8eb368e">
+<h2 id="org8eb368e">推定量</h2>
+<div class="outline-text-2" id="text-org8eb368e">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4423237">
+<h3 id="org4423237">推定量と推定値</h3>
+<ul>
+<li><p>
+推定量
+</p>
+<blockquote>
+<p>
+統計では未知の母数を推定する方式を\emph{推定量} (estimator)
+と呼び，
+通常未知母数に$\hat&sdot;$を付けて表す．つまり
+</p>
+<div>
+\begin{equation}
+  \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
+\end{equation}
+
+</div>
+
+<p>
+は$n$個の確率変数$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$を観測し，
+それらを用いて未知母数を推定する方法を表わしている．
+ここで推定量は確率変数$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$の関数であるので，
+それ自体確率変数となることに注意する．
+</p>
+</blockquote></li>
+<li><p>
+推定値
+</p>
+<blockquote>
+<p>
+一方実際に実験をして \(X_{1}=x_{1},X_{2}=x_{2},\dotsc,X_{n}=x_{n}\) という
+観測値が得られたとしよう．
+これらの確率変数の実現値を上の推定量に代入して得られる
+</p>
+<div>
+\begin{equation}
+  \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
+\end{equation}
+
+</div>
+
+<p>
+を\emph{推定値} (estimate)
+\index{すいていち@推定値}\index{estimate}
+と呼び，
+統計では推定量と区別することが多い．
+推定値は確率変数の実現値であり，確率変数ではないことに注意する．
+確率変数と実現値の区別は文献によっては曖昧にされることもあるが，
+ここではできるかぎり定義に忠実に書いていくことを試みる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd6a6a8b">
+<h3 id="orgd6a6a8b">推定量の例</h3>
+<ul>
+<li><p>
+推定量:例1 (標本平均)
+</p>
+<div>
+\begin{align}
+  \hat\theta
+  &=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\\
+\end{align}
+
+</div></li>
+
+<li><p>
+推定量:例2 (中央値)
+</p>
+<div>
+\begin{align}
+  \hat\theta
+  &=\text{($X_{1},X_{2},\dotsc,X_{n}$の中央の値)}\\
+\end{align}
+
+</div></li>
+
+<li><p>
+推定量:例3 (トリム平均) 
+</p>
+<div>
+\begin{align}
+  $\{X_{i}\}$を小さい順に並べ換えたものを $\{X_{(i)}\}$として}
+  &=\frac{1}{n-2m}\sum_{i=m+1}^{n-m}X_{(i)}
+\end{align}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9f69f68">
+<h3 id="org9f69f68">それぞれの解説</h3>
+<ul>
+<li><p>
+例1
+</p>
+<blockquote>
+<p>
+は観測される確率変数の算術平均で，
+\emph{標本平均} (sample mean)
+と呼ばれる．
+誤差に偏りがないのであれば
+直感的にも$&theta;$に非常に近い値になるであろうことが予想される．
+</p>
+</blockquote></li>
+<li><p>
+例2
+</p>
+<blockquote>
+<p>
+\emph{中央値} (median)
+と呼ばれるもので，
+誤差が正の側と負の側に均等に出るのであれば
+$&theta;$をうまく近似することが想像できるであろう．
+</p>
+</blockquote></li>
+<li><p>
+例3
+</p>
+<blockquote>
+<p>
+は\emph{トリム平均} (trimmed mean)
+と呼ばれるもので，
+言い換えると
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$を小さい順に並べ，
+小さい方の$m$個と大きい方の$m$個を捨てた算術平均である．
+極端に大きな，あるいは小さな値として現れる観測値を捨てることによって，
+特異的な値による誤差の影響を取り除いて平均を推定しようというものである．
+\sidenote{体操，フィギュアスケート，ジャンプといった
+スポーツ競技の採点法などではこれと似た方法が採られている．}
+</p>
+</blockquote></li>
+<li><p>
+推定量:例4
+</p>
+<div>
+\begin{align}
+  \hat\theta
+  &=c_{1}X_{1}+c_{2}X_{2}+\dotsb+c_{n}X_{n},\quad \sum_{i=1}^nc_{i}=1\\
+\end{align}
+
+</div></li>
+
+<li><p>
+推定量:例5
+</p>
+<div>
+\begin{align}
+  \hat\theta
+  &=(X_{1}\cdot X_{2}\cdot\dotsb\cdot X_{n})^{\frac{1}{n}},\\
+  &\phantom{=}
+    \quad\text{(ただし$X_{1},X_{2},\dotsc,X_{n}$は正の数とする)}\\
+\end{align}
+
+</div></li>
+
+<li><p>
+推定量:例6
+</p>
+<div>
+\begin{align}
+  \hat\theta
+  &=\frac{n}{1/X_{1}+1/X_{2}+\dotsb+1/X_{n}},
+  %% \hat\theta&=\text{sign}(X_{1}\cdot X_{2}\cdot\dotsb\cdot X_{n})
+  %% \sqrt[n]{|X_{1}\cdot X_{2}\cdot\dotsb\cdot X_{n}|}
+\end{align}
+
+</div>
+
+<p>
+例4は各観測の重みを変えて平均を取った加重平均であり，
+例5は観測値の幾何平均，
+例6は調和平均である．
+</p></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfaabea8">
+<h2 id="orgfaabea8">推定量の良さ</h2>
+<aside class="notes">
+<p>
+同じ問題においてもいろいろな推定量を構成することができる．
+多くの候補の中で望ましい推定量とは
+どういった性質をもつものであるかを考える．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org45d3410">
+<h3 id="org45d3410">不偏性</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+推定量$\hat&theta;$が\emph{不偏} (unbiased) 
+であるとは，
+真の母数が$&theta;$であるときに，
+そこから得られた観測値に基づく推定値の
+平均値が真の母数$&theta;$に一致すること
+</p>
+<div>
+\begin{equation}
+  \Ex[\big]{\hat\theta\given\theta}
+  =\Ex[\big]{\hat\theta(X_{1},X_{2},\dotsc,X_{n})\given\theta}(X_{1},X_{2},\dotsc,X_{n})
+  =\theta
+\end{equation}
+
+</div>
+
+<p>
+である．ただし$\Ex{\cdot\given\theta}(X)$は
+真の母数が$&theta;$であるという条件のもとで
+確率変数$X$について平均を取ることを表す．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org09f24d1">
+<h3 id="org09f24d1">例</h3>
+<blockquote>
+<p>
+例えば同じ実験環境でA君，B君，$\dotsc$，Z君が個別に10回実験を行ない，
+それぞれが実験結果
+</p>
+<div>
+\begin{align}
+  \text{A君: }&x_{1}^{(A)},x_{2}^{(A)},\dotsc,x_{10}^{(A)}\\
+  \text{B君: }&x_{1}^{(B)},x_{2}^{(B)},\dotsc,x_{10}^{(B)}\\
+  \vdots&\\
+  \text{Z君: }&x_{1}^{(Z)},x_{2}^{(Z)},\dotsc,x_{10}^{(Z)}
+\end{align}
+
+</div>
+<p>
+を得たとする．全員が同じ推定量
+\(\hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{10})\)
+を使ったとしても
+実験結果が異なるのであるから，当然各人の得る推定値
+</p>
+<div>
+\begin{align}
+  \hat\theta^{(A)}=&\hat\theta(x_{1}^{(A)},x_{2}^{(A)},\dotsc,x_{10}^{(A)})\\
+  \hat\theta^{(B)}=&\hat\theta(x_{1}^{(B)},x_{2}^{(B)},\dotsc,x_{10}^{(B)})\\
+  \vdots&\\
+  \hat\theta^{(Z)}=&\hat\theta(x_{1}^{(Z)},x_{2}^{(Z)},\dotsc,x_{10}^{(Z)})
+\end{align}
+
+</div>
+<p>
+は異なり，
+これらの値は真の母数$&theta;$のまわりにばらつくことになる．
+この推定値のばらつき方で推定量の良さを評価しようと考えた場合，
+不偏性は
+「推定値が真の母数$&theta;$のまわりに偏りなくばらつく」
+ことを要請しているのである．
+</p>
+</blockquote>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org06d4e17">
+<h3 id="org06d4e17">不偏推定量の例</h3>
+<ul>
+<li><p>
+標本平均
+</p>
+<blockquote>
+<p>
+先に挙げた推定量:例1(標本平均)は
+</p>
+<div>
+\begin{align}
+  \Ex{\hat\theta}
+  &=\Ex*{\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}}\\
+  &=\frac{\Ex{X_{1}}+\Ex{X_{2}}+\dotsb+\Ex{X_{n}}}{n}\\
+  &=\frac{\theta+\theta+\dotsb+\theta}{n}\\
+  &=\theta
+\end{align}
+
+</div>
+<p>
+となり，
+平均値の不偏な推定量になっていることがわかる．
+</p>
+</blockquote></li>
+<li><p>
+不偏分散
+</p>
+<blockquote>
+<p>
+ここでは主に平均値の推定の話をしているが，
+実際の場面では
+推定値の性質を知るために誤差の分散を知りたいことがある．
+多くの場合，誤差の分散は未知であることが多いので，
+観測値から推定する必要がある．
+平均値の推定方法からの類推される
+単純な\emph{標本分散} (sample variance)
+\index{ひょうほんぶんさん@標本分散}\index{sample variance}%
+</p>
+<div>
+\begin{equation}
+  \frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n}
+\end{equation}
+
+</div>
+<p>
+を用いることもあるが，
+統計の様々な解析においては
+分散の不偏推定量である\emph{不偏分散} (unbiased variance)
+\index{ふへんぶんさん@不偏分散}\index{unbiased variance}%
+を用いることが多い．
+標本分散の分母である
+観測値と標本平均の差の2乗和の平均を計算すると
+以下のようになる．
+</p>
+<div>
+\begin{align}
+  \MoveEqLeft{
+  \Ex*{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}}\\
+  &=\Ex*{\sum_{i=1}^n\{X_{i}-\theta-(\bar{X}-\theta)\}^{2}}\\
+  &=\Ex*{\sum_{i=1}^n(X_{i}-\theta)^{2}
+    -2\sum_{i=1}^n(X_{i}-\theta)(\bar{X}-\theta)
+    +\sum_{i=1}^n(\bar{X}-\theta)^{2}}\\
+  \intertext{ここで
+  $\sum_{i=1}^n(X_{i}-\theta)=n(\bar{X}-\theta)$
+  を用いると}
+  &=\Ex*{\sum_{i=1}^n(X_{i}-\theta)^{2}-n(\bar{X}-\theta)^{2}}\\
+  &=\sum_{i=1}^n\Var{X_{i}}-n\Var{\bar{X}}\\
+  &=n\sigma^{2}-\sigma^{2}\\
+  &=(n-1)\sigma^{2}
+\end{align}
+
+</div>
+<p>
+したがって
+分散の不偏推定量は
+</p>
+<div>
+\begin{equation}
+  \hat\sigma^{2}=\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n-1}
+\end{equation}
+
+</div>
+<p>
+で与えられ， 
+分母が$n$ではなく$n-1$となることに注意する．
+</p>
+</blockquote></li>
+<li><p>
+標本分散
+</p>
+<blockquote>
+<p>
+直観的には観測値の標本分散は良い推定値を与えるように思えるが，
+これは不偏ではなく
+</p>
+<div>
+\begin{equation}
+  \Ex*{\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n}}
+  =\frac{n-1}{n}\sigma^{2}
+\end{equation}
+
+</div>
+<p>
+となり，若干小さめの値を与えることがわかる．
+これは$n$個の観測値から平均を計算するために
+観測値一つ分に相当する情報を使ってしまったためとも解釈できる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge2b1179">
+<h3 id="orge2b1179">推定量の分散</h3>
+<ul>
+<li><p>
+なぜ必要か
+</p>
+<blockquote>
+<p>
+さて平均値が正しい値になっていたとしても，
+そのばらつき方が大きかったらあまり意味がない．
+ばらつき方が大きいということは，例えば
+A君の得た推定値$\hat&theta;<sup>(A)</sup>$は$&theta;$に非常に近いかもしれないが，
+B君の得た推定値$\hat&theta;<sup>(B)</sup>$はとんでもなく離れているかもしれない．
+つまり当たり外れが大きいということである．
+実際の実験というのは上のように何人もの人が同じことを繰り返して
+いくつもの推定値を比べられるような状況は稀で，
+ある一人の人が何回か実験をして推定値を一つだけ出すという
+一発勝負のようなものである．
+当然この場合は個々の推定値はできるだけ真の値の傍にいて欲しい訳であり，
+ばらつきは小さい方が好ましい．
+</p>
+</blockquote></li>
+<li><p>
+ばらつき方を評価する規準
+</p>
+<blockquote>
+<p>
+一番簡単なものは推定量の分散
+</p>
+<div>
+\begin{equation}
+  \Var{\hat\theta}=\Ex*{(\hat\theta-\Ex{\hat\theta})^{2}}
+\end{equation}
+
+</div>
+
+<p>
+であろう．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0c72984">
+<h3 id="org0c72984">不偏推定量の平均</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+$\hat&theta;<sub>1</sub>,\hat&theta;<sub>2</sub>,\dotsc,\hat&theta;<sub>k</sub>$が
+いずれも不偏推定量であり，
+その分散が等しく$&sigma;<sup>2</sup>$であるとする．
+すなわち
+</p>
+<div>
+\begin{equation}
+  \Var{\hat\theta_{1}}=\dotsb=\Var{\hat\theta_{k}}=\sigma^{2}
+\end{equation}
+
+</div>
+
+<p>
+である．
+このとき
+これらの不偏推定量の単純な平均を
+</p>
+<div>
+\begin{equation}
+  \hat\theta^{*}=\frac{1}{k}\sum_{i=1}^k\hat\theta_{i}
+\end{equation}
+
+</div>
+
+<p>
+とおけば
+</p>
+<div>
+\begin{align}
+  \Ex{\hat\theta^{*}}&=\theta 
+  &&\text{\textnormal{(不偏性が保存される)}}\\
+  \Var{\hat\theta^{*}}&\leq\sigma^{2} 
+  &&\text{\textnormal{(分散が小さくなる可能性がある)}}
+\end{align}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org919031b">
+<h3 id="org919031b">証明</h3>
+<ul>
+<li><p>
+証明
+</p>
+<blockquote>
+<p>
+平均値の線形性から不偏性は明らか．
+ここで
+</p>
+<div>
+\begin{align}
+  \MoveEqLeft{
+  \sum_{i}(\hat\theta_{i}-\theta)^{2}}\\
+  &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*}+\hat\theta^{*}-\theta)^{2}\\
+  &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
+    +2\sum_{i}(\hat\theta_{i}-\hat\theta^{*})(\hat\theta^{*}-\theta)
+    +\sum_{i}(\hat\theta^{*}-\theta)^{2}\\
+  \intertext{
+  $\hat\theta^{*}=\frac{1}{k}\sum_{i=1}^k\hat\theta_{i}$
+  より
+  $\sum_{i}(\hat\theta_{i}-\hat\theta^{*})=0$
+  となることを用いると}
+% \quad\text{($\sum_{i}(\hat\theta_{i}-\hat\theta^{*})=0$より2項目は$0$)}\\
+  &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
+    +k(\hat\theta^{*}-\theta)^{2}
+\end{align}
+
+</div>
+
+<p>
+であることに注意して，
+両辺の平均を取ると
+</p>
+<div>
+\begin{align}
+  \sum_{i}\Ex{(\hat\theta_{i}-\theta)^{2}}
+  &=\sum_{i}\Ex{(\hat\theta_{i}-\hat\theta^{*})^{2}}
+    +k\Ex{(\hat\theta^{*}-\theta)^{2}}\\
+  \sum_{i}\Var{\hat\theta_{i}}
+  &=\sum_{i}\Ex{(\hat\theta_{i}-\hat\theta^{*})^{2}}
+    +k\Var{\hat\theta^{*}}\\
+  k\sigma^{2}
+  &=\sum_{i}\Ex{(\hat\theta_{i}-\hat\theta^{*})^{2}}
+    +k\Var{\hat\theta^{*}}
+\end{align}
+
+</div>
+
+<p>
+となる．
+右辺の第1項は$0$または正なので
+</p>
+<div>
+\begin{equation}
+  k\sigma^{2}\geq k\Var{\hat\theta^{*}}
+\end{equation}
+
+</div>
+
+<p>
+となり，分散が小さくなることがわかる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf415554">
+<h3 id="orgf415554">定理の意味</h3>
+<ul>
+<li><p>
+解説
+</p>
+<blockquote>
+<p>
+つまりこの定理は，
+分散によって推定量のばらつきの大きさを評価する場合，
+異なる不偏推定量があればそれらを併用することによって
+推定量の性質を良くすることができる可能性があることを示している．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb7c0d2d">
+<h3 id="orgb7c0d2d">対称な推定量</h3>
+<ul>
+<li><p>
+意味
+</p>
+<blockquote>
+<p>
+特に推定量$\hat&theta;=\hat&theta;(X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>)$が
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$について対称でない場合には，
+対称化することによって性質を良くすることができる．
+</p>
+</blockquote></li>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$が互いに独立に同じ分布に従い，
+$\hat&theta;=\hat&theta;(X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>)$を母数$&theta;$の
+一つの不偏推定量とすると，
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$の対称な関数として表される
+不偏推定量$\hat&theta;<sup>*</sup>$で，つねに
+</p>
+<div>
+\begin{equation}
+  \Var{\hat\theta^{*}}\le \Var{\hat\theta}
+\end{equation}
+
+</div>
+
+<p>
+となるものが存在する．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge6cba1d">
+<h3 id="orge6cba1d">証明</h3>
+<ul>
+<li><p>
+証明
+</p>
+<blockquote>
+<p>
+$\hat&theta;$を$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$について対称化，すなわち
+</p>
+<div>
+\begin{equation}
+  \hat\theta^{*}=\frac{1}{n!}\sum
+  \hat\theta(\{\text{$X_{1},X_{2},\dotsc,X_{n}$のあらゆる並べ替え}\})
+\end{equation}
+
+</div>
+
+<p>
+を考え，前定理を使えばよい．
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<p>
+したがって，
+推定量$\hat&theta;$として
+不偏で分散の小さいものを考えるときには，
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$について対称なものだけを考えれば
+良いことがわかる．
+</p>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgbef0915">
+<h3 id="orgbef0915">解釈</h3>
+<p>
+既に挙げた推定量の6つの例のうち，
+最初の3つは
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$について対称な推定量になっている．
+例2，3は一見対称でないように見えるが，
+結局大きさの順に並べ替えているので
+$X<sub>1</sub>,X<sub>2</sub>,\dotsc,X<sub>n</sub>$の順によらないことに注意する．
+例4は$c<sub>i</sub>=1/n$でない限り，あるいは大きさの順に並べ替えるといった
+操作をしない限りは対称でないことは明らかであろう．
+例5，6は対称ではあるが，
+ここで考える確率モデルにおいては一般に不偏になっていない．
+</p>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org8220665">
+<h2 id="org8220665">まとめ</h2>
+<ul>
+<li>確率モデルと推定量
+<ul>
+<li>観測データの生成モデル</li>
+<li>独立同分布性</li>
+<li>推定量と推定値</li>
+
+</ul></li>
+<li>推定量の評価
+<ul>
+<li>推定量の平均値の不偏性</li>
+<li>推定量の分散の大きさ</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { RevealNotes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>

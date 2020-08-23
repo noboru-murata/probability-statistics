@@ -1,0 +1,14 @@
++++
+title = "講義1"
+author = ["Noboru Murata"]
+date = 2020-04-01T00:00:00+09:00
+draft = false
+weight = 1002
++++
+
+## スライド {#スライド}
+
+<iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+
+
+## 講義資料 {#講義資料}

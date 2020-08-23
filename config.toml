@@ -1,0 +1,34 @@
+baseURL = "https://noboru-murata.github.io/probability-statistics"
+disablePathToLower = true
+languageCode = "en-us"
+title = "確率・統計"
+theme = "docter"
+publishDir = "docs"
+
+[params]
+  # the name of your project and a link back to the home page
+  home = "確率・統計"
+  # A small snippet of text above the sidebar:
+  # subtitle = ""
+
+  author = "Noboru Murata"
+  author_url= "https://github.com/noboru-murata"
+
+  # Point readers to your repo and invite them to edit pages 
+  # repo_host = "GitHub"
+  # repo = "https://github.com/noboru-murata/probability-statistics"
+
+  # Add a reference to a logo, which will appear in the top right
+  # logourl = ""
+  # logoalt = ""
+
+  # Mention your hosting provider 
+  hosted_on = "GitHub"
+  hosted_on_url= "#"
+
+  # main sections
+  # change the main section to set the directory where the top articles are sourced
+  mainSections = ["post"]
+
+  # brand color
+  brand_color = "#7300ac"

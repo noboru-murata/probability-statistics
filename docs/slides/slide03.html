@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>確率密度</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">確率密度</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 第3回</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-org9cc70cf">
+<h2 id="org9cc70cf">確率測度と確率密度</h2>
+<aside class="notes">
+<p>
+実数上に値を取る一般の確率測度を具体的に表現するためには，
+確率密度による積分表現を用いることになる．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5f72a36">
+<h3 id="org5f72a36">歪んだ目盛りのルーレットの例</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
+</p>
+<div>
+\begin{equation}
+  x=l^{2}
+\end{equation}
+
+</div>
+
+<p>
+としてルーレットを作る．
+</p>
+
+<p>
+事象として同じ長さの区間
+\([0.1,0.2]\), \([0.8,0.9]\)
+を考えたとき，
+その確率
+</p>
+<div>
+\begin{equation}
+  P([0.1,0.2]),\quad P([0.8,0.9])
+\end{equation}
+
+</div>
+
+<p>
+の大小関係はどのような関係になるか?
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+解答
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  P([0.1,0.2]) > P([0.8,0.9])
+\end{equation}
+
+</div>
+
+
+<div id="org1a62ee9" class="figure">
+<p><img src="figs/roulette.png" alt="roulette.png" height="100%" />
+</p>
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+考え方
+</p>
+<blockquote>
+<p>
+これまで扱ってきた単純なルーレットに対応づけて考えるればよい．
+</p>
+<ul>
+<li>歪んだ目盛りの指す区間: \([a,b]\)</li>
+<li>これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)</li>
+
+</ul>
+<p>
+したがって確率測度は以下で計算される．
+</p>
+<div>
+\begin{equation}
+  P([a,b]) = \sqrt{b}-\sqrt{a}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4806b95">
+<h3 id="org4806b95">一様でない抜き出しの例</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+「 \(\Omega=[0,1]\) の点を異なる確率で抜き出す」
+という試行において，
+区間 \([0,0.5)\) から点が抜き出される事象と，
+区間 \([0.5,1]\) から点が抜き出される事象を比較すると，
+前者より後者が3倍起こりやすい状況を考える．
+</p>
+
+<p>
+このとき確率測度をどのように定義すれば良いか?
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+解答
+</p>
+<div class="leftcol">
+
+<div id="orga0b1c08" class="figure">
+<p><img src="figs/density.png" alt="density.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<div>
+\begin{equation}
+  f(x)=
+  \begin{cases}
+    0.5, & (0\le x<0.5)\\
+    1.5, & (0.5\le x\le1)
+  \end{cases}
+\end{equation}
+
+</div>
+
+<p>
+として，
+確率測度を
+</p>
+<div>
+\begin{equation}
+  P(A)=\int_{A}f(\omega)d\omega
+\end{equation}
+
+</div>
+
+<p>
+で定義する．
+</p>
+</blockquote>
+
+</div></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率の偏りの確認
+</p>
+<blockquote>
+<p>
+例えば区間 \([0.1,0.2]\) と \([0.8,0.9]\) を比べてみる
+</p>
+<div>
+\begin{align}
+  P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
+		=\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
+  P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
+		=\left[1.5\omega\right]_{0.8}^{0.9}=0.15
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2995371">
+<h3 id="org2995371">確率測度の条件 (再掲)</h3>
+<ul>
+<li><p>
+以下の3つの条件が成立する
+</p>
+<blockquote>
+<div>
+\begin{align}
+  (P.1)\quad
+  &P(A)\ge 0,\; A\in\mathcal{F}\\
+  (P.2)\quad
+  &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+    =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+  (P.3)\quad
+  &P(\Omega)=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge694097">
+<h3 id="orge694097">積分による表現の正当性</h3>
+<ul>
+<li>(P.1) \(f(x)\) の正値性から明らか</li>
+<li>(P.2) 積分区間を分割しても積分値が変わらないという積分の性質から明らか</li>
+<li><p>
+(P.3) 区間 \([0,1]\) 上の積分
+</p>
+<div>
+\begin{equation}
+  P([0,1])=\int_{0}^{1}f(\omega)d\omega
+  =0.5\times0.5+0.5\times1.5=1
+\end{equation}
+
+</div>
+
+<p>
+より全確率が \(1\) となっている
+</p></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgafc34ef">
+<h3 id="orgafc34ef">確率密度</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率測度がある関数の積分
+</p>
+<div>
+\begin{equation}
+  P(A)=\int_{A}f(\omega)d\omega
+\end{equation}
+
+</div>
+
+<p>
+で書かれているとき，
+その被積分関数を 
+<b>確率密度(関数)</b> (probability density function)
+という．
+</p>
+
+<p>
+また確率密度を持つ確率測度を
+<b>絶対連続</b> (absolutely continuous)
+な分布と呼ぶ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0d9bea6">
+<h3 id="org0d9bea6">確率密度の例</h3>
+<ul>
+<li><p>
+歪んだ目盛りのルーレット
+</p>
+<blockquote>
+<p>
+歪んだ目盛をもつルーレットの確率密度は，
+任意の \(a,b\;(0 < a < b\le1)\) に対して
+</p>
+<div>
+\begin{equation}
+  P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
+\end{equation}
+
+</div>
+
+<p>
+となる
+以下の関数 \(f\) である．
+</p>
+<div>
+\begin{equation}
+  f(\omega)=
+  \begin{cases}
+    \frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
+    0,&(\text{それ以外})
+  \end{cases}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org7d49d03" data-background="#fef4f4">
+<h2 id="org7d49d03">演習</h2>
+<ul>
+<li>起点 \(0\) から周に沿った長さ \(l\) の位置に対して，
+以下のような歪んだ目盛り \(x\) を付けたルーレットの確率密度を求めよ．
+<ol>
+<li>\(x=\sqrt{l}\)</li>
+<li>\(x=-\log(l)\)</li>
+<li>\(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)</li>
+
+</ol></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8cf185e" data-background="#fef4f4">
+<h3 id="org8cf185e">ヒント</h3>
+<ul>
+<li><p>
+歪んでいないルーレットと対応づければ良い．
+</p>
+<div>
+\begin{align}
+  P(a < x < b)
+  &=P(a < g(l) < b)
+    =P(g^{-1}(a) < l < g^{-1}(b))\\
+  &=g^{-1}(b)-g^{-1}(a)\\
+  &=\int_{a}^{b}f(\omega)d\omega
+\end{align}
+
+</div>
+
+<p>
+(\(g\) が単調増加の場合，減少する場合は符号に注意)
+</p></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orge89caa9">
+<h2 id="orge89caa9">異なる2つの積分</h2>
+<div class="outline-text-2" id="text-orge89caa9">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org1a8466c">
+<h3 id="org1a8466c">積分の考え方</h3>
+<ul>
+<li>Riemann 積分 (区分求積法に基づく)</li>
+<li>Lebesgue 積分 (確率測度に基づく)</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga295cff">
+<h3 id="orga295cff">Riemann積分</h3>
+<ul>
+<li><p>
+定義
+</p>
+<div class="leftcol">
+
+<div id="org3c692b4" class="figure">
+<p><img src="figs/riemann.png" alt="riemann.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<p>
+有界な積分領域 \(K\) を \(n\) 個の区間 
+\(I_i\) (幅は \(d_i\)) に分割する．
+各区間における関数 \(f(x)\) の最小値と最大値を用いて
+有限和 \(s_n\),\(S_n\) を次のように定義する．
+</p>
+<div>
+\begin{align}
+  s_n
+  &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
+  S_n
+  &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
+\end{align}
+
+</div>
+</blockquote>
+
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<blockquote>
+<p>
+各区間の大小関係から
+</p>
+<div>
+\begin{equation}
+  s_n\le S_n
+\end{equation}
+
+</div>
+
+<p>
+が成り立っているが，分割を細かくしたとき，
+それぞれの極限が存在して，
+なおかつ一致するならば，
+これを \(f(x)\) の 
+<b>Riemann積分</b> (Riemann integral)
+という．
+</p>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}s_n
+  =\lim_{n\to\infty}S_n
+  =\int_K f(x)dx
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga32ff8f">
+<h3 id="orga32ff8f">Lebesgue積分</h3>
+<ul>
+<li><p>
+定義
+</p>
+<div class="leftcol">
+
+<div id="org741029b" class="figure">
+<p><img src="figs/lebesgue.png" alt="lebesgue.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<p>
+区間 \(K\) 上で定義された
+関数 \(f(x)\) の値域を \(n\) 個の区間に分割する．
+区間の端点を \(\alpha_i\) とし，
+\(f(x)\) が区間 \([\alpha_i,\alpha_{i+1})\) で値を取る
+\(x\) の領域を
+\(E_i\subset K\) で表し，
+\(E_i\) 上で値が \(\alpha_i\) となる
+階段関数 \(f_n(x)\) (単関数)を考える．
+</p>
+</blockquote>
+
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<blockquote>
+<p>
+このとき \(\mu\) をLebesgue測度とし，
+単関数 \(f_n(x)\) の <b>Lebesgue積分</b> を
+</p>
+<div>
+\begin{equation}
+  \int_K f_n(x)dx
+  =\sum_{i=1}^n\alpha_i\mu(E_i)
+\end{equation}
+
+</div>
+
+<p>
+で定義する．
+分割を細かくしたとき \(f_n(x)\) は \(f(x)\) に近づいていくが，
+この極限が存在するならば，
+これを \(f(x)\) の 
+<b>Lebesgue積分</b> (Lebesgue integral)
+という．
+</p>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}\int_K f_n(x)dx
+  =\int_K f(x)dx
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf65987c">
+<h3 id="orgf65987c">表記に関する注意</h3>
+<ul>
+<li><p>
+Lebesgue積分特有の記法
+</p>
+<blockquote>
+<p>
+2つの積分を明示的に区別するために，
+Lebesgue積分を
+</p>
+<div>
+\begin{equation}
+  \int_K f(x)\mu(dx),
+  \quad\text{($\mu$はLebesgue測度)}
+\end{equation}
+
+</div>
+
+<p>
+と書くことがある．
+</p>
+</blockquote>
+<ul>
+<li>この講義での以降の積分は，
+特に断わらないかぎり
+Lebesgue積分を考える</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb21929e">
+<h3 id="orgb21929e">2つの積分の違い</h3>
+<ul>
+<li><p>
+特異な例
+</p>
+<blockquote>
+<p>
+\([0,1]\) 上で次のような関数
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \begin{cases}
+    1, & \text{$x$が有理数}\\
+    0, & \text{$x$が無理数}
+  \end{cases}
+  \label{eq:dirichlet_fn}
+\end{equation}
+
+</div>
+
+<p>
+を考える．
+</p>
+</blockquote>
+<ul>
+<li><p>
+この関数はDirichletの関数と呼ばれ
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
+\end{equation}
+
+</div>
+
+<p>
+と書けることが知られている．
+</p></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+Riemann積分の場合
+</p>
+<blockquote>
+<p>
+どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
+</p>
+<div>
+\begin{equation}
+  \min_{x\in I_i}f(x)=0,\quad
+  \max_{x\in I_i}f(x)=1
+\end{equation}
+
+</div>
+
+<div>
+\begin{align}
+  s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
+  S_n&=\sum_{i=0}^{n}1\times d_{i}=1
+\end{align}
+
+</div>
+
+<p>
+であり，
+\(n\) をいくら大きくしても極限は一致しない．
+したがってこの関数のRiemann積分は存在しない．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+Lebesgue積分の場合
+</p>
+<blockquote>
+<p>
+適当な値域の分割において
+</p>
+<div>
+\begin{equation}
+  \alpha_{i}\le 0<\alpha_{i+1},\quad
+  \alpha_{j}\le 1<\alpha_{j+1}
+\end{equation}
+
+</div>
+
+<p>
+となるのであれば，Lebesgue測度の性質より
+</p>
+<div>
+\begin{equation}
+  \int f_{n}(x)dx 
+  = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
+  = \alpha_{i}\cdot1+\alpha_{j}\cdot0=\alpha_{i}
+\end{equation}
+
+</div>
+
+<p>
+となるが，
+\(n\to\infty\) のとき 
+\(\alpha_{i}\to0,\;\alpha_{j}\to1\) となるので
+</p>
+<div>
+\begin{equation}
+  \int f(x)dx 
+  = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
+  = 0
+\end{equation}
+
+</div>
+
+<p>
+となりLebesgue積分可能である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4206c78">
+<h3 id="org4206c78">積分の一致する条件</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+有界閉区間 \(K\) で \(f\) が連続なら，
+\(K\) 上の \(f\) のLebesgue積分の値はRiemann積分の値と一致する．
+</p>
+</blockquote>
+<ul>
+<li>応用上重要な問題に現れる
+「あまり特殊でない関数」では
+ ほとんど一致すると考えてよい</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org0a7713f" data-background="#fef4f4">
+<h2 id="org0a7713f">演習</h2>
+<ul>
+<li>以下の関数が
+\(\mathbb{R}\)
+上の確率密度関数となるように \(a\) の値を定めよ．
+<ol>
+<li><div>
+\begin{equation}
+  f(x)=
+  \begin{cases}
+    0& (x < 0)\\
+    \exp(ax) & (x\geq0)
+  \end{cases}
+\end{equation}
+
+</div></li>
+
+<li><div>
+\begin{equation}
+  g(x)=
+  \begin{cases}
+    0& (|x|>1)\\
+    a \cos(\pi x/2) & (|x|\leq1)
+  \end{cases}
+\end{equation}
+
+</div></li>
+
+</ol></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb1bc46e" data-background="#fef4f4">
+<h3 id="orgb1bc46e">ヒント</h3>
+<ul>
+<li>見本空間で関数が正値で，積分が1となればよい．
+<ol>
+<li><div>
+\begin{equation}
+  \int_{0}^{\infty}\exp(ax)dx
+  =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
+  =\frac{-1}{a}
+  =1
+\end{equation}
+
+</div></li>
+
+<li><div>
+\begin{equation}
+  \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
+  =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
+  =a\frac{4}{\pi}
+  =1
+\end{equation}
+
+</div></li>
+
+</ol></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org5a76fd6">
+<h2 id="org5a76fd6">確率密度関数の例</h2>
+<div class="outline-text-2" id="text-org5a76fd6">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0ca2b72">
+<h3 id="org0ca2b72">正規分布 (normal/Gaussian distribution)</h3>
+<div class="leftcol">
+
+<div id="org77d04f7" class="figure">
+<p><img src="figs/pdf_norm.png" alt="pdf_norm.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 5: </span>正規分布 (平均\(0\),分散\(1\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \((-\infty,\infty)\)</li>
+<li>母数: 平均 \(\mu\), 分散 \(\sigma^{2}\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  f(x)
+  =
+  \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+\end{equation}
+
+</div></li>
+
+<li>備考: \(\mu=0,\sigma=1\) のとき
+<b>標準正規分布</b> と呼ぶ．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb2c6b31">
+<h3 id="orgb2c6b31">一様分布 (uniform distribution)</h3>
+<div class="leftcol">
+
+<div id="orgb473f97" class="figure">
+<p><img src="figs/pdf_unif.png" alt="pdf_unif.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 6: </span>一様分布 (区間\([0,1]\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: 区間 \([a,b]\)</li>
+<li>母数: 区間の端点 \(a,b\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  \frac{1}{b-a}
+  \quad(b\le x\le a)
+\end{equation}
+
+</div></li>
+
+<li>備考: ルーレット回しの
+確率密度関数に相当する．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9d87dd6">
+<h3 id="org9d87dd6">Cauchy分布 (Cauchy distribution)</h3>
+<div class="leftcol">
+
+<div id="org58a58bc" class="figure">
+<p><img src="figs/pdf_cauchy.png" alt="pdf_cauchy.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Cauchy分布 (位置\(0\),尺度\(1\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \((-\infty,\infty)\)</li>
+<li>母数: 位置 (location) \(\mu\) ， 
+尺度 (scale) \(\sigma\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
+\end{equation}
+
+</div></li>
+
+<li>備考: 裾の重い分布の典型として用いられる．
+正規分布の比から導かれる．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc95fc0c">
+<h3 id="orgc95fc0c">\(\chi^{2}\) -分布 (\(\chi^{2}\) distribution)</h3>
+<div class="leftcol">
+
+<div id="org344009e" class="figure">
+<p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 8: </span>\(\chi^{2}\) -分布 (自由度\(3\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \([0,\infty)\)</li>
+<li>母数: 自由度 \(\nu\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{multline}
+  f(x)=
+  \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
+  \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
+\end{multline}
+
+</div></li>
+
+<li>備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
+検定に利用される．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org52026e4">
+<h3 id="org52026e4">\(t\) -分布 (Student&rsquo;s t distribution)</h3>
+<div class="leftcol">
+
+<div id="orgdbf6493" class="figure">
+<p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 9: </span>\(t\) -分布 (自由度\(3\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \((-\infty,\infty)\)</li>
+<li>母数: 自由度 \(\nu\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
+  {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
+  \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
+\end{equation}
+
+</div></li>
+
+<li>備考: 標準正規分布と
+自由度 \(\nu\) の \(\chi^{2}\) -分布の比の分布で，
+検定に利用される．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org67f4843">
+<h3 id="org67f4843">指数分布 (exponential distribution)</h3>
+<div class="leftcol">
+
+<div id="orgdcbd546" class="figure">
+<p><img src="figs/pdf_exp.png" alt="pdf_exp.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 10: </span>指数分布(比率\(1\))</p>
+</div>
+
+</div>
+<div class="rightcol">
+<blockquote>
+<ul>
+<li>見本空間: \([0,\infty)\)</li>
+<li>母数: 比率 (rate) \(\lambda>0\)</li>
+<li><p>
+密度関数:
+</p>
+<div>
+\begin{equation}
+  f(x)=
+  \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
+\end{equation}
+
+</div></li>
+
+<li>特徴:
+タクシーなどの待ち時間のモデル
+として利用される．</li>
+
+</ul>
+</blockquote>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgaf92212">
+<h2 id="orgaf92212">確率密度がない分布</h2>
+<div class="outline-text-2" id="text-orgaf92212">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org716979d">
+<h3 id="org716979d">確率密度が定義されない例 (1/2)</h3>
+<ul>
+<li>\(\delta\) 分布</li>
+
+</ul>
+<blockquote>
+<p>
+確率測度を
+</p>
+<div>
+\begin{equation}
+  P(A)=\delta_a(A)=
+  \begin{cases}
+    1, & a\in A\\
+    0, & a\not\in A
+  \end{cases}
+\end{equation}
+
+</div>
+
+<p>
+で定義する．
+これは
+</p>
+<div>
+\begin{align}
+  &(\text{$a$が抜き出される確率})=1\\
+  &(\text{$\Omega-{a}$の点が抜き出される確率})=0
+\end{align}
+
+</div>
+
+<p>
+であるから，\(\Omega\) から1点抜き出すと
+それは <b>ほとんど確実に</b> \(a\) であるような
+抜き出しを考えていることになる．
+</p>
+</blockquote>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org3d1868c">
+<h3 id="org3d1868c">確率密度が定義されない例 (2/2)</h3>
+<ul>
+<li><p>
+有理数の抜き出し
+</p>
+<blockquote>
+<p>
+有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
+これを \(q_{1},q_{2},\dotsc\) で表す．
+</p>
+<div>
+\begin{equation}
+  P(A)=\sum_{i:q_i\in A}2^{-i}
+\end{equation}
+
+</div>
+
+<p>
+という確率測度を考える．
+例えば
+</p>
+<div>
+\begin{equation}
+  P(\mathbb{Q}_{[0,1]})=1,\quad
+  P(\Omega-\mathbb{Q}_{[0,1]})=0
+\end{equation}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<blockquote>
+<p>
+この確率測度においては確率密度を考えることができない．
+なぜなら1点 \(q_i\) の起こる確率は
+</p>
+<div>
+\begin{equation}
+  P\{q_i\}=2^{-i}
+\end{equation}
+
+</div>
+
+<p>
+であるので，
+密度関数 \(f\) は
+</p>
+<div>
+\begin{equation}
+  P\{q_i\}=\int_{\{q_i\}}f(x)\mu(dx)
+  =f(q_i)\times\mu(q_i)=2^{-i}
+\end{equation}
+
+</div>
+
+<p>
+とならなくてはいけないが，
+1点のLebesgue測度は0なので
+</p>
+<div>
+\begin{equation}
+  f(q_i)\times\mu(q_i)
+  =f(q_i)\times0=0
+\end{equation}
+
+</div>
+
+<p>
+となり，
+\(f\) を構成することは不可能である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgefc312c" data-background="#fef4f4">
+<h2 id="orgefc312c">演習</h2>
+<ul>
+<li><p>
+正規分布の確率密度関数
+</p>
+<div>
+\begin{equation}
+  f(x)
+  =
+  \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+\end{equation}
+
+</div>
+
+<p>
+が
+\((-\infty,\infty)\)
+で積分すると1となることを確かめよ.
+</p></li>
+<li><p>
+次の関数が確率密度となるように \(a\) を定めよ．
+</p>
+<div>
+\begin{equation*}
+  h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
+\end{equation*}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2858be5" data-background="#fef4f4">
+<h3 id="org2858be5">ヒント</h3>
+<ul>
+<li><p>
+2つの正規分布の積を考えて，
+重積分を極座標に変換すればよい．
+簡単のため変数変換した
+</p>
+<div>
+\begin{equation}
+  g(x)=e^{-x^{2}}
+\end{equation}
+
+</div>
+
+<p>
+を考えると
+以下のように計算できる．
+</p>
+<div>
+\begin{align}
+  \int_{-\infty}^{\infty}
+  \int_{-\infty}^{\infty}
+  g(x)g(y)dxdy
+  &=
+    \int_{-\infty}^{\infty}
+    \int_{-\infty}^{\infty}
+    e^{-x^{2}-y^{2}}dxdy\\
+  &=
+    \int_{0}^{2\pi}
+    \int_{0}^{\infty}
+    e^{-r^{2}}rdrd\theta
+\end{align}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orge181441">
+<h2 id="orge181441">まとめ</h2>
+<ul>
+<li>確率密度
+<ul>
+<li>確率密度の積分による確率測度の表現</li>
+<li>確率密度の満たすべき条件</li>
+<li>Riemann積分とLebesgue積分</li>
+<li>いろいろな確率分布</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { RevealNotes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>

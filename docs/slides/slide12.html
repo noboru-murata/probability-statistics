@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>検定</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">検定</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 講義12</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-org68a3f1f">
+<h2 id="org68a3f1f">復習</h2>
+<div class="outline-text-2" id="text-org68a3f1f">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org28b018b">
+<h3 id="org28b018b">統計的推測の考え方</h3>
+<ul>
+<li>観測データは確率変数の集合</li>
+<li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
+<li>現象の理解のためには観測された実現値より確率分布にこそ興味がある</li>
+<li>一般に分析対象のデータには
+独立性と同分布性が同時に仮定される</li>
+<li>観測データの背後の確率分布を推定
+<ul>
+<li>分布のもつ特性量(平均や分散など)を評価する</li>
+<li>分布そのもの(確率関数や確率密度)を決定する</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga5ff462">
+<h3 id="orga5ff462">点推定</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+点推定とは
+母数 \(\theta\) を \(X_1,\dotsc,X_n\) の関数
+</p>
+<div>
+\begin{equation}
+  \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
+\end{equation}
+
+</div>
+
+<p>
+で推定することで，
+\(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc27ae39">
+<h3 id="orgc27ae39">区間推定</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+区間推定とは
+未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
+以下を満たす確率変数 \(L,U\) を観測データから求めることをいう．
+</p>
+<div>
+\begin{equation}
+  P(L\le\theta\le U)\ge 1{-}\alpha
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>区間 \([L,U]\) : \(1{-}\alpha\) 信頼区間 (\(100(1{-}\alpha)\) % とも書く)</li>
+<li>\(L\) : \(1{-}\alpha\) 下側信頼限界</li>
+<li>\(U\) : \(1{-}\alpha\) 上側信頼限界</li>
+<li>\(1{-}\alpha\) : 信頼係数
+(\(\alpha=0.01,0.05,0.1\) など)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgddb4489">
+<h3 id="orgddb4489">尤度関数</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+パラメタ \(\boldsymbol{\theta}\) に対して
+観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
+</p>
+<div>
+\begin{equation}
+  L(\boldsymbol{\theta})
+  :=\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
+\end{equation}
+
+</div>
+
+<p>
+を
+\(\boldsymbol{\theta}\) の 
+尤度と言い，
+\(\boldsymbol{\theta}\) の関数 \(L\) を尤度関数と呼ぶ．
+</p>
+</blockquote>
+<ul>
+<li>離散分布の場合， \(f\) は確率質量関数</li>
+<li>連続分布の場合， \(f\) は確率密度関数</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7d191e4">
+<h3 id="org7d191e4">最尤法</h3>
+<ul>
+<li><p>
+最尤法: 
+</p>
+<blockquote>
+<p>
+観測データに対して&ldquo;最も尤もらしい&rdquo;パラメタ値
+を \(\boldsymbol{\theta}\) の推定量として採用する方法
+を最尤法という．
+</p>
+</blockquote></li>
+<li><p>
+最尤推定量:
+</p>
+<blockquote>
+<p>
+\(\Theta\) を尤度関数の定義域として，
+尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
+</p>
+<div>
+\begin{equation}
+  L(\hat{\boldsymbol{\theta}})
+  =\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+\end{equation}
+
+</div>
+<div>
+\begin{equation}
+  \hat{\boldsymbol{\theta}}
+  =\arg\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+\end{equation}
+
+</div>
+
+<p>
+を 
+\(\boldsymbol{\theta}\) 
+の最尤推定量という．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb370ab7">
+<h3 id="orgb370ab7">最尤推定量の区間推定</h3>
+<ul>
+<li><p>
+定理 (最尤推定量の漸近正規性)
+</p>
+<blockquote>
+<p>
+観測データ数 \(n\) が十分大きいとき，
+1次元パラメタ \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\hat\theta]=\theta_{0},\quad
+  \mathrm{Var}(\hat\theta)=\frac{1}{nI(\hat\theta)}
+\end{equation}
+
+</div>
+
+<p>
+の正規分布で近似できる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}},\;
+    \hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
+\end{equation}
+
+</div>
+
+<p>
+(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orga25f051">
+<h2 id="orga25f051">検定とは</h2>
+<div class="outline-text-2" id="text-orga25f051">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgddd49cf">
+<h3 id="orgddd49cf">統計的仮説検定</h3>
+<ul>
+<li><p>
+ある現象・母集団に対して仮定された仮説の真偽を
+データに基づいて統計的に検証する方法
+</p>
+<blockquote>
+<p>
+例: 
+新しい薬の効能が古い薬よりも優れていること(仮説)を
+薬の治験結果(データ)から検証したい
+</p>
+</blockquote></li>
+<li>推定と大きく異なるのは，
+母集団の分布に対して何らかの <b>仮説</b> を考えるところ</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org48ae03d">
+<h3 id="org48ae03d">検定の基本的手続き</h3>
+<ol>
+<li>仮説を立てる</li>
+<li>仮説のもとで <b>検定統計量</b> が従う標本分布を調べる</li>
+<li>実際のデータから検定統計量の値を計算する</li>
+<li>計算された検定統計量の値が
+仮説が正しいときに十分高い確率で
+得られるかどうかを判断する</li>
+
+</ol>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb23ed47">
+<h3 id="orgb23ed47">検定における仮説</h3>
+<ul>
+<li><p>
+<b>帰無仮説</b>
+</p>
+<blockquote>
+<p>
+検定統計量の分布を予想するために立てる仮説
+</p>
+</blockquote></li>
+<li><p>
+<b>対立仮説</b>
+</p>
+<blockquote>
+<p>
+&ldquo;帰無仮説が誤っているときに起こりうるシナリオ&rdquo;として想定する仮説
+</p>
+</blockquote>
+<ul>
+<li>慣習として
+帰無仮説を <b>\(H_0\)</b>, 
+対立仮説を <b>\(H_1\)</b> で表す</li>
+<li>&ldquo;帰無仮説を捨てて無に帰する&rdquo;ことを期待する場合が多い</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd2b6de2">
+<h3 id="orgd2b6de2">帰無仮説と対立仮説</h3>
+<ul>
+<li>例: 薬の治験 (単純な場合)
+<ul>
+<li>帰無仮説 \(H_0\): 新しい薬も古い薬も効能は同じ</li>
+<li>対立仮説 \(H_1\): 新しい薬と古い薬の効能は異なる</li>
+
+</ul></li>
+<li>例: 薬の治験 (新薬がより良いことを期待する場合)
+<ul>
+<li>帰無仮説 \(H_0\): 新しい薬も古い薬も効能は同じ</li>
+<li>対立仮説 \(H_1\): 新しい薬の方が古い薬より効能が高い</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org08be31b">
+<h3 id="org08be31b">検定の用語</h3>
+<ul>
+<li><p>
+帰無分布
+</p>
+<blockquote>
+<p>
+帰無仮説が正しい場合に検定統計量が従う分布
+</p>
+</blockquote></li>
+<li><p>
+棄却域
+</p>
+<blockquote>
+<p>
+帰無仮説の下で統計量の取り得るべき範囲の外の領域
+</p>
+</blockquote></li>
+<li>仮説検定
+<ul>
+<li>帰無仮説を <b>棄却</b>: 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を <b>受容</b>: 帰無仮説を積極的に棄却できないこと</li>
+
+</ul></li>
+<li>検定の誤り
+<ul>
+<li><b>第一種過誤</b>: &ldquo;正しい帰無仮説を棄却する&rdquo;誤り</li>
+<li><b>第二種過誤</b>: &ldquo;誤った帰無仮説を受容する&rdquo;誤り</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgff06c99">
+<h3 id="orgff06c99">検定の設計指針</h3>
+<ul>
+<li>検定統計量 \(T\) に対して棄却域 \(R\) を設計
+<ul>
+<li><p>
+<b>サイズ</b>: 第一種過誤が <b>起きる確率</b>
+</p>
+<div>
+\begin{equation}
+  \text{(サイズ)}
+  =P(\text{$T$ が$R$に含まれる}|\text{帰無仮説が正しい})
+\end{equation}
+
+</div></li>
+
+<li><p>
+<b>検出力</b>: 第二種過誤が <b>起きない確率</b>
+</p>
+<div>
+\begin{equation}
+  \text{(検出力)}
+  =P(\text{$T$ が$R$に含まれる}|\text{対立仮説が正しい})
+\end{equation}
+
+</div></li>
+
+</ul></li>
+
+<li><p>
+<b>有意水準</b>
+</p>
+<blockquote>
+<p>
+第一種過誤が起きる確率(サイズ)として許容する上限
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org622d826">
+<h3 id="org622d826">棄却域の決め方</h3>
+<ul>
+<li>検定を構成する場合の一般的な戦略: <br />
+棄却域 \(R_{\alpha}\) は以下のように設定する
+<ul>
+<li><b>サイズを小さく</b> (有意水準 \(\alpha\) 以下に) 抑える</li>
+<li><p>
+可能な限り <b>検出力を大きく</b> する
+</p>
+<div>
+\begin{align}
+  P(T \in R_{\alpha}|\text{帰無仮説が正しい})
+    &\le\alpha\\
+  P(T \in R_{\alpha}|\text{対立仮説が正しい})
+    &\to\text{最大化}
+\end{align}
+
+</div></li>
+
+</ul></li>
+
+<li>対立仮説によって棄却域の形は変わり得る</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5adcddf">
+<h3 id="org5adcddf">両側検定と片側検定</h3>
+<ul>
+<li><b>右片側検定</b>: 棄却域がある定数 \(a\) によって \((a,\infty)\)</li>
+<li><b>左片側検定</b>: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
+<ul>
+<li>右片側検定と左片側検定を合わせて <b>片側検定</b> と呼ぶ</li>
+
+</ul></li>
+<li><b>両側検定</b>: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)</li>
+<li>平均の検定の場合:
+<ul>
+<li>対立仮説を \(H_1:\mu\neq\mu_0\) にとった場合は両側検定</li>
+<li>対立仮説を \(H_1:\mu>\mu_0\) にとった場合は右片側検定</li>
+<li>対立仮説を \(H_1:\mu<\mu_0\) にとった場合は左片側検定</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0c9a67a">
+<h3 id="org0c9a67a">\(p\) 値 (有意確率)</h3>
+<ul>
+<li><p>
+帰無分布における検定統計量の評価:
+</p>
+<blockquote>
+<p>
+検定統計量の値が棄却域に含まれる有意水準の最小値を考える
+</p>
+</blockquote></li>
+<li><p>
+<b>\(p\) 値 (有意確率)</b>: (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+</p>
+<div>
+\begin{equation}
+  \text{($p$ 値)}
+  =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+\end{equation}
+
+</div></li>
+
+<li>\(p\) 値が有意水準未満のときに帰無仮説を棄却する</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc9cd285">
+<h3 id="orgc9cd285">検定に関する注意</h3>
+<ul>
+<li><p>
+帰無仮説の受容の意味:
+</p>
+<blockquote>
+<p>
+帰無仮説が正しいと仮定しても矛盾は生じない
+</p>
+
+<p>
+帰無仮説の正しさを積極的に支持する結果ではない
+</p>
+</blockquote></li>
+<li><p>
+第二種過誤:
+</p>
+<blockquote>
+<p>
+一般に第二種過誤の起こる確率については何ら仮定がないため，
+その確率は非常に大きい可能性がある
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf7938a4">
+<h2 id="orgf7938a4">正規分布を用いた検定</h2>
+<div class="outline-text-2" id="text-orgf7938a4">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgcc3674a">
+<h3 id="orgcc3674a">例題</h3>
+<ul>
+<li><p>
+平均値の検定
+</p>
+<blockquote>
+<p>
+ある工場で製造される機械の寿命は平均 \(\mu\) 時間であることが望まれている．
+\(n\) 個の機械をランダムに選び耐久試験をしたところ，
+寿命はそれぞれ \(X_1,X_2,\dotsc,X_n\) であった．
+この機械の平均寿命は \(\mu\) であると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+平均値の差の検定
+</p>
+<blockquote>
+<p>
+A県とB県で生産されたの林檎の甘さの違いを調べるために，
+ある八百屋で売られているそれぞれの林檎一山の糖度を調べたとする．
+一つ一つの甘さはばらついているので，
+それぞれの標本平均を計算したところ
+</p>
+<div>
+\begin{align}
+  X_1,X_2,\dotsc,X_n & \to \hat\mu^X=\bar{X}\\
+  Y_1,Y_2,\dotsc,Y_m & \to \hat\mu^Y=\bar{Y}
+\end{align}
+
+</div>
+
+<p>
+となった．
+\(\hat\mu^X\) と \(\hat\mu^Y\) を比べることによって，
+本来の平均値が等しい
+</p>
+<div>
+\begin{equation}
+  \mu^X = \mu^Y ?
+\end{equation}
+
+</div>
+
+<p>
+と言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+McNemar検定
+</p>
+<blockquote>
+<p>
+A社とB社の開発した2つの文字認識機械がある．
+\(n\) 個の文字に対してその性能を調べたところ
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">&#x2026;</th>
+<th scope="col" class="org-left">n</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A社</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">×</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.1%</td>
+</tr>
+
+<tr>
+<td class="org-left">B社</td>
+<td class="org-left">×</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.0%</td>
+</tr>
+</tbody>
+</table>
+<p>
+のような正答率を示した．
+このときA社の機械はB社より優れていると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org14d9e76">
+<h3 id="org14d9e76">平均値の差の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2つの確率変数列
+</p>
+<div>
+\begin{align}
+  & X_1,X_2,\dotsc,X_n \\
+  & Y_1,Y_2,\dotsc,Y_m 
+\end{align}
+
+</div>
+
+<p>
+が与えられたとき，その平均値が等しいか検定せよ．
+</p>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<p>
+それぞれの平均値を \(\theta_1,\theta_2\) とすると
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta_{1}=\theta_{2}
+  \quad\text{vs}\quad
+  H_{1}: \theta_{1}\not=\theta_{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+観測値の確率モデル
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\theta_1+\varepsilon_{1i},\quad i=1,\dotsc,n\\
+  Y_j&=\theta_2+\varepsilon_{2j},\quad j=1,\dotsc,m
+\end{align}
+
+</div>
+</blockquote></li>
+<li><p>
+誤差の仮定
+</p>
+<ul>
+<li>\(\varepsilon_{1i},\varepsilon_{2j}\) は互いに独立に同一の分布に従う．</li>
+<li>\(\varepsilon_{1i},\varepsilon_{2j}\) は平均0，分散 \(\sigma^2\) (既知)である．</li>
+
+</ul>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[\varepsilon_{1i}]&=\mathbb{E}[\varepsilon_{2j}]=0\\
+  \mathbb{E}[\varepsilon_{1i}^2]&=\mathbb{E}[\varepsilon_{2j}^2]=\sigma^2<\infty
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>\(\varepsilon_{1i},\varepsilon_{2j}\) は正規分布に従う．</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+母数の推定量
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \hat\theta_1&=\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i\\
+  \hat\theta_2&=\bar{Y}=\frac{1}{m}\sum_{j=1}^{m}Y_i
+\end{align}
+
+</div>
+</blockquote></li>
+<li><p>
+直感的な議論
+</p>
+<blockquote>
+<div>
+\begin{align}
+  |\hat\theta_1-\hat\theta_2|\text{が小さい}
+  &\Rightarrow\text{同じと思って良い}\\
+  |\hat\theta_1-\hat\theta_2|\text{が大きい}
+  &\Rightarrow\text{どうやら違うらしい}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+帰無仮説が正しい場合
+</p>
+<blockquote>
+<p>
+誤差 \(\varepsilon\) が平均0，分散 \(\sigma^2\) の正規分布に従うので
+</p>
+<div>
+\begin{equation}
+  \hat\theta_1-\hat\theta_2=\bar{X}-\bar{Y}
+\end{equation}
+
+</div>
+
+<p>
+は
+</p>
+<div>
+\begin{align}
+  \text{平均}\quad 
+  E(\bar{X}-\bar{Y})&=0\\
+  \text{分散}\quad 
+  V(\bar{X}-\bar{Y})&=\left(\frac{1}{n}+\frac{1}{m}\right)\sigma^2
+\end{align}
+
+</div>
+
+<p>
+の正規分布に従う．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量の構成
+</p>
+<blockquote>
+<p>
+分散が1になるようにを正規化した統計量
+</p>
+<div>
+\begin{equation}
+  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は仮説が正しいとき
+</p>
+<div>
+\begin{align}
+  \text{平均}\quad E(T)&=0\\
+  \text{分散}\quad V(T)&=1
+\end{align}
+
+</div>
+
+<p>
+の正規分布に従う．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+有意水準と分位点
+</p>
+<blockquote>
+<p>
+正規分布の確率密度関数から
+\(|T|>z_{1{-}\alpha/2}\)
+という事象がおこる確率が
+\(\alpha\)
+となる
+\(z_{1{-}\alpha/2}\) (\(1{-}\alpha/2\) 分位点)
+</p>
+<div>
+\begin{equation*}
+  P\left(|T|>z_{1{-}\alpha/2}\right)=\alpha
+\end{equation*}
+
+</div>
+
+<p>
+を求める．
+</p>
+</blockquote>
+<ul>
+<li>仮説が正しいのなら
+\(|T|>z_{1{-}\alpha/2}\) という事象は
+確率 \(\alpha\) 程度でしか起こらない</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<div class="leftcol">
+
+<div id="orgf0a7436" class="figure">
+<p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol">
+
+<div id="orgc88edd2" class="figure">
+<p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
+</p>
+</div>
+
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+棄却域の構成
+</p>
+<blockquote>
+<p>
+統計量 \(T\) が以下の領域に入ったら帰無仮説を棄却する．
+</p>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>\(|T|>z_{1{-}\alpha/2}\) が起こったのなら，
+&ldquo;滅多に起こらないことが起こった&rdquo;ので
+仮説を正しいと考えることは疑わしいと考える</li>
+<li>&ldquo;仮説を有意水準 \(\alpha\) で <b>棄却</b> する&rdquo; 
+(\(\Leftrightarrow\) &ldquo;仮説を <b>受容</b> する&rdquo;)</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org0c7a433" data-background="#fef4f4">
+<h2 id="org0c7a433">演習</h2>
+<ul>
+<li><p>
+平均値の検定の問題を考えてみよ．
+</p>
+<blockquote>
+<p>
+確率変数列
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n 
+\end{equation}
+
+</div>
+
+<p>
+が与えられたとき，
+平均値が \(\mu\) と等しいか検定せよ．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org92f0cae" data-background="#fef4f4">
+<h3 id="org92f0cae">解答例</h3>
+<ul>
+<li><p>
+観測値の確率モデル
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X_i=\theta+\varepsilon_{i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  H_{0}: \theta=\mu
+  \quad\text{vs}\quad
+  H_{1}: \theta\not=\mu
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+母数の推定量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \hat\theta=\bar{X}=\frac{X_1+X_2+\dots+X_n}{n}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+推定量の性質
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \text{平均}\quad \mathbb{E}[\hat\theta]&=\theta\\
+  \text{分散}\quad \mathrm{Var}(\hat\theta)&=\frac{\sigma^2}{n}
+\end{align}
+
+</div>
+
+<p>
+の正規分布に従う．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+検定統計量の構成
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は 帰無仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+有意水準 \(0.05\) の場合
+</p>
+<blockquote>
+<p>
+\(T>1.96\) となる確率は
+</p>
+<div>
+\begin{equation}
+  \int_{1.96}^\infty\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx
+  =0.025
+\end{equation}
+
+</div>
+
+<p>
+\(T<-1.96\) の場合も同様
+</p>
+</blockquote></li>
+<li><p>
+棄却域の構成
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{0.05}
+  =
+  \left(-\infty,-z_{1.96}\right)
+  \cup
+  \left(z_{1.96},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org6d1fc7b">
+<h2 id="org6d1fc7b">まとめ</h2>
+<ul>
+<li>統計的仮説検定
+<ul>
+<li>検定の手続き</li>
+<li>帰無仮説と対立仮説</li>
+<li>有意水準，棄却域，\(p\) 値</li>
+<li>過誤と検出力</li>
+<li>両側検定と片側検定</li>
+
+</ul></li>
+<li>正規分布を用いた検定
+<ul>
+<li>平均値の差の検定</li>
+<li>平均値の検定</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)', 'body'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { Reveal.getPlugins().notes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>

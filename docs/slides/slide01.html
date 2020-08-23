@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>有限試行の確率空間</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">有限試行の確率空間</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 第1回</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-orga5e366a">
+<h2 id="orga5e366a">試行と見本空間</h2>
+<aside class="notes">
+<p>
+不確定性のある現象を記述するための数学的な枠組である
+確率を扱うために必要な用語を定義する．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge8b7660">
+<h3 id="orge8b7660">試行と見本点</h3>
+<dl>
+<dt>試行 (trial)</dt><dd>現象を観測する
+<span style="color:darkred;">実験</span></dd>
+<dt>見本点 (sample point)</dt><dd>試行の結果観測される
+<span style="color:darkred;">事柄</span> <br />
+<span style="color:darkorange;">標本，観測値 (observation)，実現値 (realization)</span>
+とも呼ばれる</dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org630e0a9">
+<h3 id="org630e0a9">試行の例</h3>
+<ul>
+<li><p>
+骰子(サイコロ)振り
+</p>
+<blockquote>
+<p>
+<span style="color:darkgreen;">「骰子を振って，どの目が出易いか調べる」</span>
+という実験を考える．
+<span style="color:darkgreen;">「骰子を振ること」</span>
+が試行に対応し，
+<span style="color:darkgreen;">1, 2, 3, 4, 5, 6の目</span> 
+が見本点となる．
+</p>
+</blockquote></li>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+周長1mの円盤を中心で回るように用意し，円周上に0から1の目盛りを付ける．
+また円周の外側の適当な位置に印を付ける．
+<span style="color:darkgreen;">「ルーレットを回して止まったときに印が指している目盛りを読む」</span>
+という実験を考える．
+<span style="color:darkgreen;">「ルーレットを回すこと」</span>
+が試行に対応し，
+<span style="color:darkgreen;">\((0,1]\) の間のいずれかの実数値</span>
+が見本点となる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org64e2a1a">
+<h3 id="org64e2a1a">見本空間</h3>
+<dl>
+<dt>見本空間 (sample space)</dt><dd>観測される全ての見本点を集めた集合<br />
+<span style="color:darkorange;">標本空間</span>
+と呼ぶ場合もある</dd>
+<dt>記法</dt><dd><dl>
+<dt>見本空間</dt><dd>\(\Omega\) (オメガの大文字)のように大文字</dd>
+<dt>見本点</dt><dd>\(\omega\)  (オメガの小文字)のように小文字</dd>
+
+</dl></dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org37e2bcf">
+<h3 id="org37e2bcf">見本空間の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+試行 \(T=\) 「骰子を振る」の見本空間は \(\Omega=\{1,2,3,4,5,6\}\) であり，
+試行 \(T\) の結果2の目が出た場合は
+<span style="color:darkgreen;">「2が観測された」</span>
+あるいは
+<span style="color:darkgreen;">「\(\omega=2\) が観測された」</span>
+という.
+</p>
+</blockquote></li>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+試行 \(T=\) 「ルーレットを回す」の見本空間は 
+\(\Omega=(0,1]\) である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2e8a2ef">
+<h3 id="org2e8a2ef">見本空間による試行の分類</h3>
+<dl>
+<dt>有限試行</dt><dd>見本空間が有限集合(要素数が
+<b>有限個</b>
+)である試行</dd>
+<dt>無限試行</dt><dd>見本空間が無限集合(要素数が
+<b>無限個</b>
+)となる試行</dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9987c8f">
+<h3 id="org9987c8f">試行の分類の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+見本点は6つなので有限試行である．
+</p>
+</blockquote></li>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+見本点の数は数え切れないので無限試行である．
+</p>
+</blockquote></li>
+<li><p>
+「1が出るまで骰子を振り続ける」試行
+</p>
+<blockquote>
+<p>
+出た目の数の列，例えば
+\(\langle 4,2,5,6,1\rangle\) 
+が見本点になる．
+</p>
+
+<p>
+見本点としていくらでも長い系列，例えば
+ \(\Omega=\{\langle 1\rangle,\langle 2,1\rangle,\langle 3,1\rangle,
+     \dotsc,\langle 4,2,5,6,1\rangle,\dotsc\}\) 
+が存在するので，
+その要素の数は無限となる．
+</p>
+
+<p>
+したがってこの試行は無限試行である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc65602f" data-background="#fef4f4">
+<h2 id="orgc65602f">演習</h2>
+<ul>
+<li>「コインを10回投げる」試行を考える．
+<ul>
+<li>見本点の例を挙げよ．</li>
+<li>見本空間を記せ．</li>
+
+</ul></li>
+<li>「表が出るまでコインを投げる」試行を考える．
+<ul>
+<li>見本点の例を挙げよ．</li>
+<li>見本空間を記せ．</li>
+
+</ul></li>
+<li>「表が出るまでコインを投げた回数を観測する」試行を考える．
+<ul>
+<li>見本点の例を挙げよ．</li>
+<li>見本空間を記せ．</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgeff4193">
+<h2 id="orgeff4193">事象とその表現</h2>
+<aside class="notes">
+<p>
+確率を考える対象としては，
+単一の見本点だけではなく，
+複数の見本点の集まりを考えることができる．
+ここでは見本点の集合である事象とその記述の仕方，
+および基本的な演算についてまとめておく．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org18cd9f4">
+<h3 id="org18cd9f4">事象</h3>
+<dl>
+<dt>事象 (event)</dt><dd><p>
+見本点の集合，すなわち見本空間の部分集合
+</p>
+<blockquote>
+<p>
+試行 \(T\) の結果として部分集合 \(A\) に属する見本点が出現することを
+<b>「事象 \(A\) が起こる」</b> 
+と表現する．
+</p>
+</blockquote></dd>
+<dt>根元事象 (elementary event)</dt><dd>1つの見本点だけからなる事象</dd>
+<dt>全事象 (full event, whole event)</dt><dd>見本空間全体 \(\Omega\)</dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb26f0db">
+<h3 id="orgb26f0db">事象の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+事象 \(A\) として「偶数の目」 \(A=\{2,4,6\}\) を考える．
+</p>
+
+<p>
+4の目が出た場合は \(A\) に属している (\(4\in A\)) ので
+<span style="color:darkgreen;">「事象 \(A\) が起こった」</span>
+ことになり，
+5の目が出た場合は \(5\not\in A\) なので
+<span style="color:darkgreen;">「事象 \(A\) は起こらなかった」</span>
+ことになる．
+</p>
+</blockquote></li>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+事象 \(A\) を区間 \((0,0.5]\) とする．
+</p>
+
+<p>
+止まったときに印が \(0.5\) を指していれば
+\(0.5\in A\) なので
+<span style="color:darkgreen;">「事象 \(A\) が起こった」</span>
+ことになり，
+ \(\pi/4=0.785\cdots\) を指していたら
+ \(\pi/4\not\in A\) なので
+ <span style="color:darkgreen;">「事象 \(A\) は起こらなかった」</span>
+ ことになる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgeafe6c6">
+<h3 id="orgeafe6c6">事象の演算 (集合の演算)</h3>
+<dl>
+<dt>和事象 (sum event)</dt><dd>\(A\) または \(B\) が起こること．<br />
+\(A,B\) の和集合 (union) \(A\cup B\)</dd>
+<dt>交事象 (product event)</dt><dd>\(A\) と \(B\) が同時に起こること．<br />
+\(A,B\) の交集合 (intersection) \(A\cap B\)</dd>
+<dt>差事象 (difference event)</dt><dd><p>
+\(A\) が起こり \(B\) が起こらないこと．<br />
+\(A,B\) の差 (difference) \(A\backslash B\)
+</p>
+<div class="slide-footer"><br></div>
+</section>
+<section></dd>
+<dt>余事象 (complementary event)</dt><dd>\(A\) が起こらないこと．<br />
+\(A\) の補集合 (complement) \(A^c\) または \(\bar{A}\)</dd>
+<dt>排反事象 (exclusive event)</dt><dd>事象 \(A,B\) が同時に起こらないこと．<br />
+\(A,B\) が互いに素 (disjoint) \(A\cap B=\emptyset\)</dd>
+<dt>直和 (direct sum, disjoint union)</dt><dd>排反事象の和 \(A\cup B\) を \(A+B\) と書く．<br />
+逆に \(A+B\) と書いた場合には \(A\) と \(B\) は排反</dd>
+<dt>固有差</dt><dd>\(A\supset B\) のとき \(A\backslash B\) を \(A-B\) と書く．</dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6e06651">
+<h3 id="org6e06651">事象の演算の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+3つの事象
+</p>
+<ul>
+<li>事象 \(A\) として「偶数の目」 \(A=\{2,4,6\}\)</li>
+<li>事象 \(B\) として「奇数の目」 \(B=\{1,3,5\}\)</li>
+<li>事象 \(C\) として「素数の目」 \(C=\{2,3,5\}\)</li>
+
+</ul>
+<p>
+を考えると，例えば
+</p>
+<ul>
+<li>\(A\) の余事象は \(B=A^{c}\)</li>
+<li>\(B\) と \(C\) の交事象は \(B\cap C=\{3,5\}\) ，</li>
+<li>\(A\) と \(C\) の和事象は \(A\cup C=\{2,3,4,5,6\}\) ，</li>
+<li>\(A\) と \(B\) の直和は全事象 \(A+B=\Omega=\{1,2,3,4,5,6\}\)</li>
+
+</ul>
+<p>
+のようになる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd9e2ab9">
+<h3 id="orgd9e2ab9">条件による事象の表現</h3>
+<ul>
+<li><p>
+事象は見本点 \(\omega\) に関する
+<b>条件 (condition)</b> 
+を表す式 \(\alpha(\omega)\) を用いて記述可能:
+</p>
+<div>
+\begin{equation}
+  A=\left\{\omega|\;\alpha(\omega)\right\}
+\end{equation}
+
+</div></li>
+
+<li>条件 \(\alpha\) を事象 \(A\) と同一視して
+単に事象 \(\alpha\) ということもある</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org34a953f">
+<h3 id="org34a953f">条件による事象の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+<span style="color:darkgreen;">「偶数の目」</span>という事象 \(A\):
+</p>
+<div>
+\begin{equation}
+  A
+  =\{\omega|\;\omega\text{が偶数}\}
+  =\{2,4,6\}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+<span style="color:darkgreen;">「 区間 \((0,0.5]\) の数」</span>という事象 \(A\):
+</p>
+<div>
+\begin{equation}
+  A=\{\omega|\;0<\omega\le0.5\}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgddaf9f3">
+<h3 id="orgddaf9f3">条件による事象の演算</h3>
+<dl>
+<dt>和事象 (\(\alpha\) または \(\beta\)) : \(\alpha\vee\beta\)</dt><dd><div>
+\begin{equation}
+  \{\omega|\;\alpha(\omega)\vee\beta(\omega)\}
+  =\{\omega|\;\alpha(\omega)\}\cup\{\omega|\;\beta(\omega)\}
+\end{equation}
+
+</div></dd>
+
+<dt>交事象 (\(\alpha\) かつ \(\beta\)) : \(\alpha\wedge\beta\)</dt><dd><div>
+\begin{equation}
+  \{\omega|\;\alpha(\omega)\wedge\beta(\omega)\}
+  =\{\omega|\;\alpha(\omega)\}\cap\{\omega|\;\beta(\omega)\}
+\end{equation}
+
+</div></dd>
+
+<dt>余事象 (\(\alpha\) の否定) : \(\alpha^\neg\)</dt><dd><div>
+\begin{equation}
+  \{\omega|\;\alpha(\omega)^\neg\}
+  =\Omega-\{\omega|\;\alpha(\omega)\}
+\end{equation}
+
+</div></dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9927fd5">
+<h3 id="org9927fd5">条件による事象の演算の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+それぞれの事象を条件で書くと
+</p>
+<div>
+\begin{align}
+  &\{\omega|\;(\omega\text{が偶数})^\neg\}
+  =\{\omega|\;\omega\text{が奇数}\}\;\text{(余事象)}\\
+  &\{\omega|\;(\omega\text{が奇数})\wedge(\omega\text{が素数})\}
+  =\{3,5\}\;\text{(交事象)}\\
+  &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が素数})\}
+  =\{2,3,4,5,6\}\;\text{(和事象)}\\
+  &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が奇数})\}
+  =\{1,2,3,4,5,6\}\;\text{(直和)}
+\end{align}
+
+</div>
+
+<p>
+となる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org3afc11c" data-background="#fef4f4">
+<h2 id="org3afc11c">演習</h2>
+<ul>
+<li>和事象，交事象，差事象，余事象，排反事象，固有差，直和を
+ベン図 (Venn diagram) を描いて説明せよ．</li>
+<li>ド・モルガンの法則 (de Morgan’s laws) について説明せよ．</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org018eb2d">
+<h2 id="org018eb2d">有限試行の確率空間</h2>
+<aside class="notes">
+<p>
+これまでの準備をもとに，
+各事象の起こり易さである確率を計算する関数を定義し，
+確率を考える空間を規定する．
+この節では有限試行の場合について考える．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org58a1ef4">
+<h3 id="org58a1ef4">有限試行の確率測度</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+見本空間 \(\Omega\) と任意の事象 \(A,B\subset\Omega\) に対して
+以下の性質をもつ
+実数値集合関数 \(P\) ( \(\Omega\) の部分集合に作用して実数を出力する関数)を
+<b>確率測度 (probability measure)</b>
+という．
+</p>
+<div>
+\begin{align}
+  (P.1)\quad
+  &P(A)\ge0,%\; A\subset\Omega
+  &&\text{(正値性; positivity)}\\
+  (P.2)\quad
+  &P(A+B)=P(A)+P(B),%\; A,B\subset\Omega
+  &&\text{(加法性; additivity)}\\
+  (P.3)\quad
+  &P(\Omega)=1
+  &&\text{(全確率は$1$)}
+\end{align}
+
+</div>
+</blockquote></li>
+<li>確率測度は
+<span style="color:darkorange;">確率分布 (probability distribution)</span>
+あるいは単に
+<span style="color:darkorange;">分布 (distribution)</span>
+と言うこともある．</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb2b2d0f">
+<h3 id="orgb2b2d0f">確率測度の条件の意味</h3>
+<dl>
+<dt>(P.1)</dt><dd>ある事象の起こる確率は \(0\) または正の値を取る</dd>
+<dt>(P.2)</dt><dd>排反な事象の和の確率はそれぞれの事象の確率の和となる</dd>
+<dt>(P.3)</dt><dd>ある試行を行ったとき
+見本空間の中のどれか1つの見本点は必ず観測される</dd>
+
+</dl>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org31a5a50">
+<h3 id="org31a5a50">確率測度の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+いかさまのない骰子を1回振る試行 \(T\) の確率測度 \(P\) は
+</p>
+<div>
+\begin{align}
+  &P(\{1\})=P\{2\}=P\{3\}=P\{4\}=P\{5\}=P\{6\}
+  =\frac{1}{6}\\
+  &P(\text{素数の目が出る})
+  =P(\{2,3,5\})=\frac{1}{2}
+\end{align}
+
+</div>
+
+<p>
+のように，
+事象を入れるとその事象の起こる確率を返してくれる関数 \(P\) である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc175e26">
+<h3 id="orgc175e26">確率空間</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+見本空間 \(\Omega\) と
+事象の集合(集合族) \(\mathcal{F}\) と
+確率測度 \(P\) の組 \((\Omega,\mathcal{F},P)\) を，
+<b>確率空間 (probability space)</b> 
+と呼ぶ．
+</p>
+</blockquote></li>
+<li><p>
+試行 \(T\) が定まると
+</p>
+<ul>
+<li>見本空間 \(\Omega\)</li>
+<li>考えるべき事象の集合 \(\mathcal{F}\)</li>
+<li>確率法則 \(P\)</li>
+
+</ul>
+<p>
+を考えることができる．
+</p></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb2b5bf3">
+<h3 id="orgb2b5bf3">確率測度の演算</h3>
+<ul>
+<li><p>
+事象の演算に関しては以下の関係が成り立つ．
+</p>
+<div>
+\begin{align}
+  1.\quad
+  &P\Bigl(\sum_{i=1}^nA_i\Bigr)=\sum_{i=1}^nP(A_i)\\
+  2.\quad
+  &P(A-B)=P(A)-P(B)\\
+  3.\quad
+  &P(A^c)=1-P(A)\\
+  4.\quad
+  &P(A\cup B)=P(A)+P(B)-P(A\cap B)\\
+  5.\quad
+  &P(A)=\sum_{\omega\in A}P\{\omega\}
+\end{align}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgaccf09b">
+<h3 id="orgaccf09b">確率測度の演算の例</h3>
+<ul>
+<li><p>
+骰子振り
+</p>
+<blockquote>
+<p>
+いかさまのない骰子を1回振る試行 \(T\) において
+素数の目が出る確率は
+</p>
+<div>
+\begin{align}
+  P(\text{素数の目})
+  &=P(\{2,3,5\})\\
+  &=P\{2\}+P\{3\}+P\{5\}
+  =\frac{1}{6}+\frac{1}{6}+\frac{1}{6}
+  =\frac{1}{2}
+\end{align}
+
+</div>
+
+<p>
+となる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org74de5cf" data-background="#fef4f4">
+<h2 id="org74de5cf">演習</h2>
+<ul>
+<li><p>
+確率測度の定義にもとづいて以下を証明せよ．
+</p>
+<div>
+\begin{align}
+  &P(A^c)=1-P(A)\\
+  &P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\end{align}
+
+</div></li>
+
+<li>よく切ったトランプから
+2枚カードを引く試行を考える.
+この試行の確率空間を構成せよ．</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgffa3e5e">
+<h2 id="orgffa3e5e">試行が有限でない場合の問題点</h2>
+<aside class="notes">
+<p>
+次に一般の試行 \(T\) と，
+それに付随する確率空間 \((\Omega,\mathcal{F},P)\) を考える．
+確率測度が持つべき性質は有限試行の場合とほぼ同じであるが，
+\(\Omega\) の要素の数が有限でないということが
+問題を引き起こす場合がある．
+</p>
+
+</aside>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7f51270">
+<h3 id="org7f51270">無限試行の例</h3>
+<ul>
+<li><p>
+「1が出るまで骰子を振り続ける」試行
+</p>
+<blockquote>
+<p>
+見本点 
+\(\langle 6,5,4,3,2,1\rangle\) 
+が観測される確率は，
+6回骰子を振る \(6^6\) 通りの中の
+等しい確率で起こる1つなので
+</p>
+<div>
+\begin{equation}
+  P\left(\langle 6,5,4,3,2,1\rangle\right)
+  =\frac{1}{6^6}
+\end{equation}
+
+</div>
+
+<p>
+となる．
+また，ちょうど6回で1が出て終わる見本点
+\(\langle *,*,*,*,*,1\rangle\)
+(\(*\) は1以外の目)
+が観測される確率は，
+最初の5回は1以外，
+最後に1の目の
+\(5^5\) 通りがあるので
+</p>
+<div>
+\begin{equation}
+  P\left(\langle *,*,*,*,*,1\rangle\right)
+  =\frac{5^5}{6^6}
+\end{equation}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9b35942">
+<h3 id="org9b35942">無限試行の例</h3>
+<ul>
+<li><p>
+ルーレット回し
+</p>
+<blockquote>
+<p>
+「ルーレット回し」の試行で，
+ちょうど \(0.5\) の値が出る確率はいくつか？
+</p>
+</blockquote>
+<div class="slide-footer"><br></div>
+</section>
+<section></li>
+<li><p>
+考え方
+</p>
+<blockquote>
+<p>
+事象 \(A\) を要素数が無限個の適当な数の集合として，
+これを \(A=\{a,b,c,\dotsc\}\) と書く．
+前出の加法性に従うなら事象 \(A=\{a,b,c,\dotsc\}\) に対して，
+1回の試行で例えば見本点 \(a\) と \(b\) が同時に観測されることはないので，
+</p>
+<div>
+\begin{equation}	     
+  P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb
+\end{equation}
+
+</div>
+
+<p>
+として良い．
+</p>
+</blockquote>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<blockquote>
+<p>
+仮に各要素の出現確率が同じ \(\epsilon>0\) という値である場合
+</p>
+<div>
+\begin{equation}
+  P\{a\}=P\{b\}=P\{c\}=\dotsb=\epsilon\quad (\not=0)
+\end{equation}
+
+</div>
+
+<p>
+を考える．
+このとき要素数が無限個あるので
+</p>
+<div>
+\begin{equation}
+  P(A)=\epsilon+\epsilon+\epsilon+\dotsb\quad \to\infty
+\end{equation}
+
+</div>
+
+<p>
+となり，確率の値が \(1\) を越えてしまう．
+</p>
+
+<p>
+事象 \(A\) が無限集合で
+各見本点が
+同様に起こり易い場合には
+</p>
+<div>
+\begin{equation}
+  P\{a\}=P\{b\}=P\{c\}=\dotsb=0
+\end{equation}
+
+</div>
+
+<p>
+でなくてはならない．
+</p>
+</blockquote>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<blockquote>
+<p>
+任意の見本点についてその確率が \(0\) なら，
+いくら足しても
+</p>
+<div>
+\begin{equation}
+  P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb=0
+\end{equation}
+
+</div>
+
+<p>
+である．
+</p>
+
+<p>
+見本空間全体についてこの議論を行えば
+\(P(\Omega)=0\) となってしまうので，
+全事象の確率がうまく定義できない．
+</p>
+</blockquote></li>
+<li>この問題を解決するには
+<b>加法性</b>
+を考え直す必要がある</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org6a450fb">
+<h2 id="org6a450fb">まとめ</h2>
+<ul>
+<li>有限試行の確率空間
+<ul>
+<li>確率論の基本用語: 試行，見本点，見本空間，事象</li>
+<li>事象は見本空間の部分集合</li>
+<li>事象の演算は集合の演算と等価</li>
+<li>確率測度の基本的な性質(正値性，加法性，全確率)</li>
+<li>確率空間は見本空間，事象の集合，確率測度の3つ組</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { RevealNotes.open(); });
+	 }) }
+],
+coursemod: { enabled: true, shown: false },
+});
+</script>
+</body>
+</html>
