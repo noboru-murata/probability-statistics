@@ -31,7 +31,7 @@ publishDir = "docs"
   mainSections = ["post"]
 
   # brand color
-  brand_color = "#7300ac"
+  brand_color = "#4d4398"
 
 [markup.goldmark.renderer]
   unsafe = true
