@@ -16,3 +16,13 @@ weight = 1002
 
 -   [slide (html)](https://noboru-murata.github.io/probability-statistics/slides/slide01.html)
 -   [handout (PDF)](https://noboru-murata.github.io/probability-statistics/pdfs/slide01.pdf)
+
+
+## スライド {#スライド}
+
+{{< myslide base="probability-statistics" name="slide01" >}}
+
+
+## ハンドアウト {#ハンドアウト}
+
+-   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide01.pdf)

@@ -30,7 +30,11 @@
    #+end_export
    - [[github:slides/slide01.html][slide (html)]]
    - [[github:pdfs/slide01.pdf][handout (PDF)]]
-
+** スライド
+   #+html: {{< myslide base="probability-statistics" name="slide01" >}}
+** ハンドアウト
+   - [[github:pdfs/slide01.pdf][PDF file]]
+   
 * 講義2
   :PROPERTIES:
   :EXPORT_FILE_NAME: lecture02
