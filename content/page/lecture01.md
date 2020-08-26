@@ -6,18 +6,6 @@ draft = false
 weight = 1002
 +++
 
-## 講義資料 {#講義資料}
-
-<iframe src="https://noboru-murata.github.io/probability-statistics/slides/slide01.html"
-	width="800" height="500" frameborder="0"
-	allowfullscreen="allowfullscreen"
-	allow="geolocation *; microphone *; camera *; midi *; encrypted-media *">
-</iframe>
-
--   [slide (html)](https://noboru-murata.github.io/probability-statistics/slides/slide01.html)
--   [handout (PDF)](https://noboru-murata.github.io/probability-statistics/pdfs/slide01.pdf)
-
-
 ## スライド {#スライド}
 
 {{< myslide base="probability-statistics" name="slide01" >}}

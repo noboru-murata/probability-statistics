@@ -1,3 +1,6 @@
 #+TITLE: 確率・統計 講義資料
 
 講義ノートとコードの公開用 [[https://noboru-murata.github.io/probability-statistics/]]
+
+* 課題
+  - 講義資料の整理
