@@ -13,6 +13,4 @@ weight = 1007
 
 ## ハンドアウト {#ハンドアウト}
 
--   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide03.pdf)
--   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide05.pdf)
 -   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide06.pdf)

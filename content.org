@@ -76,7 +76,6 @@
 ** スライド
    #+html: {{< myslide base="probability-statistics" name="slide05" >}}
 ** ハンドアウト
-   - [[github:pdfs/slide03.pdf][PDF file]]
    - [[github:pdfs/slide05.pdf][PDF file]]
 
 * 講義6
@@ -87,8 +86,6 @@
 ** スライド
    #+html: {{< myslide base="probability-statistics" name="slide06" >}}
 ** ハンドアウト
-   - [[github:pdfs/slide03.pdf][PDF file]]
-   - [[github:pdfs/slide05.pdf][PDF file]]
    - [[github:pdfs/slide06.pdf][PDF file]]
 
 * 講義8
