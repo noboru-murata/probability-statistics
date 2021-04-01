@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-01 17:54:21 mura>
+# Time-stamp: <2021-04-01 18:38:48 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -589,6 +589,5 @@
 
 * COMMENT ローカル変数
 # Local Variables:
-# org-latex-listings: minted
 # End:
       
