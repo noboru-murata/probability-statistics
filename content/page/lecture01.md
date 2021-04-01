@@ -16,4 +16,4 @@ weight = 1002
 -   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide01.pdf)
 
 
-## 更新日 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-04-01 Thu&gt;</span></span> {#更新日}
+## <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-04-01 Thu&gt; </span></span> 更新 {#更新}
