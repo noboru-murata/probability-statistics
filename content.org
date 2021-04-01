@@ -38,7 +38,7 @@
    {{< myslide base="probability-statistics" name="slide01" >}}
 ** ハンドアウト
    - [[github:pdfs/slide01.pdf][PDF file]]
-** <2021-04-01 Thu> 更新
+** 更新 <2021-04-01 Thu> 
    
 * 講義2
   :PROPERTIES:
@@ -95,7 +95,7 @@
   :EXPORT_FILE_NAME: lecture07
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度確認
+** 理解度の確認
 
 * 講義8
   :PROPERTIES:
@@ -132,7 +132,7 @@
   :EXPORT_FILE_NAME: lecture11
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度確認
+** 理解度の確認
 
 * 講義12
   :PROPERTIES:
@@ -169,7 +169,7 @@
   :EXPORT_FILE_NAME: lecture15
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度確認
+** 理解度の確認
 
      
 * COMMENT お知らせ
