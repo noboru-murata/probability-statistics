@@ -38,8 +38,7 @@
    {{< myslide base="probability-statistics" name="slide01" >}}
 ** ハンドアウト
    - [[github:pdfs/slide01.pdf][PDF file]]
-** 更新日
-   <2021-04-01 Thu>
+** 更新日 <2021-04-01 Thu>
    
 * 講義2
   :PROPERTIES:
@@ -158,16 +157,16 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: ./post
   :EXPORT_FILE_NAME: post1
-  :EXPORT_DATE: <2020-04-01 Wed>
+  :EXPORT_DATE: <2021-04-01 Thu>
   :END:
   前半は確率論を，
   後半は統計学の基礎を学びます．
 
 ** 講義ノート
-   Moodle に掲載しました．
+   Moodle に URL を掲載しました．
 
 ** 過去の試験問題
-   5年分 Moodle に掲載しました．
+   Moodle に3年分を掲載しました．
 
 * スライドの使い方
   :PROPERTIES:
