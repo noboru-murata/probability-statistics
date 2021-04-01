@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-01 18:38:48 mura>
+# Time-stamp: <2021-04-01 19:05:42 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -586,6 +586,7 @@
     - 事象の演算は集合の演算と等価
     - 確率測度の基本的な性質(正値性，加法性，全確率)
     - 確率空間は見本空間，事象の集合，確率測度の3つ組
+
 
 * COMMENT ローカル変数
 # Local Variables:
