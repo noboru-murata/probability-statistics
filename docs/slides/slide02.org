@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-04-05 12:38:28 mura>
+# Time-stamp: <2021-04-05 15:14:39 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -11,6 +11,14 @@
 # <m C-i でlatex block (math env用)
 # C-c '
 :end:
+
+* 前回のまとめ
+  - 有限試行の確率空間
+    - 確率論の基本用語: 試行，見本点，見本空間，事象
+    - 事象は見本空間の部分集合
+    - 事象の演算は集合の演算と等価
+    - 確率測度の基本的な性質(正値性，加法性，全確率)
+    - 確率空間は見本空間，事象の集合，確率測度の3つ組
 
 * 有理数の可算性
   # #+begin_notes
@@ -52,7 +60,10 @@
 
 ** Bernsteinの定理
    - 1対1の対応が存在することを示す代わりに，
-     以下の1対1の対応がそれぞれ存在することを示す．
+     \(A\)と\(B\)の部分集合，
+     および
+     \(A\)の部分集合と\(B\)の間に
+     それぞれ1対1の対応が存在することを示せばよい．
 
    #+header: :width 800 :height 400 
    #+begin_src R :file figs/bernstein.png :exports results :results graphics
@@ -651,8 +662,7 @@
    #+end_quote
    #+END_rightcol  
 
-
-* まとめ
+* 今回のまとめ
   - 一般の確率空間
     - 有限集合と無限集合
     - 集合の濃度 (無限集合は更に分類される)
