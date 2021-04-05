@@ -26,7 +26,7 @@
    - [[github:pdfs/statistics.pdf][統計学]]
    随時修正します．
 
-** 参考資料   
+** 参考資料
   必要な参考書については講義中に指示します．
 
 * 講義1
@@ -34,19 +34,19 @@
   :EXPORT_FILE_NAME: lecture01
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
+  <2021-04-05 Mon> 
 ** スライド
    {{< myslide base="probability-statistics" name="slide01" >}}
 ** ハンドアウト
    - [[github:pdfs/slide01.pdf][PDF file]]
-** 更新 <2021-04-01 Thu> 
-   
+
 * 講義2
   :PROPERTIES:
   :EXPORT_FILE_NAME: lecture02
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide02" >}}
+   {{< myslide base="probability-statistics" name="slide02" >}}
 ** ハンドアウト
    - [[github:pdfs/slide02.pdf][PDF file]]
 

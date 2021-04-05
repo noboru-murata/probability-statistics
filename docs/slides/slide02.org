@@ -1,8 +1,9 @@
 #+TITLE: 一般の確率空間
-#+SUBTITLE: 確率・統計 第2回
+#+SUBTITLE: 確率・統計 - 講義2
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-05-24 12:33:40 mura>
+#+DATE:
+# Time-stamp: <2021-04-05 12:38:28 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -12,13 +13,13 @@
 :end:
 
 * 有理数の可算性
-  #+begin_notes
-  集合を含まれる要素の数によって分類することがある．
-  この場合無限個の要素からなる集合でも，
-  "数えられる無限個"と
-  "数えられない無限個"では性質が異なる．
-  まず数えられる無限個を考える．
-  #+end_notes
+  # #+begin_notes
+  # 集合を含まれる要素の数によって分類することがある．
+  # この場合無限個の要素からなる集合でも，
+  # "数えられる無限個"と
+  # "数えられない無限個"では性質が異なる．
+  # まず数えられる無限個を考える．
+  # #+end_notes
 
 ** 可算集合
    - 定義
@@ -31,20 +32,20 @@
      - 自然数
 
 ** 有理数の可算性
-   - 区間 $(0,1)$ に含まれる全ての有理数は可算
+   - 区間 \((0,1)\) に含まれる全ての有理数は可算
      #+begin_quote
      有理数と自然数に1対1の対応があることを示せばよい．
      #     有理数を列挙した無限に大きな表で対応を考える．
      #+end_quote
-     | 分子\分母 | 2   | 3   | 4     | 5   | 6     | $\cdots$ |
+     | 分子\分母 | 2   | 3   | 4     | 5   | 6     | \(\cdots\) |
      |-----------+-----+-----+-------+-----+-------+----------|
      |         / | <   |     |       |     |       |          |
-     |         1 | 1/2 | 1/3 | 1/4   | 1/5 | 1/6   | $\cdots$ |
-     |         2 |     | 2/3 | +2/4+ | 2/5 | +2/6+ | $\cdots$ |
-     |         3 |     |     | 3/4   | 3/5 | +3/6+ | $\cdots$ |
-     |         4 |     |     |       | 4/5 | +4/6+ | $\cdots$ |
-     |         5 |     |     |       |     | 5/6   | $\cdots$ |
-     |  $\vdots$ |     |     |       |     |       | $\cdots$ |
+     |         1 | 1/2 | 1/3 | 1/4   | 1/5 | 1/6   | \(\cdots\) |
+     |         2 |     | 2/3 | +2/4+ | 2/5 | +2/6+ | \(\cdots\) |
+     |         3 |     |     | 3/4   | 3/5 | +3/6+ | \(\cdots\) |
+     |         4 |     |     |       | 4/5 | +4/6+ | \(\cdots\) |
+     |         5 |     |     |       |     | 5/6   | \(\cdots\) |
+     |  \(\vdots\) |     |     |       |     |       | \(\cdots\) |
      #+begin_quote
      対応づけ出来そうだが規則の記述は難しそう
      #+end_quote
@@ -85,20 +86,20 @@
    [[file:figs/bernstein.png]] 
 ** 有理数の可算性 (再考)
    - Bernstein の定理を用いた場合
-     - 全ての自然数 $n$ から有理数の部分集合 $1/q$ への1対1対応
+     - 全ての自然数 \(n\) から有理数の部分集合 \(1/q\) への1対1対応
        #+begin_src latex
 	 \begin{equation}
 	   n\mapsto \frac{1}{q}=\frac{1}{n+1}
 	 \end{equation}
        #+end_src
-     - 全ての有理数 $p/q$ から自然数 $n$ の部分集合への1対1対応
+     - 全ての有理数 \(p/q\) から自然数 \(n\) の部分集合への1対1対応
        #+begin_src latex
 	 \begin{equation}
 	   \frac{p}{q}
 	   \mapsto n=2^{p}\times 3^{q}
 	 \end{equation}
        #+end_src
-       ($n$ としては2と3の倍数しか現れない)
+       (\(n\) としては2と3の倍数しか現れない)
        # #+begin_src latex
        # 	 \begin{equation}
        # 	   \frac{p}{q}
@@ -107,13 +108,18 @@
        # 	 \end{equation}
        # #+end_src
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 整数が可算であることを示せ．
-  - 自然数の組 $(m,n)$ が可算であるかどうか論じよ．
-  - 1以上の有理数が可算であるかどうか論じよ．
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 整数が可算であることを示せ．
+   - 自然数の組 \((m,n)\) が可算であるかどうか論じよ．
+   - 1以上の有理数が可算であるかどうか論じよ．
 ** 整数の可算性
   :PROPERTIES:
   :reveal_background: #fef4f4
@@ -124,8 +130,8 @@
      #+end_quote
    - 構成例
      #+begin_quote
-     - 奇数の自然数: $n\mapsto z=(n-1)/2$ (非負の整数)
-     - 偶数の自然数: $n\mapsto z=-n/2$ (負の整数)
+     - 奇数の自然数: \(n\mapsto z=(n-1)/2\) (非負の整数)
+     - 偶数の自然数: \(n\mapsto z=-n/2\) (負の整数)
      #+end_quote
      # #+begin_src latex
      #   \begin{align}
@@ -141,13 +147,13 @@
 #   :reveal_background: #fef4f4
 #   :END:
 #    - Bernsteinの定理によれば以下のようにしてもよい
-#      - 自然数 $n$ から整数 $z$ の部分集合への対応
+#      - 自然数 \(n\) から整数 \(z\) の部分集合への対応
 #        #+begin_src latex
 # 	 \begin{equation}
 # 	   n\mapsto z=n
 # 	 \end{equation}
 #        #+end_src
-#      - 整数 $z$ から自然数 $n$ の部分集合への対応
+#      - 整数 \(z\) から自然数 \(n\) の部分集合への対応
 #        #+begin_src latex
 # 	 \begin{align}
 # 	   z\mapsto n
@@ -164,7 +170,7 @@
    :reveal_background: #fef4f4
    :END:
    - 以下の表に番号を振ることを考えればよい
-     |    (m,n) | 1     | 2     | 3     | 4     | 5     | $\cdots$ |
+     |    (m,n) | 1     | 2     | 3     | 4     | 5     | \(\cdots\) |
      |----------+-------+-------+-------+-------+-------+----------|
      |        / | <     |       |       |       |       |          |
      |        1 | (1,1) | (1,2) | (1,3) | (1,4) | (1,5) |          |
@@ -172,13 +178,10 @@
      |        3 | (3,1) | (3,2) | (3,3) | (3,4) | (3,5) |          |
      |        4 | (4,1) | (4,2) | (4,3) | (4,4) | (4,5) |          |
      |        5 | (5,1) | (5,2) | (5,3) | (5,4) | (5,5) |          |
-     | $\vdots$ |       |       |       |       |       |          |
-** 自然数の組の可算性 (続)
-   :PROPERTIES:
-   :reveal_background: #fef4f4
-   :END:
+     | \(\vdots\) |       |       |       |       |       |          |
+   #+reveal: split
    - 例えば斜めに振っていく
-     |    (m,n) |  1 |  2 |  3 |  4 |  5 | $\cdots$ |
+     |    (m,n) |  1 |  2 |  3 |  4 |  5 | \(\cdots\) |
      |----------+----+----+----+----+----+----------|
      |        / |  < |    |    |    |    |          |
      |        1 |  1 |  2 |  4 |  7 | 11 |          |
@@ -186,7 +189,7 @@
      |        3 |  6 |  9 | 13 | 18 | 24 |          |
      |        4 | 10 | 14 | 19 | 25 |    |          |
      |        5 | 15 | 20 | 26 |    |    |          |
-     | $\vdots$ |    |    |    |    |    |          |
+     | \(\vdots\) |    |    |    |    |    |          |
    - 規則(数式)は考えてみよ
 
 ** 1以上の有理数の可算性
@@ -194,17 +197,18 @@
    :reveal_background: #fef4f4
    :END:
    - 1以上の有理数は
-     (自然数，区間 $[0,1)$ の有理数) 
+     (自然数，区間 \([0,1)\) の有理数) 
      と分解して考えることができる
-   - 区間 $[0,1)$ の有理数は番号付けできる
-     (区間 $(0,1)$ に0を加えただけ)ので，
+   - 区間 \([0,1)\) の有理数は番号付けできる
+     (区間 \((0,1)\) に0を加えただけ)ので，
      (自然数，自然数) に対応づけられる
    - 前問の結果を用いれば明らか
 
+
 * 無理数の非可算性
-  #+begin_notes
-  次に数えられない無限個とは何かを考える．
-  #+end_notes
+  # #+begin_notes
+  # 次に数えられない無限個とは何かを考える．
+  # #+end_notes
 
 ** 非可算集合
    - 定義
@@ -214,7 +218,7 @@
      という．(不可算と書かれている場合もある)
      #+end_quote
    - 非可算集合の例
-     - 区間 $(0,1)$ に含まれる無理数
+     - 区間 \((0,1)\) に含まれる無理数
      - 実数全体
 
 ** Cantorの対角線論法
@@ -223,7 +227,7 @@
    #+ATTR_REVEAL: :frag (appear)
    - その1
      #+begin_quote
-     区間 $(0,1)$ に含まれる *無理数の集合は可算* と仮定する．
+     区間 \((0,1)\) に含まれる *無理数の集合は可算* と仮定する．
      #+end_quote
    - その2
      #+begin_quote
@@ -245,13 +249,13 @@
 	 \end{array}
        \end{equation}
      #+end_src
-     ただし，有限桁の小数の場合は $0$ で埋める．
+     ただし，有限桁の小数の場合は \(0\) で埋める．
      #+end_quote
      #+REVEAL: split
    - その4
      #+begin_quote
-     第n番の数の第n桁目 $d^{n}_{n}$ とは *異なる数* 
-     $\tilde{d}^{n}_{n}\not=d^{n}_{n}$
+     第n番の数の第n桁目 \(d^{n}_{n}\) とは *異なる数* 
+     \(\tilde{d}^{n}_{n}\not=d^{n}_{n}\)
      を選び，これらを並べた次の数を考える．
      #+begin_src latex
        \begin{equation}
@@ -264,18 +268,18 @@
      #+end_quote
    - その5
      #+begin_quote
-     区間 $(0,1)$ に含まれるこの数の番号を探す．
+     区間 \((0,1)\) に含まれるこの数の番号を探す．
      #+end_quote
    - その6
      #+begin_quote
      第n番の数とは第n桁目が *違っている* ので，
-     この数は区間 $(0,1)$ の *全ての実数を並べたはずの表にはない* ．
+     この数は区間 \((0,1)\) の *全ての実数を並べたはずの表にはない* ．
      #+end_quote
      #+REVEAL: split
    - その7
      #+begin_quote
      番号が振られていない数が存在するので
-     区間 $(0,1)$ の実数が可算である
+     区間 \((0,1)\) の実数が可算である
      (並べて番号が付けられる)ことに矛盾する．
      #+end_quote
    - その8
@@ -294,47 +298,53 @@
        - 連続の濃度 :: 無理数，実数など
    - より詳しくは位相と集合の本を参照
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 以下の集合の濃度を答えなさい．
-    - 区間 $(0,1)$ に含まれる有理数
-    - 区間 $(0,1)$ に含まれる無理数
-    - 実数 $\mathbb{R}$ (区間 $(-\infty,\infty)$)
-    - 2つの実数の組 $(x,y)\in\mathbb{R}^{2}$
-    - 2次元空間において $xy$ 座標がともに整数となる点の集合
-    - 表が出るまでコインを投げ続ける試行の見本空間
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の集合の濃度を答えなさい．
+     - 区間 \((0,1)\) に含まれる有理数
+     - 区間 \((0,1)\) に含まれる無理数
+     - 実数 \(\mathbb{R}\) (区間 \((-\infty,\infty)\))
+     - 2つの実数の組 \((x,y)\in\mathbb{R}^{2}\)
+     - 2次元空間において \(xy\) 座標がともに整数となる点の集合
+     - 表が出るまでコインを投げ続ける試行の見本空間
+
 
 * 一般の確率測度
-  #+begin_notes
-  有限試行ではない一般の見本空間を考えた場合に，
-  確率測度 $P$ がどんな性質をもたなくてはいけないかを説明する．
-  #+end_notes
+  # #+begin_notes
+  # 有限試行ではない一般の見本空間を考えた場合に，
+  # 確率測度 \(P\) がどんな性質をもたなくてはいけないかを説明する．
+  # #+end_notes
 
 ** 可測集合
    - 可測集合 (measurable set) ::
-     確率測度 $P$ で確率の値を測ることができる集合\\
+     確率測度 \(P\) で確率の値を測ることができる集合\\
      (見本点の集合の中で事象として考えてよいもの)
    - 可測 (measurable) ::
-     "集合 $A$ が可測"とは
-     集合 $A$ を確率測度 $P$ で測ることができること
+     "集合 \(A\) が可測"とは
+     集合 \(A\) を確率測度 \(P\) で測ることができること
 
 ** 集合族
-   - 確率測度 $P$ で確率の値を測ることができる
-     対象全体 (関数 $P$ の *定義域*) を
-     $\mathcal{F}$ と書く
-   - 定義域 $\mathcal{F}$ は
-     可測な事象(見本空間の部分集合) $A\subset\Omega$ の集まり
+   - 確率測度 \(P\) で確率の値を測ることができる
+     対象全体 (関数 \(P\) の *定義域*) を
+     \(\mathcal{F}\) と書く
+   - 定義域 \(\mathcal{F}\) は
+     可測な事象(見本空間の部分集合) \(A\subset\Omega\) の集まり
    - このような"集合の集合"を
      *集合族 (family of sets)* という
 
-** $\sigma$ -加法族
+** \(\sigma\)-加法族
    - 定義
      #+begin_quote
-     以下の ($\sigma.1$)-($\sigma.3$) 
+     以下の (\(\sigma.1\))-(\(\sigma.3\)) 
      の3つの条件を満たす集合族を
-     *$\sigma$ -加法族 ($\sigma$ -algebra)*
+     *\(\sigma\)-加法族 (\(\sigma\)-algebra)*
      と呼ぶ．
      #+begin_src latex
        \begin{align}
@@ -349,28 +359,27 @@
        \end{align}
      #+end_src
      #+end_quote
-   - ($\sigma.1$)-($\sigma.3$) は
-     定義域 $\mathcal{F}$ の満たすべき条件でもある
+   - (\(\sigma.1\))-(\(\sigma.3\)) は
+     定義域 \(\mathcal{F}\) の満たすべき条件でもある
      
 ** 条件の意味
-   - ($\sigma.1$) ::
-     見本空間(全事象)は可測である( $P$ で測ることができる)
-   - ($\sigma.2$) :: 
+   - (\(\sigma.1\)) ::
+     見本空間(全事象)は可測である( \(P\) で測ることができる)
+   - (\(\sigma.2\)) :: 
      ある事象が可測なら，その余事象も可測である
-   - ($\sigma.3$) :: 
+   - (\(\sigma.3\)) :: 
      可測集合の可算(自然数で番号付けできる)無限和も可測である
-
 
 ** 確率測度
    - 定義
      #+begin_quote
-     集合関数 $P$ は条件(P.1), (P.2)を満たすとき
+     集合関数 \(P\) は条件(P.1), (P.2)を満たすとき
      *測度 (measure)*
      と呼ばれ，
      さらに(P.3)まで満たすとき
      *確率測度 (probability measure)*
      と呼ばれる．
-     また $P(A)$ を $A$ の
+     また \(P(A)\) を \(A\) の
      *測度*
      という．
      #+begin_src latex
@@ -386,31 +395,33 @@
      #+end_src
      #+end_quote
    - (P.2)を 
-     $\sigma$ -加法性 
-     ($\sigma$ -additivity) という．
+     \(\sigma\)-加法性 
+     (\(\sigma\)-additivity) という．
 
 ** 確率空間
    - 定義
      #+begin_quote
-     見本空間 $\Omega$ と確率測度 $P$ ，
-     および $P$ の定義域である 
-     $\sigma$ -加法族
-     $\mathcal{F}$ の組 
-     $(\Omega,\mathcal{F},P)$ を
+     見本空間 \(\Omega\) と確率測度 \(P\) ，
+     および \(P\) の定義域である 
+     \(\sigma\)-加法族
+     \(\mathcal{F}\) の組 
+     \((\Omega,\mathcal{F},P)\) を
      *確率空間 (probability spcae)*
      という．
      #+end_quote
 
+
 * Lebesgue測度
-  #+begin_notes
-  一般の確率測度の中でも
-  応用上最も重要な測度について説明する．
-  #+end_notes
+  # #+begin_notes
+  # 一般の確率測度の中でも
+  # 応用上最も重要な測度について説明する．
+  # #+end_notes
+
 ** ルーレット回しの確率測度
-   - 区間 $(0,1]$ からの無作為抽出 
+   - 区間 \((0,1]\) からの無作為抽出 
      #+begin_quote
-     試行 $T$ を
-     "区間 $(0,1]$ から無作為に一点抜き出すこと"
+     試行 \(T\) を
+     "区間 \((0,1]\) から無作為に一点抜き出すこと"
      とする．
      このとき見本空間は
      #+begin_src latex
@@ -419,19 +430,19 @@
        \end{equation}
      #+end_src
      であり無限試行となる．
-     確率測度は事象 $A$ が
-     区間 $[a,b]$, $(a,b)$, $[a,b)$ または $(a,b]$
+     確率測度は事象 \(A\) が
+     区間 \([a,b]\), \((a,b)\), \([a,b)\) または \((a,b]\)
      といった簡単な集合であれば
      #+begin_src latex
        \begin{equation}
-	 P(A)=|A|=b-a,\;\text{($|A|$は区間の長さを表す)}
+	 P(A)=|A|=b-a,\;\text{(\(|A|\)は区間の長さを表す)}
        \end{equation}
      #+end_src
      とすればよい．
      #+end_quote
 
 ** 確率測度の定義域
-   - 確率測度 $P$ の定義域 $\mathcal{F}$ は
+   - 確率測度 \(P\) の定義域 \(\mathcal{F}\) は
      集合演算で作られる
    - *可算個* の区間を組み合わせてつくられる集合
      #+begin_src latex
@@ -447,27 +458,27 @@
 ** Lebesgue測度
    - 定義
      #+begin_quote
-     "区間 $(0,1]$ から無作為に一点抜き出す"試行 $T$
-     によって考えられる確率測度 $P$ を $(0,1]$ 上の
+     "区間 \((0,1]\) から無作為に一点抜き出す"試行 \(T\)
+     によって考えられる確率測度 \(P\) を \((0,1]\) 上の
      *Lebesgue測度 (Lebesgue measure)*
      という．
      またLebesgue測度の定義域となる
-     $\sigma$ -加法族を
-     $\mathbb{R}$ の
+     \(\sigma\)-加法族を
+     \(\mathbb{R}\) の
      *Borel集合族 (Borel field)*
      という．
      #+end_quote
-   - Lebesgue測度は $\mu$ で表されることが多い
+   - Lebesgue測度は \(\mu\) で表されることが多い
    - 厳密な定義についてはLebesgue積分の本を参考
 
 ** Lebesgue測度の計算
    - 一点が抜き出される確率
      #+begin_quote
      Lebesgue測度において，
-     $P\{a\}$
-     (一点 $a$ が抜き出される確率)は $0$ となる．
+     \(P\{a\}\)
+     (一点 \(a\) が抜き出される確率)は \(0\) となる．
 
-     例えば $\{1,1/2,1/3,\dotsc\}$ という可算集合を考えると，
+     例えば \(\{1,1/2,1/3,\dotsc\}\) という可算集合を考えると，
      #+begin_src latex
 	      \begin{equation}
 		  P\left\{\frac{1}{n}\right\}\ge\varepsilon>0
@@ -484,15 +495,15 @@
    #   #+begin_quote
    #   Lebesgue測度において
    #   可算個の点からなる事象の確率は
-   #   いずれも $0$ となる．
+   #   いずれも \(0\) となる．
    #   #+end_quote
      #+REVEAL: split
    - 抜き出した点が有理数である確率
      #+begin_quote
      #+begin_src latex
        \begin{align}
-	 \mathbb{R}_{(0,1]}&=\{\text{区間$(0,1]$上の実数全体}\}(=\Omega)\\
-	 \mathbb{Q}_{(0,1]}&=\{\text{区間$(0,1]$上の有理数全体}\}
+	 \mathbb{R}_{(0,1]}&=\{\text{区間\((0,1]\)上の実数全体}\}(=\Omega)\\
+	 \mathbb{Q}_{(0,1]}&=\{\text{区間\((0,1]\)上の有理数全体}\}
        \end{align}
      #+end_src
      と書くことにする．
@@ -518,7 +529,7 @@
      #+begin_quote
      #+begin_src latex
        \begin{equation}
-	 \text{(区間$(0,1]$上の無理数全体)}=\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]}
+	 \text{(区間\((0,1]\)上の無理数全体)}=\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]}
        \end{equation}
      #+end_src
      を用いて求められる．
@@ -535,10 +546,10 @@
      #+REVEAL: split
    - 異なる区間の場合
      #+begin_quote
-     "区間 $(0,5]$ から無作為に一点抜き出す"試行を考えたとき，
-     その見本空間は $\Omega=(0,5]$ となる．
+     "区間 \((0,5]\) から無作為に一点抜き出す"試行を考えたとき，
+     その見本空間は \(\Omega=(0,5]\) となる．
      この試行の確率測度は
-     Lebesgue測度 $\mu$ を定数倍(正規化)し，
+     Lebesgue測度 \(\mu\) を定数倍(正規化)し，
      #+begin_src latex
        \begin{equation}
 	 P(A)=\frac{\mu(A)}{\mu(\Omega)}=\frac{\mu(A)}{5},\;A\in\mathcal{F}
@@ -550,24 +561,24 @@
 ** 零集合
    - 定義
      #+begin_quote
-     空集合でない集合 $A$ で
-     その事象が起こる確率が $P(A)=0$ となるものがある．
+     空集合でない集合 \(A\) で
+     その事象が起こる確率が \(P(A)=0\) となるものがある．
      こうした集合を *零集合 (null set)*
      と呼ぶ．
      #+end_quote
    - 以下は等しくないことに注意 (有理数と無理数の例)
-     - 事象 $A$ の確率が $0$ である
-     - 事象 $A$ に含まれる見本点が全く起こらない
+     - 事象 \(A\) の確率が \(0\) である
+     - 事象 \(A\) に含まれる見本点が全く起こらない
 
 ** "ほとんど確実"
    - 確率での特殊な言い回し
      #+begin_quote
      事象
-     $A=\{\omega|\alpha(\omega)\}$
+     \(A=\{\omega|\alpha(\omega)\}\)
      の確率が1であるとき，
      *"ほとんど確実に (almost surely)"*
      あるいは
-     *"条件 $\alpha(\omega)$ が確率1で成り立つ"*
+     *"条件 \(\alpha(\omega)\) が確率1で成り立つ"*
      といい，
      以下のように書く．
      #+begin_src latex
@@ -577,63 +588,69 @@
      #+end_src
      #+end_quote
    - 別の表現
-     - 事象 $A$ の余事象 $A^c$ は零集合
-     - 条件 $\alpha$ は成り立たないこともあるが，その確率は0
+     - 事象 \(A\) の余事象 \(A^c\) は零集合
+     - 条件 \(\alpha\) は成り立たないこともあるが，その確率は0
+
 
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - Buffonの針 (Buffon's needle) の問題を考えよ
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - Buffonの針 (Buffon's needle) の問題を考えよ
 
-  #+BEGIN_leftcol
-  #+begin_src R :file figs/buffon.png :exports results :results graphics
-    ## Parameterの指定 d:間隔，r:dの範囲，l:針の長さ，n:回数
-    d <- 1
-    r <- 5
-    l <- 0.8
-    n <- 30
+   #+BEGIN_leftcol
+   #+begin_src R :file figs/buffon.png :exports results :results graphics
+     ## Parameterの指定 d:間隔，r:dの範囲，l:針の長さ，n:回数
+     d <- 1
+     r <- 5
+     l <- 0.8
+     n <- 30
 
-    ## 描画領域を指定
-    plot(c(0,r),c(0,r),type="n",ann=FALSE,axes=FALSE)
-    ## abline(h = 0, col = gray(0.9))
-    ## abline(h = r, col = gray(0.9))
-    box()
+     ## 描画領域を指定
+     plot(c(0,r),c(0,r),type="n",ann=FALSE,axes=FALSE)
+     ## abline(h = 0, col = gray(0.9))
+     ## abline(h = r, col = gray(0.9))
+     box()
 
-    ## 平行線を引く
-    for (z in seq(0,r,by=d)) {
-      lines(c(z,z), c(-0.5,r+0.5), col="blue", lty = "solid", lwd = 2)
-    }
+     ## 平行線を引く
+     for (z in seq(0,r,by=d)) {
+         lines(c(z,z), c(-0.5,r+0.5), col="blue", lty = "solid", lwd = 2)
+     }
 
-    ## 針を投げる
-    for (i in 1:n) {
-      x <- runif(1,min=0,max=r)
-      y <- runif(1,min=0,max=r)
-      t <- runif(1,min=0,max=2*pi)
-      x1 <- x-l/2*cos(t)
-      x2 <- x+l/2*cos(t)
-      y1 <- y-l/2*sin(t)
-      y2 <- y+l/2*sin(t)
-      lines(c(x1,x2),c(y1,y2),
-	    col=ifelse(floor(x1)-floor(x2)==0,"green","red"),
-	    lty = "solid", lwd = 2)
-    }
-    ## 題
-    title(main="Buffon's needle")
-  #+end_src
-  #+CAPTION: Buffonの針
-  #+NAME: fig:buffon
-  #+ATTR_HTML: :width 100%
-  #+ATTR_LATEX: :width 0.6\linewidth
-  [[file:figs/buffon.png]] 
-  #+END_leftcol  
-  #+BEGIN_rightcol
-  #+begin_quote
-  2次元平面上に等間隔 $d$ で平行線が引いてある．
-  長さ $l$ の針をこの平面上にランダムに落としたとき，
-  平行線と交わる確率を求めよ．ただし $l< d$ とする．
-  #+end_quote
-  #+END_rightcol  
+     ## 針を投げる
+     for (i in 1:n) {
+         x <- runif(1,min=0,max=r)
+         y <- runif(1,min=0,max=r)
+         t <- runif(1,min=0,max=2*pi)
+         x1 <- x-l/2*cos(t)
+         x2 <- x+l/2*cos(t)
+         y1 <- y-l/2*sin(t)
+         y2 <- y+l/2*sin(t)
+         lines(c(x1,x2),c(y1,y2),
+               col=ifelse(floor(x1)-floor(x2)==0,"green","red"),
+               lty = "solid", lwd = 2)
+     }
+     ## 題
+     title(main="Buffon's needle")
+   #+end_src
+   #+CAPTION: Buffonの針
+   #+NAME: fig:buffon
+   #+ATTR_HTML: :width 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
+   [[file:figs/buffon.png]] 
+   #+END_leftcol  
+   #+BEGIN_rightcol
+   #+begin_quote
+   2次元平面上に等間隔 \(d\) で平行線が引いてある．
+   長さ \(l\) の針をこの平面上にランダムに落としたとき，
+   平行線と交わる確率を求めよ．ただし \(l< d\) とする．
+   #+end_quote
+   #+END_rightcol  
+
 
 * まとめ
   - 一般の確率空間
@@ -641,8 +658,12 @@
     - 集合の濃度 (無限集合は更に分類される)
       - 可算集合: 自然数，整数，有理数
       - 連続集合: 無理数，実数
-    - 一般の確率測度と $\sigma$ -加法性の関係
+    - 一般の確率測度と \(\sigma\)-加法性の関係
     - Lebesgue測度とBorel集合族 (応用上重要な概念)
     - "ほとんど確実に成り立つ"
 
-    
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      

@@ -1,9 +1,9 @@
 #+TITLE: 有限試行の確率空間
-#+SUBTITLE: 確率・統計 第1回
+#+SUBTITLE: 確率・統計 - 講義1
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-01 19:05:42 mura>
+# Time-stamp: <2021-04-05 12:29:11 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -136,7 +136,10 @@
 
 
 * 演習
-** 問題
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -317,14 +320,34 @@
 
   
 * 演習
-** 問題
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
    - 和事象，交事象，差事象，余事象，排反事象，固有差，直和を
      ベン図 (Venn diagram) を描いて説明せよ．
    - ド・モルガンの法則 (de Morgan’s laws) について説明せよ．
-
+** ド・モルガンの法則
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 一般には以下の2つの等式で表される関係を指す．
+     #+begin_src latex
+       \begin{align}
+         (A\cap B)^{c}
+         &=A^{c}\cup B^{c}
+         &\big(\overline{A\cap B}
+         &=\bar{A}\cup\bar{B}\big)\\
+         (A\cup B)^{c}
+         &=A^{c}\cap B^{c}
+         &\big(\overline{A\cup B}
+         &=\bar{A}\cap\bar{B}\big)
+       \end{align}
+     #+end_src
+   - ベン図での表現を考えてみよ．
 
 * 有限試行の確率空間
   # #+begin_notes
@@ -456,7 +479,10 @@
 
 
 * 演習
-** 問題
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -471,6 +497,30 @@
      2枚カードを引く試行を考える.
      この試行の確率空間を構成せよ．
 
+** 解答例     
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 確率測度の3つの性質を用いる．
+     #+begin_src latex
+       \begin{equation}
+         P(A)+P(A^c)=P(A+A^c)=P(\Omega)=1
+       \end{equation}
+     #+end_src
+     より
+     #+begin_src latex
+       \begin{equation}
+         P(A^c)=1-P(A)
+       \end{equation}
+     #+end_src
+     となる．同様に
+     #+begin_src latex
+       \begin{equation}
+         A+B= (A\cup B) + (A\cap B)
+       \end{equation}
+     #+end_src
+     を用いればよい．
+     
 
 * 試行が有限でない場合の問題点
   # #+begin_notes

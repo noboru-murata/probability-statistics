@@ -6,6 +6,9 @@ draft = false
 weight = 1002
 +++
 
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-04-05 Mon&gt; </span></span>
+
+
 ## スライド {#スライド}
 
 {{< myslide base="probability-statistics" name="slide01" >}}
@@ -14,6 +17,3 @@ weight = 1002
 ## ハンドアウト {#ハンドアウト}
 
 -   [PDF file](https://noboru-murata.github.io/probability-statistics/pdfs/slide01.pdf)
-
-
-## 更新 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-04-01 Thu&gt;</span></span> {#更新}
