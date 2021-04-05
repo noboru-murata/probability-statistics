@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-04-05 15:14:39 mura>
+# Time-stamp: <2021-04-05 15:29:30 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -12,13 +12,14 @@
 # C-c '
 :end:
 
-* 前回のまとめ
+* 前回のおさらい
   - 有限試行の確率空間
     - 確率論の基本用語: 試行，見本点，見本空間，事象
     - 事象は見本空間の部分集合
     - 事象の演算は集合の演算と等価
     - 確率測度の基本的な性質(正値性，加法性，全確率)
     - 確率空間は見本空間，事象の集合，確率測度の3つ組
+
 
 * 有理数の可算性
   # #+begin_notes
@@ -103,6 +104,7 @@
 	   n\mapsto \frac{1}{q}=\frac{1}{n+1}
 	 \end{equation}
        #+end_src
+       (有理数としては \(1/q\) の形しか用いない)
      - 全ての有理数 \(p/q\) から自然数 \(n\) の部分集合への1対1対応
        #+begin_src latex
 	 \begin{equation}
@@ -110,7 +112,7 @@
 	   \mapsto n=2^{p}\times 3^{q}
 	 \end{equation}
        #+end_src
-       (\(n\) としては2と3の倍数しか現れない)
+       (自然数としては2と3の倍数しか用いない)
        # #+begin_src latex
        # 	 \begin{equation}
        # 	   \frac{p}{q}
@@ -131,7 +133,7 @@
    - 整数が可算であることを示せ．
    - 自然数の組 \((m,n)\) が可算であるかどうか論じよ．
    - 1以上の有理数が可算であるかどうか論じよ．
-** 整数の可算性
+** COMMENT 整数の可算性
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -176,7 +178,7 @@
 # 	   &=(4+\mathrm{sign}(z))^{|z|}
 # 	 \end{align}
 #        #+end_src
-** 自然数の組の可算性
+** COMMENT 自然数の組の可算性
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -203,7 +205,7 @@
      | \(\vdots\) |    |    |    |    |    |          |
    - 規則(数式)は考えてみよ
 
-** 1以上の有理数の可算性
+** COMMENT 1以上の有理数の可算性
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -325,6 +327,17 @@
      - 2つの実数の組 \((x,y)\in\mathbb{R}^{2}\)
      - 2次元空間において \(xy\) 座標がともに整数となる点の集合
      - 表が出るまでコインを投げ続ける試行の見本空間
+** COMMENT 解答
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下のとおり
+     - 区間 \((0,1)\) に含まれる有理数 : 可算
+     - 区間 \((0,1)\) に含まれる無理数 : 連続
+     - 実数 \(\mathbb{R}\) (区間 \((-\infty,\infty)\)) : 連続
+     - 2つの実数の組 \((x,y)\in\mathbb{R}^{2}\) : 連続
+     - 2次元空間において \(xy\) 座標がともに整数となる点の集合 : 可算
+     - 表が出るまでコインを投げ続ける試行の見本空間 : 可算
 
 
 * 一般の確率測度
@@ -613,7 +626,7 @@
    :END:
    - Buffonの針 (Buffon's needle) の問題を考えよ
 
-   #+BEGIN_leftcol
+   #+begin_leftcol
    #+begin_src R :file figs/buffon.png :exports results :results graphics
      ## Parameterの指定 d:間隔，r:dの範囲，l:針の長さ，n:回数
      d <- 1
@@ -653,14 +666,16 @@
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/buffon.png]] 
-   #+END_leftcol  
-   #+BEGIN_rightcol
+   #+end_leftcol  
+   #+begin_rightcol
    #+begin_quote
    2次元平面上に等間隔 \(d\) で平行線が引いてある．
    長さ \(l\) の針をこの平面上にランダムに落としたとき，
    平行線と交わる確率を求めよ．ただし \(l< d\) とする．
    #+end_quote
-   #+END_rightcol  
+   #+end_rightcol  
+** COMMENT 解答例
+   
 
 * 今回のまとめ
   - 一般の確率空間
@@ -671,6 +686,7 @@
     - 一般の確率測度と \(\sigma\)-加法性の関係
     - Lebesgue測度とBorel集合族 (応用上重要な概念)
     - "ほとんど確実に成り立つ"
+
 
 * COMMENT ローカル変数
 # Local Variables:
