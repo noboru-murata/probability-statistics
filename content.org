@@ -1,8 +1,8 @@
 #+HUGO_BASE_DIR: ./
 #+HUGO_SECTION: page
 #+HUGO_WEIGHT: auto
-#+author: Noboru Murata
-#+link: github https://noboru-murata.github.io/probability-statistics/
+#+AUTHOR: Noboru Murata
+#+LINK: github https://noboru-murata.github.io/probability-statistics/
 #+STARTUP: hidestars content
 # C-c C-e H A (generate MDs for all subtrees)
 
@@ -96,8 +96,7 @@
   :EXPORT_FILE_NAME: lecture07
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度の確認
-
+  理解度の確認
 * 講義8
   :PROPERTIES:
   :EXPORT_FILE_NAME: lecture08
@@ -133,8 +132,7 @@
   :EXPORT_FILE_NAME: lecture11
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度の確認
-
+  理解度の確認
 * 講義12
   :PROPERTIES:
   :EXPORT_FILE_NAME: lecture12
@@ -170,7 +168,7 @@
   :EXPORT_FILE_NAME: lecture15
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-** 理解度の確認
+  理解度の確認
 
      
 * COMMENT お知らせ
