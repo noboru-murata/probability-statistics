@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-05 15:20:44 mura>
+# Time-stamp: <2021-04-06 10:27:24 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -330,7 +330,7 @@
    - 和事象，交事象，差事象，余事象，排反事象，固有差，直和を
      ベン図 (Venn diagram) を描いて説明せよ．
    - ド・モルガンの法則 (de Morgan’s laws) について説明せよ．
-** COMMENT ド・モルガンの法則
+** ド・モルガンの法則
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -498,11 +498,11 @@
      2枚カードを引く試行を考える.
      この試行の確率空間を構成せよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - 確率測度の3つの性質を用いる．
+   - 確率測度の3つの性質を用いる．1つめは
      #+begin_src latex
        \begin{equation}
          P(A)+P(A^c)=P(A+A^c)=P(\Omega)=1
@@ -514,10 +514,10 @@
          P(A^c)=1-P(A)
        \end{equation}
      #+end_src
-     となる．同様に
+     となる．また2つめについては
      #+begin_src latex
        \begin{equation}
-         A+B= (A\cup B) + (A\cap B)
+         (A\cup B) = (A-A\cap B) + (B-A\cap B) + (A\cap B)
        \end{equation}
      #+end_src
      を用いればよい．

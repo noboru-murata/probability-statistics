@@ -34,7 +34,7 @@
   :EXPORT_FILE_NAME: lecture01
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-  <2021-04-05 Mon> 
+  <2021-04-06 Tue> 
 ** スライド
    {{< myslide base="probability-statistics" name="slide01" >}}
 ** ハンドアウト
