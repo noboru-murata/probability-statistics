@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-06 10:27:24 mura>
+# Time-stamp: <2021-04-07 15:46:20 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -547,6 +547,10 @@
        \end{equation}
      #+end_src
      となる．
+     #+end_quote
+   #+reveal: split
+   - 事象の確率も同様
+     #+begin_quote
      また，ちょうど6回で1が出て終わる見本点
      \(\langle *,*,*,*,*,1\rangle\)
      (\(*\) は1以外の目)
@@ -569,8 +573,8 @@
      "ルーレット回し" の試行で，
      ちょうど \(0.5\) の値が出る確率はいくつか？
      #+end_quote
-     #+REVEAL: split
-   - 考え方
+   #+reveal: split
+   - 任意の事象を考える
      #+begin_quote
      事象 \(A\) を要素数が無限個の適当な数の集合として，
      これを \(A=\{a,b,c,\dotsc\}\) と書く．
@@ -583,7 +587,8 @@
      #+end_src
      として良い．
      #+end_quote
-     #+REVEAL: split
+   #+reveal: split
+   - 確率の和を考える
      #+begin_quote
      仮に各要素の出現確率が同じ \(\epsilon>0\) という値である場合
      #+begin_src latex
@@ -610,7 +615,8 @@
      #+end_src
      でなくてはならない．
      #+end_quote
-     #+REVEAL: split
+   #+reveal: split
+   - 全確率を考える
      #+begin_quote
      任意の見本点についてその確率が \(0\) なら，
      いくら足しても
