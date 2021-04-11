@@ -34,7 +34,7 @@
   :EXPORT_FILE_NAME: lecture01
   :EXPORT_DATE: <2021-04-01 Thu>
   :END:
-  <2021-04-06 Tue> 
+  <2021-04-06 Tue> 更新
 ** スライド
    {{< myslide base="probability-statistics" name="slide01" >}}
 ** ハンドアウト
@@ -45,7 +45,7 @@
   :EXPORT_FILE_NAME: lecture02
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
-  <2021-04-05 Mon>
+  <2021-04-05 Mon> 更新
 ** スライド
    {{< myslide base="probability-statistics" name="slide02" >}}
 ** ハンドアウト
@@ -56,8 +56,9 @@
   :EXPORT_FILE_NAME: lecture03
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
+  <2021-04-11 Sun> 更新
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide03" >}}
+   {{< myslide base="probability-statistics" name="slide03" >}}
 ** ハンドアウト
    - [[github:pdfs/slide03.pdf][PDF file]]
 
