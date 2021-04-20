@@ -1,8 +1,9 @@
 #+TITLE: 確率変数
-#+SUBTITLE: 確率・統計 第4回
+#+SUBTITLE: 確率・統計 - 講義4
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-08-23 22:08:20 mura>
+#+DATE:
+# Time-stamp: <2021-04-19 21:48:02 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -11,20 +12,29 @@
 # C-c '
 :end:
 
+* 前回のおさらい
+  - 確率密度
+    - 確率密度の積分による確率測度の表現
+    - 確率密度の満たすべき条件
+    - Riemann積分とLebesgue積分
+    - いろいろな確率分布
+
+
+
 * 1次元の確率変数
-  #+begin_notes
-  確率空間の上の
-  関数として定義される
-  確率変数の性質についてまとめる．
-  #+end_notes
+  # #+begin_notes
+  # 確率空間の上の
+  # 関数として定義される
+  # 確率変数の性質についてまとめる．
+  # #+end_notes
 
 ** 確率変数の定義
    - 定義
      #+begin_quote
-     ある試行 $T$ の確率空間を
-     $(\Omega,\mathcal{F},P)$ とする．
+     ある試行 \(T\) の確率空間を
+     \((\Omega,\mathcal{F},P)\) とする．
 
-     $\Omega$ から実数 $\mathbb{R}$ への写像
+     \(\Omega\) から実数 \(\mathbb{R}\) への写像
      #+begin_src latex
      \begin{align}
        X:\;
@@ -33,15 +43,15 @@
      \end{align}
      #+end_src
      として定義される実数値関数
-     $X(\omega)$
+     \(X(\omega)\)
      を確率空間
-     $(\Omega,\mathcal{F},P)$
+     \((\Omega,\mathcal{F},P)\)
      上の *(実)確率変数* (random variable)
      と呼ぶ．
      #+end_quote
      # #+begin_quote
-     # 確率変数は，試行$T$の結果として見本点$\omega$が出現したとき，
-     # その見本点に対応して$X(\omega)$という値を取る偶然量を表している．
+     # 確率変数は，試行\(T\)の結果として見本点\(\omega\)が出現したとき，
+     # その見本点に対応して\(X(\omega)\)という値を取る偶然量を表している．
      # 一般の見本空間は，
      # 骰子の目の系列や工場の製品など，
      # 数値とは限らない要素の集合を考えているため，そのままでは
@@ -59,9 +69,9 @@
 ** 確率変数の例
    - 骰子振りの確率変数
      #+begin_quote
-     骰子を振ると(出た目 $\times 100$ )円の賞金が貰えるとする．
+     骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
 
-     骰子の目を $\omega$ で表すと賞金 $X$ は
+     骰子の目を \(\omega\) で表すと賞金 \(X\) は
      #+begin_src latex
        \begin{equation}
          X(\omega)=100\omega
@@ -83,7 +93,7 @@
        \end{equation}
      #+end_src
      となり，
-     出た目の和 $X$ は確率変数である:
+     出た目の和 \(X\) は確率変数である:
      #+begin_src latex
        \begin{equation}
          X(\omega_1,\omega_2)=\omega_1+\omega_2
@@ -105,19 +115,19 @@
    - ルーレット回しの確率変数
      #+begin_quote
      "ルーレット回し"の試行において，
-     ルーレットの目盛り $\omega$ が有理数なら1点，
+     ルーレットの目盛り \(\omega\) が有理数なら1点，
      無理数なら0点の得点が得られるとする．
      このとき点数
      #+begin_src latex
        \begin{equation}
          X(\omega)=
          \begin{cases}
-           1, & \text{$\omega$が有理数}\\
-           0, & \text{$\omega$が無理数}
+           1, & \text{\(\omega\)が有理数}\\
+           0, & \text{\(\omega\)が無理数}
          \end{cases}
        \end{equation}
      #+end_src
-     は $\Omega=(0,1]$ 上の確率変数である．
+     は \(\Omega=(0,1]\) 上の確率変数である．
      同様に出た目盛りが0にどれだけ近いかに応じて
      点数がもらえるとする．
      この点数を
@@ -127,51 +137,52 @@
        \end{equation}
      #+end_src
      で定めれば，
-     $Y$ も $\Omega=(0,1]$ 上の確率変数である．
+     \(Y\) も \(\Omega=(0,1]\) 上の確率変数である．
      #+end_quote
    #+reveal: split
    - 骰子振り
      #+begin_quote
-     "1が出るまで骰子を振り続ける"試行で得られる見本点を $\omega$ とする．
-     このとき，系列 $\omega$ の長さ
+     "1が出るまで骰子を振り続ける"試行で得られる見本点を \(\omega\) とする．
+     このとき，系列 \(\omega\) の長さ
      #+begin_src latex
        \begin{equation}
-         X(\omega)=\text{系列$\omega$の長さ}
+         X(\omega)=\text{系列\(\omega\)の長さ}
        \end{equation}
      #+end_src
-     は自然数 $\mathbb{N}$ 上の確率変数と考えることができる．
+     は自然数 \(\mathbb{N}\) 上の確率変数と考えることができる．
      #+end_quote
    #+reveal: split
    - 工場の製品
      #+begin_quote
      ある工場で生産されるエンジンの抜き取り検査をして，
      最大出力と燃費を測定したとする．
-     この場合は見本点 $\omega$ は生産されるエンジンの個体を表し，
-     最大出力 $X(\omega)$ と燃費 $Y(\omega)$ は個体 $\omega$ ごとに異なる
+     この場合は見本点 \(\omega\) は生産されるエンジンの個体を表し，
+     最大出力 \(X(\omega)\) と燃費 \(Y(\omega)\) は個体 \(\omega\) ごとに異なる
      確率変数であると考えることができる．
      #+end_quote
 
+
 * 確率変数の確率空間
-  #+begin_notes
-  確率変数の値を見本点として，
-  もとの確率空間から導かれる確率測度を用いて
-  確率空間を構成することができる．
-  #+end_notes
+  # #+begin_notes
+  # 確率変数の値を見本点として，
+  # もとの確率空間から導かれる確率測度を用いて
+  # 確率空間を構成することができる．
+  # #+end_notes
 
 ** 確率変数の見本空間
    - 定義
      #+begin_quote
-     確率変数 $X(\omega)$ は
-     $\omega$ が従う確率法則によってばらつく確率的な量であるため，
-     確率変数 $X(\omega)$ の確率空間を考えることができる．
-     確率変数 $X(\omega)$ の取り得る全ての値の集合を
-     *確率変数 $X$ の見本空間* (sample space)
+     確率変数 \(X(\omega)\) は
+     \(\omega\) が従う確率法則によってばらつく確率的な量であるため，
+     確率変数 \(X(\omega)\) の確率空間を考えることができる．
+     確率変数 \(X(\omega)\) の取り得る全ての値の集合を
+     *確率変数 \(X\) の見本空間* (sample space)
      と呼ぶ．
      #+begin_src latex
        \begin{equation}
          \Omega^X
          =X(\Omega)
-         \qquad \text{($\Omega$の各点を$X$で写像した像(点)の集合)}
+         \qquad \text{(\(\Omega\)の各点を\(X\)で写像した像(点)の集合)}
        \end{equation}
      #+end_src
      #+end_quote
@@ -179,29 +190,29 @@
 ** 確率変数の確率法則
    - 見本点の写像
      #+begin_quote
-     見本空間 $\Omega^X$ の任意の部分集合 $B$ に対して
-     "$X$ の値が $B$ に入る" ($X\in B$) という事象を定義する．
-     この事象に含まれる元の見本空間 $\Omega$ の見本点は
+     見本空間 \(\Omega^X\) の任意の部分集合 \(B\) に対して
+     "\(X\) の値が \(B\) に入る" (\(X\in B\)) という事象を定義する．
+     この事象に含まれる元の見本空間 \(\Omega\) の見本点は
      #+begin_src latex
        \begin{equation}
          A
-         =\{\omega|\;\text{$X(\omega)$が$B$に入る}\}
+         =\{\omega|\;\text{\(X(\omega)\)が\(B\)に入る}\}
          =\{\omega|\;X(\omega)\in B\}\subset\Omega
        \end{equation}
      #+end_src
      であり
-     $A$ の確率は元の確率空間で考えることができる．
+     \(A\) の確率は元の確率空間で考えることができる．
      #+begin_src latex
        \begin{equation}
-         P(\text{$X$の値が$B$に入る})=P(A)
+         P(\text{\(X\)の値が\(B\)に入る})=P(A)
        \end{equation}
      #+end_src
      #+end_quote
    #+reveal: split
    - 事象の写像
      #+begin_quote
-     $X$ を $\Omega$ の部分集合から
-     $\mathbb{R}$ の部分集合へ対応させる関数
+     \(X\) を \(\Omega\) の部分集合から
+     \(\mathbb{R}\) の部分集合へ対応させる関数
      #+begin_src latex
        \begin{equation}
          B=\{X(\omega)|\;\omega\in A\}=X(A)
@@ -218,27 +229,27 @@
    #+reveal: split
    - 確率測度の変換
      #+begin_quote
-     $X$ の値が $B$ に入る確率は
+     \(X\) の値が \(B\) に入る確率は
      #+begin_src latex
        \begin{equation}
          P(X^{-1}(B))=P\{\omega|\;X(\omega)\in B\}
        \end{equation}
      #+end_src
      と表される．
-     これを $B$ の関数とみて
+     これを \(B\) の関数とみて
      #+begin_src latex
        \begin{equation}
          P^X(B)=P(X^{-1}(B))
        \end{equation}
      #+end_src
      と書くと，
-     $P^X$ は $\Omega^X$ 上の $X$ の
+     \(P^X\) は \(\Omega^X\) 上の \(X\) の
      確率測度を表す．
 
-     $\Omega^X$ は $\mathbb{R}$ の部分集合なので，
-     $\Omega^X$ 上の Borel 集合族を 
-     $\mathcal{F}^X$ と書くことにすれば，
-     $(\Omega^X,\mathcal{F}^X,P^X)$ 
+     \(\Omega^X\) は \(\mathbb{R}\) の部分集合なので，
+     \(\Omega^X\) 上の Borel 集合族を 
+     \(\mathcal{F}^X\) と書くことにすれば，
+     \((\Omega^X,\mathcal{F}^X,P^X)\) 
      も確率空間になる．
      #+end_quote
    #+reveal: split
@@ -252,7 +263,7 @@
        \end{align}
      #+end_src
      より
-     $P^X$ が条件を満たしていることが確認できる．
+     \(P^X\) が条件を満たしていることが確認できる．
      #+begin_src latex
        \begin{align}
          P^{X}(B)
@@ -273,7 +284,7 @@
      #+end_quote
 
 ** 確率変数の確率空間の例
-   - 二回の骰子振りの確率変数 $X$
+   - 二回の骰子振りの確率変数 \(X\)
      #+begin_quote
      見本空間，および確率測度は以下のとおり．
      #+begin_src latex
@@ -299,7 +310,7 @@
      #+end_src
      #+end_quote
    #+reveal: split
-   - 二回の骰子振りの確率変数 $Y$
+   - 二回の骰子振りの確率変数 \(Y\)
      #+begin_quote
      見本空間，および確率測度は以下のとおり．
      #+begin_src latex
@@ -323,7 +334,7 @@
      #+end_src
      #+end_quote
    #+reveal: split
-   - ルーレット回しの確率変数 $X$
+   - ルーレット回しの確率変数 \(X\)
      #+begin_quote
      見本空間，および確率測度は以下のとおり．
      #+begin_src latex
@@ -334,13 +345,13 @@
      #+end_src
      #+begin_src latex
        \begin{align}
-         P^X(X=1)&=P(\text{$\omega$が有理数})=0\\
-         P^X(X=0)&=P(\text{$\omega$が無理数})=1
+         P^X(X=1)&=P(\text{\(\omega\)が有理数})=0\\
+         P^X(X=0)&=P(\text{\(\omega\)が無理数})=1
        \end{align}
      #+end_src
      #+end_quote
    # #+reveal: split
-   # - ルーレット回しの確率変数 $Y$
+   # - ルーレット回しの確率変数 \(Y\)
    #   #+begin_quote
    #   見本空間，および確率測度は以下のとおり．
    #   #+begin_src latex
@@ -358,7 +369,7 @@
    #         =-e^{-b}-(-e^{-a})
    #     \end{align}
    #   #+end_src
-   #   これから $Y$ の確率分布の密度関数は以下で与えられる．
+   #   これから \(Y\) の確率分布の密度関数は以下で与えられる．
    #   #+begin_src latex
    #     \begin{equation}
    #       f(y)=e^{-y},
@@ -367,17 +378,17 @@
    #   #+end_src
    #   #+end_quote
    # #+begin_quote
-   # $X$は実数値を取るので，
-   # $X$の見本空間$\Omega^X$は$\mathbb{R}$の部分集合である．
+   # \(X\)は実数値を取るので，
+   # \(X\)の見本空間\(\Omega^X\)は\(\mathbb{R}\)の部分集合である．
    # また連続分布を考える場合，
    # 測度の定義域は特に断わらない限り
    # Lebesgue測度において自然な定義域であるBorel集合族を考える．
-   # なお$\Omega^X$が可算集合であれば
+   # なお\(\Omega^X\)が可算集合であれば
    # \begin{equation}
    #   P^X(B)=\sum_{b\in B}P^X\{b\}
    # \end{equation}
    # となり，
-   # 各点での確率$P^X\{b\}$によって確率法則は完全に決まる．
+   # 各点での確率\(P^X\{b\}\)によって確率法則は完全に決まる．
    # #+end_quote
 
    # 上の骰子やルーレットの例のように，
@@ -390,24 +401,30 @@
    # 確率変数はその一面を捉えるために行う実験の観測値に対応している．
    # 実験で観測される変数はいろいろあるが，
    # 背後にある原因は共通で，
-   # $\omega$はその原因を表す何か抽象的なものを象徴していると考えればよい
+   # \(\omega\)はその原因を表す何か抽象的なものを象徴していると考えればよい
    # (図\ref{fig:rv2}参照)．
+
 
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - ルーレット回しの確率変数 $Y$ 
-    #+begin_src latex
-      \begin{equation}
-        Y(\omega)=\log\frac{1}{\omega}  
-      \end{equation}
-    #+end_src
-    について，以下のそれぞれの項目を説明せよ．
-    1. 見本空間
-    2. 確率測度
-    3. 確率密度
-** 解答例
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ルーレット回しの確率変数 \(Y\) 
+     #+begin_src latex
+       \begin{equation}
+         Y(\omega)=\log\frac{1}{\omega}  
+       \end{equation}
+     #+end_src
+     について，以下のそれぞれの項目を説明せよ．
+     1. 見本空間
+     2. 確率測度
+     3. 確率密度
+
+** COMMENT 解答例
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -443,6 +460,7 @@
        \end{equation}
      #+end_src
      #+end_quote
+     
 
 * 多次元の確率変数
 ** 多次元の確率変数
@@ -463,7 +481,7 @@
     2次元の *確率ベクトル* (random vector)
     という．
 
-    一般に $n$ 次元で考えてよい．
+    一般に \(n\) 次元で考えてよい．
     #+end_quote
   #+reveal: split
   - 見本空間や確率測度も自然に考えることができる
@@ -480,15 +498,16 @@
     #+end_src
     #+end_quote
 ** 多次元確率変数の用語
-  - $X_1(\omega),\dotsc,,X_n(\omega)$: 
-    $\boldsymbol{X}(\omega)$ の *成分変数*
-  - $\boldsymbol{X}(\omega)$: 
-    $X_1(\omega),\dotsc,X_n(\omega)$ の *結合変数*
-  - $P^{\boldsymbol{X}}$ 
-    ($\boldsymbol{X}(\omega)=(X_1(\omega),\dotsc,X_n(\omega))$
+  - \(X_1(\omega),\dotsc,,X_n(\omega)\): 
+    \(\boldsymbol{X}(\omega)\) の *成分変数*
+  - \(\boldsymbol{X}(\omega)\): 
+    \(X_1(\omega),\dotsc,X_n(\omega)\) の *結合変数*
+  - \(P^{\boldsymbol{X}}\) 
+    (\(\boldsymbol{X}(\omega)=(X_1(\omega),\dotsc,X_n(\omega))\)
     の確率測度): 
-    $X_1(\omega),\dotsc,X_n(\omega)$ の
+    \(X_1(\omega),\dotsc,X_n(\omega)\) の
     *同時確率分布* (joint probability distribution)
+
 
 * 確率変数の変換
 ** 確率変数の変換
@@ -509,7 +528,7 @@
          \qquad (Y=\phi\circ X\text{と書くこともある})
        \end{equation}
      #+end_src
-     とすると $Y(\omega)$ という新しい実数値確率変数ができる．
+     とすると \(Y(\omega)\) という新しい実数値確率変数ができる．
      #+end_quote
 
 ** 確率変数の変換の例
@@ -519,30 +538,30 @@
      和が偶数なら100円貰え，
      奇数なら50円支払うというゲームを考える．
      骰子を二回振ったときの出た目をそれぞれ
-     $\omega_1, \omega_2$ とする．
+     \(\omega_1, \omega_2\) とする．
      また，目の和を
      #+begin_src latex
        \begin{equation}
          X(\omega_1,\omega_2)=\omega_1+\omega_2
        \end{equation}
      #+end_src
-     で表すとすると，賞金(罰金) $Y$ は
+     で表すとすると，賞金(罰金) \(Y\) は
      #+begin_src latex
        \begin{equation}
          Y(\omega_1,\omega_2)=Y(X)=
          \begin{cases}
-           100,& \text{$X$が偶数}\\
-           -50,& \text{$X$が奇数}
+           100,& \text{\(X\)が偶数}\\
+           -50,& \text{\(X\)が奇数}
          \end{cases}
        \end{equation}
      #+end_src
-     という $X$ が変換された確率変数である．
+     という \(X\) が変換された確率変数である．
      #+end_quote
 
 ** 変換後の確率空間
    - 見本空間
      #+begin_quote
-     新しく作られた確率変数 $Y$ の見本空間は，
+     新しく作られた確率変数 \(Y\) の見本空間は，
      変換を順に追って
      #+begin_src latex
        \begin{equation}
@@ -554,9 +573,9 @@
    #+reveal: split
    - 確率測度
      #+begin_quote
-     $\Omega^{Y}$ の適当な部分集合 $C$ に対して，
-     $\Omega^{X}$ で対応する集合を $B$ ，
-     $\Omega$ で対応する集合を $A$ とすると
+     \(\Omega^{Y}\) の適当な部分集合 \(C\) に対して，
+     \(\Omega^{X}\) で対応する集合を \(B\) ，
+     \(\Omega\) で対応する集合を \(A\) とすると
      #+begin_src latex
        \begin{align}
          C&=\phi(B)=\phi(X(A))\\
@@ -576,18 +595,19 @@
      で計算される．
      #+end_quote
 
+
 * 確率変数の平均値
-  #+begin_notes
-  確率変数はその見本空間が実数となり
-  平均値や分散といった具体的な量を計算することができる．
-  #+end_notes
+  # #+begin_notes
+  # 確率変数はその見本空間が実数となり
+  # 平均値や分散といった具体的な量を計算することができる．
+  # #+end_notes
 
 ** 離散分布の平均値
   - 定義
     #+begin_quote
     見本空間が可算の場合，
     その確率空間上で定義された
-    確率変数 $X$ の *平均値 (期待値)*
+    確率変数 \(X\) の *平均値 (期待値)*
     (expectation) 
     は
     #+begin_src latex
@@ -597,19 +617,19 @@
     #+end_src
     で定義される．
     #+end_quote
-    - $X(\omega)$ は $\omega$ の関数であるが，
-      全ての可能な $\omega$ について和を取っているので，
-      $\mathbb{E}[X]$ は $\omega$ によらない量となっていることに注意する．
+    - \(X(\omega)\) は \(\omega\) の関数であるが，
+      全ての可能な \(\omega\) について和を取っているので，
+      \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する．
     - また，確率変数は関数であるので，
-      $\mathbb{E}$ は関数 $X(\omega)$ に作用する
+      \(\mathbb{E}\) は関数 \(X(\omega)\) に作用する
       作用素と考えることができる．
 	      
 ** 平均値の例
    - 骰子振りの確率変数
      #+begin_quote
-     出た目の100倍の値である賞金 $X$ の平均値(期待値)は，
-     骰子の目を $\omega$ で表すことにすれば 
-     $P\{\omega\}=\frac{1}{6}$ なので，
+     出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
+     骰子の目を \(\omega\) で表すことにすれば 
+     \(P\{\omega\}=\frac{1}{6}\) なので，
      #+begin_src latex
        \begin{align}
          \mathbb{E}[X]
@@ -634,9 +654,9 @@
    #+reveal: split
    - 二回の骰子振りの確率変数
      #+begin_quote
-     出た目の和 $X$ の平均値は，
-     二つの目を $\omega_1,\omega_2$ で表すことにすれば
-     $P\{(\omega_1,\omega_2)\}=\frac{1}{36}$
+     出た目の和 \(X\) の平均値は，
+     二つの目を \(\omega_1,\omega_2\) で表すことにすれば
+     \(P\{(\omega_1,\omega_2)\}=\frac{1}{36}\)
      なので，
      #+begin_src latex
        \begin{align}
@@ -658,7 +678,7 @@
      #+end_quote
      #+reveal: split
      #+begin_quote
-     二つの目の大小関係で $\{-1,0,1\}$ の値を取る確率変数 $Y$ の平均値は
+     二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
      #+begin_src latex
        \begin{align}
          \mathbb{E}[Y]
@@ -679,9 +699,9 @@
 ** 連続分布の平均値
    - 定義
      #+begin_quote
-     確率測度 $P$ に確率密度 $f$ がある場合，
+     確率測度 \(P\) に確率密度 \(f\) がある場合，
      その確率空間上で定義された
-     確率変数 $X$ の
+     確率変数 \(X\) の
      *平均値 (期待値)* (expectation) 
      は
      #+begin_src latex
@@ -694,15 +714,15 @@
      で定義される．
      #+end_quote
      - 連続分布の場合も
-       $X(\omega)$ は $\omega$ の関数であるが，
-       $\omega$ に関して積分しているので，
-       平均値 $\mathbb{E}[X]$ は $\omega$ によらない量となっていることに注意する．
+       \(X(\omega)\) は \(\omega\) の関数であるが，
+       \(\omega\) に関して積分しているので，
+       平均値 \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する．
 
 ** 平均値の例
    - ルーレット回しの確率変数
      #+begin_quote
-     ルーレットの目盛りが有理数か無理数かで $\{1,0\}$ の値を取る
-     確率変数 $X$ の平均値は
+     ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
+     確率変数 \(X\) の平均値は
      #+begin_src latex
        \begin{equation}
          \mathbb{E}[X]
@@ -712,10 +732,10 @@
      #+end_src
      または
      # である．
-     # これは $\omega$ の見本空間を用いた計算として示してあるが，
-     # $X$ の確率空間を考えると
-     # その見本空間は $\Omega^{X}=\left\{0,1\right\}$ であり，
-     # 確率法則は $P^{X}(X=0)=1, P^{X}(X=1)=0$ となるので，
+     # これは \(\omega\) の見本空間を用いた計算として示してあるが，
+     # \(X\) の確率空間を考えると
+     # その見本空間は \(\Omega^{X}=\left\{0,1\right\}\) であり，
+     # 確率法則は \(P^{X}(X=0)=1, P^{X}(X=1)=0\) となるので，
      #+begin_src latex
        \begin{equation}
          \mathbb{E}[X]
@@ -727,7 +747,7 @@
      #+end_quote
      # #+reveal: split
      # #+begin_quote
-     # 目盛りの負の対数を取る確率変数 $Y$ の平均値は
+     # 目盛りの負の対数を取る確率変数 \(Y\) の平均値は
      # #+begin_src latex
      #   \begin{align}
      #     \mathbb{E}[Y]
@@ -741,7 +761,7 @@
 ** 注意
    - 見本空間の制限付平均値
      #+begin_quote
-     見本空間を $A\subset\Omega$ に制限した場合の平均値を
+     見本空間を \(A\subset\Omega\) に制限した場合の平均値を
      #+begin_src latex
        \begin{align}
          \mathbb{E}[X,A]
@@ -753,7 +773,7 @@
      #+end_src
      と書くことがある．
      #+end_quote
-   - $\boldsymbol{X}$ がベクトルの場合は，
+   - \(\boldsymbol{X}\) がベクトルの場合は，
      その平均値は各成分ごとに計算すればよい．
      #+begin_src latex
        \begin{equation}
@@ -766,34 +786,34 @@
    - 定理
      #+begin_quote
      平均値には以下のような性質がある．
-     1. $\Big.\mathbb{E}[aX+bY]=a\,\mathbb{E}[X]+b\,\mathbb{E}[Y]$ 
+     1. \(\Big.\mathbb{E}[aX+bY]=a\,\mathbb{E}[X]+b\,\mathbb{E}[Y]\) 
 	(*線形性*)
-     2. $\Big.\mathbb{E}[X,\sum_{i=1}^nA_i]=\sum_{i=1}^n\mathbb{E}[X,A_i]$
-     3. $A$ の上で恒等的に確率変数が定数，すなわち $X(\omega)=a$ ならば\\
-	$\Big.\mathbb{E}[X,A]=a\,P(A)$ \\
-	特に $\Big.\mathbb{E}[a]=a$ (定数の平均値はその定数)
+     2. \(\Big.\mathbb{E}[X,\sum_{i=1}^nA_i]=\sum_{i=1}^n\mathbb{E}[X,A_i]\)
+     3. \(A\) の上で恒等的に確率変数が定数，すなわち \(X(\omega)=a\) ならば\\
+	\(\Big.\mathbb{E}[X,A]=a\,P(A)\) \\
+	特に \(\Big.\mathbb{E}[a]=a\) (定数の平均値はその定数)
      #+end_quote
    #+reveal: split
    - 定理
      #+begin_quote
-     $X$ の確率分布が考えられ，
-     $X$ の確率分布が $P^X$ 
-     あるいは密度関数が $f^X$ で与えられる場合には以下が成り立つ．
-     1. $\Big.\mathbb{E}[X]=\sum_{x\in\Omega^X}xP^{X}\{x\}$
-	($X$ が離散分布)\\
-	$\Big.\mathbb{E}[X]=\int_{x\in\Omega^X}xf^{X}(x)dx$
-	($X$ が連続分布)
-     1. $\Big.Y(\omega)=\phi(X(\omega))$ ならば\\
-	$\Big.\mathbb{E}[Y]=\sum_{x\in\Omega^X}\phi(x)P^{X}\{x\}$
-	($X$ が離散分布)\\
-	$\Big.\mathbb{E}[Y]=\int_{x\in\Omega^X}\phi(x)f^{X}(x)dx$
-	($X$ が連続分布)
+     \(X\) の確率分布が考えられ，
+     \(X\) の確率分布が \(P^X\) 
+     あるいは密度関数が \(f^X\) で与えられる場合には以下が成り立つ．
+     1. \(\Big.\mathbb{E}[X]=\sum_{x\in\Omega^X}xP^{X}\{x\}\)
+	(\(X\) が離散分布)\\
+	\(\Big.\mathbb{E}[X]=\int_{x\in\Omega^X}xf^{X}(x)dx\)
+	(\(X\) が連続分布)
+     1. \(\Big.Y(\omega)=\phi(X(\omega))\) ならば\\
+	\(\Big.\mathbb{E}[Y]=\sum_{x\in\Omega^X}\phi(x)P^{X}\{x\}\)
+	(\(X\) が離散分布)\\
+	\(\Big.\mathbb{E}[Y]=\int_{x\in\Omega^X}\phi(x)f^{X}(x)dx\)
+	(\(X\) が連続分布)
      #+end_quote
 
 ** 平均値の計算の例
    - 二回の骰子振りの確率変数
      #+begin_quote
-     出た目の和 $X$ の平均値は平均の和の関係を用いると
+     出た目の和 \(X\) の平均値は平均の和の関係を用いると
      #+begin_src latex
        \begin{align}
          \mathbb{E}[X]
@@ -816,7 +836,7 @@
    # #+reveal: split
    # - ルーレット回しの確率変数
    #   #+begin_quote
-   #   目盛りの負の対数 $Y$ の平均値は $Y$ の確率密度を用いて
+   #   目盛りの負の対数 \(Y\) の平均値は \(Y\) の確率密度を用いて
    #   #+begin_src latex
    #     \begin{align}
    #       \mathbb{E}[Y]
@@ -828,20 +848,26 @@
    #   #+end_src
    #   としてもよい．
    #   #+end_quote
+
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - ルーレット回しの確率変数 $Y$ の平均値を
-    以下の2通りの確率測度を用いて求めよ
-    1. $\omega$ の確率空間の確率測度
-    2. $Y$ の確率空間の確率測度
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ルーレット回しの確率変数 \(Y\) の平均値を
+     以下の2通りの確率測度を用いて求めよ
+     1. \(\omega\) の確率空間の確率測度
+     2. \(Y\) の確率空間の確率測度
 
-** 解答例
+** COMMENT 解答例
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - $\omega$ の確率空間の確率測度
+  - \(\omega\) の確率空間の確率測度
     #+begin_quote
     #+begin_src latex
       \begin{align}
@@ -851,7 +877,7 @@
       \end{align}
     #+end_src
     #+end_quote
-  - $Y$ の確率空間の確率測度
+  - \(Y\) の確率空間の確率測度
     #+begin_quote
     #+begin_src latex
       \begin{align}
@@ -863,16 +889,17 @@
     #+end_src
     #+end_quote
 
+
 * 確率変数の分散
-  #+begin_notes
-  平均値と同様に確率変数の性質を決める大事な量として分散がある．
-  これは確率変数が平均値のまわりにどのくらいばらつくかを示す指標となる．
-  #+end_notes
+  # #+begin_notes
+  # 平均値と同様に確率変数の性質を決める大事な量として分散がある．
+  # これは確率変数が平均値のまわりにどのくらいばらつくかを示す指標となる．
+  # #+end_notes
 
 ** 分散
    - 定義
      #+begin_quote
-     確率変数 $X$ の *分散* (variance) 
+     確率変数 \(X\) の *分散* (variance) 
      は平均値を用いて
      #+begin_src latex
        \begin{equation}
@@ -888,7 +915,7 @@
 ** 共分散
    - 定義
      #+begin_quote
-     確率変数 $X,Y$ の *共分散*  (covariance)
+     確率変数 \(X,Y\) の *共分散*  (covariance)
      は
      #+begin_src latex
        \begin{equation}
@@ -922,9 +949,9 @@
      #+end_quote
 
 ** 分散の計算例
-   - 二回の骰子振りの確率変数 $X$
+   - 二回の骰子振りの確率変数 \(X\)
      #+begin_quote
-     出た目の和 $X$ の分散は
+     出た目の和 \(X\) の分散は
      #+begin_src latex
        \begin{align}
          &\mathbb{E}[(X-\mathbb{E}[X])^2]\\
@@ -937,9 +964,9 @@
      である．
      #+end_quote
    #+reveal: split
-   - 二回の骰子振りの確率変数 $Y$
+   - 二回の骰子振りの確率変数 \(Y\)
      #+begin_quote
-     また二つの目の大小関係を表す $Y$ の分散は
+     また二つの目の大小関係を表す \(Y\) の分散は
      #+begin_src latex
        \begin{align}
          &\mathbb{E}[(Y-\mathbb{E}[Y])^2]\\
@@ -951,9 +978,9 @@
      である．
      #+end_quote
    #+reveal: split
-   - ルーレット回しの確率変数 $X$
+   - ルーレット回しの確率変数 \(X\)
      #+begin_quote
-     有理数・無理数を区別する $X$ の分散は
+     有理数・無理数を区別する \(X\) の分散は
      #+begin_src latex
        \begin{equation}
          \mathbb{E}[(X-\mathbb{E}[X])^2]
@@ -961,7 +988,7 @@
        \end{equation}
      #+end_src
      である．
-     # また負の対数 $Y$ の分散は
+     # また負の対数 \(Y\) の分散は
      # #+begin_src latex
      #   \begin{align}
      #     \mathbb{E}[(Y-\mathbb{E}[Y])^2]
@@ -977,15 +1004,15 @@
    - 定理
      #+begin_quote
      分散・共分散には以下の性質がある．
-       1. $\Big.\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)$ (対称性)
-       2. $\Big.\mathrm{Cov}(X,a)=0$
-       3. $\Big.\mathrm{Cov}(X,X)=\mathrm{Var}(X)\ge0$ (正値性)
-       4. $\Big.\mathrm{Var}(aX+b)=a^2\,\mathrm{Var}(X)$ \\
-	  $\Big.\mathrm{Cov}(aX+b,cY+d)=ac\mathrm{Cov}(X,Y)$
-       5. $\Big.\mathrm{Var}(aX+bY)=a^2\,\mathrm{Var}(X)+2ab\,\mathrm{Cov}(X,Y)+b^2\,\mathrm{Var}(Y)$
-       6. $\Big.\mathrm{Var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2$ \\
-	  $\Big.\mathrm{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\cdot\mathbb{E}[Y]$
-       7. $\Big.|\mathrm{Cov}(X,Y)|\le\sqrt{\mathrm{Var}(X)\mathrm{Var}(Y)}$ \\
+       1. \(\Big.\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)\) (対称性)
+       2. \(\Big.\mathrm{Cov}(X,a)=0\)
+       3. \(\Big.\mathrm{Cov}(X,X)=\mathrm{Var}(X)\ge0\) (正値性)
+       4. \(\Big.\mathrm{Var}(aX+b)=a^2\,\mathrm{Var}(X)\) \\
+	  \(\Big.\mathrm{Cov}(aX+b,cY+d)=ac\mathrm{Cov}(X,Y)\)
+       5. \(\Big.\mathrm{Var}(aX+bY)=a^2\,\mathrm{Var}(X)+2ab\,\mathrm{Cov}(X,Y)+b^2\,\mathrm{Var}(Y)\)
+       6. \(\Big.\mathrm{Var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2\) \\
+	  \(\Big.\mathrm{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\cdot\mathbb{E}[Y]\)
+       7. \(\Big.|\mathrm{Cov}(X,Y)|\le\sqrt{\mathrm{Var}(X)\mathrm{Var}(Y)}\) \\
 	  (Schwarzの不等式の一つの表現)
      #+end_quote
      - 特に6.の関係は重要
@@ -993,8 +1020,8 @@
 ** モーメント
    - 定義
      #+begin_quote
-     確率変数 $X$ の *k次モーメント* (積率; k-th moment) 
-     は，確率変数の $k$ 乗の平均
+     確率変数 \(X\) の *k次モーメント* (積率; k-th moment) 
+     は，確率変数の \(k\) 乗の平均
      #+begin_src latex
        \begin{equation}
          m_k(X)=\mathbb{E}[X^k]
@@ -1024,22 +1051,27 @@
      と呼ぶことがある．
      #+end_quote
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 以下の確率変数の分散を求めよ．
-    1. 区間 $(-1,1)$ 上の一様分布
-    2. ルーレット回しの確率変数 $Y$
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の確率変数の分散を求めよ．
+     1. 区間 \((-1,1)\) 上の一様分布
+     2. ルーレット回しの確率変数 \(Y\)
   
-** 解答例
+** COMMENT 解答例
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
   - 一様分布の分散
     #+begin_quote
-    区間 $(-1,1)$ 上の一様分布に従う
-    確率変数を $U$ と書くと
+    区間 \((-1,1)\) 上の一様分布に従う
+    確率変数を \(U\) と書くと
     #+begin_src latex
       \begin{align}
         \mathbb{E}[(U-\mathbb{E}[U])^2]
@@ -1048,7 +1080,7 @@
       \end{align}
     #+end_src
     #+end_quote
-  - ルーレット回しの確率変数 $Y$
+  - ルーレット回しの確率変数 \(Y\)
     #+begin_quote
     #+begin_src latex
       \begin{align}
@@ -1060,11 +1092,12 @@
     #+end_src
     #+end_quote
 
+
 * 特性関数
-  #+begin_notes
-  平均，分散，モーメントは確率変数の一面を捉えるための1つの量であるが，
-  確率変数が従う確率測度の特徴を表すものとしては以下の特性関数がある．
-  #+end_notes
+  # #+begin_notes
+  # 平均，分散，モーメントは確率変数の一面を捉えるための1つの量であるが，
+  # 確率変数が従う確率測度の特徴を表すものとしては以下の特性関数がある．
+  # #+end_notes
 
 ** 特性関数
    - 定義
@@ -1089,8 +1122,8 @@
      #   \end{equation}
      # #+end_src
      # であるが，
-     1次元の連続分布 $P$ に対して
-     密度関数 $f$ が存在すれば
+     1次元の連続分布 \(P\) に対して
+     密度関数 \(f\) が存在すれば
      #+begin_src latex
        \begin{equation}
          \phi(z)=\int_{-\infty}^{\infty}e^{izx}f(x)dx
@@ -1122,15 +1155,21 @@
      特性関数は確率測度の性質を調べるために重要な働きをする．
      #+end_quote
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 以下の確率測度の特性関数を求めよ．
-    1. 区間 $(-1,1)$ 上の一様分布
-    2. 標準正規分布
-    3. 平均 $\mu$ 分散 $\sigma^{2}$ の正規分布
-** ヒント
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の確率測度の特性関数を求めよ．
+     1. 区間 \((-1,1)\) 上の一様分布
+     2. 標準正規分布
+     3. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
+
+** COMMENT ヒント
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -1140,19 +1179,22 @@
           \phi(z)
           &=\int_{-1}^{1}e^{izx}\cdot\frac{1}{2}dx\\
           &=\left[\frac{e^{izx}}{2iz}\right]_{-1}^{1}
-          =\frac{\sin(z)}{z}
-       \end{align}
-     #+end_src
+            =\frac{\sin(z)}{z}
+        \end{align}
+      #+end_src
    2. 指数の肩の2次式を整理する．
    3. 標準正規分布の結果を利用する．
 
-* まとめ
+
+* 今回のまとめ
   - 確率変数
     - 確率空間上の関数としての確率変数
     - 確率変数の確率空間
     - 複数の確率変数の同時確率(結合確率)
     - 確率変数の平均，分散，モーメント
     - 確率変数の特性関数
+
+
 ** COMMENT 注意
    - 確認テスト (講義4の中)
      - 期間: 6/2講義終了-6/8正午
@@ -1163,3 +1205,12 @@
      - 過去問などで手を動かしてから受けることをお勧め
  
 
+
+
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      
+  
+   

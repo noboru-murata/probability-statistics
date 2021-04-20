@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2021-04-07 15:46:20 mura>
+# Time-stamp: <2021-04-14 17:13:03 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -398,7 +398,7 @@
 ** 確率測度の例
    - [[color:darkgreen][骰子振り]]
      #+begin_quote
-     "いかさまのない骰子を1回振る" "試行 \(T\) の確率測度 \(P\) は
+     "いかさまのない骰子を1回振る" 試行 \(T\) の確率測度 \(P\) は
      #+begin_src latex
        \begin{align}
 	 &P(\{1\})=P\{2\}=P\{3\}=P\{4\}=P\{5\}=P\{6\}
