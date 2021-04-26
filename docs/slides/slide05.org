@@ -2,7 +2,8 @@
 #+SUBTITLE: 確率・統計 第5回
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-# #+DATE: Time-stamp: <2020-06-09 08:34:39 mura>
+#+DATE:
+# Time-stamp: <2021-04-24 17:41:08 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -11,12 +12,21 @@
 # C-c '
 :end:
 
+* 前回のおさらい
+  - 確率変数
+    - 確率空間上の関数としての確率変数
+    - 確率変数の確率空間
+    - 複数の確率変数の同時確率(結合確率)
+    - 確率変数の平均，分散，モーメント
+    - 確率変数の特性関数
+
+
 * 条件付確率
-  #+begin_notes
-  条件付確率とは，
-  時間的な前後とは関係なく事象の間に定義される
-  一種の因果関係を記述するための確率論の枠組である．
-  #+end_notes
+  # #+begin_notes
+  # 条件付確率とは，
+  # 時間的な前後とは関係なく事象の間に定義される
+  # 一種の因果関係を記述するための確率論の枠組である．
+  # #+end_notes
   
 ** 条件付確率
    - 定義
@@ -218,12 +228,13 @@
      と呼ぶ．
      #+end_quote
 
+
 * Bayesの定理
-  #+begin_notes
-  事象をうまく分解することによって導かれるBayesの定理を利用して
-  条件が逆向きとなる関係を陽に計算することもできる．
-  確率的な推論には欠くことのできない重要な概念となっている．
-  #+end_notes
+  # #+begin_notes
+  # 事象をうまく分解することによって導かれるBayesの定理を利用して
+  # 条件が逆向きとなる関係を陽に計算することもできる．
+  # 確率的な推論には欠くことのできない重要な概念となっている．
+  # #+end_notes
 
 ** Bayesの定理 (基本形)
    - 定理
@@ -252,14 +263,18 @@
      が成り立つ．
      #+end_quote
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 以下の問に答えよ．
-    - Bayes の定理(一般形)を証明せよ．
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - Bayes の定理(一般形)を証明せよ．
 
-** 解答例
+** COMMENT 解答例
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -282,13 +297,14 @@
     これと定理を用いれば分母の表現が得られる．
     #+end_quote
 
+
 * 独立性
-  #+begin_notes
-  独立性とは2つの確率変数が
-  確率法則の意味で無関係となることである．
-  その定義の仕方はいくつかあるが，
-  本質は条件付確率の性質によって理解できる．
-  #+end_notes
+  # #+begin_notes
+  # 独立性とは2つの確率変数が
+  # 確率法則の意味で無関係となることである．
+  # その定義の仕方はいくつかあるが，
+  # 本質は条件付確率の性質によって理解できる．
+  # #+end_notes
 
 ** 確率変数の独立性
    - 定義 (有限試行の場合)
@@ -462,89 +478,103 @@
         #+end_src
      #+end_quote
 
+
 * 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
-  - 以下の問に答えよ．
-    #+begin_quote
-    高田馬場のラーメン屋Aの売上は，
-    前の週の口コミサイトBとCにおける評価に強く影響される．
-    詳しく調べた結果以下のことが判った．
-    - 売上，および評価は上がるか下がるかの二通りしかない
-    - B,C共に評価が上がったときに売上が上がる確率は $0.9$ である
-    - B,Cの一方のみ評価が上がったときに売上が上がる確率は $0.6$ である
-    - B,C共に評価が下がったときに売上が下がる確率は $0.8$ である
-    - Bの評価が上がる確率は $0.5$ である
-    - Cの評価が上がる確率は $0.6$ である
-    - Bの評価が上がるとき $X=1$, 下がるとき $X=0$, 
-      Cの評価が上がるとき $Y=1$, 下がるとき $Y=0$ となる
-      確率変数 $X,Y$ を考えると，$X,Y$ の共分散は $0.1$ である
-    #+end_quote
-  #+reveal: split   
-  - このとき以下の確率を求めよ．
-    - B,C共に評価が上がる確率はいくつか？
-    - Aの売上が下がったとき，
-      B,C共に評価が下がった確率はいくつか？
-    - Aの売上が上がったとき，
-      B,Cの一方のみ評価が上がった確率はいくつか？
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の問に答えよ．
+     #+begin_quote
+     高田馬場のラーメン屋Aの売上は，
+     前の週の口コミサイトBとCにおける評価に強く影響される．
+     詳しく調べた結果以下のことが判った．
+     - 売上，および評価は上がるか下がるかの二通りしかない
+     - B,C共に評価が上がったときに売上が上がる確率は $0.9$ である
+     - B,Cの一方のみ評価が上がったときに売上が上がる確率は $0.6$ である
+     - B,C共に評価が下がったときに売上が下がる確率は $0.8$ である
+     - Bの評価が上がる確率は $0.5$ である
+     - Cの評価が上がる確率は $0.6$ である
+     - Bの評価が上がるとき $X=1$, 下がるとき $X=0$, 
+       Cの評価が上がるとき $Y=1$, 下がるとき $Y=0$ となる
+       確率変数 $X,Y$ を考えると，$X,Y$ の共分散は $0.1$ である
+     #+end_quote
+   #+reveal: split   
+   - このとき以下の確率を求めよ．
+     - B,C共に評価が上がる確率はいくつか？
+     - Aの売上が下がったとき，
+       B,C共に評価が下がった確率はいくつか？
+     - Aの売上が上がったとき，
+       B,Cの一方のみ評価が上がった確率はいくつか？
 
-** ヒント
-  :PROPERTIES:
-  :reveal_background: #fef4f4
-  :END:
-  - 扱う事象を整理する
-    #+begin_quote
-    #+begin_src latex
-      \begin{align}
-        A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
-        B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
-        C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
-      \end{align}
-    #+end_src
-    #+end_quote
-  #+reveal: split
-  - 前提条件を書き下す
-    #+begin_quote
-    #+begin_src latex
-      \begin{align}
-        &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
-        &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
-        &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
-        &P(B)=0.5&&P(B^{c})=0.5\\
-        &P(C)=0.6&&P(C^{c})=0.4\\
-        &\mathrm{Cov}(X,Y)=0.1
-      \end{align}
-    #+end_src
-    #+end_quote
-  #+reveal: split
-  - 求める確率は以下のとおり
-    #+begin_quote
-    #+begin_src latex
-      \begin{align}
-        &P(B\cap C)\\
-        &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
-        &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
-        &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
-      \end{align}
-    #+end_src
-    #+end_quote
-    - 第1問は共分散の計算を利用すれば求められる
-      #+begin_src latex
-        \begin{align}
-          \mathrm{Cov}(X,Y)
-          &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
-          &=P(X=1,Y=1)-P(X=1)P(Y=1)
-        \end{align}
-      #+end_src
-    - 第1問の結果を利用すると前提条件から 
-      $P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})$
-      も求められる
-    - 第2,3問は必要な確率を整理して Bayes の定理を用いればよい
+** COMMENT ヒント
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 扱う事象を整理する
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
+	 B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
+	 C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 前提条件を書き下す
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
+	 &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
+	 &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
+	 &P(B)=0.5&&P(B^{c})=0.5\\
+	 &P(C)=0.6&&P(C^{c})=0.4\\
+	 &\mathrm{Cov}(X,Y)=0.1
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 求める確率は以下のとおり
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 &P(B\cap C)\\
+	 &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+	 &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+	 &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
+       \end{align}
+     #+end_src
+     #+end_quote
+     - 第1問は共分散の計算を利用すれば求められる
+       #+begin_src latex
+	 \begin{align}
+	   \mathrm{Cov}(X,Y)
+	   &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+	   &=P(X=1,Y=1)-P(X=1)P(Y=1)
+	 \end{align}
+       #+end_src
+     - 第1問の結果を利用すると前提条件から 
+       $P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})$
+       も求められる
+     - 第2,3問は必要な確率を整理して Bayes の定理を用いればよい
 
-* まとめ
+
+* 今回のまとめ
   - 条件付確率と独立性
     - 同時確率，周辺確率，条件付確率
     - 条件付確率分布，条件付確率密度，条件付平均値
     - 条件付確率とBeyesの定理
     - 確率変数と事象の独立性
+
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      
+  
+   
