@@ -1,9 +1,9 @@
 #+TITLE: 条件付確率と独立性
-#+SUBTITLE: 確率・統計 第5回
+#+SUBTITLE: 確率・統計 - 講義5
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-04-24 17:41:08 mura>
+# Time-stamp: <2021-04-27 08:41:19 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content

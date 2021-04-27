@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org0a59e29">
-<h2 id="org0a59e29">前回のおさらい</h2>
+<section id="slide-org1568950">
+<h2 id="org1568950">前回のおさらい</h2>
 <ul>
 <li>確率密度
 <ul>
@@ -66,12 +66,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb0c0258">
-<h2 id="orgb0c0258">1次元の確率変数</h2>
+<section id="slide-org81799db">
+<h2 id="org81799db">1次元の確率変数</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb8840e7">
-<h3 id="orgb8840e7">確率変数の定義</h3>
+<section id="slide-org8330122">
+<h3 id="org8330122">確率変数の定義</h3>
 <ul>
 <li><p>
 定義
@@ -108,8 +108,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org76008a8">
-<h3 id="org76008a8">確率変数の例</h3>
+<section id="slide-org618b999">
+<h3 id="org618b999">確率変数の例</h3>
 <ul>
 <li><p>
 骰子振りの確率変数
@@ -279,12 +279,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org20c5811">
-<h2 id="org20c5811">確率変数の確率空間</h2>
+<section id="slide-orga34befc">
+<h2 id="orga34befc">確率変数の確率空間</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb930792">
-<h3 id="orgb930792">確率変数の見本空間</h3>
+<section id="slide-orgf09173d">
+<h3 id="orgf09173d">確率変数の見本空間</h3>
 <ul>
 <li><p>
 定義
@@ -312,8 +312,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc21388b">
-<h3 id="orgc21388b">確率変数の確率法則</h3>
+<section id="slide-org8811d65">
+<h3 id="org8811d65">確率変数の確率法則</h3>
 <ul>
 <li><p>
 見本点の写像
@@ -473,8 +473,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgef925b0">
-<h3 id="orgef925b0">確率変数の確率空間の例</h3>
+<section id="slide-orgc828aa5">
+<h3 id="orgc828aa5">確率変数の確率空間の例</h3>
 <ul>
 <li><p>
 二回の骰子振りの確率変数 \(X\)
@@ -581,12 +581,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org33797d8" data-background="#fef4f4">
-<h2 id="org33797d8">演習</h2>
+<section id="slide-org57453f6" data-background="#fef4f4">
+<h2 id="org57453f6">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcc3fa61" data-background="#fef4f4">
-<h3 id="orgcc3fa61">練習問題</h3>
+<section id="slide-org269fc08" data-background="#fef4f4">
+<h3 id="org269fc08">練習問題</h3>
 <ul>
 <li><p>
 ルーレット回しの確率変数 \(Y\) 
@@ -612,16 +612,73 @@
 
 <div class="slide-footer"><br></div>
 </section>
+<section id="slide-orgc65fd88" data-background="#fef4f4">
+<h3 id="orgc65fd88">解答例</h3>
+<ul>
+<li><p>
+見本空間
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \Omega^Y=\log\frac{1}{(0,1]}=-\log((0,1])
+  =[0,\infty)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  P^Y(a < Y < b)
+  &=P\left(\{\omega|\;a < -\log\omega < b\}\right)\\
+  &=P\left(\{\omega|\;e^{-a} > \omega > e^{-b}\}\right)\\
+  &=e^{-a}-e^{-b}
+    =-e^{-b}-(-e^{-a})
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+確率密度
+</p>
+<blockquote>
+<p>
+確率測度の積分表現を微分すれば求められる
+</p>
+<div>
+\begin{equation}
+  f(y)=e^{-y},
+  \qquad P^Y(a < Y < b)=\int_a^bf(y)dy
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
 </section>
 <section>
-<section id="slide-org4ed363a">
-<h2 id="org4ed363a">多次元の確率変数</h2>
-<div class="outline-text-2" id="text-org4ed363a">
+<section id="slide-org9013322">
+<h2 id="org9013322">多次元の確率変数</h2>
+<div class="outline-text-2" id="text-org9013322">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org26e085b">
-<h3 id="org26e085b">多次元の確率変数</h3>
+<section id="slide-orged57b80">
+<h3 id="orged57b80">多次元の確率変数</h3>
 <ul>
 <li><p>
 同じ確率空間の上の複数の確率変数をまとめて
@@ -683,8 +740,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org264add5">
-<h3 id="org264add5">多次元確率変数の用語</h3>
+<section id="slide-orgdec428a">
+<h3 id="orgdec428a">多次元確率変数の用語</h3>
 <ul>
 <li>\(X_1(\omega),\dotsc,,X_n(\omega)\): 
 \(\boldsymbol{X}(\omega)\) の <b>成分変数</b></li>
@@ -703,14 +760,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org40d1c85">
-<h2 id="org40d1c85">確率変数の変換</h2>
-<div class="outline-text-2" id="text-org40d1c85">
+<section id="slide-org73ab27e">
+<h2 id="org73ab27e">確率変数の変換</h2>
+<div class="outline-text-2" id="text-org73ab27e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org94dd74c">
-<h3 id="org94dd74c">確率変数の変換</h3>
+<section id="slide-org4eaa930">
+<h3 id="org4eaa930">確率変数の変換</h3>
 <ul>
 <li><p>
 変換
@@ -748,8 +805,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgae75239">
-<h3 id="orgae75239">確率変数の変換の例</h3>
+<section id="slide-org066765c">
+<h3 id="org066765c">確率変数の変換の例</h3>
 <ul>
 <li><p>
 二回の骰子振りの確率変数の変換
@@ -793,8 +850,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org42093ea">
-<h3 id="org42093ea">変換後の確率空間</h3>
+<section id="slide-orgfab4e10">
+<h3 id="orgfab4e10">変換後の確率空間</h3>
 <ul>
 <li><p>
 見本空間
@@ -865,12 +922,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgaf4fedb">
-<h2 id="orgaf4fedb">確率変数の平均値</h2>
+<section id="slide-org1456548">
+<h2 id="org1456548">確率変数の平均値</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8c01042">
-<h3 id="org8c01042">離散分布の平均値</h3>
+<section id="slide-org96019f8">
+<h3 id="org96019f8">離散分布の平均値</h3>
 <ul>
 <li><p>
 定義
@@ -908,8 +965,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6e83c35">
-<h3 id="org6e83c35">平均値の例</h3>
+<section id="slide-org881b9ea">
+<h3 id="org881b9ea">平均値の例</h3>
 <ul>
 <li><p>
 骰子振りの確率変数
@@ -1015,8 +1072,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6be676f">
-<h3 id="org6be676f">連続分布の平均値</h3>
+<section id="slide-org7439290">
+<h3 id="org7439290">連続分布の平均値</h3>
 <ul>
 <li><p>
 定義
@@ -1054,8 +1111,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd6074a3">
-<h3 id="orgd6074a3">平均値の例</h3>
+<section id="slide-orgf61259b">
+<h3 id="orgf61259b">平均値の例</h3>
 <ul>
 <li><p>
 ルーレット回しの確率変数
@@ -1096,8 +1153,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4257a06">
-<h3 id="org4257a06">注意</h3>
+<section id="slide-org0e79bc2">
+<h3 id="org0e79bc2">注意</h3>
 <ul>
 <li><p>
 見本空間の制限付平均値
@@ -1147,8 +1204,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfad3211">
-<h3 id="orgfad3211">平均値の性質</h3>
+<section id="slide-org5889274">
+<h3 id="org5889274">平均値の性質</h3>
 <ul>
 <li><p>
 定理
@@ -1200,8 +1257,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdde887e">
-<h3 id="orgdde887e">平均値の計算の例</h3>
+<section id="slide-org82cb5ce">
+<h3 id="org82cb5ce">平均値の計算の例</h3>
 <ul>
 <li><p>
 二回の骰子振りの確率変数
@@ -1241,12 +1298,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgd2f9346" data-background="#fef4f4">
-<h2 id="orgd2f9346">演習</h2>
+<section id="slide-orgeae133c" data-background="#fef4f4">
+<h2 id="orgeae133c">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb062d1b" data-background="#fef4f4">
-<h3 id="orgb062d1b">練習問題</h3>
+<section id="slide-orgfbf3d46" data-background="#fef4f4">
+<h3 id="orgfbf3d46">練習問題</h3>
 <ul>
 <li>ルーレット回しの確率変数 \(Y\) の平均値を
 以下の2通りの確率測度を用いて求めよ
@@ -1260,14 +1317,56 @@
 
 <div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org486bc6a">
-<h2 id="org486bc6a">確率変数の分散</h2>
+<section id="slide-org3cab407" data-background="#fef4f4">
+<h3 id="org3cab407">解答例</h3>
+<ul>
+<li><p>
+\(\omega\) の確率空間の確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y]
+  &=\int_0^1\left(-\log \omega\right)\mu(d\omega)\\
+  &=\left[-\omega\log\omega+\omega\right]_0^1=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge0a7eb0">
-<h3 id="orge0a7eb0">分散</h3>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(Y\) の確率空間の確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y]
+  &=\int_0^\infty y e^{-y}dy\\
+  &=\left[-ye^{-y}\right]_0^\infty+\int_0^\infty e^{-y}dy
+    =\left[-e^{-y}\right]_0^\infty=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org925a61f">
+<h2 id="org925a61f">確率変数の分散</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgac2699d">
+<h3 id="orgac2699d">分散</h3>
 <ul>
 <li><p>
 定義
@@ -1298,8 +1397,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfcd28aa">
-<h3 id="orgfcd28aa">共分散</h3>
+<section id="slide-org9dcb3e4">
+<h3 id="org9dcb3e4">共分散</h3>
 <ul>
 <li><p>
 定義
@@ -1325,8 +1424,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbd87fed">
-<h3 id="orgbd87fed">確率変数の確率空間による計算</h3>
+<section id="slide-org589bcfc">
+<h3 id="org589bcfc">確率変数の確率空間による計算</h3>
 <ul>
 <li><p>
 離散分布に従う場合
@@ -1365,8 +1464,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7d18d5c">
-<h3 id="org7d18d5c">分散の計算例</h3>
+<section id="slide-org29d8413">
+<h3 id="org29d8413">分散の計算例</h3>
 <ul>
 <li><p>
 二回の骰子振りの確率変数 \(X\)
@@ -1447,8 +1546,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9706ea0">
-<h3 id="org9706ea0">分散・共分散の性質</h3>
+<section id="slide-org5ea9657">
+<h3 id="org5ea9657">分散・共分散の性質</h3>
 <ul>
 <li><p>
 定理
@@ -1480,8 +1579,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org72174c2">
-<h3 id="org72174c2">モーメント</h3>
+<section id="slide-orgdb88bc4">
+<h3 id="orgdb88bc4">モーメント</h3>
 <ul>
 <li><p>
 定義
@@ -1551,12 +1650,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org604f19a" data-background="#fef4f4">
-<h2 id="org604f19a">演習</h2>
+<section id="slide-org7fb42d8" data-background="#fef4f4">
+<h2 id="org7fb42d8">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org534c065" data-background="#fef4f4">
-<h3 id="org534c065">練習問題</h3>
+<section id="slide-orgf6327e4" data-background="#fef4f4">
+<h3 id="orgf6327e4">練習問題</h3>
 <ul>
 <li>以下の確率変数の分散を求めよ．
 <ol>
@@ -1569,14 +1668,60 @@
 
 <div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org0d185ed">
-<h2 id="org0d185ed">特性関数</h2>
+<section id="slide-orgcb12240" data-background="#fef4f4">
+<h3 id="orgcb12240">解答例</h3>
+<ul>
+<li><p>
+一様分布の分散
+</p>
+<blockquote>
+<p>
+区間 \((-1,1)\) 上の一様分布に従う
+確率変数を \(U\) と書くと
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[(U-\mathbb{E}[U])^2]
+  =\int_{-1}^{1} u^{2}\cdot\frac{1}{2}du
+  =\frac{1}{3}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5c056be">
-<h3 id="org5c056be">特性関数</h3>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+ルーレット回しの確率変数 \(Y\)
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[(Y-\mathbb{E}[Y])^2]
+  &=\int_0^\infty (y-1)^2 e^{-y}dy\\
+  &=-\left[\left\{(y-1)^2+2(y-1)+2\right\}e^{-y}\right]_0^\infty\\
+  &=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org2e058b2">
+<h2 id="org2e058b2">特性関数</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd5dce39">
+<h3 id="orgd5dce39">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -1606,8 +1751,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org41cbd91">
-<h3 id="org41cbd91">注意</h3>
+<section id="slide-orgec4e993">
+<h3 id="orgec4e993">注意</h3>
 <ul>
 <li><p>
 Fourier変換との関係
@@ -1676,12 +1821,12 @@ Fourier変換には逆Fourier変換が存在して
 </section>
 </section>
 <section>
-<section id="slide-orgdd63ef7" data-background="#fef4f4">
-<h2 id="orgdd63ef7">演習</h2>
+<section id="slide-orgddccfed" data-background="#fef4f4">
+<h2 id="orgddccfed">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org37a4425" data-background="#fef4f4">
-<h3 id="org37a4425">練習問題</h3>
+<section id="slide-orgb3e7348" data-background="#fef4f4">
+<h3 id="orgb3e7348">練習問題</h3>
 <ul>
 <li>以下の確率測度の特性関数を求めよ．
 <ol>
@@ -1695,10 +1840,35 @@ Fourier変換には逆Fourier変換が存在して
 
 <div class="slide-footer"><br></div>
 </section>
+<section id="slide-org8753199" data-background="#fef4f4">
+<h3 id="org8753199">ヒント</h3>
+<ol>
+<li><p>
+定義に従って計算する．
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi(z)
+  &=\int_{-1}^{1}e^{izx}\cdot\frac{1}{2}dx\\
+  &=\left[\frac{e^{izx}}{2iz}\right]_{-1}^{1}
+    =\frac{\sin(z)}{z}
+\end{align}
+
+</div>
+</blockquote></li>
+<li>指数の肩の2次式を整理する．</li>
+<li>標準正規分布の結果を利用する．</li>
+
+</ol>
+
+
+<div class="slide-footer"><br></div>
+</section>
 </section>
 <section>
-<section id="slide-orgc552351">
-<h2 id="orgc552351">今回のまとめ</h2>
+<section id="slide-org0085c11">
+<h2 id="org0085c11">今回のまとめ</h2>
 <ul>
 <li>確率変数
 <ul>

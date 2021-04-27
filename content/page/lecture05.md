@@ -6,6 +6,9 @@ draft = false
 weight = 1006
 +++
 
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-04-27 Tue&gt; </span></span> 更新
+
+
 ## スライド {#スライド}
 
 {{< myslide base="probability-statistics" name="slide05" >}}
