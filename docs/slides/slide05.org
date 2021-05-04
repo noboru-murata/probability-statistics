@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-04-27 08:41:19 mura>
+# Time-stamp: <2021-05-04 11:54:21 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -18,7 +18,121 @@
     - 確率変数の確率空間
     - 複数の確率変数の同時確率(結合確率)
     - 確率変数の平均，分散，モーメント
-    - 確率変数の特性関数
+    - *確率変数の特性関数*
+
+** 特性関数
+   - 定義
+     #+begin_quote
+     特性関数
+     は指数関数を用いて変数変換された確率変数の平均として
+     #+begin_src latex
+       \begin{equation}
+	 \phi(s)=\mathbb{E}[e^{isX}]
+       \end{equation}
+     #+end_src
+     で定義される．
+     #+end_quote
+     - 特性関数は実数値ではなく複素数値をとることに注意
+
+** 特性関数の性質
+   - 逆変換の存在
+     #+begin_quote
+     特性関数と確率測度(確率密度)は一対一に対応している
+
+     (Levy-Havilandの反転公式)
+     #+end_quote
+   - 分布の同一性
+     #+begin_quote
+     2つの分布の特性関数が同じであれば，
+     2つの分布が同じであることが言える．
+     #+end_quote
+
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の確率測度の特性関数を求めよ．
+     1. 標準正規分布
+     2. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
+
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - \(X\): 標準正規分布に従う確率変数
+   - 定義に従って計算
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 \phi_{X}(s)
+	 &=\mathbb{E}[e^{isX}]\\
+	 &=\int_{-\infty}^{\infty}e^{isx}\cdot
+	   \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
+	 &=\int_{-\infty}^{\infty}
+	   \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}+isx}dx\\
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 2次式を整理
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 -\frac{x^{2}}{2}+isx
+	 &=-\frac{x^{2}-2isx}{2}\\
+	 &=-\frac{x^{2}-2isx+(is)^{2}-(is)^{2}}{2}\\
+	 &=-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 正規分布の密度関数の積分(=1)に帰着
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 \phi_{X}(s)
+	 &=\int_{-\infty}^{\infty}
+	   \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}}dx\\
+	 &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
+	   \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
+	 &=e^{-\frac{s^{2}}{2}}
+       \end{align}
+     #+end_src
+     #+end_quote
+     - 厳密には複素積分の基本的性質 (Cauchy の積分定理) を使う
+   #+reveal: split
+   - \(Y\): 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布に従う確率変数
+   - 前問と同様に定義に従って計算
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 \phi_{Y}(s)
+	 &=\mathbb{E}[e^{isY}]\\
+	 &=\int_{-\infty}^{\infty}e^{isy}\cdot
+	   \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}}dy
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - \(Y=\sigma X + \mu\) の関係を利用
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+	 \phi_{Y}(s)
+	 &=\mathbb{E}[e^{isY}]
+	   =\mathbb{E}[e^{is(\sigma X + \mu)}]\\
+	 &=e^{\mu is}\cdot\mathbb{E}[e^{i(\sigma s) X)}]
+	   =e^{\mu is}\cdot\phi_{X}(\sigma s)\\
+	 &=e^{\mu is}e^{-\frac{\sigma^{2}s^{2}}{2}}
+	   =e^{\mu is-\frac{\sigma^{2}s^{2}}{2}}
+       \end{align}
+     #+end_src
+     #+end_quote
 
 
 * 条件付確率
@@ -31,9 +145,9 @@
 ** 条件付確率
    - 定義
      #+begin_quote
-     確率空間 $(\Omega,\mathcal{F},P)$ において
-     2つの事象 $A,B\subset\Omega$ を考える．
-     事象 $A$ のもとにおける事象 $B$ の
+     確率空間 \((\Omega,\mathcal{F},P)\) において
+     2つの事象 \(A,B\subset\Omega\) を考える．
+     事象 \(A\) のもとにおける事象 \(B\) の
      *条件付確率* (conditional probability) 
      を
      #+begin_src latex
@@ -45,18 +159,19 @@
      #+end_quote
 
 ** 同時確率と条件付確率
-   - *同時確率* $P(A\cap B)$
+   - *同時確率* \(P(A\cap B)\)
      #+begin_quote
-     "事象 $A$ と事象 $B$ が同時に起きている" 確率
+     "事象 \(A\) と事象 \(B\) が同時に起きている" 確率
      #+end_quote
-   - *条件付確率* $P(B|A)$
+   - *条件付確率* \(P(B|A)\)
      #+begin_quote
-     "事象 $A$ が起きたときに事象 $B$ が起きている" 確率
+     "事象 \(A\) が起きたときに事象 \(B\) が起きている" 確率
      #+end_quote
 ** 条件付確率に関する注意
-   - 事象 $A$ は空でない $A\not=\emptyset$ とする．
-   - $P(A)=0$ のときは $P(B|A)$ は意味がないが，
-     適当に一点 $\omega_0\in A$ を選び
+   - 事象 \(A\) は空でない \(A\not=\emptyset\) とする
+   - \(P(A)=0\) のときは \(P(B|A)\) は意味がないが，
+     適当に一点 \(\omega_0\in A\) を選び
+     #+begin_quote
      #+begin_src latex
        \begin{equation}
          P(B|A)=
@@ -66,7 +181,8 @@
          \end{cases}
        \end{equation}
      #+end_src
-     とすることがある．
+     #+end_quote
+     とすることがある
 
 ** 条件付確率の例
    - 骰子を一回振る試行
@@ -179,7 +295,7 @@
    #+reveal: split
    - 確率法則(確率分布)の表現
      #+begin_quote
-     確率変数 $X$,$Y$ のいろいろな値に対する
+     確率変数 \(X\),\(Y\) のいろいろな値に対する
      同時確率や条件付確率をまとめて表現する場合
      #+begin_src latex
        \begin{equation}
@@ -193,24 +309,26 @@
    - 定理
      #+begin_quote
      条件付確率には次の性質がある．
-     1. $\Big.P(A\cap B)=P(A)P(B|A)$
-     2. $\Big.P(A|A)=1$
-     3. $\Big.P(A_1\cap A_2\cap\dotsb\cap A_n)
-	=P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})$
-     4. $\Big.P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$
+     1. \(\Big.P(A\cap B)=P(A)P(B|A)\)
+     2. \(\Big.P(A|A)=1\)
+     3. \(\Big.P(A_1\cap A_2\cap\dotsb\cap A_n)
+	=P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})\)
+     4. \(\Big.P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)
      #+end_quote
      - 証明は定義から明らか
 
-** 条件付確率分布と平均値
-   - 確率分布
+** 条件付確率分布
+   - 定義
      #+begin_quote
      定理の2. より
-     $P(\cdot|A)$ は $A$ を見本空間とする確率法則になっている．
-     これを $A$ のもとにおける
+     \(P(\cdot|A)\) は \(A\) を見本空間とする確率法則になっている．
+     これを \(A\) のもとにおける
      *条件付確率分布* (conditional probability distribution) 
      という．
      #+end_quote
-   - 平均値
+
+** 条件付平均値
+   - 定義
      #+begin_quote
      条件付確率分布のもとでの平均値
      #+begin_src latex
@@ -248,12 +366,12 @@
      #+end_src
      #+end_quote
      - 定理の4.より導かれる
-     - 左辺と右辺で事象 $A,B$ の役割が異なる
+     - 左辺と右辺で事象 \(A,B\) の役割が異なる
 
 ** Bayesの定理 (一般形)
    - 定理
      #+begin_quote
-     $\Omega=A_1+A_2+\dotsb+A_n$ のとき
+     \(\Omega=A_1+A_2+\dotsb+A_n\) のとき
      #+begin_src latex
        \begin{equation}
          P(A_i|B)
@@ -280,7 +398,7 @@
   :END:
   - 証明
     #+begin_quote
-    事象 $B$ と $A_i$ との関係は
+    事象 \(B\) と \(A_i\) との関係は
     全事象を利用すると
     #+begin_src latex
       \begin{equation}
@@ -292,8 +410,8 @@
     #+end_src
     と分解できる．
     すなわち
-    $\Omega=A_1+A_2+\dotsb+A_n$ のとき
-    $A_k\cap B$ は互いに排反な事象となる．
+    \(\Omega=A_1+A_2+\dotsb+A_n\) のとき
+    \(A_k\cap B\) は互いに排反な事象となる．
     これと定理を用いれば分母の表現が得られる．
     #+end_quote
 
@@ -310,10 +428,10 @@
    - 定義 (有限試行の場合)
      #+begin_quote
      二つの確率変数
-     $X,Y$ が互いに
+     \(X,Y\) が互いに
      *独立* (independent) 
      であるとは，
-     任意の $x,y$ に対して
+     任意の \(x,y\) に対して
      #+begin_src latex
        \begin{equation}
          P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y)
@@ -337,13 +455,13 @@
          P(Y\!=\!y|X\!=\!x)=P(Y\!=\!y)
        \end{equation}
      #+end_src
-     となり，$Y$ の確率は $X$ に左右されないことを示す．
+     となり，\(Y\) の確率は \(X\) に左右されないことを示す．
      #+end_quote
    #+reveal: split
    - 定義 (無限試行の場合)
      #+begin_quote
      任意の事象(集合)
-     $E\subset\Omega^X$,$F\subset\Omega^Y$
+     \(E\subset\Omega^X\),\(F\subset\Omega^Y\)
      に対して
      #+begin_src latex
        \begin{equation}
@@ -356,13 +474,13 @@
    #+reveal: split
    - 定義 (確率密度を持つ場合)
      #+begin_quote
-     $X,Y$ の同時確率分布の密度関数
+     \(X,Y\) の同時確率分布の密度関数
      (*同時確率密度*; joint probability density) 
-     を $f(x,y)$ ，$X,Y$ のそれぞれの確率分布の密度関数
+     を \(f(x,y)\) ，\(X,Y\) のそれぞれの確率分布の密度関数
      (*周辺確率密度*; marginal probability density) 
-     を $g(x),h(y)$ とすると，
-     確率変数 $X,Y$ が互いに独立とは
-     任意の $x,y$ に対して
+     を \(g(x),h(y)\) とすると，
+     確率変数 \(X,Y\) が互いに独立とは
+     任意の \(x,y\) に対して
      #+begin_src latex
        \begin{equation}
          f(x,y)=g(x)h(y)
@@ -374,7 +492,7 @@
    #+reveal: split
    - 特性関数による表現 (Kacの定理)
      #+begin_quote
-     確率変数 $X,Y$ が互いに独立とは，
+     確率変数 \(X,Y\) が互いに独立とは，
      特性関数を用いて
      #+begin_src latex
        \begin{equation}
@@ -388,13 +506,13 @@
    - 定理
      #+begin_quote
      独立性に関しては以下の性質が成り立つ．
-     - 確率変数 $X,Y$ が独立 
-       $\Leftrightarrow$ 
-       $\Big.P(Y|X)=P(Y)\ \text{a.s.}$ \\
-       (周辺分布 $P(Y)$ と
-       条件付分布 $P(Y|X)$ が確率1で等しい)
-     - 確率変数$X_1,X_2,\dotsc,X_n$ が独立 
-       $\Rightarrow$
+     - 確率変数 \(X,Y\) が独立 
+       \(\Leftrightarrow\) 
+       \(\Big.P(Y|X)=P(Y)\ \text{a.s.}\) \\
+       (周辺分布 \(P(Y)\) と
+       条件付分布 \(P(Y|X)\) が確率1で等しい)
+     - 確率変数\(X_1,X_2,\dotsc,X_n\) が独立 
+       \(\Rightarrow\)
        変数変換した確率変数
        #+begin_src latex
 	 \begin{equation}
@@ -406,8 +524,8 @@
    #+reveal: split
    - (定理のつづき)
      #+begin_quote
-     - 確率変数 $X_1,X_2,\dotsc,X_n$ が独立
-       $\Rightarrow$ 
+     - 確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
+       \(\Rightarrow\) 
        #+begin_src latex
 	 \begin{equation}
 	   \mathbb{E}[X_1X_2\dotsm X_n]
@@ -415,8 +533,8 @@
 	 \end{equation}
        #+end_src
        (平均値の乗法性)
-     - 確率変数 $X_1,X_2,\dotsc,X_n$ の任意の2変数が独立
-       $\Rightarrow$ 
+     - 確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
+       \(\Rightarrow\) 
        #+begin_src latex
          \begin{equation}
            \mathrm{Var}(X_1+X_2+\dotsb+X_n)
@@ -429,7 +547,7 @@
 ** 事象の独立性
    - 指示関数
      #+begin_quote
-     集合 $A$ の *指示関数 (定義関数)* を
+     集合 \(A\) の *指示関数 (定義関数)* を
      #+begin_src latex
        \begin{equation}
 	 1_A(\omega)=
@@ -442,17 +560,17 @@
      で定義する．
      #+end_quote
      - 指示関数は実数値関数
-     - $Y=1_A(\omega)$ 確率変数 \\
-       (見本点 $\omega$ が事象 $A$ に含まれたかどうかを表す)
+     - \(Y=1_A(\omega)\) 確率変数 \\
+       (見本点 \(\omega\) が事象 \(A\) に含まれたかどうかを表す)
    #+reveal: split
    - 定義
      #+begin_quote
-     事象 $A_1,A_2,\dotsc,A_n$ の
+     事象 \(A_1,A_2,\dotsc,A_n\) の
      それぞれの指示関数で定義される確率変数
-     $Y_1,Y_2,\dotsc,Y_n$
+     \(Y_1,Y_2,\dotsc,Y_n\)
      が互いに独立である場合，
      事象
-     $A_1,A_2,\dotsc,A_n$
+     \(A_1,A_2,\dotsc,A_n\)
      は独立であるという．
      #+end_quote
 
@@ -460,16 +578,16 @@
    - 定理
      #+begin_quote
      以下の3つは同値である．
-     1. 事象 $A_1,A_2,\dotsc,A_n$ が独立
-     2. $B_i=A_i$ または $B_i=A_i^c$ としたとき
+     1. 事象 \(A_1,A_2,\dotsc,A_n\) が独立
+     2. \(B_i=A_i\) または \(B_i=A_i^c\) としたとき
         #+begin_src latex
           \begin{equation}
             P(B_1\cap B_2\cap\dotsb\cap B_n)
             =P(B_1)P(B_2)\dotsm P(B_n)
           \end{equation}
         #+end_src
-     3. $\forall k=2,3,\dotsc,n$, 
-	$1\leq\forall i_1<\forall i_2<\dotsb\forall i_k\leq n$
+     3. \(\forall k=2,3,\dotsc,n\), 
+	\(1\leq\forall i_1<\forall i_2<\dotsb\forall i_k\leq n\)
         #+begin_src latex
           \begin{equation}
             P(A_{i_1}\cap A_{i_2}\cap\dotsb\cap A_{i_k})
@@ -493,14 +611,14 @@
      前の週の口コミサイトBとCにおける評価に強く影響される．
      詳しく調べた結果以下のことが判った．
      - 売上，および評価は上がるか下がるかの二通りしかない
-     - B,C共に評価が上がったときに売上が上がる確率は $0.9$ である
-     - B,Cの一方のみ評価が上がったときに売上が上がる確率は $0.6$ である
-     - B,C共に評価が下がったときに売上が下がる確率は $0.8$ である
-     - Bの評価が上がる確率は $0.5$ である
-     - Cの評価が上がる確率は $0.6$ である
-     - Bの評価が上がるとき $X=1$, 下がるとき $X=0$, 
-       Cの評価が上がるとき $Y=1$, 下がるとき $Y=0$ となる
-       確率変数 $X,Y$ を考えると，$X,Y$ の共分散は $0.1$ である
+     - B,C共に評価が上がったときに売上が上がる確率は \(0.9\) である
+     - B,Cの一方のみ評価が上がったときに売上が上がる確率は \(0.6\) である
+     - B,C共に評価が下がったときに売上が下がる確率は \(0.8\) である
+     - Bの評価が上がる確率は \(0.5\) である
+     - Cの評価が上がる確率は \(0.6\) である
+     - Bの評価が上がるとき \(X=1\), 下がるとき \(X=0\), 
+       Cの評価が上がるとき \(Y=1\), 下がるとき \(Y=0\) となる
+       確率変数 \(X,Y\) を考えると，\(X,Y\) の共分散は \(0.1\) である
      #+end_quote
    #+reveal: split   
    - このとき以下の確率を求めよ．
@@ -559,7 +677,7 @@
 	 \end{align}
        #+end_src
      - 第1問の結果を利用すると前提条件から 
-       $P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})$
+       \(P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})\)
        も求められる
      - 第2,3問は必要な確率を整理して Bayes の定理を用いればよい
 
@@ -570,6 +688,7 @@
     - 条件付確率分布，条件付確率密度，条件付平均値
     - 条件付確率とBeyesの定理
     - 確率変数と事象の独立性
+
 
 * COMMENT ローカル変数
 # Local Variables:

@@ -34,7 +34,7 @@
     <h1 class="no-toc-progress">条件付確率と独立性</h1>
 </div>
 <div class="talk-subtitle">
-    <p>確率・統計 第5回</p>
+    <p>確率・統計 - 講義5</p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org8516842">
-<h2 id="org8516842">前回のおさらい</h2>
+<section id="slide-org61c6a94">
+<h2 id="org61c6a94">前回のおさらい</h2>
 <ul>
 <li>確率変数
 <ul>
@@ -56,9 +56,69 @@
 <li>確率変数の確率空間</li>
 <li>複数の確率変数の同時確率(結合確率)</li>
 <li>確率変数の平均，分散，モーメント</li>
-<li>確率変数の特性関数</li>
+<li><b>確率変数の特性関数</b></li>
 
 </ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org55c8891">
+<h3 id="org55c8891">特性関数</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+特性関数
+は指数関数を用いて変数変換された確率変数の平均として
+</p>
+<div>
+\begin{equation}
+  \phi(s)=\mathbb{E}[e^{isX}]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li>特性関数は実数値ではなく複素数値をとることに注意</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org320a15a">
+<h3 id="org320a15a">特性関数の性質</h3>
+<ul>
+<li><p>
+逆変換の存在
+</p>
+<blockquote>
+<p>
+特性関数と確率測度(確率密度)は一対一に対応している
+</p>
+
+<p>
+(Levy-Havilandの反転公式)
+</p>
+</blockquote></li>
+<li><p>
+分布の同一性
+</p>
+<blockquote>
+<p>
+2つの分布の特性関数が同じであれば，
+2つの分布が同じであることが言える．
+</p>
+</blockquote></li>
 
 </ul>
 
@@ -67,12 +127,32 @@
 </section>
 </section>
 <section>
-<section id="slide-org7466bd7">
-<h2 id="org7466bd7">条件付確率</h2>
+<section id="slide-org76ed6f7" data-background="#fef4f4">
+<h2 id="org76ed6f7">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org59212b4">
-<h3 id="org59212b4">条件付確率</h3>
+<section id="slide-orgbde221c" data-background="#fef4f4">
+<h3 id="orgbde221c">練習問題</h3>
+<ul>
+<li>以下の確率測度の特性関数を求めよ．
+<ol>
+<li>標準正規分布</li>
+<li>平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布</li>
+
+</ol></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdcca63f">
+<h2 id="orgdcca63f">条件付確率</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org77d22b1">
+<h3 id="org77d22b1">条件付確率</h3>
 <ul>
 <li><p>
 定義
@@ -101,8 +181,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org86fe9cf">
-<h3 id="org86fe9cf">同時確率と条件付確率</h3>
+<section id="slide-org579fcd4">
+<h3 id="org579fcd4">同時確率と条件付確率</h3>
 <ul>
 <li><p>
 <b>同時確率</b> \(P(A\cap B)\)
@@ -124,14 +204,15 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org395b5de">
-<h3 id="org395b5de">条件付確率に関する注意</h3>
+<section id="slide-org06bee7f">
+<h3 id="org06bee7f">条件付確率に関する注意</h3>
 <ul>
-<li>事象 \(A\) は空でない \(A\not=\emptyset\) とする．</li>
+<li>事象 \(A\) は空でない \(A\not=\emptyset\) とする</li>
 <li><p>
 \(P(A)=0\) のときは \(P(B|A)\) は意味がないが，
 適当に一点 \(\omega_0\in A\) を選び
 </p>
+<blockquote>
 <div>
 \begin{equation}
   P(B|A)=
@@ -142,17 +223,17 @@
 \end{equation}
 
 </div>
-
+</blockquote>
 <p>
-とすることがある．
+とすることがある
 </p></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9a431ce">
-<h3 id="org9a431ce">条件付確率の例</h3>
+<section id="slide-org833404c">
+<h3 id="org833404c">条件付確率の例</h3>
 <ul>
 <li><p>
 骰子を一回振る試行
@@ -225,8 +306,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1b1f0f5">
-<h3 id="org1b1f0f5">確率変数による条件の表現</h3>
+<section id="slide-org41df1fd">
+<h3 id="org41df1fd">確率変数による条件の表現</h3>
 <ul>
 <li><p>
 確率変数が一つの値を取る場合
@@ -350,8 +431,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org009c4e1">
-<h3 id="org009c4e1">条件付確率の性質</h3>
+<section id="slide-org8fc2a75">
+<h3 id="org8fc2a75">条件付確率の性質</h3>
 <ul>
 <li><p>
 定理
@@ -378,11 +459,11 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org71d8f23">
-<h3 id="org71d8f23">条件付確率分布と平均値</h3>
+<section id="slide-orgfc614bd">
+<h3 id="orgfc614bd">条件付確率分布</h3>
 <ul>
 <li><p>
-確率分布
+定義
 </p>
 <blockquote>
 <p>
@@ -393,8 +474,16 @@
 という．
 </p>
 </blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb95aea5">
+<h3 id="orgb95aea5">条件付平均値</h3>
+<ul>
 <li><p>
-平均値
+定義
 </p>
 <blockquote>
 <p>
@@ -426,12 +515,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org3bf2e84">
-<h2 id="org3bf2e84">Bayesの定理</h2>
+<section id="slide-org80bc2bb">
+<h2 id="org80bc2bb">Bayesの定理</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf4c1406">
-<h3 id="orgf4c1406">Bayesの定理 (基本形)</h3>
+<section id="slide-org0e227e5">
+<h3 id="org0e227e5">Bayesの定理 (基本形)</h3>
 <ul>
 <li><p>
 定理
@@ -458,8 +547,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7e2999b">
-<h3 id="org7e2999b">Bayesの定理 (一般形)</h3>
+<section id="slide-org164feeb">
+<h3 id="org164feeb">Bayesの定理 (一般形)</h3>
 <ul>
 <li><p>
 定理
@@ -488,12 +577,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgd6a755a" data-background="#fef4f4">
-<h2 id="orgd6a755a">演習</h2>
+<section id="slide-org67be24d" data-background="#fef4f4">
+<h2 id="org67be24d">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge571010" data-background="#fef4f4">
-<h3 id="orge571010">練習問題</h3>
+<section id="slide-org3b7eff4" data-background="#fef4f4">
+<h3 id="org3b7eff4">練習問題</h3>
 <ul>
 <li>Bayes の定理(一般形)を証明せよ．</li>
 
@@ -503,12 +592,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orge1d354a">
-<h2 id="orge1d354a">独立性</h2>
+<section id="slide-org9020397">
+<h2 id="org9020397">独立性</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3dd0a71">
-<h3 id="org3dd0a71">確率変数の独立性</h3>
+<section id="slide-orgc9f2d5e">
+<h3 id="orgc9f2d5e">確率変数の独立性</h3>
 <ul>
 <li><p>
 定義 (有限試行の場合)
@@ -655,8 +744,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7b15998">
-<h3 id="org7b15998">独立性の性質</h3>
+<section id="slide-org899fd48">
+<h3 id="org899fd48">独立性の性質</h3>
 <ul>
 <li><p>
 定理
@@ -738,8 +827,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbcfcc82">
-<h3 id="orgbcfcc82">事象の独立性</h3>
+<section id="slide-orgfc16fe4">
+<h3 id="orgfc16fe4">事象の独立性</h3>
 <ul>
 <li><p>
 指示関数
@@ -794,8 +883,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb920abb">
-<h3 id="orgb920abb">定理</h3>
+<section id="slide-org7c19d32">
+<h3 id="org7c19d32">定理</h3>
 <ul>
 <li><p>
 定理
@@ -839,12 +928,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org7452ab8" data-background="#fef4f4">
-<h2 id="org7452ab8">演習</h2>
+<section id="slide-org9c1d782" data-background="#fef4f4">
+<h2 id="org9c1d782">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbeac2ed" data-background="#fef4f4">
-<h3 id="orgbeac2ed">練習問題</h3>
+<section id="slide-org0fc050e" data-background="#fef4f4">
+<h3 id="org0fc050e">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -890,8 +979,8 @@ B,Cの一方のみ評価が上がった確率はいくつか？</li>
 </section>
 </section>
 <section>
-<section id="slide-org9c924fa">
-<h2 id="org9c924fa">今回のまとめ</h2>
+<section id="slide-org4b98a11">
+<h2 id="org4b98a11">今回のまとめ</h2>
 <ul>
 <li>条件付確率と独立性
 <ul>

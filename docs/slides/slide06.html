@@ -34,7 +34,7 @@
     <h1 class="no-toc-progress">独立変数の和の性質</h1>
 </div>
 <div class="talk-subtitle">
-    <p>確率・統計 第6回</p>
+    <p>確率・統計 - 講義6</p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
@@ -45,15 +45,35 @@
 </div>
 
 </section>
+
 <section>
-<section id="slide-orga993756">
-<h2 id="orga993756">復習</h2>
-<div class="outline-text-2" id="text-orga993756">
+<section id="slide-orgc1cfd6c">
+<h2 id="orgc1cfd6c">前回のおさらい</h2>
+<ul>
+<li>条件付確率と独立性
+<ul>
+<li>同時確率，周辺確率，条件付確率</li>
+<li>条件付確率分布，条件付確率密度，条件付平均値</li>
+<li>条件付確率とBeyesの定理</li>
+<li>確率変数と事象の独立性</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org9490c02">
+<h2 id="org9490c02">復習</h2>
+<div class="outline-text-2" id="text-org9490c02">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org890c2b9">
-<h3 id="org890c2b9">特性関数</h3>
+<section id="slide-org4d93efb">
+<h3 id="org4d93efb">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -83,8 +103,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org35297e0">
-<h3 id="org35297e0">特性関数の性質</h3>
+<section id="slide-orgb0e8f8c">
+<h3 id="orgb0e8f8c">特性関数の性質</h3>
 <ul>
 <li><p>
 逆変換の存在
@@ -112,149 +132,40 @@
 
 <div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org6038587" data-background="#fef4f4">
-<h2 id="org6038587">演習</h2>
+<section id="slide-org0195ca8">
+<h3 id="org0195ca8">標準正規分布の特性関数</h3>
 <ul>
-<li>以下の確率測度の特性関数を求めよ．
-<ol>
-<li>標準正規分布</li>
-<li>平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布</li>
-
-</ol></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org2841304" data-background="#fef4f4">
-<h3 id="org2841304">解答</h3>
-<ul>
-<li>\(X\): 標準正規分布に従う確率変数</li>
 <li><p>
-定義に従って計算
+\(X\) を標準正規分布に従う確率変数とする
 </p>
+<blockquote>
 <div>
 \begin{align}
   \phi_{X}(s)
   &=\mathbb{E}[e^{isX}]\\
   &=\int_{-\infty}^{\infty}e^{isx}\cdot
     \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
-  &=\int_{-\infty}^{\infty}
-    \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}+isx}dx\\
-\end{align}
-
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-2次式を整理
-</p>
-<div>
-\begin{align}
-  -\frac{x^{2}}{2}+isx
-  &=-\frac{x^{2}-2isx}{2}\\
-  &=-\frac{x^{2}-2isx+(is)^{2}-(is)^{2}}{2}\\
-  &=-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}
-\end{align}
-
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-正規分布の密度関数の積分(=1)に帰着
-</p>
-<div>
-\begin{align}
-  \phi_{X}(s)
-  &=\int_{-\infty}^{\infty}
-    \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}}dx\\
   &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
     \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
   &=e^{-\frac{s^{2}}{2}}
 \end{align}
 
 </div>
-
-<ul>
-<li>厳密には複素積分の基本的性質 (Cauchy の積分定理) を使う</li>
-
-</ul></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li>\(Y\): 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布に従う確率変数</li>
-<li><p>
-前問と同様に定義に従って計算
-</p>
-<div>
-\begin{align}
-  \phi_{Y}(s)
-  &=\mathbb{E}[e^{isY}]\\
-  &=\int_{-\infty}^{\infty}e^{isy}\cdot
-    \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}}dy
-\end{align}
-
-</div></li>
+</blockquote></li>
 
 </ul>
 
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-\(Y=\sigma X + \mu\) の関係を利用
-</p>
-<div>
-\begin{align}
-  \phi_{Y}(s)
-  &=\mathbb{E}[e^{isY}]
-    =\mathbb{E}[e^{is(\sigma X + \mu)}]\\
-  &=e^{\mu is}\cdot\mathbb{E}[e^{i(s\sigma) X)}]
-    =e^{\mu is}\cdot\phi(s\sigma)\\
-  &=e^{\mu is}e^{-\frac{\sigma^{2}s^{2}}{2}}
-    =e^{\mu is-\frac{\sigma^{2}s^{2}}{2}}
-\end{align}
-
-</div></li>
-
-</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org644050e">
-<h2 id="org644050e">大数の法則</h2>
-<aside class="notes">
-<p>
-確率的なゆらぎに起因する確率変数の不確実な部分が，
-同一の確率法則に従う多数の確率変数を
-足し合わせることによって
-相殺し取り除かれる．
-大数の法則と呼ばれるこの性質を証明する．
-</p>
-
-</aside>
-
+<section id="slide-org1cad7f6">
+<h2 id="org1cad7f6">大数の法則</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2427d30">
-<h3 id="org2427d30">記号の準備</h3>
+<section id="slide-orgf68395f">
+<h3 id="orgf68395f">記号の準備</h3>
 <ul>
 <li><p>
 確率変数列
@@ -309,8 +220,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6dd4922">
-<h3 id="org6dd4922">大数の法則</h3>
+<section id="slide-orgd2de6f6">
+<h3 id="orgd2de6f6">大数の法則</h3>
 <ul>
 <li><p>
 定理
@@ -352,8 +263,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgedea646">
-<h3 id="orgedea646">Čebyšëv の不等式</h3>
+<section id="slide-org04d8257">
+<h3 id="org04d8257">Čebyšëv の不等式</h3>
 <ul>
 <li><p>
 定理
@@ -414,8 +325,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org11e764f">
-<h3 id="org11e764f">大数の法則の略証</h3>
+<section id="slide-orgeb35fbe">
+<h3 id="orgeb35fbe">大数の法則の略証</h3>
 <ul>
 <li><p>
 step 1
@@ -516,8 +427,8 @@ step 4
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3ab13f9">
-<h3 id="org3ab13f9">Kolmogorov の大数の強法則</h3>
+<section id="slide-orgf16cc4f">
+<h3 id="orgf16cc4f">Kolmogorov の大数の強法則</h3>
 <ul>
 <li><p>
 定理
@@ -555,7 +466,7 @@ step 4
 </section>
 <section>
 <ul>
-<li>前出の大数の法則(弱法則)より強い意味での収束性を主張している
+<li>大数の法則(弱法則)より強い意味での収束性を主張
 <ul>
 <li>大数の弱法則: 確率収束</li>
 <li>大数の強法則: 概収束</li>
@@ -566,8 +477,8 @@ step 4
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org69024ad">
-<h3 id="org69024ad">同分布の場合の大数の強法則</h3>
+<section id="slide-orgeb0b046">
+<h3 id="orgeb0b046">同分布の場合の大数の強法則</h3>
 <ul>
 <li><p>
 定理
@@ -627,8 +538,12 @@ step 4
 </section>
 </section>
 <section>
-<section id="slide-org34fd38a" data-background="#fef4f4">
-<h2 id="org34fd38a">演習</h2>
+<section id="slide-org13ef633" data-background="#fef4f4">
+<h2 id="org13ef633">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0c01f3d" data-background="#fef4f4">
+<h3 id="org0c01f3d">練習問題</h3>
 <ul>
 <li>確率変数 \(X\) は平均50，標準偏差10の分布に従うとする．
 このとき以下の確率を Čebyšëv の不等式を用いて評価せよ．
@@ -640,46 +555,17 @@ step 4
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org5c22c1d" data-background="#fef4f4">
-<h3 id="org5c22c1d">解答例</h3>
-<ul>
-<li><p>
-\(\mathrm{Var}(X)=10^{2}\) なので，
-</p>
-<ul>
-<li>\(P(|X-50| > 10)\le1\)</li>
-<li>\(P(|X-50| > 20)\le0.25\)</li>
-<li>\(P(|X-50| > 30)\le0.11\)</li>
-
-</ul>
-<blockquote>
-<p>
-\(X\) がどんな分布に従っていても成り立つことに注意
-</p>
-</blockquote></li>
-
-</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orga0aa1d7">
-<h2 id="orga0aa1d7">中心極限定理</h2>
-<aside class="notes">
-<p>
-大数の法則を精密化したものが
-中心極限定理である．
-</p>
-
-</aside>
-
+<section id="slide-org7a01441">
+<h2 id="org7a01441">中心極限定理</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org25462fb">
-<h3 id="org25462fb">Lindeberg の中心極限定理</h3>
+<section id="slide-orgefc6ad5">
+<h3 id="orgefc6ad5">Lindeberg の中心極限定理</h3>
 <ul>
 <li><p>
 定理
@@ -722,8 +608,8 @@ step 4
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1dcaf9d">
-<h3 id="org1dcaf9d">同分布の場合の中心極限定理</h3>
+<section id="slide-org5a4a23d">
+<h3 id="org5a4a23d">同分布の場合の中心極限定理</h3>
 <ul>
 <li><p>
 定理
@@ -900,12 +786,17 @@ Lindebergの条件は満たされる．
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgaa8aa44" data-background="#fef4f4">
-<h2 id="orgaa8aa44">演習</h2>
+<section id="slide-orgb7d3333" data-background="#fef4f4">
+<h2 id="orgb7d3333">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga709944" data-background="#fef4f4">
+<h3 id="orga709944">練習問題</h3>
 <ul>
 <li><p>
 以下の関数を \(x=0\) のまわりで Taylor 展開せよ．
@@ -939,82 +830,23 @@ Lindebergの条件は満たされる．
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgb27ccdd" data-background="#fef4f4">
-<h3 id="orgb27ccdd">解答例</h3>
-<ul>
-<li><p>
-対数関数
-</p>
-<div>
-\begin{equation}
-  \log(1+x)
-  =x-\frac{1}{2}x^2+\frac{1}{3}x^3-\frac{1}{4}x^4+\dotsb
-\end{equation}
-
-</div></li>
-
-<li><p>
-指数関数
-</p>
-<div>
-\begin{equation}
-  \exp(x)
-  =1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\dotsb
-\end{equation}
-
-</div></li>
-
-</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org4d79513" data-background="#fef4f4">
-<h2 id="org4d79513">演習</h2>
+<section id="slide-orgd0f22e7" data-background="#fef4f4">
+<h3 id="orgd0f22e7">練習問題</h3>
 <ul>
 <li><p>
 以下の極限を求めよ
 </p>
+<blockquote>
 <div>
 \begin{equation}
   \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
 \end{equation}
 
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgf6cc26e" data-background="#fef4f4">
-<h3 id="orgf6cc26e">解答例</h3>
-<ul>
-<li><p>
-Napier 数の計算の一般化
-</p>
-<div>
-\begin{equation}
-  \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
-  = e^x
-\end{equation}
-
-</div></li>
-
-<li><p>
-より一般的には
-は \(\lim_{n\to\infty}r_n(x)=0\) となる関数に対して
-以下を用いる場合がある
-</p>
-<div>
-\begin{equation}
-  \lim_{n\to\infty}\left(1+\frac{f(x)+r_n(x)}{n}\right)^n
-  =e^{f(x)}
-\end{equation}
-
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
 
@@ -1022,14 +854,14 @@ Napier 数の計算の一般化
 </section>
 </section>
 <section>
-<section id="slide-orge9190c1">
-<h2 id="orge9190c1">定理の略証</h2>
-<div class="outline-text-2" id="text-orge9190c1">
+<section id="slide-org92fa2be">
+<h2 id="org92fa2be">定理の略証</h2>
+<div class="outline-text-2" id="text-org92fa2be">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfb2b0b7">
-<h3 id="orgfb2b0b7">証明の考え方</h3>
+<section id="slide-org176485f">
+<h3 id="org176485f">証明の考え方</h3>
 <ul>
 <li>以下は同分布 (平均 \(\mu\) 分散 \(\sigma^{2}\)) の場合で考える</li>
 <li><p>
@@ -1139,9 +971,9 @@ step 4
 \begin{align}
   \mathbb{E}[e^{isY_{nk}}]
   &=\mathbb{E}\left[1+isY_{nk}-\frac{1}{2}s^2Y_{nk}^2
-    +\text{($Y_{nk}^3$以上の項)}\right]\\
+    +\text{(\(Y_{nk}^3\)以上の項)}\right]\\
   &=1+is\mathbb{E}[Y_{nk}]-\frac{1}{2}s^2\mathbb{E}[Y_{nk}^2]
-    +\mathbb{E}[\text{($s^{3}Y_{nk}^3$以上の項)}]\\
+    +\mathbb{E}[\text{(\(s^{3}Y_{nk}^3\)以上の項)}]\\
   &=1-\frac{1}{2n}s^2
     +\frac{r_{n}(s)}{n}
 \end{align}
@@ -1200,22 +1032,27 @@ step 5
 </section>
 </section>
 <section>
-<section id="slide-org938a3fa" data-background="#fef4f4">
-<h2 id="org938a3fa">演習</h2>
+<section id="slide-org99e4e6a" data-background="#fef4f4">
+<h2 id="org99e4e6a">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgcdcff46" data-background="#fef4f4">
+<h3 id="orgcdcff46">練習問題</h3>
 <ul>
 <li><p>
 偏りのないコインを投げたとき表なら1，
 裏なら-1となる確率変数 \(X\) を考える．
 n回投げたときに得られた結果を
-\(X_1,X_2,\dotsc,X_n\) と書くことにする．
+\(X_1,X_2,\dotsc,X_n\) と書く．
 </p>
+<blockquote>
 <div>
 \begin{equation}
   Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
 \end{equation}
 
 </div>
-
+</blockquote>
 <p>
 とするとき，以下の問に答えよ．
 </p>
@@ -1228,12 +1065,13 @@ n回投げたときに得られた結果を
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orga274c5b">
-<h2 id="orga274c5b">まとめ</h2>
+<section id="slide-org0a5f0d9">
+<h2 id="org0a5f0d9">今回のまとめ</h2>
 <ul>
 <li>独立変数の和の性質
 <ul>
@@ -1265,7 +1103,7 @@ center: true,
 slideNumber: 'c',
 rollingLinks: false,
 keyboard: true,
-mouseWheel: true,
+mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
@@ -1274,7 +1112,7 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
 
 // Plugins with reveal.js 4.x
 plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
@@ -1282,7 +1120,8 @@ plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
 // Optional libraries used to extend reveal.js
 dependencies: [
 { src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'}]
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
 
 });
 </script>
