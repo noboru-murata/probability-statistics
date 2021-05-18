@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-05-04 13:43:37 mura>
+# Time-stamp: <2021-05-18 13:42:25 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -64,6 +64,30 @@
     #+end_src
     #+end_quote
 
+** 独立性の重要な性質
+   - 平均値の乗法性
+     #+begin_quote
+     確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
+     \(\Rightarrow\) 
+     #+begin_src latex
+       \begin{equation}
+	 \mathbb{E}[X_1X_2\dotsm X_n]
+	 =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 分散の加法性
+     #+begin_quote
+     確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
+     \(\Rightarrow\) 
+     #+begin_src latex
+       \begin{align}
+	 &\mathrm{Var}(X_1+X_2+\dotsb+X_n)\\
+	 &=\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+       \end{align}
+     #+end_src
+     #+end_quote
+  
 
 * 大数の法則
   # #+begin_notes
@@ -282,7 +306,7 @@
      - \(P(|X-50| > 20)\)
      - \(P(|X-50| > 30)\)
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -461,7 +485,7 @@
      #+end_src
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -497,7 +521,7 @@
      #+end_src
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -646,8 +670,60 @@
      - \(Y_{n}\) の平均と分散を求めよ．
      - \(Y_{n}\) の特性関数 \(\phi_n(s)\) を求めよ．
      - 特性関数 \(\phi_n(s)\) の極限 \(\lim_{n\to\infty}\phi_n(s)\) を求めよ．
-
-
+** ヒント
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - \(X\)の性質は以下のとおり
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         \mathbb{E}[X]
+         &=\frac{1}{2}\times(1)+\frac{1}{2}\times(-1)=0\\
+         \mathrm{Var}(X)
+         &=\mathbb{E}[X^{2}]
+            =\frac{1}{2}\times(1)^{2}+\frac{1}{2}\times(-1)^{2}=1\\
+         \phi_{X}(s)
+         &=\mathbb{E}[e^{isX}]
+            =\frac{1}{2}\times e^{is}+\frac{1}{2}\times e^{-is}
+            =\cos(s)\\
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - \(Y\)と\(X\)の関係は以下のとおり
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         \mathbb{E}[Y_{n}]
+         &=\frac{1}{\sqrt{n}}\sum_{k=1}^{n}\mathbb{E}[X_{k}]\\
+         \mathrm{Var}(Y_{n})
+         &=\frac{1}{\sqrt{n}^{2}}\sum_{k=1}^{n}\mathrm{Var}(X_{k})\\
+         \phi_{Y_{n}}(s)
+         &=\prod_{k=1}^{n}\phi_{X}(s/\sqrt{n})
+       \end{align}
+     #+end_src
+     #+end_quote
+     - 特性関数の展開については注意せよ
+   #+reveal: split
+   - \(\cos(z)\)の Taylor 展開
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         \cos(z)
+         &=\frac{e^{iz}+e^{-iz}}{2}\\
+         &=\frac{1}{2}
+           \left(1+\frac{1}{1!}(iz)+\frac{1}{2!}(iz)^2+\frac{1}{3!}(iz)^3+\dotsb\right)\\
+         &\qquad+\frac{1}{2}
+           \left(1+\frac{1}{1!}(-iz)+\frac{1}{2!}(-iz)^2+\frac{1}{3!}(-iz)^3+\dotsb\right)\\
+         &=1-\frac{1}{2!}z^2+\frac{1}{4!}z^4+\dotsb
+       \end{align}
+     #+end_src
+     #+end_quote
+     - 上記は練習問題の解を利用したもの
+     - 定義に従って計算しても同じ展開が得られる
+     - これを用いて中心極限定理の証明と同様な議論をすればよい
+       
 * 今回のまとめ
   - 独立変数の和の性質
     - 大数の法則とその条件
