@@ -106,8 +106,9 @@
   :EXPORT_FILE_NAME: lecture08
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
+  <2021-05-31 Mon> 更新
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide08" >}}
+   {{< myslide base="probability-statistics" name="slide08" >}}
 ** ハンドアウト
    - [[github:pdfs/slide08.pdf][PDF file]]
 
