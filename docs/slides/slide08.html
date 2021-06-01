@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-orgd7b09e9">
-<h2 id="orgd7b09e9">前回のおさらい</h2>
+<section id="slide-org2ae7dc0">
+<h2 id="org2ae7dc0">前回のおさらい</h2>
 <ul>
 <li>独立変数の和の性質
 <ul>
@@ -64,12 +64,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org108f21a" data-background="#fef4f4">
-<h2 id="org108f21a">演習</h2>
+<section id="slide-org270dc61" data-background="#fef4f4">
+<h2 id="org270dc61">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf453068" data-background="#fef4f4">
-<h3 id="orgf453068">演習問題</h3>
+<section id="slide-orgd87315b" data-background="#fef4f4">
+<h3 id="orgd87315b">演習問題</h3>
 <ul>
 <li><p>
 偏りのないコインを投げたとき表なら1，
@@ -99,16 +99,115 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
+<section id="slide-orgf825fd7" data-background="#fef4f4">
+<h3 id="orgf825fd7">解答例</h3>
+<ul>
+<li><p>
+題意より
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  P(X=1)=\frac{1}{2},\quad
+  P(X=-1)=\frac{1}{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+\(X\) の平均と分散を利用すればよい
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \mathbb{E}[X]=0,\quad
+  \mathrm{Var}(X)=\mathbb{E}[X^2]=1
+\end{equation}
+
+</div>
+
+<div>
+\begin{equation}
+  \mathbb{E}[Y_{n}]=0,\quad
+  \mathrm{Var}(Y_{n})
+  =\frac{1}{n}\cdot n\mathrm{Var}(X)=1
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+特性関数も同様
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{n}(s)
+  &=\mathbb{E}[e^{isY_{n}}]\\
+  &=(\mathbb{E}[e^{isX/\sqrt{n}}])^{n}
+    =\left(\frac{e^{is/\sqrt{n}}+e^{-is/\sqrt{n}}}{2}\right)^{n}\\
+  &=\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+余弦関数の Taylor 展開は以下となる
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \cos(x)=1-\frac{x^2}{2}+\frac{x^4}{24}+\dotsb
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>定義通り計算してもよいし，
+指数関数の展開と Euler の式を用いてもよい</li>
+
+</ul></li>
+<li><p>
+標準正規分布の特性関数となる
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \lim_{n\to\infty}\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+  &=\lim_{n\to\infty}\left(1-\frac{s^{2}}{2n}
+    +\dotsb\right)^{n}\\
+  &=e^{-\frac{s^{2}}{2}}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
 </section>
 <section>
-<section id="slide-orgff8a0f3">
-<h2 id="orgff8a0f3">統計的推測</h2>
-<div class="outline-text-2" id="text-orgff8a0f3">
+<section id="slide-orgf4ae9c5">
+<h2 id="orgf4ae9c5">統計的推測</h2>
+<div class="outline-text-2" id="text-orgf4ae9c5">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org895a818">
-<h3 id="org895a818">統計的推測の考え方</h3>
+<section id="slide-org24d4de5">
+<h3 id="org24d4de5">統計的推測の考え方</h3>
 <ul>
 <li><p>
 確率
@@ -133,8 +232,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc42bc9e">
-<h3 id="orgc42bc9e">確率変数と確率分布</h3>
+<section id="slide-orgef35fe3">
+<h3 id="orgef35fe3">確率変数と確率分布</h3>
 <ul>
 <li>確率変数 \(X\) : 
 <ul>
@@ -164,8 +263,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9645296">
-<h3 id="org9645296">同時分布</h3>
+<section id="slide-org0626011">
+<h3 id="org0626011">同時分布</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -192,8 +291,8 @@ n回投げたときに得られた結果を
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge993b5d">
-<h3 id="orge993b5d">独立性</h3>
+<section id="slide-org43d509e">
+<h3 id="org43d509e">独立性</h3>
 <ul>
 <li>無関係にサンプリングされた観測データの性質</li>
 <li><p>
@@ -222,8 +321,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org547410f">
-<h3 id="org547410f">同分布性</h3>
+<section id="slide-org59de797">
+<h3 id="org59de797">同分布性</h3>
 <ul>
 <li>同一の法則に従って生成された観測データの性質</li>
 <li><p>
@@ -250,8 +349,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd2b9acb">
-<h3 id="orgd2b9acb">独立同分布性</h3>
+<section id="slide-org74a067c">
+<h3 id="org74a067c">独立同分布性</h3>
 <ul>
 <li>一般に分析対象のデータには
 <b>独立性</b> と <b>同分布性</b> 
@@ -267,11 +366,11 @@ n回投げたときに得られた結果を
 <b>i.i.d.</b> 
 であるという
 </p>
+</blockquote>
+<ul>
+<li>i.i.d. はindependent and identically distributedの略</li>
 
-<p>
-(i.i.d. はindependent and identically distributedの略)
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
 
@@ -280,14 +379,14 @@ n回投げたときに得られた結果を
 </section>
 </section>
 <section>
-<section id="slide-orgd84aeb0">
-<h2 id="orgd84aeb0">極限定理</h2>
-<div class="outline-text-2" id="text-orgd84aeb0">
+<section id="slide-org2d084d7">
+<h2 id="org2d084d7">極限定理</h2>
+<div class="outline-text-2" id="text-org2d084d7">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4883c38">
-<h3 id="org4883c38">極限定理</h3>
+<section id="slide-orgf51c6ab">
+<h3 id="orgf51c6ab">極限定理</h3>
 <ul>
 <li>大数の法則，
 中心極限定理など</li>
@@ -303,8 +402,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb373bf5">
-<h3 id="orgb373bf5">無限列の独立性と同分布性</h3>
+<section id="slide-org0b32a4b">
+<h3 id="org0b32a4b">無限列の独立性と同分布性</h3>
 <ul>
 <li>無限列に対しては任意の部分列について考える</li>
 <li><p>
@@ -342,12 +441,20 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org94003e6">
-<h3 id="org94003e6">大数の法則の概要</h3>
+<section id="slide-org4a7474f">
+<h3 id="org4a7474f">大数の法則の概要</h3>
+<ul>
+<li><p>
+直感的な意味:
+</p>
+<blockquote>
 <ul>
 <li>同一の法則に従って生成された集団から
 <b>ランダムな</b> 観測を多数繰り返すと，
 観測値の標本平均は真の平均値に近づく</li>
+
+</ul>
+</blockquote></li>
 <li>具体的な例: 
 <ul>
 <li><span style="color:darkgreen;">歪みの無いコインの表が出た回数の割合</span></li>
@@ -360,8 +467,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9e097ae">
-<h3 id="org9e097ae">大数の法則</h3>
+<section id="slide-orged4a46c">
+<h3 id="orged4a46c">大数の法則</h3>
 <ul>
 <li><p>
 定理
@@ -389,15 +496,19 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcf25670">
-<h3 id="orgcf25670">中心極限定理の概要</h3>
+<section id="slide-org70b3270">
+<h3 id="org70b3270">中心極限定理の概要</h3>
 <ul>
-<li>大数の法則の主張: 
+<li><p>
+大数の法則の主張:
+</p>
+<blockquote>
 <ul>
 <li>推定誤差 \(\bar{X}_n-\mu\) は \(n\) を大きくすると0に近づく</li>
 <li>どの程度の大きさになるのか定量的な評価は与えていない</li>
 
-</ul></li>
+</ul>
+</blockquote></li>
 <li>誤差の評価の定量化:
 <ul>
 <li><p>
@@ -420,8 +531,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc8f1309">
-<h3 id="orgc8f1309">中心極限定理</h3>
+<section id="slide-org9914cba">
+<h3 id="org9914cba">中心極限定理</h3>
 <ul>
 <li><p>
 定理 (いろいろな表現がある)
@@ -453,14 +564,14 @@ n回投げたときに得られた結果を
 </section>
 </section>
 <section>
-<section id="slide-org976ba16">
-<h2 id="org976ba16">推定量と推定値</h2>
-<div class="outline-text-2" id="text-org976ba16">
+<section id="slide-orgee07f0c">
+<h2 id="orgee07f0c">推定量と推定値</h2>
+<div class="outline-text-2" id="text-orgee07f0c">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4ecca7f">
-<h3 id="org4ecca7f">推定の標準的な枠組</h3>
+<section id="slide-org556587b">
+<h3 id="org556587b">推定の標準的な枠組</h3>
 <ul>
 <li>観測データを確率変数の実現値と考えてモデル化</li>
 <li><p>
@@ -494,8 +605,8 @@ n回投げたときに得られた結果を
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org51b0e15">
-<h3 id="org51b0e15">推定量</h3>
+<section id="slide-org70faf4b">
+<h3 id="org70faf4b">推定量</h3>
 <ul>
 <li><p>
 定義
@@ -530,8 +641,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org178fbe6">
-<h3 id="org178fbe6">推定値</h3>
+<section id="slide-org42b30a1">
+<h3 id="org42b30a1">推定値</h3>
 <ul>
 <li><p>
 定義
@@ -570,17 +681,17 @@ n回投げたときに得られた結果を
 </section>
 </section>
 <section>
-<section id="slide-orgf0ecf87">
-<h2 id="orgf0ecf87">確率モデルと推定量</h2>
-<div class="outline-text-2" id="text-orgf0ecf87">
+<section id="slide-orgcd2aaa4">
+<h2 id="orgcd2aaa4">確率モデルと推定量</h2>
+<div class="outline-text-2" id="text-orgcd2aaa4">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3397f84">
-<h3 id="org3397f84">観測値の生成モデル</h3>
+<section id="slide-org245fb4e">
+<h3 id="org245fb4e">観測値の生成モデル</h3>
 <ul>
 <li><p>
-加法的雑音モデル
+加法的雑音モデル (最も単純な例)
 </p>
 <blockquote>
 <p>
@@ -618,8 +729,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4e1c755">
-<h3 id="org4e1c755">誤差の性質の仮定</h3>
+<section id="slide-org1603f62">
+<h3 id="org1603f62">誤差の性質の仮定</h3>
 <ul>
 <li><p>
 仮定0
@@ -629,12 +740,11 @@ n回投げたときに得られた結果を
 \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
 ある同時確率分布に従う確率変数である．
 </p>
+</blockquote>
+<ul>
+<li>誤差自体が確率変数であるという確率モデルの前提条件の言い換え</li>
 
-<p>
-(誤差自体が確率変数であるという
-確率モデルの前提条件の言い換え)
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -649,11 +759,11 @@ n回投げたときに得られた結果を
 \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
 互いに独立に分布する．
 </p>
+</blockquote>
+<ul>
+<li>実験が十分注意深く行われていることを前提とした仮定</li>
 
-<p>
-(実験が十分注意深く行われていることを前提とした仮定)
-</p>
-</blockquote></li>
+</ul></li>
 <li><p>
 仮定2 (同分布性)
 </p>
@@ -662,12 +772,9 @@ n回投げたときに得られた結果を
 \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
 同じ分布に従う．
 </p>
-
-<p>
-(各回の実験が完全に同じ条件で行われることを仮定)
-</p>
 </blockquote>
 <ul>
+<li>各回の実験が完全に同じ条件で行われることを仮定</li>
 <li>仮定1，2をあわせて <b>独立同分布 (i.i.d.)</b> であると言う</li>
 
 </ul></li>
@@ -684,12 +791,12 @@ n回投げたときに得られた結果を
 <p>
 \(\mathbb{E}[\varepsilon_{i}]=0,\ i=1,\dotsc,n\) 
 </p>
+</blockquote>
+<ul>
+<li>観測に偏りがないことを仮定</li>
+<li>偏りがあったとしてもデータからは知ることができない</li>
 
-<p>
-観測に偏りがないことを仮定
-(偏りがあったとしてもデータからは知ることができない)
-</p>
-</blockquote></li>
+</ul></li>
 <li><p>
 仮定4 (極限定理のための条件)
 </p>
@@ -697,19 +804,19 @@ n回投げたときに得られた結果を
 <p>
 \(\mathbb{E}[\varepsilon_{i}^{2}]<\infty,\ i=1,\dotsc,n\) 
 </p>
+</blockquote>
+<ul>
+<li>大数の法則や中心極限定理などを使ってデータの性質を調べる際に必要な仮定</li>
+<li>実験データでは測定値が発散するような状況はほとんどないので特に不合理な制約ではない</li>
 
-<p>
-(大数の法則や中心極限定理などを使ってデータの性質を調べる際に必要な仮定．
-実験データでは測定値が発散するような状況はほとんどないので特に不合理な制約ではない)
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7a01524">
-<h3 id="org7a01524">推定量の例</h3>
+<section id="slide-org712cb2f">
+<h3 id="org712cb2f">推定量の例</h3>
 <ul>
 <li><p>
 推定量:例1
@@ -722,17 +829,17 @@ n回投げたときに得られた結果を
 \end{align}
 
 </div>
-
-<p>
-確率変数の算術平均で
+</blockquote>
+<ul>
+<li>確率変数の算術平均で
 <b>標本平均</b> (sample mean)
-と呼ばれる．
-誤差に偏りがないのであれば
+と呼ばれる</li>
+<li>誤差に偏りがないのであれば
 直感的にも
 \(\theta\)
-に非常に近い値になるであろうことが予想される．
-</p>
-</blockquote></li>
+に非常に近い値になるであろうことが予想される．</li>
+
+</ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -750,14 +857,13 @@ n回投げたときに得られた結果を
 \end{align}
 
 </div>
+</blockquote>
+<ul>
+<li><b>中央値</b> (median) と呼ばれるも</li>
+<li>誤差が正の側と負の側に均等に出るのであれば
+\(\theta\) をうまく近似することが予想される</li>
 
-<p>
-<b>中央値</b> (median)
-と呼ばれるもので，
-誤差が正の側と負の側に均等に出るのであれば
-\(\theta\) をうまく近似することが予想される．
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -776,17 +882,17 @@ n回投げたときに得られた結果を
 \end{align}
 
 </div>
+</blockquote>
+<ul>
+<li><b>トリム平均</b> (trimmed mean)
+と呼ばれる</li>
+<li>\(X_{1},X_{2},\dotsc,X_{n}\)
+を小さい順に並べて
+小さい方の \(m\) 個と大きい方の \(m\) 個を捨てた算術平均</li>
+<li>極端に大きな，あるいは小さな値として現れる観測値を捨てることによって
+特異的な値による誤差の影響を取り除いて平均を推定しようというものである</li>
 
-<p>
-<b>トリム平均</b> (trimmed mean)
-と呼ばれるもので，
-\(X_{1},X_{2},\dotsc,X_{n}\)
-を小さい順に並べ，
-小さい方の \(m\) 個と大きい方の \(m\) 個を捨てた算術平均である．
-極端に大きな，あるいは小さな値として現れる観測値を捨てることによって，
-特異的な値による誤差の影響を取り除いて平均を推定しようというものである．
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -804,11 +910,11 @@ n回投げたときに得られた結果を
 \end{align}
 
 </div>
+</blockquote>
+<ul>
+<li>各観測の重みを変えて平均を取った加重平均</li>
 
-<p>
-各観測の重みを変えて平均を取った加重平均
-</p>
-</blockquote></li>
+</ul></li>
 <li><p>
 推定量:例5
 </p>
@@ -820,25 +926,24 @@ n回投げたときに得られた結果を
 \end{equation}
 
 </div>
+</blockquote>
+<ul>
+<li>最後のデータのみ使った推定量</li>
 
-<p>
-最後のデータのみ使った推定量
-</p>
-</blockquote></li>
+</ul></li>
 
 </ul>
-
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org90f8dcd">
-<h2 id="org90f8dcd">推定量の良さ</h2>
+<section id="slide-org19b2f67">
+<h2 id="org19b2f67">推定量の良さ</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaed9e37">
-<h3 id="orgaed9e37">不偏性</h3>
+<section id="slide-org9556d49">
+<h3 id="org9556d49">不偏性</h3>
 <ul>
 <li><p>
 定義
@@ -877,12 +982,12 @@ n回投げたときに得られた結果を
 </section>
 </section>
 <section>
-<section id="slide-org5b2f483" data-background="#fef4f4">
-<h2 id="org5b2f483">演習</h2>
+<section id="slide-org60b637b" data-background="#fef4f4">
+<h2 id="org60b637b">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org91dfaa1" data-background="#fef4f4">
-<h3 id="org91dfaa1">演習問題</h3>
+<section id="slide-orgcc2b28f" data-background="#fef4f4">
+<h3 id="orgcc2b28f">演習問題</h3>
 <ul>
 <li>標本平均，荷重平均，最後のデータのみ使った推定量
 が平均の不偏推定量になることを確かめよ．</li>
@@ -905,16 +1010,145 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
+<section id="slide-orgcfaac59" data-background="#fef4f4">
+<h3 id="orgcfaac59">解答例</h3>
+<ul>
+<li><p>
+標本平均
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[\hat\theta]
+  &=\mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]\\
+  &=\frac{\mathbb{E}[X_{1}]+\mathbb{E}[X_{2}]+\dotsb+\mathbb{E}[X_{n}]}{n}\\
+  &=\frac{\theta+\theta+\dotsb+\theta}{n}\\
+  &=\theta
+\end{align}
+
+</div>
+
+<p>
+となり，
+平均値の不偏な推定量になっていることがわかる．
+他も同様に計算できる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+標本分散
+</p>
+<blockquote>
+<p>
+標本分散の分母である
+観測値と標本平均の差の2乗和の平均を計算すると
+以下のようになる．
+</p>
+<div>
+\begin{align}
+  &\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\bar{X})^{2}\right]\\
+  &=\mathbb{E}\left[\sum_{i=1}^n\{X_{i}-\theta-(\bar{X}-\theta)\}^{2}\right]\\
+  &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}
+    -2\sum_{i=1}^n(X_{i}-\theta)(\bar{X}-\theta)
+    +\sum_{i=1}^n(\bar{X}-\theta)^{2}\right]
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+標本分散(つづき)
+</p>
+<blockquote>
+<p>
+ここで
+\(\sum_{i=1}^n(X_{i}-\theta)=n(\bar{X}-\theta)\)
+を用いると
+</p>
+<div>
+\begin{align}
+  &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}-n(\bar{X}-\theta)^{2}\right]\\
+  &=\sum_{i=1}^n\mathrm{Var}(X_{i})-n\mathrm{Var}(\bar{X})\\
+  &=n\sigma^{2}-\sigma^{2}\\
+  &=(n-1)\sigma^{2}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+標本分散(つづき)
+</p>
+<blockquote>
+<p>
+したがって
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}\left[\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n}\right]
+  =\frac{n-1}{n}\sigma^{2}
+\end{equation}
+
+</div>
+<p>
+となり，分散 \(\sigma^{2}\) の不偏な推定量とはなっていない．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+不偏分散
+</p>
+<blockquote>
+<p>
+分散の不偏推定量は
+</p>
+<div>
+\begin{equation}
+  \hat\sigma^{2}=\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n-1}
+\end{equation}
+
+</div>
+
+<p>
+で与えられる．
+</p>
+</blockquote></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
 </section>
 <section>
-<section id="slide-org71d55ee">
-<h2 id="org71d55ee">不偏推定量の良さ</h2>
-<div class="outline-text-2" id="text-org71d55ee">
+<section id="slide-org1e5f442">
+<h2 id="org1e5f442">不偏推定量の良さ</h2>
+<div class="outline-text-2" id="text-org1e5f442">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0de0595">
-<h3 id="org0de0595">推定量の分散</h3>
+<section id="slide-orga0fba77">
+<h3 id="orga0fba77">推定量の分散</h3>
 <ul>
 <li><p>
 一般に不偏推定量も複数存在
@@ -950,8 +1184,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org079034c">
-<h3 id="org079034c">不偏推定量の平均</h3>
+<section id="slide-orgfcbd3c1">
+<h3 id="orgfcbd3c1">不偏推定量の平均</h3>
 <ul>
 <li><p>
 定理
@@ -992,8 +1226,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1d7584d">
-<h3 id="org1d7584d">証明</h3>
+<section id="slide-org0eca035">
+<h3 id="org0eca035">証明</h3>
 <ul>
 <li>平均値の線形性から不偏性は明らか</li>
 <li><p>
@@ -1069,8 +1303,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org105f7be">
-<h3 id="org105f7be">対称な推定量</h3>
+<section id="slide-orgc9d58a8">
+<h3 id="orgc9d58a8">対称な推定量</h3>
 <ul>
 <li><p>
 定理
@@ -1124,8 +1358,8 @@ n回投げたときに得られた結果を
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4186a6a">
-<h3 id="org4186a6a">証明</h3>
+<section id="slide-orgc6b6cf5">
+<h3 id="orgc6b6cf5">証明</h3>
 <ul>
 <li><p>
 証明
@@ -1157,8 +1391,8 @@ n回投げたときに得られた結果を
 </section>
 </section>
 <section>
-<section id="slide-org15a966f">
-<h2 id="org15a966f">今回のまとめ</h2>
+<section id="slide-org4bdaf1a">
+<h2 id="org4bdaf1a">今回のまとめ</h2>
 <ul>
 <li>確率モデルと推定量
 <ul>

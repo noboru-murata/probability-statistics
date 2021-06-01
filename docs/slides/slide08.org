@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-05-31 18:14:46 mura>
+# Time-stamp: <2021-05-31 20:58:56 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -42,7 +42,7 @@
      - \(Y_{n}\) の特性関数 \(\phi_n(s)\) を求めよ．
      - 特性関数 \(\phi_n(s)\) の極限 \(\lim_{n\to\infty}\phi_n(s)\) を求めよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -56,7 +56,7 @@
      #+end_src
      #+end_quote
      #      \(X_1,X_2,\dotsc,X_n\) は独立として計算
-   - \(X\) の平均と分散が
+   - \(X\) の平均と分散を利用すればよい
      #+begin_quote
      #+begin_src latex
        \begin{equation}
@@ -64,9 +64,6 @@
 	 \mathrm{Var}(X)=\mathbb{E}[X^2]=1
        \end{equation}
      #+end_src
-     #+end_quote
-     であることより
-     #+begin_quote
      #+begin_src latex
        \begin{equation}
          \mathbb{E}[Y_{n}]=0,\quad
@@ -76,7 +73,7 @@
      #+end_src
      #+end_quote
    #+reveal: split
-   - 特性関数は
+   - 特性関数も同様
      #+begin_quote
      #+begin_src latex
        \begin{align}
@@ -200,9 +197,8 @@
      もしくは
      *i.i.d.* 
      であるという
-
-     (i.i.d. はindependent and identically distributedの略)
      #+end_quote
+     - i.i.d. はindependent and identically distributedの略
 
 
 * 極限定理
@@ -236,9 +232,12 @@
      #+end_quote
 
 ** 大数の法則の概要
-   - 同一の法則に従って生成された集団から
-     *ランダムな* 観測を多数繰り返すと，
-     観測値の標本平均は真の平均値に近づく
+   - 直感的な意味:
+     #+begin_quote
+     - 同一の法則に従って生成された集団から
+       *ランダムな* 観測を多数繰り返すと，
+       観測値の標本平均は真の平均値に近づく
+     #+end_quote
      # % 分析対象の一部を\alert{ランダムに}収集したデータのみを用いて(標本)平
      # % 均を計算しても, データのサンプル数が十分大きければ, その平均値は集団
      # % 全体の平均値に近い値であると考えられることは, 経験則としてよく知られ
@@ -263,9 +262,11 @@
      #+end_quote
 
 ** 中心極限定理の概要
-   - 大数の法則の主張: 
+   - 大数の法則の主張:
+     #+begin_quote
      - 推定誤差 \(\bar{X}_n-\mu\) は \(n\) を大きくすると0に近づく
      - どの程度の大きさになるのか定量的な評価は与えていない
+     #+end_quote
    - 誤差の評価の定量化:
      - 推定誤差がある区間 \([\alpha,\beta]\) に入る確率で定量的に評価可能
        #+begin_quote
@@ -358,7 +359,7 @@
 
 * 確率モデルと推定量
 ** 観測値の生成モデル
-   - 加法的雑音モデル
+   - 加法的雑音モデル (最も単純な例)
      #+begin_quote
      同じ条件の元で繰り返し測定した実験データを考える．
      データには測定毎に誤差が生じるが，
@@ -386,41 +387,35 @@
      #+begin_quote
      \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
      ある同時確率分布に従う確率変数である．
-
-     (誤差自体が確率変数であるという
-     確率モデルの前提条件の言い換え)
      #+end_quote
+     - 誤差自体が確率変数であるという確率モデルの前提条件の言い換え
    #+reveal: split
    - 仮定1 (独立性)
      #+begin_quote
      \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
      互いに独立に分布する．
-
-     (実験が十分注意深く行われていることを前提とした仮定)
      #+end_quote
+     - 実験が十分注意深く行われていることを前提とした仮定
    - 仮定2 (同分布性)
      #+begin_quote
      \(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
      同じ分布に従う．
-
-     (各回の実験が完全に同じ条件で行われることを仮定)
      #+end_quote
+     - 各回の実験が完全に同じ条件で行われることを仮定
      - 仮定1，2をあわせて *独立同分布 (i.i.d.)* であると言う
    #+reveal: split
    - 仮定3 (誤差の不偏性)
      #+begin_quote
      \(\mathbb{E}[\varepsilon_{i}]=0,\ i=1,\dotsc,n\) 
-
-     観測に偏りがないことを仮定
-     (偏りがあったとしてもデータからは知ることができない)
      #+end_quote
+     - 観測に偏りがないことを仮定
+     - 偏りがあったとしてもデータからは知ることができない
    - 仮定4 (極限定理のための条件)
      #+begin_quote
      \(\mathbb{E}[\varepsilon_{i}^{2}]<\infty,\ i=1,\dotsc,n\) 
-
-     (大数の法則や中心極限定理などを使ってデータの性質を調べる際に必要な仮定．
-     実験データでは測定値が発散するような状況はほとんどないので特に不合理な制約ではない)
      #+end_quote
+     - 大数の法則や中心極限定理などを使ってデータの性質を調べる際に必要な仮定
+     - 実験データでは測定値が発散するような状況はほとんどないので特に不合理な制約ではない
 
 ** 推定量の例
    - 推定量:例1
@@ -431,14 +426,14 @@
          &=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\\
        \end{align}
      #+end_src
-     確率変数の算術平均で
-     *標本平均* (sample mean)
-     と呼ばれる．
-     誤差に偏りがないのであれば
-     直感的にも
-     \(\theta\)
-     に非常に近い値になるであろうことが予想される．
      #+end_quote
+     - 確率変数の算術平均で
+       *標本平均* (sample mean)
+       と呼ばれる
+     - 誤差に偏りがないのであれば
+       直感的にも
+       \(\theta\)
+       に非常に近い値になるであろうことが予想される．
    #+reveal: split
    - 推定量:例2
      #+begin_quote
@@ -448,11 +443,10 @@
          &=\text{(\(X_{1},X_{2},\dotsc,X_{n}\)の中央の値)}\\
        \end{align}
      #+end_src
-     *中央値* (median)
-     と呼ばれるもので，
-     誤差が正の側と負の側に均等に出るのであれば
-     \(\theta\) をうまく近似することが予想される．
      #+end_quote
+     - *中央値* (median) と呼ばれるも
+     - 誤差が正の側と負の側に均等に出るのであれば
+       \(\theta\) をうまく近似することが予想される
    #+reveal: split
    - 推定量:例3 (トリム平均) 
      #+begin_quote
@@ -463,14 +457,14 @@
          &(\text{\(\{X_{(i)}\}\) は \(\{X_{i}\}\) を小さい順に並べ換えたもの})
        \end{align}
      #+end_src
-     *トリム平均* (trimmed mean)
-     と呼ばれるもので，
-     \(X_{1},X_{2},\dotsc,X_{n}\)
-     を小さい順に並べ，
-     小さい方の \(m\) 個と大きい方の \(m\) 個を捨てた算術平均である．
-     極端に大きな，あるいは小さな値として現れる観測値を捨てることによって，
-     特異的な値による誤差の影響を取り除いて平均を推定しようというものである．
      #+end_quote
+     - *トリム平均* (trimmed mean)
+       と呼ばれる
+     - \(X_{1},X_{2},\dotsc,X_{n}\)
+       を小さい順に並べて
+       小さい方の \(m\) 個と大きい方の \(m\) 個を捨てた算術平均
+     - 極端に大きな，あるいは小さな値として現れる観測値を捨てることによって
+       特異的な値による誤差の影響を取り除いて平均を推定しようというものである
    #+reveal: split
    - 推定量:例4
      #+begin_quote
@@ -480,8 +474,8 @@
          &=c_{1}X_{1}+c_{2}X_{2}+\dotsb+c_{n}X_{n},\quad \sum_{i=1}^nc_{i}=1\\
        \end{align}
      #+end_src
-     各観測の重みを変えて平均を取った加重平均
      #+end_quote
+     - 各観測の重みを変えて平均を取った加重平均
    - 推定量:例5
      #+begin_quote
      #+begin_src latex
@@ -490,9 +484,8 @@
          =X_{n}
        \end{equation}
      #+end_src
-     最後のデータのみ使った推定量
      #+end_quote
-
+     - 最後のデータのみ使った推定量
 
 * 推定量の良さ
   # #+begin_notes
@@ -545,7 +538,7 @@
      #+end_quote
      が分散の不偏推定量とならないことを確かめよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -779,16 +772,6 @@
     - 推定量の平均値の不偏性
     - 推定量の分散の大きさ
       
-** COMMENT 注意
-   - 確認テスト (講義8の中)
-     - 期間: 6/23講義終了-6/30 13:00
-     - 時間制限: 1時間 
-     - 5問 (確率変数と特性関数)
-     - 試験の意味を考えて誠実な対応をすること
-     - ネットワーク環境等には自身で配慮すること
-
-      
-
 
 * COMMENT ローカル変数
 # Local Variables:
