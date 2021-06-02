@@ -47,14 +47,38 @@
 </section>
 
 <section>
-<section id="slide-org808bb9e">
-<h2 id="org808bb9e">復習</h2>
-<div class="outline-text-2" id="text-org808bb9e">
+<section id="slide-org9c43be2">
+<h2 id="org9c43be2">前回のおさらい</h2>
+<ul>
+<li>平均の点推定
+<ul>
+<li>点推定の考え方</li>
+<li>良い不偏推定量</li>
+<li>正規分布モデルの標本平均の性質</li>
+
+</ul></li>
+<li>平均の区間推定
+<ul>
+<li>区間推定の考え方</li>
+<li>正規分布モデルにおける区間推定</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org5c04a2f">
+<h2 id="org5c04a2f">復習</h2>
+<div class="outline-text-2" id="text-org5c04a2f">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org954912f">
-<h3 id="org954912f">統計的推測の考え方</h3>
+<section id="slide-org0520219">
+<h3 id="org0520219">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -72,8 +96,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6bae4c4">
-<h3 id="org6bae4c4">点推定</h3>
+<section id="slide-orga5f12eb">
+<h3 id="orga5f12eb">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -100,8 +124,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org778d719">
-<h3 id="org778d719">Cramer-Raoの不等式</h3>
+<section id="slide-orgc642ce9">
+<h3 id="orgc642ce9">Cramer-Raoの不等式</h3>
 <ul>
 <li><p>
 定理
@@ -117,14 +141,10 @@
 </p>
 <div>
 \begin{equation}
-  \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)}.
+  \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)},
 \end{equation}
 
 </div>
-
-<p>
-ただし
-</p>
 <div>
 \begin{equation}
   I(\theta)=\int_{-\infty}^\infty
@@ -139,8 +159,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org27f30a8">
-<h3 id="org27f30a8">一様最小分散不偏推定量</h3>
+<section id="slide-orgc73d878">
+<h3 id="orgc73d878">一様最小分散不偏推定量</h3>
 <ul>
 <li><p>
 定理 (Cramer-Raoの不等式の系)
@@ -156,8 +176,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb482e56">
-<h3 id="orgb482e56">推定誤差</h3>
+<section id="slide-orgf688e28">
+<h3 id="orgf688e28">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量評価には推定誤差の評価が重要
@@ -167,23 +187,24 @@
 区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 &rdquo; <br />
 (&ldquo;外側にある確率が \(\alpha\) 以下&rdquo;)
 </p>
+<blockquote>
 <div>
 \begin{equation}
   P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul></li>
-
 <li>この確率の厳密あるいは近似的な評価を利用</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf6b2135">
-<h3 id="orgf6b2135">区間推定</h3>
+<section id="slide-org11e5cc6">
+<h3 id="org11e5cc6">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -214,8 +235,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgabec3ac">
-<h3 id="orgabec3ac">加法的正規雑音モデル</h3>
+<section id="slide-org8dcddfc">
+<h3 id="org8dcddfc">加法的正規雑音モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -236,10 +257,11 @@
 以下の仮定を加える
 </p>
 <blockquote>
-<p>
-\(\varepsilon_{1},\dotsc,\varepsilon_{n}\)
-は平均0，分散 \(\sigma^{2}\) の正規分布に従う．
-</p>
+<ul>
+<li>\(\varepsilon_{1},\dotsc,\varepsilon_{n}\)
+は平均0，分散 \(\sigma^{2}\) の正規分布に従う．</li>
+
+</ul>
 </blockquote></li>
 <li><p>
 観測値の分布
@@ -254,8 +276,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0c7e71c">
-<h3 id="org0c7e71c">標本平均</h3>
+<section id="slide-org5b81171">
+<h3 id="org5b81171">標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
@@ -279,8 +301,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org271df03">
-<h3 id="org271df03">平均の区間推定</h3>
+<section id="slide-org3af69b6">
+<h3 id="org3af69b6">平均の区間推定</h3>
 <ul>
 <li><p>
 分散既知の場合の信頼区間
@@ -314,18 +336,19 @@
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org7e7113d">
-<h2 id="org7e7113d">最尤法</h2>
-<div class="outline-text-2" id="text-org7e7113d">
+<section id="slide-org51d1f3b">
+<h2 id="org51d1f3b">最尤法</h2>
+<div class="outline-text-2" id="text-org51d1f3b">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb194f9e">
-<h3 id="orgb194f9e">離散分布の場合</h3>
+<section id="slide-orgc954e2e">
+<h3 id="orgc954e2e">離散分布の場合</h3>
 <ul>
 <li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
 <ul>
@@ -355,8 +378,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbf0ee8f">
-<h3 id="orgbf0ee8f">尤度関数</h3>
+<section id="slide-org3af45e0">
+<h3 id="org3af45e0">尤度関数</h3>
 <ul>
 <li><p>
 定義
@@ -394,8 +417,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge758ed5">
-<h3 id="orge758ed5">連続分布の場合</h3>
+<section id="slide-orga3e491a">
+<h3 id="orga3e491a">連続分布の場合</h3>
 <ul>
 <li>確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
 <li><p>
@@ -421,8 +444,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org599a211">
-<h3 id="org599a211">最尤法</h3>
+<section id="slide-orge92d744">
+<h3 id="orge92d744">最尤法</h3>
 <ul>
 <li><p>
 最尤法: 
@@ -468,8 +491,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org38c5537">
-<h3 id="org38c5537">最尤推定量の計算</h3>
+<section id="slide-orgc42b3c5">
+<h3 id="orgc42b3c5">最尤推定量の計算</h3>
 <ul>
 <li><p>
 <b>対数尤度関数</b>:
@@ -498,12 +521,17 @@
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org15c779c" data-background="#fef4f4">
-<h2 id="org15c779c">演習</h2>
+<section id="slide-org9dd45d7" data-background="#fef4f4">
+<h2 id="org9dd45d7">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgdf4b804" data-background="#fef4f4">
+<h3 id="orgdf4b804">練習問題</h3>
 <ul>
 <li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
 最尤推定量を求めよ．
@@ -545,140 +573,16 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6b7ae0e">
-<h3 id="org6b7ae0e">解答例: Poisson分布の最尤推定</h3>
-<ul>
-<li><p>
-対数尤度関数 (未知パラメタ: \(\lambda\) )
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \ell(\lambda)=\sum_{i=1}^n\log\frac{\lambda^{X_i}}{X_i!}e^{-\lambda}
-  =\sum_{i=1}^n(X_i\log\lambda-\log X_i!)-n\lambda
-\end{equation}
-
-</div>
-</blockquote></li>
-<li>少なくとも1つの \(i\) について \(X_i>0\) を仮定する</li>
-
-</ul>
-<div class="slide-footer"><br></div>
 </section>
 <section>
-<ul>
-<li><p>
-\(\ell(\lambda)\) の微分:
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \ell'(\lambda)=\frac{1}{\lambda}\sum_{i=1}^nX_i-n,\quad
-  \ell''(\lambda)=-\frac{1}{\lambda^2}\sum_{i=1}^nX_i<0
-\end{equation}
-
-</div>
-</blockquote></li>
-<li>方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化</li>
-<li><p>
-\(\lambda\) の最尤推定量:
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \hat{\lambda}=\frac{1}{n}\sum_{i=1}^nX_i
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org53df1f1">
-<h3 id="org53df1f1">解答例: 指数分布の最尤推定</h3>
-<ul>
-<li><p>
-対数尤度関数 (未知パラメタ: \(\lambda\) )
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \ell(\lambda)=\sum_{i=1}^n\log\lambda e^{-\lambda X_i}
-  =n\log\lambda-\lambda\sum_{i=1}^nX_i
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-\(\ell(\lambda)\) の微分:
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \ell'(\lambda)=\frac{n}{\lambda}-\sum_{i=1}^nX_i,\quad
-  \ell''(\lambda)=-\frac{n}{\lambda^2}<0
-\end{equation}
-
-</div>
-</blockquote></li>
-<li>方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化</li>
-<li><p>
-\(\lambda\) の最尤推定量:
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \hat{\lambda}=\frac{1}{\frac{1}{n}\sum_{i=1}^nX_i}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6c014a8">
-<h3 id="org6c014a8">参考: ガンマ分布の最尤推定</h3>
-<ul>
-<li>パラメタ \(\nu,\alpha>0\) のガンマ分布 (調べてみよ)</li>
-<li><p>
-対数尤度関数 (未知パラメタ: \(\nu,\alpha\) )
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \ell(\nu,\alpha)
-  &=\sum_{i=1}^n\log\frac{\alpha^\nu}{\Gamma(\nu)}X_i^{\nu{-}1}e^{-\alpha X_i}\\
-  &=n\nu\log\alpha-n\log\Gamma(\nu)+\sum_{i=1}^n\{(\nu{-}1)\log X_i-\alpha X_i\}
-\end{align}
-
-</div>
-</blockquote></li>
-<li>\(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-orgf51e361">
-<h2 id="orgf51e361">最尤推定量の性質</h2>
-<div class="outline-text-2" id="text-orgf51e361">
+<section id="slide-org6b9b836">
+<h2 id="org6b9b836">最尤推定量の性質</h2>
+<div class="outline-text-2" id="text-org6b9b836">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7008c78">
-<h3 id="org7008c78">一致性</h3>
+<section id="slide-org5db8148">
+<h3 id="org5db8148">一致性</h3>
 <ul>
 <li><p>
 定理
@@ -711,9 +615,11 @@
 </ul></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section>
+<section id="slide-orgada007b">
+<h3 id="orgada007b">証明の概略</h3>
 <ul>
 <li><p>
 対数尤度の大数の法則
@@ -803,8 +709,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb435a2a">
-<h3 id="orgb435a2a">漸近正規性</h3>
+<section id="slide-org5ea0df6">
+<h3 id="org5ea0df6">漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -830,9 +736,11 @@ Cramer-Rao 下界に一致する</li>
 </ul></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section>
+<section id="slide-org381c13f">
+<h3 id="org381c13f">証明の概略</h3>
 <ul>
 <li><p>
 Fisher 情報量
@@ -877,6 +785,12 @@ Fisher 情報量
 
 </div>
 </blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
 <li><p>
 Taylor 展開による近似
 </p>
@@ -890,7 +804,7 @@ Taylor 展開による近似
 \end{equation}
 
 </div>
-
+</blockquote>
 <ul>
 <li>\(\tilde\theta\)
 は
@@ -900,8 +814,7 @@ Taylor 展開による近似
 \(\hat\theta^*\)
 の間の値</li>
 
-</ul>
-</blockquote></li>
+</ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -1004,18 +917,19 @@ Taylor 展開による近似
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgcc79a7f">
-<h2 id="orgcc79a7f">漸近正規性にもとづく区間推定</h2>
-<div class="outline-text-2" id="text-orgcc79a7f">
+<section id="slide-org45df496">
+<h2 id="org45df496">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-org45df496">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcc89fd7">
-<h3 id="orgcc89fd7">推定量の漸近正規性</h3>
+<section id="slide-org5eba612">
+<h3 id="org5eba612">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 <b>漸近正規性</b>
@@ -1037,8 +951,8 @@ Taylor 展開による近似
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5cba56e">
-<h3 id="org5cba56e">漸近正規性にもとづく区間推定</h3>
+<section id="slide-org486ffe8">
+<h3 id="org486ffe8">漸近正規性にもとづく区間推定</h3>
 <ul>
 <li><p>
 推定量の分布
@@ -1081,8 +995,8 @@ Taylor 展開による近似
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3b5af61">
-<h3 id="org3b5af61">標本平均の区間推定</h3>
+<section id="slide-org88aba31">
+<h3 id="org88aba31">標本平均の区間推定</h3>
 <ul>
 <li><p>
 定理 (標本平均の漸近正規性)
@@ -1178,8 +1092,8 @@ Taylor 展開による近似
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org81031b7">
-<h3 id="org81031b7">最尤推定量の区間推定</h3>
+<section id="slide-org252365e">
+<h3 id="org252365e">最尤推定量の区間推定</h3>
 <ul>
 <li><p>
 定理 (最尤推定量の漸近正規性)
@@ -1229,12 +1143,17 @@ Taylor 展開による近似
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgf7409b7" data-background="#fef4f4">
-<h2 id="orgf7409b7">演習</h2>
+<section id="slide-org619860a" data-background="#fef4f4">
+<h2 id="org619860a">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5796d53" data-background="#fef4f4">
+<h3 id="org5796d53">練習問題</h3>
 <ul>
 <li>選挙の投票率を調べるために，
 400人にアンケートを実施した結果，
@@ -1244,7 +1163,7 @@ Taylor 展開による近似
 <li>投票率を最尤推定しなさい．</li>
 <li>投票率の最尤推定量の分散を求めよ．</li>
 <li>投票率の0.9信頼区間を求めよ．
-ただし \(z_0.95=1.64\) として計算せよ．</li>
+ただし \(z_{0.95}=1.64\) として計算せよ．</li>
 <li><p>
 ヒント: 以下のような確率変数を考えるとよい．
 </p>
@@ -1264,215 +1183,18 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9dcb34c" data-background="#fef4f4">
-<h3 id="org9dcb34c">解答例</h3>
-<ul>
-<li><p>
-確率質量関数
-</p>
-<blockquote>
-<p>
-投票率を \(\theta\) とし，
-確率変数 \(X\) の確率質量関数を以下で定義する．
-</p>
-<div>
-\begin{align}
-  f(1)&=\theta\\
-  f(0)&=1-\theta
-\end{align}
-
-</div>
-
-<p>
-以下のようにまとめられる．(他にも書き方はある)
-</p>
-<div>
-\begin{equation}
-  f(x)=\theta^{x}(1-\theta)^{1-x}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
 </section>
-<section data-background="#fef4f4">
+<section>
+<section id="slide-org9d301d6">
+<h2 id="org9d301d6">今回のまとめ</h2>
 <ul>
-<li><p>
-対数尤度
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \ell(\theta)
-  &=\sum_{i=1}^{400}\log f(X_{i})\\
-  &=\sum_{i=1}^{400}
-    \left\{
-    X_{i}\log\theta+(1-X_{i})\log(1-\theta)
-    \right\}\\
-  &=n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)
-\end{align}
-
-</div>
-
-<p>
-ただし \(\bar{X}\) は標本平均．
-</p>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-最尤推定量
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \ell'(\hat\theta)
-  &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
-  \hat\theta&=\bar{X}
-\end{align}
-
-</div>
-</blockquote></li>
-<li><p>
-推定値
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \hat\theta
-  =\bar{X}
-  =\frac{320}{400}=0.8
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-Fisher 情報量を用いた場合
-</p>
-<blockquote>
-<div>
-\begin{align}
-  I(\theta)
-  &=\mathbb{E}
-    \left[
-    -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
-    \right]\\
-  &=\mathbb{E}
-    \left[
-    \frac{X}{\theta^{2}}+\frac{(1-X)}{(1-\theta)^{2}}
-    \right]\\
-  &=\frac{1}{\theta}+\frac{1}{(1-\theta)}
-    =\frac{1}{\theta(1-\theta)}
-\end{align}
-
-</div>
-
-<p>
-よって
-</p>
-<div>
-\begin{equation}
-  \mathrm{Var}(\hat\theta)=\frac{\theta_{0}(1-\theta_{0})}{n}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-標本平均の性質を用いた場合
-</p>
-<blockquote>
-<p>
-確率変数の平均と分散は
-</p>
-<div>
-\begin{align}
-  \mathbb{E}[X]
-  &=1\times\theta+0\times(1-\theta)
-    =\theta\\
-  \mathrm{Var}(X)
-  &=\mathbb{E}[X^{2}]-\mathbb{E}[X]^{2}\\
-  &=\theta-\theta^2=\theta(1-\theta)
-\end{align}
-
-</div>
-
-<p>
-であるので，
-</p>
-<div>
-\begin{equation}
-  \mathrm{Var}(\hat\theta)
-  =\mathrm{Var}(\bar{X})
-  =\frac{\theta_{0}(1-\theta_{0})}{n}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-推定量の分散の一致推定量
-</p>
-<blockquote>
-<p>
-真の値 \(\theta_{0}\) の代理として
-最尤推定量 \(\hat\theta\) を用いる
-</p>
-<div>
-\begin{equation}
-  s^{2}
-  =\frac{\hat\theta(1-\hat\theta)}{n}
-  =\frac{0.8\times0.2}{400}=4\times 10^{-4}
-\end{equation}
-
-</div>
-<div>
-\begin{equation}
-  s
-  =0.02
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-0.9信頼区間 (90%信頼区間)
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \left[
-    \hat\theta-z_{0.95}\cdot s,\;
-    \hat\theta+z_{0.95}\cdot s
-  \right]
-  =[0.7672,\;0.8328]
-\end{equation}
-
-</div>
-</blockquote></li>
+<li>最尤法の考え方</li>
+<li>最尤推定量の一致性</li>
+<li>最尤推定量の漸近正規性</li>
+<li>最尤推定量による区間推定</li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -1497,7 +1219,7 @@ center: true,
 slideNumber: 'c',
 rollingLinks: false,
 keyboard: true,
-mouseWheel: true,
+mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
@@ -1506,7 +1228,7 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
 
 // Plugins with reveal.js 4.x
 plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
@@ -1514,7 +1236,8 @@ plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
 // Optional libraries used to extend reveal.js
 dependencies: [
 { src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'}]
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
 
 });
 </script>
