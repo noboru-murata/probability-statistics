@@ -145,8 +145,9 @@
   :EXPORT_FILE_NAME: lecture12
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
+  <2021-06-03 Thu> 更新
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide12" >}}
+   {{< myslide base="probability-statistics" name="slide12" >}}
 ** ハンドアウト
    - [[github:pdfs/slide12.pdf][PDF file]]
 
@@ -155,8 +156,9 @@
   :EXPORT_FILE_NAME: lecture13
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
+  <2021-06-03 Thu> 更新
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide13" >}}
+   {{< myslide base="probability-statistics" name="slide13" >}}
 ** ハンドアウト
    - [[github:pdfs/slide13.pdf][PDF file]]
 
@@ -165,8 +167,9 @@
   :EXPORT_FILE_NAME: lecture14
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
+  <2021-06-03 Thu> 更新
 ** スライド
-   #+html: {{< myslide base="probability-statistics" name="slide14" >}}
+   {{< myslide base="probability-statistics" name="slide14" >}}
 ** ハンドアウト
    - [[github:pdfs/slide14.pdf][PDF file]]
 

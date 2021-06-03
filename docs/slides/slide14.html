@@ -34,7 +34,7 @@
     <h1 class="no-toc-progress">検定のまとめ</h1>
 </div>
 <div class="talk-subtitle">
-    <p>確率・統計 講義14</p>
+    <p>確率・統計 - 講義14</p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
@@ -47,14 +47,38 @@
 </section>
 
 <section>
-<section id="slide-orgdd231cf">
-<h2 id="orgdd231cf">復習</h2>
-<div class="outline-text-2" id="text-orgdd231cf">
+<section id="slide-org13aaf95">
+<h2 id="org13aaf95">前回のおさらい</h2>
+<ul>
+<li>分散未知の正規分布を用いた検定
+<ul>
+<li>平均値の検定</li>
+<li>平均値の差の検定</li>
+<li>分散の検定</li>
+<li>分散の比の検定</li>
+
+</ul></li>
+<li>最尤推定量を用いた検定
+<ul>
+<li>漸近正規性</li>
+<li>正規分布を用いた検定に帰着</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org9b317b9">
+<h2 id="org9b317b9">復習</h2>
+<div class="outline-text-2" id="text-org9b317b9">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org90feb3c">
-<h3 id="org90feb3c">統計的仮説検定</h3>
+<section id="slide-orgdb87c99">
+<h3 id="orgdb87c99">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -65,8 +89,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1948b70">
-<h3 id="org1948b70">検定における仮説</h3>
+<section id="slide-org7a7179f">
+<h3 id="org7a7179f">検定における仮説</h3>
 <ul>
 <li><p>
 帰無仮説 \(H_0\)
@@ -88,8 +112,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org81bd466">
-<h3 id="org81bd466">検定の基本的手続き</h3>
+<section id="slide-org29bf35a">
+<h3 id="org29bf35a">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
 <li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
@@ -102,8 +126,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8d60b1c">
-<h3 id="org8d60b1c">検定の用語</h3>
+<section id="slide-org855a38f">
+<h3 id="org855a38f">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
@@ -127,8 +151,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc88370d">
-<h3 id="orgc88370d">有意水準と \(p\) 値</h3>
+<section id="slide-org393b845">
+<h3 id="org393b845">有意水準と \(p\)-値</h3>
 <ul>
 <li><p>
 有意水準
@@ -139,7 +163,7 @@
 </p>
 </blockquote></li>
 <li><p>
-\(p\) 値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+\(p\)-値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
 </p>
 <blockquote>
 <p>
@@ -147,18 +171,18 @@
 </p>
 <div>
 \begin{equation}
-  \text{($p$ 値)}
-  =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+  \text{(\(p\)-値)}
+  =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
 \end{equation}
 
 </div>
 </blockquote></li>
 <li><p>
-有意水準と \(p\) 値の関係
+有意水準と \(p\)-値の関係
 </p>
 <blockquote>
 <p>
-\(p\) 値が有意水準未満のときに帰無仮説を棄却する
+\(p\)-値が有意水準未満のときに帰無仮説を棄却する
 </p>
 </blockquote></li>
 
@@ -166,8 +190,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5ac5cbf">
-<h3 id="org5ac5cbf">正規分布を用いた平均値の検定</h3>
+<section id="slide-org249be48">
+<h3 id="org249be48">正規分布を用いた平均値の検定</h3>
 <ul>
 <li><p>
 問題
@@ -249,8 +273,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org937feb2">
-<h3 id="org937feb2">正規分布を用いた平均値の差の検定</h3>
+<section id="slide-orgc06f128">
+<h3 id="orgc06f128">正規分布を用いた平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -336,8 +360,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4e4b7bd">
-<h3 id="org4e4b7bd">両側検定と片側検定</h3>
+<section id="slide-org7b99ac1">
+<h3 id="org7b99ac1">両側検定と片側検定</h3>
 <ul>
 <li>対立仮説によって棄却域の形は変わりうる
 <ul>
@@ -363,7 +387,7 @@
 <section>
 <div class="leftcol">
 
-<div id="orgb434daa" class="figure">
+<div id="org9efffe2" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 </div>
@@ -371,7 +395,7 @@
 </div>
 <div class="rightcol">
 
-<div id="org635d0ed" class="figure">
+<div id="org539f245" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 </div>
@@ -380,8 +404,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org94d58e6">
-<h3 id="org94d58e6">推定量の漸近正規性</h3>
+<section id="slide-org6a92b4a">
+<h3 id="org6a92b4a">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 漸近正規性 (データ数が多いときの性質)
@@ -402,8 +426,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf7cc853">
-<h3 id="orgf7cc853">最尤推定量の漸近正規性</h3>
+<section id="slide-orgebe3a6c">
+<h3 id="orgebe3a6c">最尤推定量の漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -449,8 +473,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc00ffd2">
-<h3 id="orgc00ffd2">最尤推定量の検定</h3>
+<section id="slide-org3627554">
+<h3 id="org3627554">最尤推定量の検定</h3>
 <ul>
 <li><p>
 問題
@@ -477,8 +501,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5048041">
-<h3 id="org5048041">\(Z\) 検定 (正規分布による検定)</h3>
+<section id="slide-org31bf588">
+<h3 id="org31bf588">\(Z\)-検定 (正規分布による検定)</h3>
 <ul>
 <li><p>
 検定統計量
@@ -521,14 +545,6 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 </blockquote></li>
 
 </ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-orgfd2e857">
-<h2 id="orgfd2e857">課題の説明</h2>
 <div class="slide-footer"><br></div>
 </section>
 </section>
@@ -551,7 +567,7 @@ center: true,
 slideNumber: 'c',
 rollingLinks: false,
 keyboard: true,
-mouseWheel: true,
+mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
@@ -560,7 +576,7 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }},
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
 
 // Plugins with reveal.js 4.x
 plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
@@ -568,7 +584,8 @@ plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
 // Optional libraries used to extend reveal.js
 dependencies: [
 { src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'}]
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
 
 });
 </script>

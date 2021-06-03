@@ -34,7 +34,7 @@
     <h1 class="no-toc-progress">さまざまな検定</h1>
 </div>
 <div class="talk-subtitle">
-    <p>確率・統計 講義13</p>
+    <p>確率・統計 - 講義13</p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
@@ -47,14 +47,40 @@
 </section>
 
 <section>
-<section id="slide-org3fdd9a4">
-<h2 id="org3fdd9a4">復習</h2>
-<div class="outline-text-2" id="text-org3fdd9a4">
+<section id="slide-org4b0bd6e">
+<h2 id="org4b0bd6e">前回のおさらい</h2>
+<ul>
+<li>統計的仮説検定
+<ul>
+<li>検定の手続き</li>
+<li>帰無仮説と対立仮説</li>
+<li>有意水準，棄却域，\(p\)-値</li>
+<li>過誤と検出力</li>
+<li>両側検定と片側検定</li>
+
+</ul></li>
+<li>正規分布を用いた検定
+<ul>
+<li>平均値の差の検定</li>
+<li>平均値の検定</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org48d4890">
+<h2 id="org48d4890">復習</h2>
+<div class="outline-text-2" id="text-org48d4890">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3eee25f">
-<h3 id="org3eee25f">統計的仮説検定</h3>
+<section id="slide-org6030ac0">
+<h3 id="org6030ac0">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -65,8 +91,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga0018cc">
-<h3 id="orga0018cc">検定における仮説</h3>
+<section id="slide-org6d0b628">
+<h3 id="org6d0b628">検定における仮説</h3>
 <ul>
 <li><p>
 帰無仮説 \(H_0\)
@@ -88,8 +114,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3f85e58">
-<h3 id="org3f85e58">検定の基本的手続き</h3>
+<section id="slide-org414c3b4">
+<h3 id="org414c3b4">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
 <li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
@@ -102,8 +128,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb5b5c2b">
-<h3 id="orgb5b5c2b">検定の用語</h3>
+<section id="slide-org5644dc5">
+<h3 id="org5644dc5">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
@@ -127,8 +153,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5e85b99">
-<h3 id="org5e85b99">有意水準と \(p\) 値</h3>
+<section id="slide-org9fa5471">
+<h3 id="org9fa5471">有意水準と \(p\)-値</h3>
 <ul>
 <li><p>
 有意水準
@@ -139,7 +165,7 @@
 </p>
 </blockquote></li>
 <li><p>
-\(p\) 値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+\(p\)-値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
 </p>
 <blockquote>
 <p>
@@ -147,18 +173,18 @@
 </p>
 <div>
 \begin{equation}
-  \text{($p$ 値)}
-  =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+  \text{(\(p\)-値)}
+  =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
 \end{equation}
 
 </div>
 </blockquote></li>
 <li><p>
-有意水準と \(p\) 値の関係
+有意水準と \(p\)-値の関係
 </p>
 <blockquote>
 <p>
-\(p\) 値が有意水準未満のときに帰無仮説を棄却する
+\(p\)-値が有意水準未満のときに帰無仮説を棄却する
 </p>
 </blockquote></li>
 
@@ -166,8 +192,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgce8720c">
-<h3 id="orgce8720c">正規分布を用いた平均値の検定</h3>
+<section id="slide-orgd06ff23">
+<h3 id="orgd06ff23">正規分布を用いた平均値の検定</h3>
 <ul>
 <li><p>
 問題
@@ -191,13 +217,13 @@
 \begin{equation}
   X_i=\theta+\varepsilon_{i},
   \quad i=1,\dotsc,n
-  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
 \end{equation}
 
 </div>
 
 <p>
-を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
 </p>
 <div>
 \begin{equation}
@@ -249,8 +275,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0c92ba1">
-<h3 id="org0c92ba1">正規分布を用いた平均値の差の検定</h3>
+<section id="slide-org37edac6">
+<h3 id="org37edac6">正規分布を用いた平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -275,16 +301,16 @@
 \begin{align}
   X_i&=\theta_{1}+\varepsilon_{1i},
   \quad i=1,\dotsc,n
-  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
+  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
   Y_j&=\theta_{2}+\varepsilon_{2j},
   \quad j=1,\dotsc,m
-  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
+  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
 \end{align}
 
 </div>
 
 <p>
-を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
 </p>
 <div>
 \begin{equation}
@@ -336,8 +362,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgff99a86">
-<h3 id="orgff99a86">両側検定と片側検定</h3>
+<section id="slide-org8d5e770">
+<h3 id="org8d5e770">両側検定と片側検定</h3>
 <ul>
 <li>対立仮説によって棄却域の形は変わりうる
 <ul>
@@ -363,7 +389,7 @@
 <section>
 <div class="leftcol">
 
-<div id="org24004d6" class="figure">
+<div id="org2b0669a" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 </div>
@@ -371,19 +397,24 @@
 </div>
 <div class="rightcol">
 
-<div id="org36168d4" class="figure">
+<div id="org48cd554" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 </div>
 
 </div>
 
+
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orge9717f5" data-background="#fef4f4">
-<h2 id="orge9717f5">演習</h2>
+<section id="slide-orgd873aa1" data-background="#fef4f4">
+<h2 id="orgd873aa1">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2086bb3" data-background="#fef4f4">
+<h3 id="org2086bb3">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -413,112 +444,19 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgd468fbd" data-background="#fef4f4">
-<h3 id="orgd468fbd">解答例</h3>
-<ul>
-<li><p>
-観測値の確率モデル
-</p>
-<blockquote>
-<div>
-\begin{align}
-  X_i&=\theta_{1}+\varepsilon_{1i},
-  \quad i=1,\dotsc,n
-  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
-  Y_j&=\theta_{2}+\varepsilon_{2j},
-  \quad j=1,\dotsc,m
-  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
-\end{align}
-
-</div>
-</blockquote>
-<ul>
-<li>\(n=6\), \(m=10\), \(\sigma^{2}=0.6\)</li>
-
-</ul></li>
-<li><p>
-検定統計量
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.975}=1.96\))
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  R_{\alpha}
-  =
-  \left(-\infty,-z_{1{-}\alpha/2}\right)
-  \cup
-  \left(z_{1{-}\alpha/2},\infty\right)
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-検定統計量の計算 
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  T
-  =\sqrt{\frac{6\times 10}{6+10}}\frac{15.2-14.5}{\sqrt{0.6}}
-  =1.75
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li>&ldquo;Y県の方がF県より甘い&rdquo; という対立仮説の場合 <br />
-(右片側検定)</li>
-<li><p>
-棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.95}=1.64\))
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  R_{\alpha}
-  =
-  \left(z_{1{-}\alpha},\infty\right)
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgbe432d8">
-<h2 id="orgbe432d8">正規分布にもとづいたいろいろな検定</h2>
-<div class="outline-text-2" id="text-orgbe432d8">
+<section id="slide-org002ae99">
+<h2 id="org002ae99">正規分布にもとづいたいろいろな検定</h2>
+<div class="outline-text-2" id="text-org002ae99">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge5354b0">
-<h3 id="orge5354b0">観測値の仮定</h3>
+<section id="slide-org6f41377">
+<h3 id="org6f41377">観測値の仮定</h3>
 <ul>
 <li><p>
 確率モデル
@@ -527,14 +465,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <div>
 \begin{equation}
   X=\mu+\varepsilon,
-  \qquad \varepsilon\sim\mathcal{N}(0,\sigma^2)
+  \qquad \varepsilon\sim\mathcal{N}(0,\sigma^{2})
 \end{equation}
 
 </div>
 
 <div>
 \begin{equation}
-  X\sim\mathcal{N}(\mu,\sigma^2)
+  X\sim\mathcal{N}(\mu,\sigma^{2})
 \end{equation}
 
 </div>
@@ -545,8 +483,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7c28fec">
-<h3 id="org7c28fec">平均の検定</h3>
+<section id="slide-orga5f8a1a">
+<h3 id="orga5f8a1a">平均の検定</h3>
 <ul>
 <li><p>
 問題
@@ -568,8 +506,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf784133">
-<h3 id="orgf784133">考え方</h3>
+<section id="slide-org323959c">
+<h3 id="org323959c">考え方</h3>
 <ul>
 <li>平均と分散の推定量の性質
 <ul>
@@ -585,12 +523,12 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 </blockquote></li>
 <li><p>
-不偏分散: (\(\chi^2\) 分布に従う)
+不偏分散: (\(\chi^{2}\)-分布に従う)
 </p>
 <blockquote>
 <div>
 \begin{equation}
-  s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+  s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2}
 \end{equation}
 
 </div>
@@ -602,14 +540,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org51c6be9">
-<h3 id="org51c6be9">\(\chi^{2}\) -分布</h3>
+<section id="slide-orgdfe88dd">
+<h3 id="orgdfe88dd">\(\chi^{2}\)-分布</h3>
 <div class="leftcol">
 
-<div id="org5aa885a" class="figure">
+<div id="org32652fd" class="figure">
 <p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
 </p>
-<p><span class="figure-number">Figure 3: </span>\(\chi^{2}\) -分布 (自由度\(3\))</p>
+<p><span class="figure-number">Figure 3: </span>\(\chi^{2}\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
@@ -642,14 +580,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org788fd65">
-<h3 id="org788fd65">\(t\) -分布</h3>
+<section id="slide-orgf190ba3">
+<h3 id="orgf190ba3">\(t\)-分布</h3>
 <div class="leftcol">
 
-<div id="org17e8bee" class="figure">
+<div id="org4fd67e1" class="figure">
 <p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
 </p>
-<p><span class="figure-number">Figure 4: </span>\(t\) -分布 (自由度\(3\))</p>
+<p><span class="figure-number">Figure 4: </span>\(t\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
@@ -673,7 +611,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <ul>
 <li>備考: 標準正規分布と
-自由度 \(\nu\) の \(\chi^{2}\) -分布の比の分布で，
+自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
 検定に利用される．</li>
 
 </ul></li>
@@ -684,8 +622,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org93074f4">
-<h3 id="org93074f4">Studentの \(t\) 検定</h3>
+<section id="slide-orga384898">
+<h3 id="orga384898">Studentの \(t\)-検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -698,7 +636,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 </div>
 </blockquote></li>
-<li>帰無分布は自由度 \(n{-}1\) の \(t\) -分布</li>
+<li>帰無分布は自由度 \(n{-}1\) の \(t\)-分布</li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -710,7 +648,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </p>
 <blockquote>
 <p>
-自由度 \(n{-}1\) の \(t\) 分布の \(1{-}\alpha/2\) 分位点
+自由度 \(n{-}1\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
 <li><p>
@@ -731,8 +669,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org30f8316">
-<h3 id="org30f8316">平均の差の検定</h3>
+<section id="slide-org19b1341">
+<h3 id="org19b1341">平均の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -758,8 +696,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4ce759b">
-<h3 id="org4ce759b">考え方</h3>
+<section id="slide-org6597861">
+<h3 id="org6597861">考え方</h3>
 <ul>
 <li><p>
 \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
@@ -767,27 +705,27 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <blockquote>
 <div>
 \begin{equation}
-  s_1^2=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^2,\quad
-  s_2^2=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^2.
+  s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
+  s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
 \end{equation}
 
 </div>
 </blockquote></li>
 <li>標本平均と不偏分散の性質:
 <ul>
-<li>\(\bar{X}-\bar{Y},s_1^2,s_2^2\) は互いに独立</li>
-<li>\((m{-}1)s_1^2/\sigma_1^2\)
-は自由度 \(m{-}1\) の \(\chi^2\) 分布に従う</li>
-<li>\((n{-}1)s_2^2/\sigma_2^2\)
-は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
+<li>\(\bar{X}-\bar{Y},s_1^{2},s_2^{2}\) は互いに独立</li>
+<li>\((m{-}1)s_1^{2}/\sigma_1^{2}\)
+は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う</li>
+<li>\((n{-}1)s_2^{2}/\sigma_2^{2}\)
+は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う</li>
 
 </ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0d6fb58">
-<h3 id="org0d6fb58">Welchの \(t\) 検定</h3>
+<section id="slide-orgc3bc5e4">
+<h3 id="orgc3bc5e4">Welchの \(t\)-検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -795,20 +733,20 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <blockquote>
 <div>
 \begin{equation}
-  T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_1^2/m+s_2^2/n}}
+  T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_1^{2}/m+s_2^{2}/n}}
 \end{equation}
 
 </div>
 </blockquote></li>
 <li><p>
-帰無分布は自由度 \(\hat{\nu}\) の \(t\) -分布 (<b>Welchの近似</b>)
+帰無分布は自由度 \(\hat{\nu}\) の \(t\)-分布 (<b>Welchの近似</b>)
 </p>
 <blockquote>
 <div>
 \begin{equation}
   \hat{\nu}
-  =\frac{(s_1^2/m+s_2^2/n)^2}
-  {\frac{(s_1^2/m)^2}{m{-}1}+\frac{(s_2^2/n)^2}{n{-}1}}
+  =\frac{(s_1^{2}/m+s_2^{2}/n)^{2}}
+  {\frac{(s_1^{2}/m)^{2}}{m{-}1}+\frac{(s_2^{2}/n)^{2}}{n{-}1}}
 \end{equation}
 
 </div>
@@ -824,7 +762,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </p>
 <blockquote>
 <p>
-自由度 \(\hat{\nu}\) の \(t\) 分布の \(1{-}\alpha/2\) 分位点
+自由度 \(\hat{\nu}\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
 <li><p>
@@ -845,20 +783,20 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2d7a8d9">
-<h3 id="org2d7a8d9">分散の検定</h3>
+<section id="slide-org1d6f069">
+<h3 id="org1d6f069">分散の検定</h3>
 <ul>
 <li><p>
 問題
 </p>
 <blockquote>
 <p>
-\(\sigma_0^2\) を既知の定数として，
-分散 \(\sigma^2\) が \(\sigma_0^2\) であるか否かを検定する
+\(\sigma_0^{2}\) を既知の定数として，
+分散 \(\sigma^{2}\) が \(\sigma_0^{2}\) であるか否かを検定する
 </p>
 <div>
 \begin{equation}
-  H_0:\sigma^2=\sigma_0^2\quad\text{vs}\quad H_1:\sigma^2\neq\sigma_0^2
+  H_0:\sigma^{2}=\sigma_0^{2}\quad\text{vs}\quad H_1:\sigma^{2}\neq\sigma_0^{2}
 \end{equation}
 
 </div>
@@ -868,18 +806,18 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfba4e7d">
-<h3 id="orgfba4e7d">考え方</h3>
+<section id="slide-org6f846f7">
+<h3 id="org6f846f7">考え方</h3>
 <ul>
 <li>分散の推定量の性質:
 <ul>
 <li><p>
-不偏分散: (\(\chi^2\) 分布に従う)
+不偏分散: (\(\chi^{2}\)-分布に従う)
 </p>
 <blockquote>
 <div>
 \begin{equation}
-  s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2 
+  s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2} 
 \end{equation}
 
 </div>
@@ -890,20 +828,20 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org27a9126">
-<h3 id="org27a9126">\(\chi^2\) 検定</h3>
+<section id="slide-org47360a1">
+<h3 id="org47360a1">\(\chi^{2}\)-検定</h3>
 <ul>
 <li><p>
 検定統計量:
 </p>
 <div>
 \begin{equation}
-  \chi^2=\frac{(n{-}1)s^2}{\sigma_0^2}
+  \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
 \end{equation}
 
 </div></li>
 
-<li>帰無分布は自由度 \(n{-}1\) の \(\chi^2\) 分布</li>
+<li>帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\)-分布</li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -911,12 +849,12 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <section>
 <ul>
 <li><p>
-\(\chi^2_{\alpha/2}(n{-}1)\),
-\(\chi^2_{1{-}\alpha/2}(n{-}1)\):
+\(\chi^{2}_{\alpha/2}(n{-}1)\),
+\(\chi^{2}_{1{-}\alpha/2}(n{-}1)\):
 </p>
 <blockquote>
 <p>
-自由度 \(n{-}1\) の \(\chi^2\) 分布の
+自由度 \(n{-}1\) の \(\chi^{2}\)-分布の
 \(\alpha/2\), \(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
@@ -927,8 +865,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <div>
 \begin{equation}
   R_{\alpha}=
-  \left(0,\chi^2_{\alpha/2}(n{-}1)\right)
-  \cup\left(\chi^2_{1{-}\alpha/2}(n{-}1),\infty\right)
+  \left(0,\chi^{2}_{\alpha/2}(n{-}1)\right)
+  \cup\left(\chi^{2}_{1{-}\alpha/2}(n{-}1),\infty\right)
 \end{equation}
 
 </div>
@@ -938,8 +876,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd7e9af1">
-<h3 id="orgd7e9af1">分散の比の検定</h3>
+<section id="slide-org77b197e">
+<h3 id="org77b197e">分散の比の検定</h3>
 <ul>
 <li><p>
 問題
@@ -950,7 +888,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </p>
 <div>
 \begin{equation}
-  H_0:\sigma_1^2=\sigma_2^2\quad\text{vs}\quad H_1:\sigma_1^2\neq\sigma_2^2
+  H_0:\sigma_1^{2}=\sigma_2^{2}\quad\text{vs}\quad H_1:\sigma_1^{2}\neq\sigma_2^{2}
 \end{equation}
 
 </div>
@@ -960,8 +898,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6decd61">
-<h3 id="org6decd61">考え方</h3>
+<section id="slide-org770cf6f">
+<h3 id="org770cf6f">考え方</h3>
 <ul>
 <li><p>
 \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
@@ -969,19 +907,19 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <blockquote>
 <div>
 \begin{equation}
-  s_1^2=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^2,\quad
-  s_2^2=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^2.
+  s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
+  s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
 \end{equation}
 
 </div>
 </blockquote></li>
 <li>分散の推定量の性質:
 <ul>
-<li>\(s_1^2,s_2^2\) は互いに独立</li>
-<li>\((m{-}1)s_1^2/\sigma_1^2\)
-自由度 \(m{-}1\) の \(\chi^2\) 分布に従う</li>
-<li>\((n{-}1)s_2^2/\sigma_2^2\)
-は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
+<li>\(s_1^{2},s_2^{2}\) は互いに独立</li>
+<li>\((m{-}1)s_1^{2}/\sigma_1^{2}\)
+自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う</li>
+<li>\((n{-}1)s_2^{2}/\sigma_2^{2}\)
+は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う</li>
 
 </ul></li>
 
@@ -989,11 +927,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org495aead">
-<h3 id="org495aead">\(F\) -分布</h3>
+<section id="slide-orgb22eaf2">
+<h3 id="orgb22eaf2">\(F\)-分布</h3>
 <div class="leftcol">
 
-<div id="org6f4a926" class="figure">
+<div id="orgd1f0aba" class="figure">
 <p><img src="figs/pdf_f.png" alt="pdf_f.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 5: </span>\(F\) -分布 (自由度\(5,10\))</p>
@@ -1031,8 +969,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0b4a93c">
-<h3 id="org0b4a93c">\(F\) 検定</h3>
+<section id="slide-orgc47c351">
+<h3 id="orgc47c351">\(F\)-検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -1040,12 +978,12 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <blockquote>
 <div>
 \begin{equation}
-  F=\frac{s_1^2}{s_2^2}
+  F=\frac{s_1^{2}}{s_2^{2}}
 \end{equation}
 
 </div>
 </blockquote></li>
-<li>帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\) -分布</li>
+<li>帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布</li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -1058,7 +996,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </p>
 <blockquote>
 <p>
-自由度 \(m{-}1,n{-}1\) の \(F\) 分布の
+自由度 \(m{-}1,n{-}1\) の \(F\)-分布の
 \(\alpha/2,\,1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
@@ -1083,14 +1021,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </section>
 </section>
 <section>
-<section id="slide-orgb9ed68d">
-<h2 id="orgb9ed68d">漸近正規性にもとづく検定</h2>
-<div class="outline-text-2" id="text-orgb9ed68d">
+<section id="slide-org4afeeb9">
+<h2 id="org4afeeb9">漸近正規性にもとづく検定</h2>
+<div class="outline-text-2" id="text-org4afeeb9">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org79bb5af">
-<h3 id="org79bb5af">推定量の漸近正規性</h3>
+<section id="slide-orgdb10aa8">
+<h3 id="orgdb10aa8">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 漸近正規性 (データ数が多いときの性質)
@@ -1111,8 +1049,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3076996">
-<h3 id="org3076996">最尤推定量の漸近正規性</h3>
+<section id="slide-orga1f1203">
+<h3 id="orga1f1203">最尤推定量の漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -1142,11 +1080,11 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
   I(\theta_0)
   &=\mathbb{E}_{\theta_0}
     \left[
-      -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+      -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X,\theta_0)
     \right]
     \\
   &=\mathbb{E}_{\theta_0}\left[\left(
-    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^{2}\right]
 \end{align}
 
 </div>
@@ -1158,8 +1096,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd110754">
-<h3 id="orgd110754">最尤推定量の検定</h3>
+<section id="slide-org15228ef">
+<h3 id="org15228ef">最尤推定量の検定</h3>
 <ul>
 <li><p>
 問題
@@ -1186,8 +1124,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5d3042e">
-<h3 id="org5d3042e">考え方</h3>
+<section id="slide-org5ffe29f">
+<h3 id="org5ffe29f">考え方</h3>
 <ul>
 <li><p>
 最尤の推定量の性質
@@ -1214,8 +1152,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org33d7b02">
-<h3 id="org33d7b02">\(Z\) 検定 (正規分布による検定)</h3>
+<section id="slide-org913df1e">
+<h3 id="org913df1e">\(Z\)-検定 (正規分布による検定)</h3>
 <ul>
 <li><p>
 検定統計量
@@ -1261,8 +1199,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7b6070a">
-<h3 id="org7b6070a">例題 (McNemar検定)</h3>
+<section id="slide-org5ac6527">
+<h3 id="org5ac6527">例題 (McNemar検定)</h3>
 <ul>
 <li><p>
 問題
@@ -1412,8 +1350,12 @@ A社とB社の開発した2つの文字認識機械がある．
 </section>
 </section>
 <section>
-<section id="slide-org948bf31" data-background="#fef4f4">
-<h2 id="org948bf31">演習</h2>
+<section id="slide-org88c0400" data-background="#fef4f4">
+<h2 id="org88c0400">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8b1155a" data-background="#fef4f4">
+<h3 id="org8b1155a">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ
@@ -1461,180 +1403,13 @@ A社とB社の開発した2つの文字認識機械がある．
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org3094d53" data-background="#fef4f4">
-<h3 id="org3094d53">解答例</h3>
-<ul>
-<li>以下のように考える．
-<ul>
-<li>両者が正解: 簡単な文字 (比較しても意味がない)</li>
-<li>両者が不正解: 難しい文字 (比較しても意味がない)</li>
-<li>どちらかが正解: 認識すべき文字 (比較すべき)</li>
-
-</ul></li>
-<li><p>
-以下の確率変数を考える．
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  X=
-  \begin{cases}
-    1, &\text{A社のみ正解}\\
-    0, &\text{B社のみ正解}
-  \end{cases}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-確率質量関数
-</p>
-<blockquote>
-<p>
-A社のみ正解の確率を \(\theta\) とし，
-確率変数 \(X\) の確率質量関数を以下で定義する．
-</p>
-<div>
-\begin{equation}
-  f(x)=\theta^{x}(1-\theta)^{1-x}
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-Fisher 情報量
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  I(\theta)
-  =\mathbb{E}
-  \left[
-    -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
-  \right]
-  =\frac{1}{\theta(1-\theta)}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-対数尤度
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \ell(\theta)
-  =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-最尤推定量
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \ell'(\hat\theta)
-  &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
-  \hat\theta&=\bar{X}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-以下の検定を考える．
-</p>
-<blockquote>
-<ul>
-<li>帰無仮説: A社とB社の性能に違いはない (\(\theta_{0}=0.5\))</li>
-<li>対立仮説: A社の方がB社より性能が良い</li>
-
-</ul>
-<div>
-\begin{equation}
-  H_0:\theta=\theta_{0}\quad\text{vs}\quad H_1:\theta>\theta_{0}
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-検定統計量
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
-\end{equation}
-
-</div>
-</blockquote>
-<ul>
-<li>帰無分布は標準正規分布</li>
-
-</ul></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-有意水準と棄却域(両側・片側)に応じて以下の分位点を用いれば良い
-</p>
-<blockquote>
-<div>
-\begin{align}
-  &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
-  &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
-  &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
-\end{align}
-
-</div>
-</blockquote></li>
-<li><p>
-検定統計量の計算
-</p>
-<blockquote>
-<p>
-題意より
-</p>
-<div>
-\begin{equation}
-  Z=\sqrt{400/0.5^{2}}(220/400-0.5)
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org9606777">
-<h2 id="org9606777">まとめ</h2>
+<section id="slide-orge0646f4">
+<h2 id="orge0646f4">今回のまとめ</h2>
 <ul>
 <li>分散未知の正規分布を用いた検定
 <ul>
