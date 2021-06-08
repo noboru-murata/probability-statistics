@@ -1,9 +1,9 @@
 #+TITLE: 平均の推定
-#+SUBTITLE: 確率・統計 講義9
+#+SUBTITLE: 確率・統計 - 講義9
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-02 14:04:52 mura>
+# Time-stamp: <2021-06-08 08:53:12 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -178,11 +178,15 @@
      - 平均 \(\mu\) を
        標本平均 \(\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\) によって
        推定することが点推定であり,
-       \(\bar{X}\) は \(\mu\) の推定量となる．
+       \(\bar{X}\) は \(\mu\) の推定量
+       \(\hat{\mu}\)
+       となる．
      - 分散 \(\sigma^{2}\) を
        不偏分散 \(s^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}\) によって
        推定することが点推定であり,
-       \(s^{2}\) は \(\sigma^{2}\) の推定量となる．
+       \(s^{2}\) は \(\sigma^{2}\) の推定量
+       \(\hat{\sigma^{2}}\) 
+       となる．
      #+end_quote
 
 ** 一様最小分散不偏推定量
@@ -258,7 +262,7 @@
      #+end_src
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -295,7 +299,7 @@
 	   \int_{-\infty}^\infty
 	   (x-\theta)^{2}
 	   \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-	 &=\frac{1}{\sigma^2}
+	 &=\frac{1}{\sigma^4}\mathrm{Var}(X)=\frac{1}{\sigma^2}
        \end{align}
      #+end_src
      #+end_quote
@@ -401,7 +405,7 @@
    - 上記のモデルにおいて
      \(\theta\) に関する Fisher 情報量を求めよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -520,7 +524,7 @@
      \(Z\) の平均と分散を求めよ．
    - 確率変数 \(Z\) がどのような分布になるか答えよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -616,7 +620,7 @@
        \end{equation}
      #+end_src
      #+end_quote
-     - 確率密度 \(f\) の \(\alpha\) 分位点 \(z_{\alpha}\)  (\(0 < \alpha < 1\))
+     - 確率密度 \(f\) の \(\alpha\) *分位点* \(z_{\alpha}\)  (\(0 < \alpha < 1\))
        #+begin_quote
        #+begin_src latex
          \begin{equation}

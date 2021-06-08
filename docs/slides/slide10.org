@@ -1,9 +1,9 @@
 #+TITLE: 最尤推定
-#+SUBTITLE: 確率・統計 講義10
+#+SUBTITLE: 確率・統計 - 講義10
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-02 14:05:54 mura>
+# Time-stamp: <2021-06-07 18:00:06 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
