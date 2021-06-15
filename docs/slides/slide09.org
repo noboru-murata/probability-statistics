@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-08 08:53:12 mura>
+# Time-stamp: <2021-06-15 10:20:32 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -80,7 +80,7 @@
 ** 推定量と推定値
    - 推定量
      #+begin_quote
-     未知の母数を推定する方法．
+     未知の母数(パラメタ)を推定する方法．
      #+begin_src latex
        \begin{equation}
          \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})

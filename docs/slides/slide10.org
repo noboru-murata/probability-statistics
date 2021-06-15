@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-07 18:00:06 mura>
+# Time-stamp: <2021-06-15 10:36:05 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -38,7 +38,7 @@
    - 定義
      #+begin_quote
      点推定とは
-     母数 \(\theta\) を \(X_1,\dotsc,X_n\) の関数
+     母数(パラメタ) \(\theta\) を \(X_1,\dotsc,X_n\) の関数
      #+begin_src latex
        \begin{equation}
          \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
@@ -171,7 +171,7 @@
 ** 離散分布の場合
    - 観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
      - 確率質量関数: \(f_{\boldsymbol{\theta}}(x)\) 
-     - 確率関数のパラメタ: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\) 
+     - 確率関数の母数: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\) 
      - 独立な確率変数の同時確率:
        #+begin_quote
        #+begin_src latex
@@ -190,7 +190,7 @@
 ** 尤度関数
    - 定義
      #+begin_quote
-     パラメタ \(\boldsymbol{\theta}\) に対して
+     母数 \(\boldsymbol{\theta}\) に対して
      観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
      #+begin_src latex
        \begin{equation}
@@ -205,7 +205,7 @@
      #+end_quote
      - 観測データ 
        \(X_1,X_2,\dots,X_n\) 
-       が現れるのにパラメタ 
+       が現れるのに母数
        \(\boldsymbol{\theta}\) 
        の値がどの程度尤もらしいかを測る尺度
 
@@ -230,7 +230,7 @@
 ** 最尤法
    - 最尤法: 
      #+begin_quote
-     観測データに対して「最も尤もらしい」パラメタ値
+     観測データに対して「最も尤もらしい」母数の値
      を \(\boldsymbol{\theta}\) の推定量として採用する方法
      を最尤法という．
      #+end_quote
@@ -280,8 +280,8 @@
    :reveal_background: #fef4f4
    :END:
    - 観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
-     最尤推定量を求めよ．
-     - パラメタ \(\lambda>0\) の Poisson 分布 (確率質量関数)
+     母数 \(\lambda\) の最尤推定量を求めよ．
+     - \(\lambda>0\) の Poisson 分布 (確率質量関数)
        #+begin_quote
        #+begin_src latex
 	 \begin{equation}
@@ -306,11 +306,11 @@
        #+end_src
        #+end_quote
 
-** COMMENT 解答例: Poisson分布の最尤推定
+** 解答例: Poisson分布の最尤推定
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - 対数尤度関数 (未知パラメタ: \(\lambda\) )
+   - 対数尤度関数 (未知母数: \(\lambda\) )
      #+begin_quote
      #+begin_src latex
        \begin{equation}
@@ -341,11 +341,11 @@
      #+end_src
      #+end_quote
 
-** COMMENT 解答例: 指数分布の最尤推定
+** 解答例: 指数分布の最尤推定
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - 対数尤度関数 (未知パラメタ: \(\lambda\) )
+   - 対数尤度関数 (未知母数: \(\lambda\) )
      #+begin_quote
      #+begin_src latex
        \begin{equation}
@@ -374,12 +374,12 @@
      #+end_src
      #+end_quote
 
-** COMMENT 参考: ガンマ分布の最尤推定
+** 参考: ガンマ分布の最尤推定
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - パラメタ \(\nu,\alpha>0\) のガンマ分布 (調べてみよ)
-   - 対数尤度関数 (未知パラメタ: \(\nu,\alpha\) )
+   - 母数 \(\nu,\alpha>0\) のガンマ分布 (調べてみよ)
+   - 対数尤度関数 (未知母数: \(\nu,\alpha\) )
      #+begin_quote
      #+begin_src latex
        \begin{align}
@@ -480,6 +480,16 @@
        Cramer-Rao 下界に一致する
 
 ** 証明の概略
+   - 真の母数の性質
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \mathbb{E}_{\theta_0}\left[
+           \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right]
+         =0
+       \end{equation}
+     #+end_src
+     #+end_quote
    - Fisher 情報量
      #+begin_quote
      #+begin_src latex
@@ -503,7 +513,10 @@
          L(\hat\theta^*)=\max_{\theta\in\Theta}L(\theta)
        \end{equation}
        \begin{equation}
-         \frac{\partial}{\partial\theta}L(\hat\theta^*)
+         \ell(\hat\theta^*)=\max_{\theta\in\Theta}\ell(\theta)
+       \end{equation}
+       \begin{equation}
+         \frac{\partial}{\partial\theta}\ell(\hat\theta^*)
          =\sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i,\hat\theta^*)
          =0
        \end{equation}
@@ -561,10 +574,26 @@
        \end{align}
      #+end_src
      #+end_quote
+   #+reveal: split
    - 右辺
      #+begin_quote
      \(n\to\infty\)
-     のとき中心極限定理により右辺の分布は
+     のとき中心極限定理により右辺
+     #+begin_src latex
+       \begin{align}
+         &\frac{1}{\sqrt{n}}\sum_{i=1}^n
+         \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+         &=
+         \sqrt{n}\times
+         \frac{1}{n}\sum_{i=1}^n
+         \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+         &=
+         \sqrt{n}\times
+           \left(\frac{\partial}{\partial\theta}\log f(X,\theta_0)
+           \text{の標本平均}\right)
+       \end{align}
+     #+end_src
+     は
      平均 \(0\) 分散 \(I(\theta_0)\) の正規分布
      \(\mathcal{N}(0,I(\theta_0))\) に近づく．
      #+end_quote
@@ -658,7 +687,7 @@
        \end{equation}
      #+end_src
      #+end_quote
-   - \(\hat{\sigma}\) の一致推定量
+   - \(\sigma\) の一致推定量
      #+begin_quote
      例えば不偏分散
      #+begin_src latex
@@ -678,13 +707,14 @@
            \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}}\right]
        \end{equation}
      #+end_src
-     (サンプル数 \(n\) が十分大きい場合に近似的に正しい)
      #+end_quote
+     - サンプル数 \(n\) が十分大きい場合に近似的に正しい
+
 ** 最尤推定量の区間推定
    - 定理 (最尤推定量の漸近正規性)
      #+begin_quote
      観測データ数 \(n\) が十分大きいとき，
-     1次元パラメタ \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+     1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
      #+begin_src latex
        \begin{equation}
          \mathbb{E}[\hat\theta]=\theta_{0},\quad
@@ -703,8 +733,8 @@
            \hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
        \end{equation}
      #+end_src
-     (サンプル数 \(n\) が十分大きい場合に近似的に正しい)
      #+end_quote
+     - サンプル数 \(n\) が十分大きい場合に近似的に正しい
 
 
 * 演習
@@ -736,7 +766,7 @@
        #+end_src
        #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
