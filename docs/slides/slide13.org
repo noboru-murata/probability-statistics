@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-03 14:32:32 mura>
+# Time-stamp: <2021-06-28 15:26:53 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -398,7 +398,7 @@
        検定に利用される．
    #+end_quote
    #+end_rightcol  
-** Studentの \(t\)-検定
+** Student の \(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
@@ -453,7 +453,7 @@
        は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う 
      - \((n{-}1)s_2^{2}/\sigma_2^{2}\)
        は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う 
-** Welchの \(t\)-検定
+** Welch の \(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
