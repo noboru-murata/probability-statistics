@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-28 15:24:07 mura>
+# Time-stamp: <2021-06-29 08:45:02 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -70,7 +70,7 @@
      #+begin_src latex
        \begin{equation}
          L(\boldsymbol{\theta})
-         :=\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
+         =\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
        \end{equation}
      #+end_src
      を
@@ -526,7 +526,7 @@
      平均値が \(\mu\) と等しいか検定せよ．
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -627,7 +627,7 @@
      本来の平均値が等しいと言えるだろうか？
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:

@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-15 10:36:05 mura>
+# Time-stamp: <2021-06-29 08:45:59 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -171,7 +171,7 @@
 ** 離散分布の場合
    - 観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
      - 確率質量関数: \(f_{\boldsymbol{\theta}}(x)\) 
-     - 確率関数の母数: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\) 
+     - 確率関数の母数: \(\boldsymbol{\theta}=(\theta_1,\dots,\theta_p)\) 
      - 独立な確率変数の同時確率:
        #+begin_quote
        #+begin_src latex
@@ -195,7 +195,7 @@
      #+begin_src latex
        \begin{equation}
          L(\boldsymbol{\theta})
-         :=\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
+         =\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
        \end{equation}
      #+end_src
      を
@@ -260,7 +260,7 @@
      #+begin_src latex
        \begin{equation}
          \ell(\boldsymbol{\theta})
-         :=\log L(\boldsymbol{\theta})
+         =\log L(\boldsymbol{\theta})
          =\sum_{i=1}^n\log f_{\boldsymbol{\theta}}(X_i).
        \end{equation}
      #+end_src
