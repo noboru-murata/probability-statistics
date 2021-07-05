@@ -1,9 +1,9 @@
-#+TITLE: さまざまな検定
+#+TITLE: 正規分布に基づく検定
 #+SUBTITLE: 確率・統計 - 講義13
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-07-05 15:42:34 mura>
+# Time-stamp: <2021-07-05 23:03:00 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -228,7 +228,7 @@
    #+end_rightcol
    
 
-* COMMENT 演習
+* 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -238,88 +238,218 @@
    :END:
    - 以下の問に答えよ．
      #+begin_quote
-     Y県とF県で生産されたの桃の甘さの違いを調べるために，
-     ある八百屋で売られているそれぞれの桃一山の糖度を調べたとする．
-     一つ一つの甘さはばらついているが，
-     どちらの県でも分散
-     \(\sigma^{2}=0.6\)
-     の正規分布に従うことが知られている．
-     それぞれの標本平均を計算したところ
-     #+begin_src latex
-       \begin{align}
-	 X_1,X_2,\dotsc,X_6 & \to \bar{X}=15.2\\
-	 Y_1,Y_2,\dotsc,Y_{10} & \to \bar{Y}=14.5
-       \end{align}
-     #+end_src
-     となった．
-     本来の平均値が等しいと言えるだろうか？
+     学生 30 人に，
+     一週間の昼食代を尋ねたところ，
+     平均 3280 円，標準偏差 950 円であることがわかった．
+     昼食代は正規分布に従い，
+     上記の標準偏差は正確に求められているとする．
+
+     このとき，
+     学生の平均的な一週間の昼食代は 3000 円より高いと言えるかを
+     有意水準 0.05 で考えなさい．
      #+end_quote
+     - \(z_{0.95}=1.64, z_{0.975}=1.96\)
 
 ** COMMENT 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - 観測値の確率モデル
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         X_i&=\theta_{1}+\varepsilon_{1i},
-         \quad i=1,\dotsc,n
-         \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
-         Y_j&=\theta_{2}+\varepsilon_{2j},
-         \quad j=1,\dotsc,m
-         \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
-       \end{align}
-     #+end_src
-     #+end_quote
-     - \(n=6\), \(m=10\), \(\sigma^{2}=0.6\)
    - 検定統計量
      #+begin_quote
      #+begin_src latex
        \begin{equation}
-         T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+         T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
        \end{equation}
      #+end_src
      #+end_quote
-   #+reveal: split
-   - 棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.975}=1.96\))
+   - 棄却域 (有意水準 \(\alpha=0.05\) の右片側検定)
      #+begin_quote
      #+begin_src latex
        \begin{equation}
          R_{\alpha}
          =
-         \left(-\infty,-z_{1{-}\alpha/2}\right)
-         \cup
-         \left(z_{1{-}\alpha/2},\infty\right)
+         \left(z_{0.95},\infty\right)
+         =
+         \left(1.64,\infty\right)
        \end{equation}
      #+end_src
+     #+end_quote
+     
+   #+reveal: split
+   - 観測データ
+     #+begin_quote
+     \(n=30\), \(\bar{X}=3280\), \(\mu=3000\), \(\sigma=950\)
      #+end_quote
    - 検定統計量の計算 
      #+begin_quote
      #+begin_src latex
        \begin{equation}
          T
-         =\sqrt{\frac{6\times 10}{6+10}}\frac{15.2-14.5}{\sqrt{0.6}}
-         =1.75
+         =\frac{\sqrt{30}(3280-3000)}{950}
+         =1.614
        \end{equation}
      #+end_src
      #+end_quote
-   #+reveal: split
-   - "Y県の方がF県より甘い" という対立仮説の場合 \\
-     (右片側検定)
-   - 棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.95}=1.64\))
+   - 検定の結果
+     #+begin_quote
+     平均3000円という帰無仮説は棄却されない
+
+     (帰無仮説を受容)
+     #+end_quote
+
+** COMMENT 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の問に答えよ．
+     #+begin_quote
+     携帯電話の利用料(月額)を調べた．
+     18〜25歳の 80 人では平均 7400 円(標準偏差 2500 円)，
+     30〜40歳の 100 人では平均 8200 円(標準偏差 2800 円)であった．
+     それぞれの年齢層の利用料は正規分布に従い，
+     上記の標準偏差は正確に求められているとする．
+
+     このとき，
+     利用料の平均に違いがあると言えるかを
+     有意水準 0.05 で考えなさい．
+     #+end_quote
+     - \(z_{0.95}=1.64, z_{0.975}=1.96\)
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 検定統計量
      #+begin_quote
      #+begin_src latex
        \begin{equation}
+         T=\frac{\bar{X}-\bar{Y}}{\sqrt{\sigma_{1}^{2}/n+\sigma_{2}^{2}/m}}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 棄却域 (有意水準 \(\alpha=0.05\) の両側検定)
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
          R_{\alpha}
+         &=
+           \left(-\infty,-z_{0.975}\right)
+           \cup
+           \left(z_{0.975},\infty\right)\\
+         &=
+           \left(-\infty,-1.96\right)
+           \cup
+           \left(1.96,\infty\right)
+       \end{align}
+     #+end_src
+     #+end_quote
+     
+   #+reveal: split
+   - 観測データ
+     #+begin_quote
+     \(n=80\), \(\bar{X}=7400\), \(\sigma_{1}=2500\),
+     \(m=100\), \(\bar{Y}=8200\), \(\sigma_{2}=2800\)
+     #+end_quote
+   - 検定統計量の計算 
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         T
+         =\frac{7400-8200}{\sqrt{2500^{2}/80+2800^{2}/100}}
+         =-2.022
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 検定の結果
+     #+begin_quote
+     平均が同じという帰無仮説は棄却される
+     #+end_quote
+
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 前問において\(p\)-値を計算する方法を考えよ．
+     
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - \(p\)-値 (有意確率) の定義
+     #+begin_quote
+     検定統計量の値が棄却域に含まれる有意水準の最小値
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}
+         =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
+       \end{equation}
+     #+end_src
+     #+end_quote
+
+   #+reveal: split
+   - 両側検定の場合
+     #+begin_quote
+     観測データに対する検定統計量の値を \(t\) とする
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}
+         =2\int_{|t|}^\infty f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - \(f(x)\) は検定統計量 \(T\) の帰無分布(標準正規分布)の密度関数
+
+   #+reveal: split
+   - \(p\)-値と有意水準 \(\alpha\) の関係
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         &|t|>z_{1{-}\alpha/2}\\
+         &\Leftrightarrow
+           \int_{-\infty}^{|t|}f(x)dx
+           >\int_{-\infty}^{z_{1{-}\alpha/2}}f(x)dx=1{-}\alpha/2\\
+         &\Leftrightarrow
+           \text{(\(p\)-値)}
+           =2\int_{|t|}^\infty f(x)dx < \alpha
+       \end{align}
+     #+end_src
+     \(p\)-値が \(\alpha\) 未満なら帰無仮説を棄却すればよい
+     #+end_quote
+
+   #+reveal: split
+   - 右片側検定の場合
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}=
+         \int_{t}^\infty f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 左片側検定の場合
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}=
+         \int_{-\infty}^{t} f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+
+   #+reveal: split
+   - 右片側検定で \(t=1.614\)
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}
          =
-         \left(z_{1{-}\alpha},\infty\right)
+         \int_{1.614}^\infty f(x)dx
+         =0.0532
        \end{equation}
      #+end_src
      #+end_quote
 
 
-* 正規分布にもとづいたいろいろな検定
+* 平均に関する検定
 ** 観測値の仮定
    - 確率モデル
      #+begin_quote
@@ -418,7 +548,7 @@
        検定に利用される．
    #+end_quote
    #+end_rightcol60  
-** Student の \(t\)-検定
+** Student の\(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
@@ -428,8 +558,8 @@
      #+end_src
      #+end_quote
    - 帰無分布は自由度 \(n{-}1\) の \(t\)-分布
-     - 標本平均 (正規分布)
-     - 不偏分散 (\(\chi^{2}\)-分布)
+     - \(\sqrt{n}(\bar{X}-\mu_0)/\sigma\) は標準正規分布に従う
+     - \((n{-}1)s^2/\sigma^{2}\) は自由度 \(n{-}1\) の\(\chi^{2}\)-分布に従う
 
    #+reveal: split
    - 両側検定 (有意水準: \(\alpha\))
@@ -479,7 +609,7 @@
        は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う 
      - \((n{-}1)s_2^{2}/\sigma_2^{2}\)
        は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う 
-** Welch の \(t\)-検定
+** Welch の\(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
@@ -532,6 +662,66 @@
    - \(Z_i=X_i-Y_i\) \((i=1,\dotsc,n)\) として，
      \(Z_1,\dotsc,Z_n\) の平均が0か否かを検定すれば良い
 
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - Welch の\(t\)-検定において
+     \(p\)-値はどのように計算すればよいか述べよ．
+
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 検定統計量 \(T\) の帰無分布を自由度 \(\nu\)
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \hat{\nu}
+         =\frac{(s_1^{2}/m+s_2^{2}/n)^{2}}
+         {(s_1^{2}/m)^{2}/(m{-}1)+(s_2^{2}/n)^{2}/(n{-}1)}
+       \end{equation}
+     #+end_src
+     #+end_quote
+     の \(t\)-分布で近似する(この密度関数を\(f\)とする)
+   - 両側検定の場合
+     #+begin_quote
+     観測データに対する検定統計量の値を \(t\) とする
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}
+         =2\int_{|t|}^\infty f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+
+   #+reveal: split
+   - 右片側検定の場合
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}=
+         \int_{t}^\infty f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 左片側検定の場合
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \text{(\(p\)-値)}=
+         \int_{-\infty}^{t} f(x)dx
+       \end{equation}
+     #+end_src
+     #+end_quote
+   
+
+* 分散に関する検定
 ** 分散の検定
    - 問題
      #+begin_quote
@@ -556,12 +746,15 @@
        #+end_quote
 ** \(\chi^{2}\)-検定
    - 検定統計量:
+     #+begin_quote
      #+begin_src latex
        \begin{equation}
          \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
        \end{equation}
      #+end_src
+     #+end_quote
    - 帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\)-分布
+
    #+reveal: split
    - 両側検定 (有意水準: \(\alpha\))
      #+begin_quote
@@ -595,7 +788,7 @@
 
 ** 考え方
    - 不偏分散の性質:
-     - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
+     - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_n\) の不偏分散:
        #+begin_quote
        #+begin_src latex
          \begin{equation}
@@ -673,6 +866,151 @@
      #+end_src
      #+end_quote
 
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の問に答えよ．
+     #+begin_quote
+     1年生 40 人と 2年生 35 人に，
+     年間の書籍代を尋ねたところ，
+     1年生は平均 13300 円，標準偏差 900 円，
+     2年生は平均 12800 円，標準偏差 800 円
+     であることがわかった．
+     各学年の書籍代は正規分布に従うことがわかっており，
+     上記の平均，標準偏差は標本平均および不偏分散から求めたものとする．
+
+     このとき，
+     1年生と2年生の平均的な書籍代は同じと言えるかを
+     有意水準 0.05 で考えなさい．
+     #+end_quote
+     - \(F_{0.05}(39,34)=0.58, F_{0.025}(39,34)=0.52\),
+       \(F_{0.95}(39,34)=1.74, F_{0.975}(39,34)=1.95\),
+       \(t_{0.95}(73)=1.67, t_{0.975}(73)=1.99\)
+
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 分散の比の検定を行う
+   - 検定統計量:
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         F=\frac{s_1^{2}}{s_2^{2}}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布
+
+   #+reveal: split
+   - 棄却域:
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         R_{\alpha}
+         &=
+           \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
+           \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)\\
+         &=
+           \left(0,0.52\right)
+           \cup\left(1.95,\infty\right)
+       \end{align}
+     #+end_src
+     #+end_quote
+     
+   #+reveal: split
+   - 観測データ
+     #+begin_quote
+     \(m=40\), \(n=35\),
+     \(s_{1}=900\), \(s_{2}=800\)
+     #+end_quote
+   - 検定統計量の計算 
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         F
+         =\frac{900^{2}}{800^{2}}
+         =1.266
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 検定の結果
+     #+begin_quote
+     分散の比が1であるという帰無仮説は棄却されない
+
+     (等分散とみなしてよい)
+     #+end_quote
+
+   #+reveal: split
+   - 分散の再計算
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         s^{2}
+         =
+         \frac{(m-1)\cdot\sigma_{1}^{2}+(n-1)\cdot\sigma_{2}^{2}}{(m-1)+(n-1)}
+         =
+         854.9^{2}
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - \((m+n-2)s^{2}/\sigma^2\) は自由度 \(m+n-2\) の \(\chi^2\)-分布に従う
+   - 検定統計量
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{s}
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - 自由度 \(m+n-2\) の \(t\)-分布に従う
+
+   #+reveal: split
+   - 棄却域 (有意水準 \(\alpha=0.05\) の両側検定)
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         R_{\alpha}
+         &=
+           \left(-\infty,-t_{0.975}(73)\right)
+           \cup
+           \left(t_{0.975}(73),\infty\right)\\
+         &=
+           \left(-\infty,-1.99\right)
+           \cup
+           \left(1.99,\infty\right)
+       \end{align}
+     #+end_src
+     #+end_quote
+     
+   #+reveal: split
+   - 観測データ
+     #+begin_quote
+     \(m=40\), \(\bar{X}=13300\), 
+     \(n=35\), \(\bar{Y}=12800\),
+     #+end_quote
+   - 検定統計量の計算 
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         T
+         =\sqrt{\frac{40\cdot 35}{40+35}}
+         \frac{13300-12800}{854.9}
+         =2.53
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 検定の結果
+     #+begin_quote
+     平均が同じという帰無仮説は棄却される
+     #+end_quote
+   
 
 * COMMENT 漸近正規性にもとづく検定
 ** 推定量の漸近正規性
