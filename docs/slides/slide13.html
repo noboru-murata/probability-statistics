@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org4b0bd6e">
-<h2 id="org4b0bd6e">前回のおさらい</h2>
+<section id="slide-org375286c">
+<h2 id="org375286c">前回のおさらい</h2>
 <ul>
 <li>統計的仮説検定
 <ul>
@@ -67,20 +67,11 @@
 </ul></li>
 
 </ul>
-
-
 <div class="slide-footer"><br></div>
+
 </section>
-</section>
-<section>
-<section id="slide-org48d4890">
-<h2 id="org48d4890">復習</h2>
-<div class="outline-text-2" id="text-org48d4890">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6030ac0">
-<h3 id="org6030ac0">統計的仮説検定</h3>
+<section id="slide-org9c08fd6">
+<h3 id="org9c08fd6">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -88,14 +79,14 @@
 母集団の分布に対して何らかの仮説を考えるところ</li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org6d0b628">
-<h3 id="org6d0b628">検定における仮説</h3>
+<section id="slide-org47e93f0">
+<h3 id="org47e93f0">検定における仮説</h3>
 <ul>
 <li><p>
-帰無仮説 \(H_0\)
+<b>帰無仮説</b> \(H_0\)
 </p>
 <blockquote>
 <p>
@@ -103,7 +94,7 @@
 </p>
 </blockquote></li>
 <li><p>
-対立仮説 \(H_1\) 
+<b>対立仮説</b> \(H_1\) 
 </p>
 <blockquote>
 <p>
@@ -114,33 +105,37 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org414c3b4">
-<h3 id="org414c3b4">検定の基本的手続き</h3>
+<section id="slide-org0df0a5c">
+<h3 id="org0df0a5c">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
-<li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
+<li>仮説のもとで <b>検定統計量</b> が従う <b>帰無分布</b> を調べる</li>
 <li>実際のデータから検定統計量の値を計算する</li>
 <li>計算された検定統計量の値が
 仮説が正しいときに十分高い確率で
-得られるかどうかを判断する</li>
+得られるかどうかを判断する
+<ul>
+<li><b>棄却域</b> を用いる方法</li>
+<li><b>\(p\)-値</b> を計算する方法</li>
+
+</ul></li>
 
 </ol>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5644dc5">
-<h3 id="org5644dc5">検定の用語</h3>
+<section id="slide-org5cc2e72">
+<h3 id="org5cc2e72">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
-<li>帰無仮説を棄却: 帰無仮説は誤っていると判断すること</li>
-<li>帰無仮説を受容: 帰無仮説を積極的に棄却できないこと</li>
+<li>帰無仮説を <b>棄却</b>: 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を <b>受容</b>: 帰無仮説を積極的に棄却できないこと</li>
 
 </ul></li>
 <li>検定の誤り
 <ul>
-<li>第一種過誤: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
-<li>第二種過誤: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
+<li><b>第一種過誤</b>: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
+<li><b>第二種過誤</b>: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
 
 </ul></li>
 <li>検定の設計
@@ -153,11 +148,11 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9fa5471">
-<h3 id="org9fa5471">有意水準と \(p\)-値</h3>
+<section id="slide-org72cb624">
+<h3 id="org72cb624">有意水準と\(p\)-値</h3>
 <ul>
 <li><p>
-有意水準
+<b>有意水準</b>
 </p>
 <blockquote>
 <p>
@@ -165,7 +160,7 @@
 </p>
 </blockquote></li>
 <li><p>
-\(p\)-値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+\(p\)-値 (<b>有意確率</b>): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
 </p>
 <blockquote>
 <p>
@@ -189,11 +184,11 @@
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-orgd06ff23">
-<h3 id="orgd06ff23">正規分布を用いた平均値の検定</h3>
+<section id="slide-org2173051">
+<h3 id="org2173051">正規分布を用いた平均値の検定</h3>
 <ul>
 <li><p>
 問題
@@ -272,11 +267,11 @@
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org37edac6">
-<h3 id="org37edac6">正規分布を用いた平均値の差の検定</h3>
+<section id="slide-orgcd647a2">
+<h3 id="orgcd647a2">正規分布を用いた平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -359,104 +354,86 @@
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org8d5e770">
-<h3 id="org8d5e770">両側検定と片側検定</h3>
+<section id="slide-org147fed9">
+<h3 id="org147fed9">両側検定と片側検定</h3>
 <ul>
 <li>対立仮説によって棄却域の形は変わりうる
 <ul>
-<li>例: 2つの薬の治験結果に対する仮説:
+<li><span style="color:darkgreen;">2つの薬の治験結果に対する仮説</span>:
 <ul>
 <li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
 <li>古い薬に比べて新しい薬の効能が改善した</li>
 
 </ul></li>
+<li><p>
+両側検定:
+</p>
+<blockquote>
+<p>
+棄却域がある定数 \(a < b\) によって
+</p>
+<div>
+\begin{equation}
+  (-\infty,a)\cup(b,\infty)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+片側検定
+</p>
+<blockquote>
+<p>
+棄却域がある定数 \(a\) によって
+</p>
+<div>
+\begin{align}
+  &(a,\infty)&&\text{(右片側検定)}\\
+  &(-\infty,a)&&\text{(左片側検定)}
+\end{align}
+
+</div>
+</blockquote></li>
 
 </ul></li>
-<li>右片側検定: 棄却域がある定数 \(a\) によって \((a,\infty)\)</li>
-<li>左片側検定: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
-<ul>
-<li>右片側検定と左片側検定を合わせて片側検定と呼ぶ</li>
-
-</ul></li>
-<li>両側検定: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)</li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
-<div class="leftcol">
+<div class="leftcol" id="org8c3f706">
 
-<div id="org2b0669a" class="figure">
+<div id="org1ad223c" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol">
+<div class="rightcol" id="org0758e4e">
 
-<div id="org48cd554" class="figure">
+<div id="org0faf7e2" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 </div>
 
 </div>
-
-
 <div class="slide-footer"><br></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-orgd873aa1" data-background="#fef4f4">
-<h2 id="orgd873aa1">演習</h2>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org2086bb3" data-background="#fef4f4">
-<h3 id="org2086bb3">練習問題</h3>
-<ul>
-<li><p>
-以下の問に答えよ．
-</p>
-<blockquote>
-<p>
-Y県とF県で生産されたの桃の甘さの違いを調べるために，
-ある八百屋で売られているそれぞれの桃一山の糖度を調べたとする．
-一つ一つの甘さはばらついているが，
-どちらの県でも分散
-\(\sigma^{2}=0.6\)
-の正規分布に従うことが知られている．
-それぞれの標本平均を計算したところ
-</p>
-<div>
-\begin{align}
-  X_1,X_2,\dotsc,X_6 & \to \bar{X}=15.2\\
-  Y_1,Y_2,\dotsc,Y_{10} & \to \bar{Y}=14.5
-\end{align}
-
+<section id="slide-orga37601e">
+<h2 id="orga37601e">正規分布にもとづいたいろいろな検定</h2>
+<div class="outline-text-2" id="text-orga37601e">
 </div>
-
-<p>
-となった．
-本来の平均値が等しいと言えるだろうか？
-</p>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org002ae99">
-<h2 id="org002ae99">正規分布にもとづいたいろいろな検定</h2>
-<div class="outline-text-2" id="text-org002ae99">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6f41377">
-<h3 id="org6f41377">観測値の仮定</h3>
+<section id="slide-org9464e67">
+<h3 id="org9464e67">観測値の仮定</h3>
 <ul>
 <li><p>
 確率モデル
@@ -480,11 +457,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <li>\(\sigma^{2}\) が未知の場合を考える</li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-orga5f8a1a">
-<h3 id="orga5f8a1a">平均の検定</h3>
+<section id="slide-org7c846ab">
+<h3 id="org7c846ab">平均の検定</h3>
 <ul>
 <li><p>
 問題
@@ -503,11 +480,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org323959c">
-<h3 id="org323959c">考え方</h3>
+<section id="slide-orgeb91995">
+<h3 id="orgeb91995">考え方</h3>
 <ul>
 <li>平均と分散の推定量の性質
 <ul>
@@ -523,7 +500,7 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 </blockquote></li>
 <li><p>
-不偏分散: (\(\chi^{2}\)-分布に従う)
+不偏分散: (\(\chi^{2}\)-分布(の定数倍)に従う)
 </p>
 <blockquote>
 <div>
@@ -540,18 +517,18 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdfe88dd">
-<h3 id="orgdfe88dd">\(\chi^{2}\)-分布</h3>
-<div class="leftcol">
+<section id="slide-org4ef8e08">
+<h3 id="org4ef8e08">\(\chi^{2}\)-分布</h3>
+<div class="leftcol40" id="org2369600">
 
-<div id="org32652fd" class="figure">
+<div id="org419db1a" class="figure">
 <p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
 </p>
-<p><span class="figure-number">Figure 3: </span>\(\chi^{2}\)-分布 (自由度\(3\))</p>
+<p><span class="figure-number">Figure 1: </span>\(\chi^{2}\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol">
+<div class="rightcol60" id="org53e6aa9">
 <blockquote>
 <ul>
 <li>見本空間: \([0,\infty)\)</li>
@@ -580,18 +557,18 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf190ba3">
-<h3 id="orgf190ba3">\(t\)-分布</h3>
-<div class="leftcol">
+<section id="slide-org9ad1a2c">
+<h3 id="org9ad1a2c">\(t\)-分布</h3>
+<div class="leftcol40" id="org7f98816">
 
-<div id="org4fd67e1" class="figure">
+<div id="org50d47d9" class="figure">
 <p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
 </p>
-<p><span class="figure-number">Figure 4: </span>\(t\)-分布 (自由度\(3\))</p>
+<p><span class="figure-number">Figure 2: </span>\(t\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol">
+<div class="rightcol60" id="org416d338">
 <blockquote>
 <ul>
 <li>見本空間: \((-\infty,\infty)\)</li>
@@ -622,8 +599,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga384898">
-<h3 id="orga384898">Studentの \(t\)-検定</h3>
+<section id="slide-org280c2fc">
+<h3 id="org280c2fc">Student の \(t\)-検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -636,19 +613,30 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 </div>
 </blockquote></li>
-<li>帰無分布は自由度 \(n{-}1\) の \(t\)-分布</li>
+<li>帰無分布は自由度 \(n{-}1\) の \(t\)-分布
+<ul>
+<li>標本平均 (正規分布)</li>
+<li>不偏分散 (\(\chi^{2}\)-分布)</li>
+
+</ul></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
 <li><p>
-\(t_{1{-}\alpha/2}(n{-}1)\):
+両側検定 (有意水準: \(\alpha\))
 </p>
 <blockquote>
 <p>
-自由度 \(n{-}1\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
+\(t_{1{-}\alpha/2}(n{-}1)\) :
+</p>
+
+<p>
+自由度 \(n{-}1\) の \(t\)-分布の
+\(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
 <li><p>
@@ -666,11 +654,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org19b1341">
-<h3 id="org19b1341">平均の差の検定</h3>
+<section id="slide-orgf6a237f">
+<h3 id="orgf6a237f">平均の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -693,11 +681,13 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org6597861">
-<h3 id="org6597861">考え方</h3>
+<section id="slide-org1041ca1">
+<h3 id="org1041ca1">考え方</h3>
+<ul>
+<li>標本平均と不偏分散の性質:
 <ul>
 <li><p>
 \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
@@ -711,8 +701,6 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 </div>
 </blockquote></li>
-<li>標本平均と不偏分散の性質:
-<ul>
 <li>\(\bar{X}-\bar{Y},s_1^{2},s_2^{2}\) は互いに独立</li>
 <li>\((m{-}1)s_1^{2}/\sigma_1^{2}\)
 は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う</li>
@@ -724,8 +712,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc3bc5e4">
-<h3 id="orgc3bc5e4">Welchの \(t\)-検定</h3>
+<section id="slide-orgaefe699">
+<h3 id="orgaefe699">Welch の \(t\)-検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -746,23 +734,29 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 \begin{equation}
   \hat{\nu}
   =\frac{(s_1^{2}/m+s_2^{2}/n)^{2}}
-  {\frac{(s_1^{2}/m)^{2}}{m{-}1}+\frac{(s_2^{2}/n)^{2}}{n{-}1}}
+  {(s_1^{2}/m)^{2}/(m{-}1)+(s_2^{2}/n)^{2}/(n{-}1)}
 \end{equation}
 
 </div>
 </blockquote></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
 <li><p>
-\(t_{1{-}\alpha/2}(\hat{\nu})\):
+両側検定 (有意水準: \(\alpha\))
 </p>
 <blockquote>
 <p>
-自由度 \(\hat{\nu}\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
+\(t_{1{-}\alpha/2}(\hat{\nu})\) :
+</p>
+
+<p>
+自由度 \(\hat{\nu}\) の \(t\)-分布の
+\(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
 <li><p>
@@ -780,11 +774,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org1d6f069">
-<h3 id="org1d6f069">分散の検定</h3>
+<section id="slide-org184ffb1">
+<h3 id="org184ffb1">分散の検定</h3>
 <ul>
 <li><p>
 問題
@@ -803,11 +797,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org6f846f7">
-<h3 id="org6f846f7">考え方</h3>
+<section id="slide-org8204b65">
+<h3 id="org8204b65">考え方</h3>
 <ul>
 <li>分散の推定量の性質:
 <ul>
@@ -828,8 +822,8 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org47360a1">
-<h3 id="org47360a1">\(\chi^{2}\)-検定</h3>
+<section id="slide-orgac2825c">
+<h3 id="orgac2825c">\(\chi^{2}\)-検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -849,10 +843,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <section>
 <ul>
 <li><p>
-\(\chi^{2}_{\alpha/2}(n{-}1)\),
-\(\chi^{2}_{1{-}\alpha/2}(n{-}1)\):
+両側検定 (有意水準: \(\alpha\))
 </p>
 <blockquote>
+<p>
+\(\chi^{2}_{\alpha/2}(n{-}1)\),
+\(\chi^{2}_{1{-}\alpha/2}(n{-}1)\) :
+</p>
+
 <p>
 自由度 \(n{-}1\) の \(\chi^{2}\)-分布の
 \(\alpha/2\), \(1{-}\alpha/2\) 分位点
@@ -873,11 +871,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org77b197e">
-<h3 id="org77b197e">分散の比の検定</h3>
+<section id="slide-org64c6285">
+<h3 id="org64c6285">分散の比の検定</h3>
 <ul>
 <li><p>
 問題
@@ -895,11 +893,13 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org770cf6f">
-<h3 id="org770cf6f">考え方</h3>
+<section id="slide-orgbb41b08">
+<h3 id="orgbb41b08">考え方</h3>
+<ul>
+<li>不偏分散の性質:
 <ul>
 <li><p>
 \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
@@ -913,8 +913,6 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 
 </div>
 </blockquote></li>
-<li>分散の推定量の性質:
-<ul>
 <li>\(s_1^{2},s_2^{2}\) は互いに独立</li>
 <li>\((m{-}1)s_1^{2}/\sigma_1^{2}\)
 自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う</li>
@@ -924,21 +922,21 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgb22eaf2">
-<h3 id="orgb22eaf2">\(F\)-分布</h3>
-<div class="leftcol">
 
-<div id="orgd1f0aba" class="figure">
+</section>
+<section id="slide-orgaf8227c">
+<h3 id="orgaf8227c">\(F\)-分布</h3>
+<div class="leftcol40" id="org8adb9b2">
+
+<div id="org28e6e37" class="figure">
 <p><img src="figs/pdf_f.png" alt="pdf_f.png" width="100%" />
 </p>
-<p><span class="figure-number">Figure 5: </span>\(F\) -分布 (自由度\(5,10\))</p>
+<p><span class="figure-number">Figure 3: </span>\(F\)-分布 (自由度\(5,10\))</p>
 </div>
 
 </div>
-<div class="rightcol">
+<div class="rightcol60" id="org075360f">
 <blockquote>
 <ul>
 <li>見本空間: \([0,\infty)\)</li>
@@ -966,11 +964,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote>
 
 </div>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-orgc47c351">
-<h3 id="orgc47c351">\(F\)-検定</h3>
+<section id="slide-orge1a16c4">
+<h3 id="orge1a16c4">\(F\)-検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -986,15 +984,20 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 <li>帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布</li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
 <li><p>
-\(F_{\alpha/2}(m{-}1,n{-}1)\),
-\(F_{1{-}\alpha/2}(m{-}1,n{-}1)\):
+両側検定 (有意水準: \(\alpha\))
 </p>
 <blockquote>
+<p>
+\(F_{\alpha/2}(m{-}1,n{-}1)\),
+\(F_{1{-}\alpha/2}(m{-}1,n{-}1)\) :
+</p>
+
 <p>
 自由度 \(m{-}1,n{-}1\) の \(F\)-分布の
 \(\alpha/2,\,1{-}\alpha/2\) 分位点
@@ -1015,401 +1018,14 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-
-
 <div class="slide-footer"><br></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-org4afeeb9">
-<h2 id="org4afeeb9">漸近正規性にもとづく検定</h2>
-<div class="outline-text-2" id="text-org4afeeb9">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgdb10aa8">
-<h3 id="orgdb10aa8">推定量の漸近正規性</h3>
-<ul>
-<li><p>
-漸近正規性 (データ数が多いときの性質)
-</p>
-<blockquote>
-<p>
-多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
-</p>
-</blockquote>
-<ul>
-<li>モーメントに基づく記述統計量は漸近正規性をもつ</li>
-<li>最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ</li>
-<li>いずれも中心極限定理にもとづく</li>
-
-</ul></li>
-<li>信頼区間と同様に正規分布を用いて検定を考えることができる</li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orga1f1203">
-<h3 id="orga1f1203">最尤推定量の漸近正規性</h3>
-<ul>
-<li><p>
-定理
-</p>
-<blockquote>
-<p>
-\(f(x)>0\)
-が連続で2階微分可能ならば
-\(\sqrt{n}(\hat\theta^*-\theta_0)\)
-は
-\(n\to\infty\)
-で正規分布
-\(\mathcal{N}(0,I(\theta_0)^{-1})\)
-に近づく．
-</p>
-</blockquote>
-<ul>
-<li>観測データが十分多ければ，
-最尤推定量の誤差(分散)は
-Cramer-Rao 下界に一致する</li>
-<li><p>
-Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
-</p>
-<blockquote>
-<div>
-\begin{align}
-  I(\theta_0)
-  &=\mathbb{E}_{\theta_0}
-    \left[
-      -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X,\theta_0)
-    \right]
-    \\
-  &=\mathbb{E}_{\theta_0}\left[\left(
-    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^{2}\right]
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org15228ef">
-<h3 id="org15228ef">最尤推定量の検定</h3>
-<ul>
-<li><p>
-問題
-</p>
-<blockquote>
-<p>
-\(\theta_0\) を既知の定数として，
-母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
-</p>
-<div>
-\begin{equation}
-  H_0:\theta=\theta_0\quad\text{vs}\quad H_1:\theta\neq\theta_0
-\end{equation}
-
-</div>
-</blockquote>
-<ul>
-<li>上記は両側検定</li>
-<li>片側検定も同様に考えることができる</li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org5ffe29f">
-<h3 id="org5ffe29f">考え方</h3>
-<ul>
-<li><p>
-最尤の推定量の性質
-</p>
-<blockquote>
-<p>
-観測データ数 \(n\) が十分大きいとき，
-1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
-</p>
-<div>
-\begin{equation}
-  \mathbb{E}[\hat\theta]=\theta_{0},\quad
-  \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
-\end{equation}
-
-</div>
-
-<p>
-の正規分布で近似できる．
-</p>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org913df1e">
-<h3 id="org913df1e">\(Z\)-検定 (正規分布による検定)</h3>
-<ul>
-<li><p>
-検定統計量
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
-\end{equation}
-
-</div>
-</blockquote></li>
-<li>帰無分布は標準正規分布</li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-\(z_{1{-}\alpha/2}\):
-</p>
-<blockquote>
-<p>
-標準正規分布の \(1{-}\alpha/2\) 分位点
-</p>
-</blockquote></li>
-<li><p>
-棄却域:
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  R_{\alpha}=
-  \left(-\infty,-z_{1{-}\alpha/2}\right)
-  \cup\left(z_{1{-}\alpha/2},\infty\right)
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org5ac6527">
-<h3 id="org5ac6527">例題 (McNemar検定)</h3>
-<ul>
-<li><p>
-問題
-</p>
-<blockquote>
-<p>
-A社とB社の開発した2つの文字認識機械がある．
-\(n\) 個の文字に対してその性能を調べたところ
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">1</th>
-<th scope="col" class="org-left">2</th>
-<th scope="col" class="org-left">3</th>
-<th scope="col" class="org-left">&#x2026;</th>
-<th scope="col" class="org-left">n</th>
-<th scope="col" class="org-right">&#xa0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">A社</td>
-<td class="org-left">○</td>
-<td class="org-left">○</td>
-<td class="org-left">×</td>
-<td class="org-left">&#x2026;</td>
-<td class="org-left">○</td>
-<td class="org-right">98.1%</td>
-</tr>
-
-<tr>
-<td class="org-left">B社</td>
-<td class="org-left">×</td>
-<td class="org-left">○</td>
-<td class="org-left">○</td>
-<td class="org-left">&#x2026;</td>
-<td class="org-left">○</td>
-<td class="org-right">98.0%</td>
-</tr>
-</tbody>
-</table>
-<p>
-のような正答率を示した．
-このときA社の機械はB社より優れていると言えるだろうか？
-</p>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li>試験した結果によって判断は異なるべき <br />
-(n=10,000)</li>
-
-</ul>
-<div class="leftcol">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-right">Aが正解</th>
-<th scope="col" class="org-right">Aが誤り</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Bが正解</td>
-<td class="org-right">9800</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">Bが誤り</td>
-<td class="org-right">10</td>
-<td class="org-right">190</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<div class="rightcol">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-right">Aが正解</th>
-<th scope="col" class="org-right">Aが誤り</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Bが正解</td>
-<td class="org-right">9610</td>
-<td class="org-right">190</td>
-</tr>
-
-<tr>
-<td class="org-left">Bが誤り</td>
-<td class="org-right">200</td>
-<td class="org-right">0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-org88c0400" data-background="#fef4f4">
-<h2 id="org88c0400">演習</h2>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org8b1155a" data-background="#fef4f4">
-<h3 id="org8b1155a">練習問題</h3>
-<ul>
-<li><p>
-以下の問に答えよ
-</p>
-<blockquote>
-<p>
-A社とB社の開発した2つの文字認識機械がある．
-10,000文字に対してその性能を調べたところ
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-right">Aが正解</th>
-<th scope="col" class="org-right">Aが誤り</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Bが正解</td>
-<td class="org-right">9500</td>
-<td class="org-right">180</td>
-</tr>
-
-<tr>
-<td class="org-left">Bが誤り</td>
-<td class="org-right">220</td>
-<td class="org-right">100</td>
-</tr>
-</tbody>
-</table>
-<p>
-のような正答率を示した．
-このときA社の機械はB社より優れていると言えるだろうか？
-</p>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-orge0646f4">
-<h2 id="orge0646f4">今回のまとめ</h2>
+<section id="slide-orga3213fb">
+<h2 id="orga3213fb">今回のまとめ</h2>
 <ul>
 <li>分散未知の正規分布を用いた検定
 <ul>
@@ -1417,12 +1033,6 @@ A社とB社の開発した2つの文字認識機械がある．
 <li>平均値の差の検定</li>
 <li>分散の検定</li>
 <li>分散の比の検定</li>
-
-</ul></li>
-<li>最尤推定量を用いた検定
-<ul>
-<li>漸近正規性</li>
-<li>正規分布を用いた検定に帰着</li>
 
 </ul></li>
 
@@ -1453,7 +1063,6 @@ mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
-
 overview: true,
 
 transition: 'fade',

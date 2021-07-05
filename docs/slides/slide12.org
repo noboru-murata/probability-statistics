@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-29 08:45:02 mura>
+# Time-stamp: <2021-07-05 15:17:40 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -18,8 +18,6 @@
   - 最尤推定量の漸近正規性
   - 最尤推定量による区間推定
 
-
-* 復習
 ** 統計的推測の考え方
    - 観測データは確率変数の集合
    - 確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要
@@ -582,7 +580,7 @@
    #+reveal: split
    - 有意水準 \(0.05\) の場合
      #+begin_quote
-     \(T>1.96\) となる確率は
+     \(T>1.96=z_{0.975}\) となる確率は
      #+begin_src latex
        \begin{equation}
          \int_{1.96}^\infty\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx
@@ -597,9 +595,9 @@
        \begin{equation}
          R_{0.05}
          =
-         \left(-\infty,-z_{1.96}\right)
+         \left(-\infty,-z_{0.975}\right)
          \cup
-         \left(z_{1.96},\infty\right)
+         \left(z_{0.975},\infty\right)
        \end{equation}
      #+end_src
      #+end_quote

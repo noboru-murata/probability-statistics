@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-28 15:26:53 mura>
+# Time-stamp: <2021-07-05 15:42:34 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -23,8 +23,6 @@
     - 平均値の差の検定
     - 平均値の検定
 
-
-* 復習
 ** 統計的仮説検定
    - ある現象・母集団に対して仮定された仮説の真偽を
      データに基づいて統計的に検証する方法
@@ -32,38 +30,39 @@
      母集団の分布に対して何らかの仮説を考えるところ
 
 ** 検定における仮説
-   - 帰無仮説 \(H_0\)
+   - *帰無仮説* \(H_0\)
      #+begin_quote
      検定統計量の分布を予想するために立てる仮説
      #+end_quote
-   - 対立仮説 \(H_1\) 
+   - *対立仮説* \(H_1\) 
      #+begin_quote
     "帰無仮説が誤っているときに起こりうるシナリオ"として想定する仮説
      #+end_quote
 ** 検定の基本的手続き
    1. 仮説を立てる
-   2. 仮説のもとで検定統計量が従う帰無分布を調べる
+   2. 仮説のもとで *検定統計量* が従う *帰無分布* を調べる
    3. 実際のデータから検定統計量の値を計算する
    4. 計算された検定統計量の値が
       仮説が正しいときに十分高い確率で
       得られるかどうかを判断する
-
+      - *棄却域* を用いる方法
+      - *\(p\)-値* を計算する方法
 ** 検定の用語
    - 仮説の判定
-     - 帰無仮説を棄却: 帰無仮説は誤っていると判断すること
-     - 帰無仮説を受容: 帰無仮説を積極的に棄却できないこと
+     - 帰無仮説を *棄却*: 帰無仮説は誤っていると判断すること
+     - 帰無仮説を *受容*: 帰無仮説を積極的に棄却できないこと
    - 検定の誤り
-     - 第一種過誤: "正しい帰無仮説を棄却する" 誤り
-     - 第二種過誤: "誤った帰無仮説を受容する" 誤り
+     - *第一種過誤*: "正しい帰無仮説を棄却する" 誤り
+     - *第二種過誤*: "誤った帰無仮説を受容する" 誤り
    - 検定の設計
      - サイズ: "第一種過誤が起きる確率" を小さく
      - 検出力: "第二種過誤が起きない確率" を大きく
-** 有意水準と \(p\)-値
-   - 有意水準
+** 有意水準と\(p\)-値
+   - *有意水準*
      #+begin_quote
      第一種過誤が起きる確率(サイズ)として許容する上限
      #+end_quote
-   - \(p\)-値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+   - \(p\)-値 (*有意確率*): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
      #+begin_quote
      検定統計量の値が棄却域に含まれる有意水準の最小値
      #+begin_src latex
@@ -186,13 +185,34 @@
    
 ** 両側検定と片側検定
    - 対立仮説によって棄却域の形は変わりうる
-     - 例: 2つの薬の治験結果に対する仮説:
+     - [[color:darkgreen][2つの薬の治験結果に対する仮説]]:
        - 古い薬(高価)と新しい薬(安価)の効能が変わらない
        - 古い薬に比べて新しい薬の効能が改善した
-   - 右片側検定: 棄却域がある定数 \(a\) によって \((a,\infty)\)
-   - 左片側検定: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
-     - 右片側検定と左片側検定を合わせて片側検定と呼ぶ
-   - 両側検定: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)
+     - 両側検定:
+       #+begin_quote
+       棄却域がある定数 \(a < b\) によって
+       #+begin_src latex
+         \begin{equation}
+           (-\infty,a)\cup(b,\infty)
+         \end{equation}
+       #+end_src
+       #+end_quote
+     - 片側検定
+       #+begin_quote
+       棄却域がある定数 \(a\) によって
+       #+begin_src latex
+         \begin{align}
+           &(a,\infty)&&\text{(右片側検定)}\\
+           &(-\infty,a)&&\text{(左片側検定)}
+         \end{align}
+       #+end_src
+       #+end_quote
+       # \((-\infty,a)\cup(b,\infty)\)
+       # \((a,\infty)\) (右片側検定)
+       # 棄却域がある定数 \(a\) によって
+       # \((-\infty,a)\) (左片側検定)
+       # - 右片側検定と左片側検定を合わせて片側検定と呼ぶ
+
    #+reveal: split
    #+begin_leftcol
    #+NAME: fig:cr_one
@@ -208,7 +228,7 @@
    #+end_rightcol
    
 
-* 演習
+* COMMENT 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -339,7 +359,7 @@
          \end{equation}
        #+end_src
        #+end_quote
-     - 不偏分散: (\(\chi^{2}\)-分布に従う)
+     - 不偏分散: (\(\chi^{2}\)-分布(の定数倍)に従う)
        #+begin_quote
        #+begin_src latex
          \begin{equation}
@@ -349,14 +369,14 @@
        #+end_quote
      - 標本平均と不偏分散は互いに独立
 ** \(\chi^{2}\)-分布
-   #+begin_leftcol
+   #+begin_leftcol40
    #+CAPTION: \(\chi^{2}\)-分布 (自由度\(3\))
    #+NAME: fig:pdf_chisq
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/pdf_chisq.png]]
-   #+end_leftcol  
-   #+begin_rightcol
+   #+end_leftcol40  
+   #+begin_rightcol60
    #+begin_quote
    - 見本空間: \([0,\infty)\)
    - 母数: 自由度 \(\nu\)
@@ -371,16 +391,16 @@
      - 備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
        検定に利用される．
    #+end_quote
-   #+end_rightcol  
+   #+end_rightcol60  
 ** \(t\)-分布
-   #+begin_leftcol
+   #+begin_leftcol40
    #+CAPTION: \(t\)-分布 (自由度\(3\))
    #+NAME: fig:pdf_t
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/pdf_t.png]]
-   #+end_leftcol  
-   #+begin_rightcol
+   #+end_leftcol40  
+   #+begin_rightcol60
    #+begin_quote
    - 見本空間: \((-\infty,\infty)\)
    - 母数: 自由度 \(\nu\)
@@ -397,7 +417,7 @@
        自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
        検定に利用される．
    #+end_quote
-   #+end_rightcol  
+   #+end_rightcol60  
 ** Student の \(t\)-検定
    - 検定統計量
      #+begin_quote
@@ -408,10 +428,16 @@
      #+end_src
      #+end_quote
    - 帰無分布は自由度 \(n{-}1\) の \(t\)-分布
+     - 標本平均 (正規分布)
+     - 不偏分散 (\(\chi^{2}\)-分布)
+
    #+reveal: split
-   - \(t_{1{-}\alpha/2}(n{-}1)\):
+   - 両側検定 (有意水準: \(\alpha\))
      #+begin_quote
-     自由度 \(n{-}1\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
+     \(t_{1{-}\alpha/2}(n{-}1)\) :
+
+     自由度 \(n{-}1\) の \(t\)-分布の
+     \(1{-}\alpha/2\) 分位点
      #+end_quote
    - 棄却域:
      #+begin_quote
@@ -438,16 +464,16 @@
      - 正確かつ適切な検定を導出することは実は難しい
 
 ** 考え方
-   - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
-         s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
-       \end{equation}
-     #+end_src
-     #+end_quote
    - 標本平均と不偏分散の性質:
+     - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
+       #+begin_quote
+       #+begin_src latex
+         \begin{equation}
+           s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
+           s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
+         \end{equation}
+       #+end_src
+       #+end_quote
      - \(\bar{X}-\bar{Y},s_1^{2},s_2^{2}\) は互いに独立
      - \((m{-}1)s_1^{2}/\sigma_1^{2}\)
        は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う 
@@ -468,14 +494,18 @@
        \begin{equation}
          \hat{\nu}
          =\frac{(s_1^{2}/m+s_2^{2}/n)^{2}}
-         {\frac{(s_1^{2}/m)^{2}}{m{-}1}+\frac{(s_2^{2}/n)^{2}}{n{-}1}}
+         {(s_1^{2}/m)^{2}/(m{-}1)+(s_2^{2}/n)^{2}/(n{-}1)}
        \end{equation}
      #+end_src
      #+end_quote
+     
    #+reveal: split
-   - \(t_{1{-}\alpha/2}(\hat{\nu})\):
+   - 両側検定 (有意水準: \(\alpha\))
      #+begin_quote
-     自由度 \(\hat{\nu}\) の \(t\)-分布の \(1{-}\alpha/2\) 分位点
+     \(t_{1{-}\alpha/2}(\hat{\nu})\) :
+
+     自由度 \(\hat{\nu}\) の \(t\)-分布の
+     \(1{-}\alpha/2\) 分位点
      #+end_quote
    - 棄却域:
      #+begin_quote
@@ -533,9 +563,11 @@
      #+end_src
    - 帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\)-分布
    #+reveal: split
-   - \(\chi^{2}_{\alpha/2}(n{-}1)\),
-     \(\chi^{2}_{1{-}\alpha/2}(n{-}1)\):
+   - 両側検定 (有意水準: \(\alpha\))
      #+begin_quote
+     \(\chi^{2}_{\alpha/2}(n{-}1)\),
+     \(\chi^{2}_{1{-}\alpha/2}(n{-}1)\) :
+     
      自由度 \(n{-}1\) の \(\chi^{2}\)-分布の
      \(\alpha/2\), \(1{-}\alpha/2\) 分位点
      #+end_quote
@@ -562,16 +594,16 @@
      #+end_quote
 
 ** 考え方
-   - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
-         s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
-       \end{equation}
-     #+end_src
-     #+end_quote
-   - 分散の推定量の性質:
+   - 不偏分散の性質:
+     - \(X_1,\dotsc,X_m\) および \(Y_1,\dotsc,Y_m\) の不偏分散:
+       #+begin_quote
+       #+begin_src latex
+         \begin{equation}
+           s_1^{2}=\frac{1}{m{-}1}\sum_{i=1}^m(X_i-\bar{X})^{2},\quad
+           s_2^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(Y_i-\bar{Y})^{2}.
+         \end{equation}
+       #+end_src
+       #+end_quote
      - \(s_1^{2},s_2^{2}\) は互いに独立
      - \((m{-}1)s_1^{2}/\sigma_1^{2}\)
        自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う
@@ -579,20 +611,20 @@
        は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う
 
 ** \(F\)-分布
-   #+begin_leftcol
+   #+begin_leftcol40
    #+begin_src R :file figs/pdf_f.png :exports results :results graphics
      par(family="HiraginoSans-W4") 
      plot(function(x)df(x,5,10,ncp=0), -1, 5,
           col=6, lwd=3,
           xlab="x",ylab="確率密度")
    #+end_src
-   #+CAPTION: \(F\) -分布 (自由度\(5,10\))
+   #+CAPTION: \(F\)-分布 (自由度\(5,10\))
    #+NAME: fig:pdf_f
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/pdf_f.png]]
-   #+end_leftcol  
-   #+begin_rightcol
+   #+end_leftcol40  
+   #+begin_rightcol60
    #+begin_quote
    - 見本空間: \([0,\infty)\)
    - 母数: 自由度 \(\nu_{1},\nu_{2}\)
@@ -608,7 +640,7 @@
      - 備考: \(\nu_{1},\nu_{2}\) 個の標準正規分布の2乗和の比の分布で，
        検定に利用される．
    #+end_quote
-   #+end_rightcol  
+   #+end_rightcol60  
 
 ** \(F\)-検定
    - 検定統計量:
@@ -620,10 +652,13 @@
      #+end_src
      #+end_quote
    - 帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布
+     
    #+reveal: split
-   - \(F_{\alpha/2}(m{-}1,n{-}1)\),
-     \(F_{1{-}\alpha/2}(m{-}1,n{-}1)\):
+   - 両側検定 (有意水準: \(\alpha\))
      #+begin_quote
+     \(F_{\alpha/2}(m{-}1,n{-}1)\),
+     \(F_{1{-}\alpha/2}(m{-}1,n{-}1)\) :
+     
      自由度 \(m{-}1,n{-}1\) の \(F\)-分布の
      \(\alpha/2,\,1{-}\alpha/2\) 分位点
      #+end_quote
@@ -639,7 +674,7 @@
      #+end_quote
 
 
-* 漸近正規性にもとづく検定
+* COMMENT 漸近正規性にもとづく検定
 ** 推定量の漸近正規性
    - 漸近正規性 (データ数が多いときの性質)
      #+begin_quote
@@ -764,7 +799,7 @@
    #+end_rightcol  
      
 
-* 演習
+* COMMENT 演習
   :PROPERTIES:
   :reveal_background: #fef4f4
   :END:
@@ -896,10 +931,6 @@
     - 平均値の差の検定
     - 分散の検定
     - 分散の比の検定
-  - 最尤推定量を用いた検定
-    - 漸近正規性
-    - 正規分布を用いた検定に帰着
-
 
 * COMMENT ローカル変数
 # Local Variables:

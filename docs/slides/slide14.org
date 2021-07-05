@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-06-03 14:36:17 mura>
+# Time-stamp: <2021-07-05 15:21:46 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -18,11 +18,7 @@
     - 平均値の差の検定
     - 分散の検定
     - 分散の比の検定
-  - 最尤推定量を用いた検定
-    - 漸近正規性
-    - 正規分布を用いた検定に帰着
 
-* 復習
 ** 統計的仮説検定
    - ある現象・母集団に対して仮定された仮説の真偽を
      データに基づいて統計的に検証する方法
@@ -205,6 +201,91 @@
    [[file:figs/cr_two.png]]
    #+end_rightcol
    
+
+
+** COMMENT 推定量の漸近正規性
+   - 漸近正規性 (データ数が多いときの性質)
+     #+begin_quote
+     多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+     #+end_quote
+     - モーメントに基づく記述統計量は漸近正規性をもつ
+     - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
+     - いずれも中心極限定理にもとづく
+   - 信頼区間と同様に正規分布を用いて検定を考えることができる
+   # - 推定誤差の分布が正規分布で近似できる場合
+** COMMENT 最尤推定量の漸近正規性
+   - 定理
+     #+begin_quote
+     \(f(x)>0\)
+     が連続で2階微分可能ならば
+     \(\sqrt{n}(\hat\theta^*-\theta_0)\)
+     は
+     \(n\to\infty\)
+     で正規分布
+     \(\mathcal{N}(0,I(\theta_0)^{-1})\)
+     に近づく．
+     #+end_quote
+     - 観測データが十分多ければ，
+       最尤推定量の誤差(分散)は
+       Cramer-Rao 下界に一致する
+     - Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+       #+begin_quote
+       #+begin_src latex
+       \begin{align}
+         I(\theta_0)
+         &=\mathbb{E}_{\theta_0}
+           \left[
+             -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+           \right]
+           \\
+         &=\mathbb{E}_{\theta_0}\left[\left(
+           \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+       \end{align}
+       #+end_src
+       #+end_quote
+
+** COMMENT 最尤推定量の検定 
+   - 問題
+     #+begin_quote
+     \(\theta_0\) を既知の定数として，
+     母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
+     #+begin_src latex
+       \begin{equation}
+         H_0:\theta=\theta_0\quad\text{vs}\quad H_1:\theta\neq\theta_0
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - 上記は両側検定
+     - 片側検定も同様に考えることができる
+       
+** COMMENT \(Z\)-検定 (正規分布による検定)
+   - 検定統計量
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 帰無分布は標準正規分布
+   #+reveal: split
+   - \(z_{1{-}\alpha/2}\):
+     #+begin_quote
+     標準正規分布の \(1{-}\alpha/2\) 分位点
+     #+end_quote
+   - 棄却域:
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         R_{\alpha}=
+         \left(-\infty,-z_{1{-}\alpha/2}\right)
+         \cup\left(z_{1{-}\alpha/2},\infty\right)
+       \end{equation}
+     #+end_src
+     #+end_quote
+
+
+* COMMENT 漸近正規性にもとづく検定
 ** 推定量の漸近正規性
    - 漸近正規性 (データ数が多いときの性質)
      #+begin_quote
@@ -237,11 +318,11 @@
          I(\theta_0)
          &=\mathbb{E}_{\theta_0}
            \left[
-             -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+             -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X,\theta_0)
            \right]
            \\
          &=\mathbb{E}_{\theta_0}\left[\left(
-           \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+           \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^{2}\right]
        \end{align}
        #+end_src
        #+end_quote
@@ -260,6 +341,20 @@
      - 上記は両側検定
      - 片側検定も同様に考えることができる
        
+** 考え方
+   - 最尤の推定量の性質
+     #+begin_quote
+     観測データ数 \(n\) が十分大きいとき，
+     1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+     #+begin_src latex
+       \begin{equation}
+         \mathbb{E}[\hat\theta]=\theta_{0},\quad
+         \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
+       \end{equation}
+     #+end_src
+     の正規分布で近似できる．
+     #+end_quote
+
 ** \(Z\)-検定 (正規分布による検定)
    - 検定統計量
      #+begin_quote
@@ -286,6 +381,159 @@
      #+end_src
      #+end_quote
 
+** 例題 (McNemar検定)
+   - 問題
+     #+begin_quote
+     A社とB社の開発した2つの文字認識機械がある．
+     \(n\) 個の文字に対してその性能を調べたところ
+     |     | 1 | 2 | 3 | ... | n |       |
+     |-----+---+---+---+-----+---+-------|
+     | A社 | ○ | ○ | × | ... | ○ | 98.1% |
+     | B社 | × | ○ | ○ | ... | ○ | 98.0% |
+     のような正答率を示した．
+     このときA社の機械はB社より優れていると言えるだろうか？
+     #+end_quote
+   #+reveal: split
+   - 試験した結果によって判断は異なるべき \\
+     (n=10,000)
+   #+begin_leftcol
+   |         | Aが正解 | Aが誤り |
+   |---------+---------+---------|
+   | Bが正解 |   9800  |       0 |
+   | Bが誤り |     10  |    190  |
+   #+end_leftcol  
+   #+begin_rightcol
+   |         | Aが正解 | Aが誤り |
+   |---------+---------+---------|
+   | Bが正解 |   9610  |    190  |
+   | Bが誤り |    200  |       0 |
+   #+end_rightcol  
+     
+
+* COMMENT 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下の問に答えよ
+     #+begin_quote
+     A社とB社の開発した2つの文字認識機械がある．
+     10,000文字に対してその性能を調べたところ
+     |         | Aが正解 | Aが誤り |
+     |---------+---------+---------|
+     | Bが正解 |    9500 |     180 |
+     | Bが誤り |     220 |     100 |
+     のような正答率を示した．
+     このときA社の機械はB社より優れていると言えるだろうか？
+     #+end_quote
+
+** COMMENT 解答例
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 以下のように考える．
+     - 両者が正解: 簡単な文字 (比較しても意味がない)
+     - 両者が不正解: 難しい文字 (比較しても意味がない)
+     - どちらかが正解: 認識すべき文字 (比較すべき)
+   - 以下の確率変数を考える．
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         X=
+         \begin{cases}
+           1, &\text{A社のみ正解}\\
+           0, &\text{B社のみ正解}
+         \end{cases}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 確率質量関数
+     #+begin_quote
+     A社のみ正解の確率を \(\theta\) とし，
+     確率変数 \(X\) の確率質量関数を以下で定義する．
+     #+begin_src latex
+       \begin{equation}
+         f(x)=\theta^{x}(1-\theta)^{1-x}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - Fisher 情報量
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         I(\theta)
+         =\mathbb{E}
+         \left[
+           -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
+         \right]
+         =\frac{1}{\theta(1-\theta)}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 対数尤度
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         \ell(\theta)
+         =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 最尤推定量
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         \ell'(\hat\theta)
+         &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
+         \hat\theta&=\bar{X}
+       \end{align}
+     #+end_src
+     #+end_quote
+   #+reveal: split
+   - 以下の検定を考える．
+     #+begin_quote
+     - 帰無仮説: A社とB社の性能に違いはない (\(\theta_{0}=0.5\))
+     - 対立仮説: A社の方がB社より性能が良い
+     #+begin_src latex
+       \begin{equation}
+         H_0:\theta=\theta_{0}\quad\text{vs}\quad H_1:\theta>\theta_{0}
+       \end{equation}
+     #+end_src
+     #+end_quote
+   - 検定統計量
+     #+begin_quote
+     #+begin_src latex
+       \begin{equation}
+         Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+       \end{equation}
+     #+end_src
+     #+end_quote
+     - 帰無分布は標準正規分布
+   #+reveal: split
+   - 有意水準と棄却域(両側・片側)に応じて以下の分位点を用いれば良い
+     #+begin_quote
+     #+begin_src latex
+       \begin{align}
+         &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
+         &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
+         &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
+       \end{align}
+     #+end_src
+     #+end_quote
+   - 検定統計量の計算
+     #+begin_quote
+     題意より
+     #+begin_src latex
+       \begin{equation}
+         Z=\sqrt{400/0.5^{2}}(220/400-0.5)
+       \end{equation}
+     #+end_src
+     #+end_quote
 
 * COMMENT 課題の説明
 ** COMMENT 注意
@@ -293,6 +541,11 @@
    - 形式はPDFまたは画像
    - 提出物が可読でない場合は評価できない
 
+
+* 今回のまとめ
+  - 最尤推定量を用いた検定
+    - 漸近正規性
+    - 正規分布を用いた検定に帰着
 
 * COMMENT ローカル変数
 # Local Variables:
