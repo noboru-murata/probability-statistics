@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-07-05 23:03:00 mura>
+# Time-stamp: <2021-07-06 08:35:03 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -250,7 +250,7 @@
      #+end_quote
      - \(z_{0.95}=1.64, z_{0.975}=1.96\)
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -370,7 +370,7 @@
    :END:
    - 前問において\(p\)-値を計算する方法を考えよ．
      
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -518,7 +518,7 @@
          \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
        \end{multline}
      #+end_src
-     - 備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
+     - 備考: *\(\nu\) 個の標準正規分布の2乗和の分布* で，
        検定に利用される．
    #+end_quote
    #+end_rightcol60  
@@ -543,12 +543,12 @@
          \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
        \end{equation}
      #+end_src
-     - 備考: 標準正規分布と
-       自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
+     - 備考: *標準正規分布と
+       自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布* で，
        検定に利用される．
    #+end_quote
    #+end_rightcol60  
-** Student の\(t\)-検定
+** Student の \(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
@@ -609,7 +609,7 @@
        は自由度 \(m{-}1\) の \(\chi^{2}\)-分布に従う 
      - \((n{-}1)s_2^{2}/\sigma_2^{2}\)
        は自由度 \(n{-}1\) の \(\chi^{2}\)-分布に従う 
-** Welch の\(t\)-検定
+** Welch の \(t\)-検定
    - 検定統計量
      #+begin_quote
      #+begin_src latex
@@ -618,7 +618,7 @@
        \end{equation}
      #+end_src
      #+end_quote
-   - 帰無分布は自由度 \(\hat{\nu}\) の \(t\)-分布 (*Welchの近似*)
+   - 帰無分布は自由度 \(\hat{\nu}\) の \(t\)-分布 (*Welch の近似*)
      #+begin_quote
      #+begin_src latex
        \begin{equation}
@@ -674,7 +674,7 @@
    - Welch の\(t\)-検定において
      \(p\)-値はどのように計算すればよいか述べよ．
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -830,7 +830,7 @@
          B(x,y)=\int_{0}^{1}t^{x-1}(1-t)^{y-1}dt
        \end{multline}
      #+end_src
-     - 備考: \(\nu_{1},\nu_{2}\) 個の標準正規分布の2乗和の比の分布で，
+     - 備考: *\(\nu_{1},\nu_{2}\) 個の標準正規分布の2乗和の比の分布* で，
        検定に利用される．
    #+end_quote
    #+end_rightcol60  
@@ -893,7 +893,7 @@
        \(F_{0.95}(39,34)=1.74, F_{0.975}(39,34)=1.95\),
        \(t_{0.95}(73)=1.67, t_{0.975}(73)=1.99\)
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
@@ -1269,6 +1269,7 @@
     - 平均値の差の検定
     - 分散の検定
     - 分散の比の検定
+
 
 * COMMENT ローカル変数
 # Local Variables:
