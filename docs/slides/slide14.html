@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>検定のまとめ</title>
+<title>最尤推定に基づく検定</title>
 <meta name="author" content="村田 昇"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
@@ -31,7 +31,7 @@
 <!-- Embed logos as necessary. -->
 <!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
 <div class="talk-title">
-    <h1 class="no-toc-progress">検定のまとめ</h1>
+    <h1 class="no-toc-progress">最尤推定に基づく検定</h1>
 </div>
 <div class="talk-subtitle">
     <p>確率・統計 - 講義14</p>
@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org13aaf95">
-<h2 id="org13aaf95">前回のおさらい</h2>
+<section id="slide-org193ddc4">
+<h2 id="org193ddc4">前回のおさらい</h2>
 <ul>
 <li>分散未知の正規分布を用いた検定
 <ul>
@@ -58,27 +58,13 @@
 <li>分散の比の検定</li>
 
 </ul></li>
-<li>最尤推定量を用いた検定
-<ul>
-<li>漸近正規性</li>
-<li>正規分布を用いた検定に帰着</li>
-
-</ul></li>
 
 </ul>
+<div class="slide-footer"><br></div>
 
-<div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org9b317b9">
-<h2 id="org9b317b9">復習</h2>
-<div class="outline-text-2" id="text-org9b317b9">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgdb87c99">
-<h3 id="orgdb87c99">統計的仮説検定</h3>
+<section id="slide-org9d829ef">
+<h3 id="org9d829ef">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -86,14 +72,14 @@
 母集団の分布に対して何らかの仮説を考えるところ</li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org7a7179f">
-<h3 id="org7a7179f">検定における仮説</h3>
+<section id="slide-orge862686">
+<h3 id="orge862686">検定における仮説</h3>
 <ul>
 <li><p>
-帰無仮説 \(H_0\)
+<b>帰無仮説</b> \(H_0\)
 </p>
 <blockquote>
 <p>
@@ -101,7 +87,7 @@
 </p>
 </blockquote></li>
 <li><p>
-対立仮説 \(H_1\) 
+<b>対立仮説</b> \(H_{1}\) 
 </p>
 <blockquote>
 <p>
@@ -112,33 +98,37 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org29bf35a">
-<h3 id="org29bf35a">検定の基本的手続き</h3>
+<section id="slide-org1323acf">
+<h3 id="org1323acf">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
-<li>仮説のもとで検定統計量が従う帰無分布を調べる</li>
+<li>仮説のもとで <b>検定統計量</b> が従う <b>帰無分布</b> を調べる</li>
 <li>実際のデータから検定統計量の値を計算する</li>
 <li>計算された検定統計量の値が
 仮説が正しいときに十分高い確率で
-得られるかどうかを判断する</li>
+得られるかどうかを判断する
+<ul>
+<li><b>棄却域</b> を用いる方法</li>
+<li><b>\(p\)-値</b> を計算する方法</li>
+
+</ul></li>
 
 </ol>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org855a38f">
-<h3 id="org855a38f">検定の用語</h3>
+<section id="slide-org1699a77">
+<h3 id="org1699a77">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
-<li>帰無仮説を棄却: 帰無仮説は誤っていると判断すること</li>
-<li>帰無仮説を受容: 帰無仮説を積極的に棄却できないこと</li>
+<li>帰無仮説を <b>棄却</b>: 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を <b>受容</b>: 帰無仮説を積極的に棄却できないこと</li>
 
 </ul></li>
 <li>検定の誤り
 <ul>
-<li>第一種過誤: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
-<li>第二種過誤: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
+<li><b>第一種過誤</b>: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
+<li><b>第二種過誤</b>: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
 
 </ul></li>
 <li>検定の設計
@@ -151,11 +141,11 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org393b845">
-<h3 id="org393b845">有意水準と \(p\)-値</h3>
+<section id="slide-org3a19c3a">
+<h3 id="org3a19c3a">有意水準と\(p\)-値</h3>
 <ul>
 <li><p>
-有意水準
+<b>有意水準</b>
 </p>
 <blockquote>
 <p>
@@ -163,7 +153,7 @@
 </p>
 </blockquote></li>
 <li><p>
-\(p\)-値 (有意確率): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+\(p\)-値 (<b>有意確率</b>): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
 </p>
 <blockquote>
 <p>
@@ -187,22 +177,88 @@
 </blockquote></li>
 
 </ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc92efcd">
+<h3 id="orgc92efcd">両側検定と片側検定</h3>
+<ul>
+<li>対立仮説によって棄却域の形は変わりうる
+<ul>
+<li><span style="color:darkgreen;">2つの薬の治験結果に対する仮説</span>:
+<ul>
+<li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
+<li>古い薬に比べて新しい薬の効能が改善した</li>
+
+</ul></li>
+<li><p>
+両側検定:
+</p>
+<blockquote>
+<p>
+棄却域がある定数 \(a < b\) によって
+</p>
+<div>
+\begin{equation}
+  (-\infty,a)\cup(b,\infty)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+片側検定
+</p>
+<blockquote>
+<p>
+棄却域がある定数 \(a\) によって
+</p>
+<div>
+\begin{align}
+  &(a,\infty)&&\text{(右片側検定)}\\
+  &(-\infty,a)&&\text{(左片側検定)}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org249be48">
-<h3 id="org249be48">正規分布を用いた平均値の検定</h3>
+<section>
+<div class="leftcol" id="orgc262be0">
+
+<div id="org5e5ba18" class="figure">
+<p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="rightcol" id="orgc59771a">
+
+<div id="orga938649" class="figure">
+<p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
+</p>
+</div>
+
+</div>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org53dc63d">
+<h3 id="org53dc63d">平均値の検定</h3>
 <ul>
 <li><p>
 問題
 </p>
 <blockquote>
 <p>
-確率変数列の平均値が \(\mu\) と等しいか検定せよ．
+確率変数列の平均値が \(\mu_{0}\) と等しいか検定せよ．
 </p>
 <div>
 \begin{equation}
-  X_1,X_2,\dotsc,X_n 
+  X_{1},X_{2},\dotsc,X_{n} 
 \end{equation}
 
 </div>
@@ -213,27 +269,97 @@
 <blockquote>
 <div>
 \begin{equation}
-  X_i=\theta+\varepsilon_{i},
+  X_{i}=\mu+\varepsilon_{i},
   \quad i=1,\dotsc,n
-  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
 \end{equation}
 
 </div>
 
 <p>
-を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+を観測値の確率モデル (\(\sigma^{2}\) は未知) とするとき
 </p>
 <div>
 \begin{equation}
-  H_{0}: \theta=\mu
+  H_{0}: \mu=\mu_{0}
   \quad\text{vs}\quad
-  H_{1}: \theta\not=\mu
+  H_{1}: \mu\neq\mu_{0}
 \end{equation}
 
 </div>
 </blockquote></li>
 
 </ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li>平均と分散の推定量
+<ul>
+<li><p>
+標本平均
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+不偏分散
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li>帰無仮説のもとでの推定量の性質
+<ul>
+<li>標本平均と不偏分散は互いに独立</li>
+<li><p>
+標本平均 (標準正規分布)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \frac{\bar{X}-\mu_{0}}{\sigma/\sqrt{n}}
+  \sim \mathcal{N}(0,1)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+不偏分散 (\(\chi^{2}\)-分布)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \frac{(n{-}1)s^{2}}{\sigma^{2}}
+  \sim \chi^{2}(n{-}1)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
@@ -244,37 +370,40 @@
 <blockquote>
 <div>
 \begin{equation}
-  T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+  T=\frac{\sqrt{n}(\bar{X}-\mu_0)}{s}
 \end{equation}
 
 </div>
 
 <p>
-は 帰無仮説が正しいとき標準正規分布に従う．
+の帰無分布は自由度 \(n{-}1\) の \(t\)-分布
 </p>
-</blockquote></li>
+</blockquote>
+<ul>
+<li>(\(t\)-分布) \(=\) (標準正規分布)/
+\(\sqrt{(\chi^{2}\text{-分布})/\text{(自由度)}}\)</li>
+
+</ul></li>
 <li><p>
 棄却域 (両側検定の場合)
 </p>
 <blockquote>
 <div>
 \begin{equation}
-  R_{\alpha}
-  =
-  \left(-\infty,-z_{1{-}\alpha/2}\right)
-  \cup
-  \left(z_{1{-}\alpha/2},\infty\right)
+  R_{\alpha}=
+  \left(-\infty,-t_{1{-}\alpha/2}(n{-}1)\right)
+  \cup\left(t_{1{-}\alpha/2}(n{-}1),\infty\right)
 \end{equation}
 
 </div>
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-orgc06f128">
-<h3 id="orgc06f128">正規分布を用いた平均値の差の検定</h3>
+<section id="slide-org360e77f">
+<h3 id="org360e77f">平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -285,8 +414,8 @@
 </p>
 <div>
 \begin{equation}
-  X_1,X_2,\dotsc,X_n, \qquad
-  Y_1,Y_2,\dotsc,Y_m 
+  X_{1},X_{2},\dotsc,X_{n}, \qquad
+  Y_{1},Y_{2},\dotsc,Y_{m} 
 \end{equation}
 
 </div>
@@ -297,30 +426,31 @@
 <blockquote>
 <div>
 \begin{align}
-  X_i&=\theta_{1}+\varepsilon_{1i},
+  X_i&=\mu_{1}+\varepsilon_{1i},
   \quad i=1,\dotsc,n
-  \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^2)\\
-  Y_j&=\theta_{2}+\varepsilon_{2j},
+  && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
+  Y_j&=\mu_{2}+\varepsilon_{2j},
   \quad j=1,\dotsc,m
-  \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^2)
+  && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
 \end{align}
 
 </div>
 
 <p>
-を観測値の確率モデル (\(\sigma^2\) は既知) とするとき
+を観測値の確率モデル (\(\sigma^{2}\) は未知) とするとき
 </p>
 <div>
 \begin{equation}
-  H_{0}: \theta_{1}=\theta_{2}
+  H_{0}: \mu_{1}=\mu_{2}
   \quad\text{vs}\quad
-  H_{1}: \theta_{1}\not=\theta_{2}
+  H_{1}: \mu_{1}\neq\mu_{2}
 \end{equation}
 
 </div>
 </blockquote></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
@@ -331,13 +461,103 @@
 <blockquote>
 <div>
 \begin{equation}
-  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+  T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_{1}^{2}/m+s_{2}^{2}/n}}
 \end{equation}
 
 </div>
 
 <p>
-は仮説が正しいとき標準正規分布に従う．
+の帰無分布は近似的に自由度 \(\hat{\nu}\) の \(t\)-分布 (<b>Welchの近似</b>)
+</p>
+<div>
+\begin{equation}
+  \hat{\nu}
+  =\frac{(s_{1}^{2}/m+s_{2}^{2}/n)^{2}}
+  {(s_{1}^{2}/m)^{2}/(m{-}1)+(s_{2}^{2}/n)^{2}/(n{-}1)}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(-\infty,-t_{1{-}\alpha/2}(\hat{\nu})\right)
+  \cup\left(t_{1{-}\alpha/2}(\hat{\nu}),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org5d15a55">
+<h3 id="org5d15a55">分散の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+確率変数列の分散が \(\sigma_0^{2}\) と等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_{1},X_{2},\dotsc,X_{n} 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X_{i}=\mu+\varepsilon_{i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+\end{equation}
+
+</div>
+
+<p>
+を観測値の確率モデルとするとき
+</p>
+<div>
+\begin{equation}
+  H_0:\sigma^{2}=\sigma_0^{2}
+  \quad\text{vs}\quad
+  H_{1}:\sigma^{2}\neq\sigma_0^{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
+\end{equation}
+
+</div>
+
+<p>
+の帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\)-分布
 </p>
 </blockquote></li>
 <li><p>
@@ -346,11 +566,60 @@
 <blockquote>
 <div>
 \begin{equation}
-  R_{\alpha}
-  =
-  \left(-\infty,-z_{1{-}\alpha/2}\right)
-  \cup
-  \left(z_{1{-}\alpha/2},\infty\right)
+  R_{\alpha}=
+  \left(0,\chi^{2}_{\alpha/2}(n{-}1)\right)
+  \cup\left(\chi^{2}_{1{-}\alpha/2}(n{-}1),\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org6925f1d">
+<h3 id="org6925f1d">分散の比の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2つの確率変数列の分散が等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_{1},X_{2},\dotsc,X_{n}, \qquad
+  Y_{1},Y_{2},\dotsc,Y_{m} 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\mu_{1}+\varepsilon_{1i},
+  \quad i=1,\dotsc,n
+  && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
+  Y_j&=\mu_{2}+\varepsilon_{2j},
+  \quad j=1,\dotsc,m
+  && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
+\end{align}
+
+</div>
+
+<p>
+を観測値の確率モデルとするとき
+</p>
+<div>
+\begin{equation}
+  H_0:\sigma_{1}^{2}=\sigma_{2}^{2}
+  \quad\text{vs}\quad
+  H_{1}:\sigma_{1}^{2}\neq\sigma_{2}^{2}
 \end{equation}
 
 </div>
@@ -360,52 +629,50 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7b99ac1">
-<h3 id="org7b99ac1">両側検定と片側検定</h3>
+<section>
 <ul>
-<li>対立仮説によって棄却域の形は変わりうる
-<ul>
-<li>例: 2つの薬の治験結果に対する仮説:
-<ul>
-<li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
-<li>古い薬に比べて新しい薬の効能が改善した</li>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  F=\frac{s_1^{2}}{s_2^{2}}
+\end{equation}
 
-</ul></li>
+</div>
 
-</ul></li>
-<li>右片側検定: 棄却域がある定数 \(a\) によって \((a,\infty)\)</li>
-<li>左片側検定: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
-<ul>
-<li>右片側検定と左片側検定を合わせて片側検定と呼ぶ</li>
+<p>
+の帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}=
+  \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
+  \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
+\end{equation}
 
-</ul></li>
-<li>両側検定: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)</li>
+</div>
+</blockquote></li>
 
 </ul>
 <div class="slide-footer"><br></div>
+
+</section>
 </section>
 <section>
-<div class="leftcol">
-
-<div id="org9efffe2" class="figure">
-<p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
-</p>
+<section id="slide-org5d594a9">
+<h2 id="org5d594a9">漸近正規性にもとづく検定</h2>
+<div class="outline-text-2" id="text-org5d594a9">
 </div>
-
-</div>
-<div class="rightcol">
-
-<div id="org539f245" class="figure">
-<p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
-</p>
-</div>
-
-</div>
-
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6a92b4a">
-<h3 id="org6a92b4a">推定量の漸近正規性</h3>
+<section id="slide-orga1d47b2">
+<h3 id="orga1d47b2">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 漸近正規性 (データ数が多いときの性質)
@@ -426,8 +693,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgebe3a6c">
-<h3 id="orgebe3a6c">最尤推定量の漸近正規性</h3>
+<section id="slide-org056a3a7">
+<h3 id="org056a3a7">最尤推定量の漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -457,11 +724,11 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
   I(\theta_0)
   &=\mathbb{E}_{\theta_0}
     \left[
-      -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+      -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta_0)
     \right]
     \\
   &=\mathbb{E}_{\theta_0}\left[\left(
-    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+    \frac{\partial}{\partial\theta}\log f(X;\theta_0)\right)^{2}\right]
 \end{align}
 
 </div>
@@ -470,11 +737,11 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org3627554">
-<h3 id="org3627554">最尤推定量の検定</h3>
+<section id="slide-org94a1754">
+<h3 id="org94a1754">最尤推定量の検定</h3>
 <ul>
 <li><p>
 問題
@@ -486,7 +753,7 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 </p>
 <div>
 \begin{equation}
-  H_0:\theta=\theta_0\quad\text{vs}\quad H_1:\theta\neq\theta_0
+  H_0:\theta=\theta_0\quad\text{vs}\quad H_{1}:\theta\neq\theta_0
 \end{equation}
 
 </div>
@@ -498,11 +765,39 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org31bf588">
-<h3 id="org31bf588">\(Z\)-検定 (正規分布による検定)</h3>
+<section id="slide-orgdd3d8c4">
+<h3 id="orgdd3d8c4">考え方</h3>
+<ul>
+<li><p>
+最尤推定量の性質
+</p>
+<blockquote>
+<p>
+観測データ数 \(n\) が十分大きいとき，
+1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\hat\theta]=\theta_{0},\quad
+  \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
+\end{equation}
+
+</div>
+
+<p>
+の正規分布で近似できる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org85349dd">
+<h3 id="org85349dd">\(Z\)-検定 (正規分布による検定)</h3>
 <ul>
 <li><p>
 検定統計量
@@ -546,6 +841,229 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 
 </ul>
 <div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org327ea52">
+<h3 id="org327ea52">例題 (McNemar検定)</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+A社とB社の開発した2つの文字認識機械がある．
+\(n\) 個の文字に対してその性能を調べたところ
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">&#x2026;</th>
+<th scope="col" class="org-left">n</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A社</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">×</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.1%</td>
+</tr>
+
+<tr>
+<td class="org-left">B社</td>
+<td class="org-left">×</td>
+<td class="org-left">○</td>
+<td class="org-left">○</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">○</td>
+<td class="org-right">98.0%</td>
+</tr>
+</tbody>
+</table>
+<p>
+のような正答率を示した．
+このときA社の機械はB社より優れていると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li>試験した結果によって判断は異なるべき <br />
+(n=10,000)</li>
+
+</ul>
+<div class="leftcol" id="orgbace7ae">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9800</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">10</td>
+<td class="org-right">190</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="rightcol" id="org3c755fa">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9610</td>
+<td class="org-right">190</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">200</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org6254155" data-background="#fef4f4">
+<h2 id="org6254155">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8e9e62b" data-background="#fef4f4">
+<h3 id="org8e9e62b">練習問題</h3>
+<ul>
+<li><p>
+以下の問に答えよ
+</p>
+<blockquote>
+<p>
+A社とB社の開発した2つの文字認識機械がある．
+10,000文字に対してその性能を調べたところ
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Aが正解</th>
+<th scope="col" class="org-right">Aが誤り</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bが正解</td>
+<td class="org-right">9500</td>
+<td class="org-right">180</td>
+</tr>
+
+<tr>
+<td class="org-left">Bが誤り</td>
+<td class="org-right">220</td>
+<td class="org-right">100</td>
+</tr>
+</tbody>
+</table>
+<p>
+のような正答率を示した．
+このときA社の機械はB社より優れていると言えるだろうか？
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+</section>
+<section>
+<section id="slide-org83b5647">
+<h2 id="org83b5647">今回のまとめ</h2>
+<ul>
+<li>最尤推定量を用いた検定
+<ul>
+<li>漸近正規性</li>
+<li>正規分布を用いた検定に帰着</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
 </section>
 </section>
 </div>
@@ -571,7 +1089,6 @@ mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
-
 overview: true,
 
 transition: 'fade',
