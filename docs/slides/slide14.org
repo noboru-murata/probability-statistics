@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-07-10 18:21:04 mura>
+# Time-stamp: <2021-07-13 11:26:01 mura>
 :reveal:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content
@@ -105,12 +105,14 @@
    #+reveal: split
    #+begin_leftcol
    #+NAME: fig:cr_one
+   #+CAPTION: 片側検定の棄却域(帰無分布の右の場合)
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/cr_one.png]]
    #+end_leftcol
    #+begin_rightcol
    #+NAME: fig:cr_two
+   #+CAPTION: 両側検定の棄却域
    #+ATTR_HTML: :width 100%
    #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/cr_two.png]]
@@ -135,7 +137,7 @@
 	 \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
        \end{equation}
      #+end_src
-     を観測値の確率モデル (\(\sigma^{2}\) は未知) とするとき
+     を観測値の確率モデル (\(\sigma^{2}\) は *未知*) とするとき
      #+begin_src latex
        \begin{equation}
          H_{0}: \mu=\mu_{0}
@@ -215,8 +217,8 @@
      2つの確率変数列の平均値が等しいか検定せよ．
      #+begin_src latex
        \begin{equation}
-         X_{1},X_{2},\dotsc,X_{n}, \qquad
-         Y_{1},Y_{2},\dotsc,Y_{m} 
+         X_{1},X_{2},\dotsc,X_{m}, \qquad
+         Y_{1},Y_{2},\dotsc,Y_{n} 
        \end{equation}
      #+end_src
      #+end_quote
@@ -225,14 +227,14 @@
      #+begin_src latex
        \begin{align}
          X_i&=\mu_{1}+\varepsilon_{1i},
-         \quad i=1,\dotsc,n
-         && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
+         \quad i=1,\dotsc,m
+         && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
          Y_j&=\mu_{2}+\varepsilon_{2j},
-         \quad j=1,\dotsc,m
-         && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
+         \quad j=1,\dotsc,n
+         && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
        \end{align}
      #+end_src
-     を観測値の確率モデル (\(\sigma^{2}\) は未知) とするとき
+     を観測値の確率モデル (\(\sigma_{i}^{2}\) は *未知*) とするとき
      #+begin_src latex
        \begin{equation}
          H_{0}: \mu_{1}=\mu_{2}
@@ -245,6 +247,7 @@
    #+reveal: split
    - 検定統計量
      #+begin_quote
+     \(s_{1}^{2},s_{2}^{2}\)をそれぞれ\(X,Y\)の不偏分散として
      #+begin_src latex
        \begin{equation}
          T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_{1}^{2}/m+s_{2}^{2}/n}}
@@ -326,8 +329,8 @@
      2つの確率変数列の分散が等しいか検定せよ．
      #+begin_src latex
        \begin{equation}
-         X_{1},X_{2},\dotsc,X_{n}, \qquad
-         Y_{1},Y_{2},\dotsc,Y_{m} 
+         X_{1},X_{2},\dotsc,X_{m}, \qquad
+         Y_{1},Y_{2},\dotsc,Y_{n} 
        \end{equation}
      #+end_src
      #+end_quote
@@ -336,10 +339,10 @@
      #+begin_src latex
        \begin{align}
          X_i&=\mu_{1}+\varepsilon_{1i},
-         \quad i=1,\dotsc,n
+         \quad i=1,\dotsc,m
          && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
          Y_j&=\mu_{2}+\varepsilon_{2j},
-         \quad j=1,\dotsc,m
+         \quad j=1,\dotsc,n
          && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
        \end{align}
      #+end_src
@@ -356,9 +359,10 @@
    #+reveal: split
    - 検定統計量
      #+begin_quote
+     \(s_{1}^{2},s_{2}^{2}\)をそれぞれ\(X,Y\)の不偏分散として
      #+begin_src latex
        \begin{equation}
-         F=\frac{s_1^{2}}{s_2^{2}}
+         F=\frac{s_{1}^{2}}{s_{2}^{2}}
        \end{equation}
      #+end_src
      の帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布
@@ -601,7 +605,7 @@
      このときA社の機械はB社より優れていると言えるだろうか？
      #+end_quote
 
-** COMMENT 解答例
+** 解答例
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:

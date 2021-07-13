@@ -167,7 +167,7 @@
   :EXPORT_FILE_NAME: lecture14
   :EXPORT_DATE: <2020-04-01 Wed>
   :END:
-  <2021-07-10 Sat> 更新
+  <2021-07-13 Tue> 更新
 ** スライド
    {{< myslide base="probability-statistics" name="slide14" >}}
 ** ハンドアウト
