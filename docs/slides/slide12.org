@@ -1,708 +1,741 @@
-#+TITLE: 検定
-#+SUBTITLE: 確率・統計 - 講義12
+#+TITLE: 最尤推定に基づく検定
+#+SUBTITLE: 確率・統計 - 第12講
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-07-05 15:17:40 mura>
-:reveal:
+# Time-stamp: <2021-08-22 17:44:15 mura>
+:REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
-#+STARTUP: hidestars content
+#+STARTUP: hidestars content indent
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
-:end:
+:END:
 
 * 前回のおさらい
-  - 最尤法の考え方
-  - 最尤推定量の一致性
-  - 最尤推定量の漸近正規性
-  - 最尤推定量による区間推定
+- 分散未知の正規分布を用いた検定
+  - 平均値の検定
+  - 平均値の差の検定
+  - 分散の検定
+  - 分散の比の検定
 
-** 統計的推測の考え方
-   - 観測データは確率変数の集合
-   - 確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要
-   - 現象の理解のためには観測された実現値より確率分布にこそ興味がある
-   - 一般に分析対象のデータには
-     独立性と同分布性が同時に仮定される
-   - 観測データの背後の確率分布を推定
-     - 分布のもつ特性量(平均や分散など)を評価する
-     - 分布そのもの(確率関数や確率密度)を決定する
-
-** 点推定
-   - 定義
-     #+begin_quote
-     点推定とは
-     母数 \(\theta\) を \(X_1,\dotsc,X_n\) の関数
-     #+begin_src latex
-       \begin{equation}
-         \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
-       \end{equation}
-     #+end_src
-     で推定することで，
-     \(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
-     #+end_quote
-
-** 区間推定
-   - 定義
-     #+begin_quote
-     区間推定とは
-     未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
-     以下を満たす確率変数 \(L,U\) を観測データから求めることをいう．
-     #+begin_src latex
-       \begin{equation}
-         P(L\le\theta\le U)\ge 1{-}\alpha
-       \end{equation}
-     #+end_src
-     #+end_quote
-     - 区間 \([L,U]\) : \(1{-}\alpha\) 信頼区間 (\(100(1{-}\alpha)\) % とも書く)
-     - \(L\) : \(1{-}\alpha\) 下側信頼限界
-     - \(U\) : \(1{-}\alpha\) 上側信頼限界
-     - \(1{-}\alpha\) : 信頼係数
-       (\(\alpha=0.01,0.05,0.1\) など)
-
-** 尤度関数
-   - 定義
-     #+begin_quote
-     パラメタ \(\boldsymbol{\theta}\) に対して
-     観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
-     #+begin_src latex
-       \begin{equation}
-         L(\boldsymbol{\theta})
-         =\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
-       \end{equation}
-     #+end_src
-     を
-     \(\boldsymbol{\theta}\) の 
-     尤度と言い，
-     \(\boldsymbol{\theta}\) の関数 \(L\) を尤度関数と呼ぶ．
-     #+end_quote
-     - 離散分布の場合， \(f\) は確率質量関数
-     - 連続分布の場合， \(f\) は確率密度関数
-** 最尤法
-   - 最尤法: 
-     #+begin_quote
-     観測データに対して"最も尤もらしい"パラメタ値
-     を \(\boldsymbol{\theta}\) の推定量として採用する方法
-     を最尤法という．
-     #+end_quote
-   - 最尤推定量:
-     #+begin_quote
-     \(\Theta\) を尤度関数の定義域として，
-     尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
-     #+begin_src latex
-       \begin{equation}
-         L(\hat{\boldsymbol{\theta}})
-         =\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
-       \end{equation}
-       \begin{equation}
-         \hat{\boldsymbol{\theta}}
-         =\arg\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
-       \end{equation}
-     #+end_src
-     を 
-     \(\boldsymbol{\theta}\) 
-     の最尤推定量という．
-     #+end_quote
-
-** 最尤推定量の区間推定
-   - 定理 (最尤推定量の漸近正規性)
-     #+begin_quote
-     観測データ数 \(n\) が十分大きいとき，
-     1次元パラメタ \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
-     #+begin_src latex
-       \begin{equation}
-         \mathbb{E}[\hat\theta]=\theta_{0},\quad
-         \mathrm{Var}(\hat\theta)=\frac{1}{nI(\hat\theta)}
-       \end{equation}
-     #+end_src
-     の正規分布で近似できる．
-     #+end_quote
-   #+reveal: split
-   - 信頼区間の構成
-     #+begin_quote
-     母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
-     #+begin_src latex
-       \begin{equation}
-         \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}},\;
-           \hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
-       \end{equation}
-     #+end_src
-     (サンプル数 \(n\) が十分大きい場合に近似的に正しい)
-     #+end_quote
-
-
-* 検定とは
 ** 統計的仮説検定
-   - ある現象・母集団に対して仮定された仮説の真偽を
-     データに基づいて統計的に検証する方法
-     #+begin_quote
-     [[color:darkgreen][薬の治験の例]]:
-     
-     新しい薬の効能が古い薬よりも優れていること(仮説)を
-     薬の治験結果(データ)から検証したい
-     #+end_quote
-   - 推定と大きく異なるのは，
-     母集団の分布に対して何らかの *仮説* を考えるところ
-
-** 検定の基本的手続き
-   1. 仮説を立てる
-   2. 仮説のもとで *検定統計量* が従う標本分布を調べる
-   3. 実際のデータから検定統計量の値を計算する
-   4. 計算された検定統計量の値が
-      仮説が正しいときに十分高い確率で
-      得られるかどうかを判断する
+- ある現象・母集団に対して仮定された仮説の真偽を
+  データに基づいて統計的に検証する方法
+- 推定と大きく異なるのは，
+  母集団の分布に対して何らかの仮説を考えるところ
 
 ** 検定における仮説
-   - *帰無仮説*
-     #+begin_quote
-     検定統計量の分布を予想するために立てる仮説
-     #+end_quote
-   - *対立仮説*
-     #+begin_quote
-    "帰無仮説が誤っているときに起こりうるシナリオ"として想定する仮説
-     #+end_quote
-     - 慣習として
-       帰無仮説を *\(H_0\)*, 
-       対立仮説を *\(H_1\)* で表す
-     - "帰無仮説を捨てて無に帰する"ことを期待する場合が多い
+- *帰無仮説* \(H_0\)
+  #+begin_quote
+  検定統計量の分布を予想するために立てる仮説
+  #+end_quote
+- *対立仮説* \(H_{1}\) 
+  #+begin_quote
+  "帰無仮説が誤っているときに起こりうるシナリオ"として想定する仮説
+  #+end_quote
 
-** 帰無仮説と対立仮説
-   - [[color:darkgreen][薬の治験の例]]: (単純な場合)
-     - 帰無仮説 \(H_0\): 新しい薬も古い薬も効能は同じ
-     - 対立仮説 \(H_1\): 新しい薬と古い薬の効能は異なる
-   - [[color:darkgreen][薬の治験の例]]: (新薬がより良いことを期待する場合)
-     - 帰無仮説 \(H_0\): 新しい薬も古い薬も効能は同じ
-     - 対立仮説 \(H_1\): 新しい薬の方が古い薬より効能が高い
+** 検定の基本的手続き
+1. 仮説を立てる
+2. 仮説のもとで *検定統計量* が従う *帰無分布* を調べる
+3. 実際のデータから検定統計量の値を計算する
+4. 計算された検定統計量の値が
+   仮説が正しいときに十分高い確率で
+   得られるかどうかを判断する
+   - *棄却域* を用いる方法
+   - *\(p\)-値* を計算する方法
 
 ** 検定の用語
-   - *帰無分布*
-     #+begin_quote
-     帰無仮説が正しい場合に検定統計量が従う分布
-     #+end_quote
-   - *棄却域*
-     #+begin_quote
-     帰無仮説の下で統計量の取り得るべき範囲の外の領域
-     #+end_quote
-   - 仮説検定
-     - 帰無仮説を *棄却*: 帰無仮説は誤っていると判断すること
-     - 帰無仮説を *受容*: 帰無仮説を積極的に棄却できないこと
-   - 検定の誤り
-     - *第一種過誤*: "正しい帰無仮説を棄却する"誤り
-     - *第二種過誤*: "誤った帰無仮説を受容する"誤り
+- 仮説の判定
+  - 帰無仮説を *棄却*: 帰無仮説は誤っていると判断すること
+  - 帰無仮説を *受容*: 帰無仮説を積極的に棄却できないこと
+- 検定の誤り
+  - *第一種過誤*: "正しい帰無仮説を棄却する" 誤り
+  - *第二種過誤*: "誤った帰無仮説を受容する" 誤り
+- 検定の設計
+  - サイズ: "第一種過誤が起きる確率" を小さく
+  - 検出力: "第二種過誤が起きない確率" を大きく
 
-** 検定の設計指針
-   - 検定統計量 \(T\) に対して棄却域 \(R\) を設計
-     - *サイズ*: 第一種過誤が *起きる確率*
-       #+begin_src latex
-         \begin{equation}
-           \text{(サイズ)}
-           =P(\text{\(T\) が\(R\)に含まれる}|\text{帰無仮説が正しい})
-         \end{equation}
-       #+end_src
-     - *検出力*: 第二種過誤が *起きない確率*
-       #+begin_src latex
-         \begin{equation}
-           \text{(検出力)}
-           =P(\text{\(T\) が\(R\)に含まれる}|\text{対立仮説が正しい})
-         \end{equation}
-       #+end_src
-   - *有意水準*
-     #+begin_quote
-     第一種過誤が起きる確率(サイズ)として許容する上限
-     #+end_quote
-
-** 棄却域の決め方
-   - 検定を構成する場合の一般的な戦略: \\
-     棄却域 \(R_{\alpha}\) は以下のように設定する
-     - *サイズを小さく* (有意水準 \(\alpha\) 以下に) 抑える
-     - 可能な限り *検出力を大きく* する
-       #+begin_src latex
-         \begin{align}
-           P(T \in R_{\alpha}|\text{帰無仮説が正しい})
-             &\le\alpha\\
-           P(T \in R_{\alpha}|\text{対立仮説が正しい})
-             &\to\text{最大化}
-         \end{align}
-       #+end_src
-   - 対立仮説によって棄却域の形は変わりうる
+** 有意水準と\(p\)-値
+- *有意水準*
+  #+begin_quote
+  第一種過誤が起きる確率(サイズ)として許容する上限
+  #+end_quote
+- \(p\)-値 (*有意確率*): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+  #+begin_quote
+  検定統計量の値が棄却域に含まれる有意水準の最小値
+  #+begin_src latex
+    \begin{equation}
+      \text{(\(p\)-値)}
+      =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 有意水準と \(p\)-値の関係
+  #+begin_quote
+  \(p\)-値が有意水準未満のときに帰無仮説を棄却する
+  #+end_quote
 
 ** 両側検定と片側検定
-   - *右片側検定*: 棄却域がある定数 \(a\) によって \((a,\infty)\)
-   - *左片側検定*: 棄却域がある定数 \(a\) によって \((-\infty,a)\)
-     - 右片側検定と左片側検定を合わせて *片側検定* と呼ぶ
-   - *両側検定*: 棄却域がある定数 \(a < b\) によって \((-\infty,a)\cup(b,\infty)\)
-   - 平均の検定の場合:
-     - 対立仮説を \(H_1:\mu\neq\mu_0\) にとった場合は両側検定
-     - 対立仮説を \(H_1:\mu>\mu_0\) にとった場合は右片側検定
-     - 対立仮説を \(H_1:\mu<\mu_0\) にとった場合は左片側検定
-** \(p\)-値 (有意確率)
-   - 帰無分布における検定統計量の評価:
-     #+begin_quote
-     検定統計量の値が棄却域に含まれる有意水準の最小値を考える
-     #+end_quote
-   - *\(p\)-値 (有意確率)*: (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
-     #+begin_src latex
-       \begin{equation}
-         \text{(\(p\)-値)}
-         =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
-       \end{equation}
-     #+end_src
-   - \(p\)-値が有意水準未満のときに帰無仮説を棄却する
+- 対立仮説によって棄却域の形は変わりうる
+  - [[color:darkgreen][2つの薬の治験結果に対する仮説]]:
+    - 古い薬(高価)と新しい薬(安価)の効能が変わらない
+    - 古い薬に比べて新しい薬の効能が改善した
+  - 両側検定:
+    #+begin_quote
+    棄却域がある定数 \(a < b\) によって
+    #+begin_src latex
+      \begin{equation}
+	(-\infty,a)\cup(b,\infty)
+      \end{equation}
+    #+end_src
+    #+end_quote
+  - 片側検定
+    #+begin_quote
+    棄却域がある定数 \(a\) によって
+    #+begin_src latex
+      \begin{align}
+	&(a,\infty)&&\text{(右片側検定)}\\
+	&(-\infty,a)&&\text{(左片側検定)}
+      \end{align}
+    #+end_src
+    #+end_quote
+    # \((-\infty,a)\cup(b,\infty)\)
+    # \((a,\infty)\) (右片側検定)
+    # 棄却域がある定数 \(a\) によって
+    # \((-\infty,a)\) (左片側検定)
+    # - 右片側検定と左片側検定を合わせて片側検定と呼ぶ
 
-** 検定に関する注意
-   - 帰無仮説の受容の意味:
-     #+begin_quote
-     帰無仮説が正しいと仮定しても矛盾は生じない
-     
-     帰無仮説の正しさを積極的に支持する結果ではない
-     #+end_quote
-   - 第二種過誤:
-     #+begin_quote
-     一般に第二種過誤の起こる確率については何ら仮定がないため，
-     その確率は非常に大きい可能性がある
-     #+end_quote
+#+reveal: split
+#+begin_leftcol
+#+NAME: fig:cr_one
+#+CAPTION: 片側検定の棄却域(帰無分布の右の場合)
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/cr_one.png]]
+#+end_leftcol
+#+begin_rightcol
+#+NAME: fig:cr_two
+#+CAPTION: 両側検定の棄却域
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/cr_two.png]]
+#+end_rightcol
+   
+** 平均値の検定
+- 問題
+  #+begin_quote
+  確率変数列の平均値が \(\mu_{0}\) と等しいか検定せよ．
+  #+begin_src latex
+    \begin{equation}
+      X_{1},X_{2},\dotsc,X_{n} 
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 検定問題
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      X_{i}=\mu+\varepsilon_{i},
+      \quad i=1,\dotsc,n
+      \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+    \end{equation}
+  #+end_src
+  を観測値の確率モデル (\(\sigma^{2}\) は *未知*) とするとき
+  #+begin_src latex
+    \begin{equation}
+      H_{0}: \mu=\mu_{0}
+      \quad\text{vs}\quad
+      H_{1}: \mu\neq\mu_{0}
+    \end{equation}
+  #+end_src
+  #+end_quote
 
+#+reveal: split
+- 平均と分散の推定量
+  - 標本平均
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+      \end{equation}
+    #+end_src
+    #+end_quote
+  - 不偏分散
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2}
+      \end{equation}
+    #+end_src
+    #+end_quote
 
-* 正規分布を用いた検定
-** 例題
-   - [[color:darkgreen][平均値の検定]]
-     #+begin_quote
-     ある工場で製造される機械の寿命は平均 \(\mu\) 時間であることが望まれている．
-     \(n\) 個の機械をランダムに選び耐久試験をしたところ，
-     寿命はそれぞれ \(X_1,X_2,\dotsc,X_n\) であった．
-     この機械の平均寿命は \(\mu\) であると言えるだろうか？
-     #+end_quote
-   #+reveal: split
-   - [[color:darkgreen][平均値の差の検定]]
-     #+begin_quote
-     A県とB県で生産されたの林檎の甘さの違いを調べるために，
-     ある八百屋で売られているそれぞれの林檎一山の糖度を調べたとする．
-     一つ一つの甘さはばらついているので，
-     それぞれの標本平均を計算したところ
-     #+begin_src latex
-       \begin{align}
-         X_1,X_2,\dotsc,X_n & \to \hat\mu^X=\bar{X}\\
-         Y_1,Y_2,\dotsc,Y_m & \to \hat\mu^Y=\bar{Y}
-       \end{align}
-     #+end_src
-     となった．
-     \(\hat\mu^X\) と \(\hat\mu^Y\) を比べることによって，
-     本来の平均値が等しい
-     #+begin_src latex
-       \begin{equation}
-         \mu^X = \mu^Y ?
-       \end{equation}
-     #+end_src
-     と言えるだろうか？
-     #+end_quote
-   #+reveal: split
-   - [[color:darkgreen][McNemar 検定]]
-     #+begin_quote
-     A社とB社の開発した2つの文字認識機械がある．
-     \(n\) 個の文字に対してその性能を調べたところ
-     |     | 1 | 2 | 3 | ... | n |       |
-     |-----+---+---+---+-----+---+-------|
-     | A社 | ○ | ○ | × | ... | ○ | 98.1% |
-     | B社 | × | ○ | ○ | ... | ○ | 98.0% |
-     のような正答率を示した．
-     このときA社の機械はB社より優れていると言えるだろうか？
-     #+end_quote
+#+reveal: split
+- 帰無仮説のもとでの推定量の性質
+  - 標本平均と不偏分散は互いに独立
+  - 標本平均 (標準正規分布)
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	\frac{\bar{X}-\mu_{0}}{\sigma/\sqrt{n}}
+	\sim \mathcal{N}(0,1)
+      \end{equation}
+    #+end_src
+    #+end_quote
+  - 不偏分散 (\(\chi^{2}\)-分布)
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	\frac{(n{-}1)s^{2}}{\sigma^{2}}
+	\sim \chi^{2}(n{-}1)
+      \end{equation}
+    #+end_src
+    #+end_quote
+
+#+reveal: split
+- 検定統計量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      T=\frac{\sqrt{n}(\bar{X}-\mu_0)}{s}
+    \end{equation}
+  #+end_src
+  の帰無分布は自由度 \(n{-}1\) の \(t\)-分布
+  #+end_quote
+  - (\(t\)-分布) \(=\) (標準正規分布)/
+    \(\sqrt{(\chi^{2}\text{-分布})/\text{(自由度)}}\)
+- 棄却域 (両側検定の場合)
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(-\infty,-t_{1{-}\alpha/2}(n{-}1)\right)
+      \cup\left(t_{1{-}\alpha/2}(n{-}1),\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
 
 ** 平均値の差の検定
-   - 問題
-     #+begin_quote
-     2つの確率変数列
-     #+begin_src latex
-       \begin{align}
-         & X_1,X_2,\dotsc,X_n \\
-         & Y_1,Y_2,\dotsc,Y_m 
-       \end{align}
-     #+end_src
-     が与えられたとき，その平均が等しいか検定せよ．
-     #+end_quote
-   - 検定問題
-     #+begin_quote
-     それぞれの平均を \(\theta_1,\theta_2\) とすると
-     #+begin_src latex
-       \begin{equation}
-         H_{0}: \theta_{1}=\theta_{2}
-         \quad\text{vs}\quad
-         H_{1}: \theta_{1}\not=\theta_{2}
-       \end{equation}
-     #+end_src
-     #+end_quote
-   #+reveal: split
-   - 観測値の確率モデル
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         X_i&=\theta_1+\varepsilon_{1i},\quad i=1,\dotsc,n\\
-         Y_j&=\theta_2+\varepsilon_{2j},\quad j=1,\dotsc,m
-       \end{align}
-     #+end_src
-     #+end_quote
-   - 誤差の仮定
-     - \(\varepsilon_{1i},\varepsilon_{2j}\) は互いに独立に同一の分布に従う．
-     - \(\varepsilon_{1i},\varepsilon_{2j}\) は平均0，分散 \(\sigma^2\) (既知)である．
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         \mathbb{E}[\varepsilon_{1i}]&=\mathbb{E}[\varepsilon_{2j}]=0\\
-         \mathbb{E}[\varepsilon_{1i}^2]&=\mathbb{E}[\varepsilon_{2j}^2]=\sigma^2<\infty
-       \end{align}
-     #+end_src
-     #+end_quote
-     - \(\varepsilon_{1i},\varepsilon_{2j}\) は正規分布に従う．
-   #+reveal: split
-   - 母数の推定量
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         \hat\theta_1&=\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i\\
-         \hat\theta_2&=\bar{Y}=\frac{1}{m}\sum_{j=1}^{m}Y_i
-       \end{align}
-     #+end_src
-     #+end_quote
-   - 直感的な議論
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         |\hat\theta_1-\hat\theta_2|\text{が小さい}
-         &\Rightarrow\text{同じと思って良い}\\
-         |\hat\theta_1-\hat\theta_2|\text{が大きい}
-         &\Rightarrow\text{どうやら違うらしい}
-       \end{align}
-     #+end_src
-     #+end_quote
-   #+reveal: split
-   - 帰無仮説が正しい場合
-     #+begin_quote
-     誤差 \(\varepsilon\) が平均0，分散 \(\sigma^2\) の正規分布に従うので
-     #+begin_src latex
-       \begin{equation}
-         \hat\theta_1-\hat\theta_2=\bar{X}-\bar{Y}
-       \end{equation}
-     #+end_src
-     は
-     #+begin_src latex
-       \begin{align}
-         \text{平均}\quad 
-         \mathbb{E}[\bar{X}-\bar{Y}]&=0\\
-         \text{分散}\quad 
-         \mathrm{Var}(\bar{X}-\bar{Y})&=\left(\frac{1}{n}+\frac{1}{m}\right)\sigma^2
-       \end{align}
-     #+end_src
-     の正規分布に従う．
-     #+end_quote
-   #+reveal: split
-   - 検定統計量の構成
-     #+begin_quote
-     分散が1になるようにを正規化した統計量
-     #+begin_src latex
-       \begin{equation}
-         T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
-       \end{equation}
-     #+end_src
-     は仮説が正しいとき
-     #+begin_src latex
-       \begin{align}
-         \text{平均}\quad \mathbb{E}[T]&=0\\
-         \text{分散}\quad \mathrm{Var}(T)&=1
-       \end{align}
-     #+end_src
-     の正規分布に従う．
-     #+end_quote
-   #+reveal: split
-   - 有意水準と分位点
-     #+begin_quote
-     正規分布の確率密度関数から
-     \(|T|>z_{1{-}\alpha/2}\)
-     という事象がおこる確率が
-     \(\alpha\)
-     となる
-     \(z_{1{-}\alpha/2}\) (\(1{-}\alpha/2\) 分位点)
-     #+begin_src latex
-       \begin{equation*}
-         P\left(|T|>z_{1{-}\alpha/2}\right)=\alpha
-       \end{equation*}
-     #+end_src
-     を求める．
-     #+end_quote
-     - 仮説が正しいのなら
-       \(|T|>z_{1{-}\alpha/2}\) という事象は
-       確率 \(\alpha\) 程度でしか起こらない
-   #+reveal: split
-   #+begin_leftcol
-   #+begin_src R :file figs/cr_one.png :exports results :results graphics
-     plot(function(x)dnorm(x,mean=0,sd=1), -4, 4,
-	     col="blue", lwd=2, ann=FALSE, axes=FALSE)
-     abline(h=0, col=gray(0.9))
-     box()
-     d <- 0.02
-     z <- rbind(c(qnorm(0.95), 4))
-     for (i in 1:nrow(z)) {
-	     x <- seq(min(z[i,]), max(z[i,]), 0.1)
-	     xx <- c(x,max(z[i,]), min(z[i,]))
-	     yy <- c(dnorm(x), rep(0,2))
-	     lines(c(z[i,1], z[i,1]), c(dnorm(z[i,1])+d, -d),
-		     col="red", lty="solid", lwd=2)
-	     polygon(xx, yy, col="gray")
-     }
-     axis(1, at=c(z[,1]), lab=c(expression(z[1-alpha])))
-     title(main="one side", xlab="test statistics", ylab="density")
-   #+end_src
-   #+NAME: fig:cr_one
-   #+ATTR_HTML: :width 100%
-   #+ATTR_LATEX: :width 0.6\linewidth
-   [[file:figs/cr_one.png]]
-   #+end_leftcol
-   #+begin_rightcol
-   #+begin_src R :file figs/cr_two.png :exports results :results graphics
-     plot(function(x)dnorm(x,mean=0,sd=1), -4, 4,
-	     col="blue", lwd=2, ann=FALSE, axes=FALSE)
-     abline(h=0, col=gray(0.9))
-     box()
-     d <- 0.02
-     z <- rbind(c(qnorm(0.025), -4), c(qnorm(0.975), 4))
+- 問題
+  #+begin_quote
+  2つの確率変数列の平均値が等しいか検定せよ．
+  #+begin_src latex
+    \begin{equation}
+      X_{1},X_{2},\dotsc,X_{m}, \qquad
+      Y_{1},Y_{2},\dotsc,Y_{n} 
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 検定問題
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      X_i&=\mu_{1}+\varepsilon_{1i},
+           \quad i=1,\dotsc,m
+      && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
+      Y_j&=\mu_{2}+\varepsilon_{2j},
+           \quad j=1,\dotsc,n
+      && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
+    \end{align}
+  #+end_src
+  を観測値の確率モデル (\(\sigma_{i}^{2}\) は *未知*) とするとき
+  #+begin_src latex
+    \begin{equation}
+      H_{0}: \mu_{1}=\mu_{2}
+      \quad\text{vs}\quad
+      H_{1}: \mu_{1}\neq\mu_{2}
+    \end{equation}
+  #+end_src
+  #+end_quote
 
-     for (i in 1:nrow(z)) {
-	     x <- seq(min(z[i,]), max(z[i,]), 0.1)
-	     xx <- c(x,max(z[i,]), min(z[i,]))
-	     yy <- c(dnorm(x), rep(0,2))
-	     lines(c(z[i,1], z[i,1]), c(dnorm(z[i,1])+d, -d),
-		     col="red", lty="solid", lwd=2)
-	     polygon(xx, yy, col="gray")
-     }
-     axis(1, at=c(z[,1]), 
-	     lab=c(expression(-z[1-alpha/2],z[1-alpha/2])))
-     title(main="two side", xlab="test statistics", ylab="density")
-   #+end_src
-   #+NAME: fig:cr_two
-   #+ATTR_HTML: :width 100%
-   #+ATTR_LATEX: :width 0.6\linewidth
-   [[file:figs/cr_two.png]]
-   #+end_rightcol
+#+reveal: split
+- 検定統計量
+  #+begin_quote
+  \(s_{1}^{2},s_{2}^{2}\)をそれぞれ\(X,Y\)の不偏分散として
+  #+begin_src latex
+    \begin{equation}
+      T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_{1}^{2}/m+s_{2}^{2}/n}}
+    \end{equation}
+  #+end_src
+  の帰無分布は近似的に自由度 \(\hat{\nu}\) の \(t\)-分布 (*Welchの近似*)
+  #+begin_src latex
+    \begin{equation}
+      \hat{\nu}
+      =\frac{(s_{1}^{2}/m+s_{2}^{2}/n)^{2}}
+      {(s_{1}^{2}/m)^{2}/(m{-}1)+(s_{2}^{2}/n)^{2}/(n{-}1)}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 棄却域 (両側検定の場合)
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(-\infty,-t_{1{-}\alpha/2}(\hat{\nu})\right)
+      \cup\left(t_{1{-}\alpha/2}(\hat{\nu}),\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
 
-   #+reveal: split
-   - 棄却域の構成
-     #+begin_quote
-     統計量 \(T\) が以下の領域に入ったら帰無仮説を棄却する．
-     #+begin_src latex
-       \begin{equation}
-         R_{\alpha}
-         =
-         \left(-\infty,-z_{1{-}\alpha/2}\right)
-         \cup
-         \left(z_{1{-}\alpha/2},\infty\right)
-       \end{equation}
-     #+end_src
-     #+end_quote
-     - \(|T|>z_{1{-}\alpha/2}\) が起こったのなら，
-       "滅多に起こらないことが起こった"ので
-       仮説を正しいと考えることは疑わしいと考える
-     - "仮説を有意水準 \(\alpha\) で *棄却* する" 
-       (\(\Leftrightarrow\) "仮説を *受容* する")
+** 分散の検定
+- 問題
+  #+begin_quote
+  確率変数列の分散が \(\sigma_0^{2}\) と等しいか検定せよ．
+  #+begin_src latex
+    \begin{equation}
+      X_{1},X_{2},\dotsc,X_{n} 
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 検定問題
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      X_{i}=\mu+\varepsilon_{i},
+      \quad i=1,\dotsc,n
+      \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+    \end{equation}
+  #+end_src
+  を観測値の確率モデルとするとき
+  #+begin_src latex
+    \begin{equation}
+      H_0:\sigma^{2}=\sigma_0^{2}
+      \quad\text{vs}\quad
+      H_{1}:\sigma^{2}\neq\sigma_0^{2}
+    \end{equation}
+  #+end_src
+  #+end_quote
 
+#+reveal: split
+- 検定統計量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
+    \end{equation}
+  #+end_src
+  の帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\)-分布
+  #+end_quote
+- 棄却域 (両側検定の場合)
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(0,\chi^{2}_{\alpha/2}(n{-}1)\right)
+      \cup\left(\chi^{2}_{1{-}\alpha/2}(n{-}1),\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 分散の比の検定
+- 問題
+  #+begin_quote
+  2つの確率変数列の分散が等しいか検定せよ．
+  #+begin_src latex
+    \begin{equation}
+      X_{1},X_{2},\dotsc,X_{m}, \qquad
+      Y_{1},Y_{2},\dotsc,Y_{n} 
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 検定問題
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      X_i&=\mu_{1}+\varepsilon_{1i},
+           \quad i=1,\dotsc,m
+      && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
+      Y_j&=\mu_{2}+\varepsilon_{2j},
+           \quad j=1,\dotsc,n
+      && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
+    \end{align}
+  #+end_src
+  を観測値の確率モデルとするとき
+  #+begin_src latex
+    \begin{equation}
+      H_0:\sigma_{1}^{2}=\sigma_{2}^{2}
+      \quad\text{vs}\quad
+      H_{1}:\sigma_{1}^{2}\neq\sigma_{2}^{2}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 検定統計量
+  #+begin_quote
+  \(s_{1}^{2},s_{2}^{2}\)をそれぞれ\(X,Y\)の不偏分散として
+  #+begin_src latex
+    \begin{equation}
+      F=\frac{s_{1}^{2}}{s_{2}^{2}}
+    \end{equation}
+  #+end_src
+  の帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\)-分布
+  #+end_quote
+- 棄却域 (両側検定の場合)
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
+      \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** COMMENT 推定量の漸近正規性
+- 漸近正規性 (データ数が多いときの性質)
+  #+begin_quote
+  多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+  #+end_quote
+  - モーメントに基づく記述統計量は漸近正規性をもつ
+  - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
+  - いずれも中心極限定理にもとづく
+- 信頼区間と同様に正規分布を用いて検定を考えることができる
+  # - 推定誤差の分布が正規分布で近似できる場合
+
+** COMMENT 最尤推定量の漸近正規性
+- 定理
+  #+begin_quote
+  \(f(x;\theta)>0\)
+  が連続で\(\theta\)に関して2階微分可能ならば
+  \(\sqrt{n}(\hat\theta^*-\theta_0)\)
+  は
+  \(n\to\infty\)
+  で正規分布
+  \(\mathcal{N}(0,I(\theta_0)^{-1})\)
+  に近づく．
+  #+end_quote
+  - 観測データが十分多ければ，
+    最尤推定量の誤差(分散)は
+    Cramer-Rao 下界に一致する
+  - Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+    #+begin_quote
+    #+begin_src latex
+    \begin{align}
+      I(\theta_0)
+      &=\mathbb{E}_{\theta_0}
+	\left[
+        -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta_0)
+	\right]
+      \\
+      &=\mathbb{E}_{\theta_0}\left[\left(
+	\frac{\partial}{\partial\theta}\log f(X;\theta_0)\right)^{2}\right]
+    \end{align}
+    #+end_src
+    #+end_quote
+
+** COMMENT 最尤推定量の検定 
+- 問題
+  #+begin_quote
+  \(\theta_0\) を既知の定数として，
+  母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
+  #+begin_src latex
+    \begin{equation}
+      H_0:\theta=\theta_0\quad\text{vs}\quad H_{1}:\theta\neq\theta_0
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 上記は両側検定
+  - 片側検定も同様に考えることができる
+
+** COMMENT \(Z\)-検定 (正規分布による検定)
+- 検定統計量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 帰無分布は標準正規分布
+
+#+reveal: split
+- \(z_{1{-}\alpha/2}\):
+  #+begin_quote
+  標準正規分布の \(1{-}\alpha/2\) 分位点
+  #+end_quote
+- 棄却域:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(-\infty,-z_{1{-}\alpha/2}\right)
+      \cup\left(z_{1{-}\alpha/2},\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+
+* 漸近正規性にもとづく検定
+** 推定量の漸近正規性
+- 漸近正規性 (データ数が多いときの性質)
+  #+begin_quote
+  多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+  #+end_quote
+  - モーメントに基づく記述統計量は漸近正規性をもつ
+  - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
+  - いずれも中心極限定理にもとづく
+- 信頼区間と同様に正規分布を用いて検定を考えることができる
+  # - 推定誤差の分布が正規分布で近似できる場合
+
+** 最尤推定量の漸近正規性
+- 定理
+  #+begin_quote
+  \(f(x)>0\)
+  が連続で2階微分可能ならば
+  \(\sqrt{n}(\hat\theta^*-\theta_0)\)
+  は
+  \(n\to\infty\)
+  で正規分布
+  \(\mathcal{N}(0,I(\theta_0)^{-1})\)
+  に近づく．
+  #+end_quote
+  - 観測データが十分多ければ，
+    最尤推定量の誤差(分散)は
+    Cramer-Rao 下界に一致する
+  - Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+    #+begin_quote
+    #+begin_src latex
+    \begin{align}
+      I(\theta_0)
+      &=\mathbb{E}_{\theta_0}
+	\left[
+        -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta_0)
+	\right]
+      \\
+      &=\mathbb{E}_{\theta_0}\left[\left(
+	\frac{\partial}{\partial\theta}\log f(X;\theta_0)\right)^{2}\right]
+    \end{align}
+    #+end_src
+    #+end_quote
+
+** 最尤推定量の検定 
+- 問題
+  #+begin_quote
+  \(\theta_0\) を既知の定数として，
+  母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
+  #+begin_src latex
+    \begin{equation}
+      H_0:\theta=\theta_0\quad\text{vs}\quad H_{1}:\theta\neq\theta_0
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 上記は両側検定
+  - 片側検定も同様に考えることができる
+
+** 考え方
+- 最尤推定量の性質
+  #+begin_quote
+  観測データ数 \(n\) が十分大きいとき，
+  1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[\hat\theta]=\theta_{0},\quad
+      \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
+    \end{equation}
+  #+end_src
+  の正規分布で近似できる．
+  #+end_quote
+
+** \(Z\)-検定 (正規分布による検定)
+- 検定統計量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 帰無分布は標準正規分布
+
+#+reveal: split
+- \(z_{1{-}\alpha/2}\):
+  #+begin_quote
+  標準正規分布の \(1{-}\alpha/2\) 分位点
+  #+end_quote
+- 棄却域:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      R_{\alpha}=
+      \left(-\infty,-z_{1{-}\alpha/2}\right)
+      \cup\left(z_{1{-}\alpha/2},\infty\right)
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 例題 (McNemar検定)
+- 問題
+  #+begin_quote
+  A社とB社の開発した2つの文字認識機械がある．
+  \(n\) 個の文字に対してその性能を調べたところ
+  |     | 1 | 2 | 3 | ... | n |       |
+  |-----+---+---+---+-----+---+-------|
+  | A社 | ○ | ○ | × | ... | ○ | 98.1% |
+  | B社 | × | ○ | ○ | ... | ○ | 98.0% |
+  のような正答率を示した．
+  このときA社の機械はB社より優れていると言えるだろうか？
+  #+end_quote
+
+#+reveal: split
+- 試験した結果によって判断は異なるべき \\
+  (n=10,000)
+#+begin_leftcol
+|         | Aが正解 | Aが誤り |
+|---------+---------+---------|
+| Bが正解 |   9800  |       0 |
+| Bが誤り |     10  |    190  |
+#+end_leftcol  
+#+begin_rightcol
+|         | Aが正解 | Aが誤り |
+|---------+---------+---------|
+| Bが正解 |   9610  |    190  |
+| Bが誤り |    200  |       0 |
+#+end_rightcol  
+     
 
 * 演習
-  :PROPERTIES:
-  :reveal_background: #fef4f4
-  :END:
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
 ** 練習問題
-   :PROPERTIES:
-   :reveal_background: #fef4f4
-   :END:
-   - 平均値の検定の問題を考えてみよ．
-     #+begin_quote
-     加法的雑音が分散\(\sigma^{2}\)の正規分布に従う確率変数列
-     #+begin_src latex
-       \begin{equation}
-	 X_1,X_2,\dotsc,X_n 
-       \end{equation}
-     #+end_src
-     が与えられたとき，
-     平均値が \(\mu\) と等しいか検定せよ．
-     #+end_quote
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 以下の問に答えよ
+  #+begin_quote
+  A社とB社の開発した2つの文字認識機械がある．
+  10,000文字に対してその性能を調べたところ
+  |         | Aが正解 | Aが誤り |
+  |---------+---------+---------|
+  | Bが正解 |    9500 |     180 |
+  | Bが誤り |     220 |     100 |
+  のような正答率を示した．
+  このときA社の機械はB社より優れていると言えるだろうか？
+  #+end_quote
 
-** 解答例
-   :PROPERTIES:
-   :reveal_background: #fef4f4
-   :END:
-   - 観測値の確率モデル
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         X_i=\theta+\varepsilon_{i},
-         \quad i=1,\dotsc,n
-         \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^2)
-       \end{equation}
-     #+end_src
-     #+end_quote
-   - 検定問題
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         H_{0}: \theta=\mu
-         \quad\text{vs}\quad
-         H_{1}: \theta\not=\mu
-       \end{equation}
-     #+end_src
-     #+end_quote
-   #+reveal: split
-   - 母数の推定量
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         \hat\theta=\bar{X}=\frac{X_1+X_2+\dots+X_n}{n}
-       \end{equation}
-     #+end_src
-     #+end_quote
-   - 推定量の性質
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         \text{平均}\quad \mathbb{E}[\hat\theta]&=\theta\\
-         \text{分散}\quad \mathrm{Var}(\hat\theta)&=\frac{\sigma^2}{n}
-       \end{align}
-     #+end_src
-     の正規分布に従う．
-     #+end_quote
-   #+reveal: split
-   - 検定統計量の構成
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
-       \end{equation}
-     #+end_src
-     は 帰無仮説が正しいとき標準正規分布に従う．
-     #+end_quote
-   #+reveal: split
-   - 有意水準 \(0.05\) の場合
-     #+begin_quote
-     \(T>1.96=z_{0.975}\) となる確率は
-     #+begin_src latex
-       \begin{equation}
-         \int_{1.96}^\infty\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx
-         =0.025
-       \end{equation}
-     #+end_src
-     \(T<-1.96\) の場合も同様
-     #+end_quote
-   - 棄却域の構成
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         R_{0.05}
-         =
-         \left(-\infty,-z_{0.975}\right)
-         \cup
-         \left(z_{0.975},\infty\right)
-       \end{equation}
-     #+end_src
-     #+end_quote
+** COMMENT 解答例
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 以下のように考える．
+  - 両者が正解: 簡単な文字 (比較しても意味がない)
+  - 両者が不正解: 難しい文字 (比較しても意味がない)
+  - どちらかが正解: 認識すべき文字 (比較すべき)
+- 以下の確率変数を考える．
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      X=
+      \begin{cases}
+	1, &\text{A社のみ正解}\\
+	0, &\text{B社のみ正解}
+      \end{cases}
+    \end{equation}
+  #+end_src
+  #+end_quote
 
-** 練習問題
-   :PROPERTIES:
-   :reveal_background: #fef4f4
-   :END:
-   - 以下の問に答えよ．
-     #+begin_quote
-     Y県とF県で生産されたの桃の甘さの違いを調べるために，
-     ある八百屋で売られているそれぞれの桃一山の糖度を調べたとする．
-     一つ一つの甘さはばらついているが，
-     どちらの県でも分散
-     \(\sigma^{2}=0.6\)
-     の正規分布に従うことが知られている．
-     それぞれの標本平均を計算したところ
-     #+begin_src latex
-       \begin{align}
-	 X_1,X_2,\dotsc,X_6 & \to \bar{X}=15.2\\
-	 Y_1,Y_2,\dotsc,Y_{10} & \to \bar{Y}=14.5
-       \end{align}
-     #+end_src
-     となった．
-     本来の平均値が等しいと言えるだろうか？
-     #+end_quote
+#+reveal: split
+- 確率質量関数
+  #+begin_quote
+  A社のみ正解の確率を \(\theta\) とし，
+  確率変数 \(X\) の確率質量関数を以下で定義する．
+  #+begin_src latex
+    \begin{equation}
+      f(x;\theta)=\theta^{x}(1-\theta)^{1-x}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- Fisher 情報量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      I(\theta)
+      =\mathbb{E}
+      \left[
+	-\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
+      \right]
+      =\frac{1}{\theta(1-\theta)}
+    \end{equation}
+  #+end_src
+  #+end_quote
 
-** 解答例
-   :PROPERTIES:
-   :reveal_background: #fef4f4
-   :END:
-   - 観測値の確率モデル
-     #+begin_quote
-     #+begin_src latex
-       \begin{align}
-         X_i&=\theta_{1}+\varepsilon_{1i},
-         \quad i=1,\dotsc,n
-         \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
-         Y_j&=\theta_{2}+\varepsilon_{2j},
-         \quad j=1,\dotsc,m
-         \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
-       \end{align}
-     #+end_src
-     #+end_quote
-     - \(n=6\), \(m=10\), \(\sigma^{2}=0.6\)
-   - 検定統計量
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
-       \end{equation}
-     #+end_src
-     #+end_quote
-   #+reveal: split
-   - 棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.975}=1.96\))
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         R_{\alpha}
-         =
-         \left(-\infty,-z_{1{-}\alpha/2}\right)
-         \cup
-         \left(z_{1{-}\alpha/2},\infty\right)
-       \end{equation}
-     #+end_src
-     #+end_quote
-   - 検定統計量の計算 
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         T
-         =\sqrt{\frac{6\times 10}{6+10}}\frac{15.2-14.5}{\sqrt{0.6}}
-         =1.75
-       \end{equation}
-     #+end_src
-     #+end_quote
-   #+reveal: split
-   - "Y県の方がF県より甘い" という対立仮説の場合 \\
-     (右片側検定)
-   - 棄却域 (例えば \(\alpha=0.05\) のとき \(z_{0.95}=1.64\))
-     #+begin_quote
-     #+begin_src latex
-       \begin{equation}
-         R_{\alpha}
-         =
-         \left(z_{1{-}\alpha},\infty\right)
-       \end{equation}
-     #+end_src
-     #+end_quote
+#+reveal: split
+- 対数尤度
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \ell(\theta)
+      =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 最尤推定量
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \ell'(\hat\theta)
+      &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
+      \hat\theta&=\bar{X}
+    \end{align}
+  #+end_src
+  #+end_quote
 
+#+reveal: split
+- 以下の検定を考える．
+  #+begin_quote
+  - 帰無仮説: A社とB社の性能に違いはない (\(\theta_{0}=0.5\))
+  - 対立仮説: A社の方がB社より性能が良い
+  #+begin_src latex
+    \begin{equation}
+      H_0:\theta=\theta_{0}\quad\text{vs}\quad H_{1}:\theta>\theta_{0}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 検定統計量
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      Z=\sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 帰無分布は標準正規分布
+
+#+reveal: split
+- 有意水準と棄却域(両側・片側)に応じて以下の分位点を用いれば良い
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
+      &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
+      &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
+    \end{align}
+  #+end_src
+  #+end_quote
+- 検定統計量の計算
+  #+begin_quote
+  題意より
+  #+begin_src latex
+    \begin{equation}
+      Z=\sqrt{400/0.5^{2}}(220/400-0.5)
+    \end{equation}
+  #+end_src
+  #+end_quote
 
 
 * 今回のまとめ
-  - 統計的仮説検定
-    - 検定の手続き
-    - 帰無仮説と対立仮説
-    - 有意水準，棄却域，\(p\)-値
-    - 過誤と検出力
-    - 両側検定と片側検定
-  - 正規分布を用いた検定
-    - 平均値の差の検定
-    - 平均値の検定
+- 最尤推定量を用いた検定
+  - 漸近正規性
+  - 正規分布を用いた検定に帰着
+** COMMENT 注意
+- 提出するのは解答用紙1枚のみ
+- 形式はPDFまたは画像
+- 提出物が可読でない場合は評価できない
 
 
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted
 # End:
+   

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>平均の推定</title>
+<title>最尤推定</title>
 <meta name="author" content="村田 昇"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
@@ -31,10 +31,10 @@
 <!-- Embed logos as necessary. -->
 <!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
 <div class="talk-title">
-    <h1 class="no-toc-progress">平均の推定</h1>
+    <h1 class="no-toc-progress">最尤推定</h1>
 </div>
 <div class="talk-subtitle">
-    <p>確率・統計 - 講義9</p>
+    <p>確率・統計 - 第9講</p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
@@ -47,68 +47,29 @@
 </section>
 
 <section>
-<section id="slide-orgac42ab5">
-<h2 id="orgac42ab5">前回のおさらい</h2>
+<section id="slide-org4758ab1">
+<h2 id="org4758ab1">前回のおさらい</h2>
 <ul>
-<li>確率モデルと推定量
+<li>平均の点推定
 <ul>
-<li>観測データの生成モデル</li>
-<li>独立同分布性</li>
-<li>推定量と推定値</li>
+<li>点推定の考え方</li>
+<li>良い不偏推定量</li>
+<li>正規分布モデルの標本平均の性質</li>
 
 </ul></li>
-<li>推定量の評価
+<li>平均の区間推定
 <ul>
-<li>推定量の平均値の不偏性</li>
-<li>推定量の分散の大きさ</li>
-
-</ul></li>
-
-</ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-orgc266a5a">
-<h2 id="orgc266a5a">復習</h2>
-<div class="outline-text-2" id="text-orgc266a5a">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6d280c0">
-<h3 id="org6d280c0">確率と統計</h3>
-<ul>
-<li><p>
-確率
-</p>
-<blockquote>
-<p>
-ある決まった確率法則のもとで，
-確率変数がどのような性質を持つか論じる
-</p>
-</blockquote></li>
-<li><p>
-統計
-</p>
-<blockquote>
-<p>
-ある確率法則に従うと考えられる確率変数の実現値を観測して，
-それを生成する確率法則について何らかの推測を行う
-</p>
-</blockquote>
-<ul>
-<li>工学的な問題としては後者の統計的な問題設定に接する機会が多い</li>
+<li>区間推定の考え方</li>
+<li>正規分布モデルにおける区間推定</li>
 
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-orgac84c94">
-<h3 id="orgac84c94">統計的推測の考え方</h3>
+<section id="slide-org8627183">
+<h3 id="org8627183">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -123,233 +84,19 @@
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org887e020">
-<h3 id="org887e020">大数の法則</h3>
-<ul>
-<li><p>
-定理
-</p>
-<blockquote>
-<p>
-\(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
-その平均を \(\mu\) とする．
-このとき,  \(X_1,\dotsc,X_n\) の標本平均
-</p>
-<div>
-\begin{equation}
-  \bar{X}_n
-  = \frac{1}{n}\sum_{i=1}^nX_i
-\end{equation}
-
-</div>
-
-<p>
-が \(n\to\infty\) のとき \(\mu\) に収束する確率は1である．
-</p>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4451254">
-<h3 id="org4451254">中心極限定理</h3>
-<ul>
-<li><p>
-定理
-</p>
-<blockquote>
-<p>
-\(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
-その平均を \(\mu\) ，標準偏差を \(\sigma\) とする．
-このとき，すべての実数 \(a < b\) に対して
-</p>
-<div>
-\begin{equation}
-  P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
-  \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
-  (n\to\infty)
-\end{equation}
-
-</div>
-
-<p>
-が成り立つ．
-</p>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orge8f2bac">
-<h3 id="orge8f2bac">推定量と推定値</h3>
-<ul>
-<li><p>
-推定量
-</p>
-<blockquote>
-<p>
-未知の母数(パラメタ)を推定する方法．
-</p>
-<div>
-\begin{equation}
-  \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-推定値
-</p>
-<blockquote>
-<p>
-\(X_{1}=x_{1},X_{2}=x_{2},\dotsc,X_{n}=x_{n}\)
-という観測値が得られたとき，
-推定量に代入して得られる値．
-</p>
-<div>
-\begin{equation}
-  \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgdaa414c">
-<h3 id="orgdaa414c">良い推定量</h3>
-<ul>
-<li><p>
-不偏性
-</p>
-<blockquote>
-<p>
-<b>推定量の平均</b>
-が真の母数
-\(\theta\)
-に一致すること．
-</p>
-<div>
-\begin{equation}
-  \mathbb{E}[\hat\theta]
-  =\theta
-\end{equation}
-
-</div>
-</blockquote>
-<ul>
-<li>観測値に基づく推定値(見本点)が
-真の値のまわりにばらつくと考えればよい</li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4bea4d3">
-<h3 id="org4bea4d3">良い不偏推定量</h3>
-<ul>
-<li><p>
-不偏推定量は複数存在
-</p>
-<blockquote>
-<p>
-例: 平均の不偏推定量:
-</p>
-<ul>
-<li>標本平均 \(\bar{X}\)</li>
-<li>\(X_{n}\)</li>
-<li>\(X_1,\dots,X_n\) の中央値 (分布が対称な場合)</li>
-
-</ul>
-</blockquote></li>
-<li><p>
-一般に推定量の分散を用いて良さを評価
-</p>
-<blockquote>
-<p>
-良い不偏推定量 \(\theta\) とは
-任意の不偏推定量 \(\hat{\theta}'\) 
-に対して推定値のばらつき(分散)が最も小さいもの
-</p>
-<div>
-\begin{equation}
-  \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org9fb84d7">
-<h3 id="org9fb84d7">対称な不偏推定量</h3>
-<ul>
-<li><p>
-定理
-</p>
-<blockquote>
-<p>
-\(X_{1},X_{2},\dotsc,X_{n}\)
-が互いに独立に同じ分布に従い，
-\(\hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})\)
-を母数
-\(\theta\)
-の一つの不偏推定量とすると，
-\(X_{1},X_{2},\dotsc,X_{n}\)
-の対称な関数として表される
-不偏推定量
-\(\hat\theta^{*}\)
-で，つねに
-</p>
-<div>
-\begin{equation}
-  \mathrm{Var}(\hat\theta^{*})\le \mathrm{Var}(\hat\theta)
-\end{equation}
-
-</div>
-
-<p>
-となるものが存在する．
-</p>
-</blockquote>
-<ul>
-<li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\)
-の順序に関して対称な推定量だけ考えればよい</li>
-
-</ul></li>
-
-</ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-orgf7d60ea">
-<h2 id="orgf7d60ea">点推定</h2>
-<div class="outline-text-2" id="text-orgf7d60ea">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgcc50978">
-<h3 id="orgcc50978">点推定</h3>
+<section id="slide-org52d6a99">
+<h3 id="org52d6a99">点推定</h3>
 <ul>
 <li><p>
 定義
 </p>
 <blockquote>
 <p>
-母数 \(\theta\) を \(X_1,\dotsc,X_n\) の関数
+点推定とは
+母数(パラメタ) \(\theta\) を \(X_1,\dotsc,X_n\) の関数
 </p>
 <div>
 \begin{equation}
@@ -359,69 +106,17 @@
 </div>
 
 <p>
-で推定すること．
+で推定することで，
+\(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
 </p>
 </blockquote></li>
-<li><p>
-<span style="color:darkgreen;">平均や分散は分布の母数の1つ</span>
-</p>
-<blockquote>
-<ul>
-<li>平均 \(\mu\) を
-標本平均 \(\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\) によって
-推定することが点推定であり,
-\(\bar{X}\) は \(\mu\) の推定量
-\(\hat{\mu}\)
-となる．</li>
-<li>分散 \(\sigma^{2}\) を
-不偏分散 \(s^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}\) によって
-推定することが点推定であり,
-\(s^{2}\) は \(\sigma^{2}\) の推定量
-\(\hat{\sigma^{2}}\) 
-となる．</li>
 
 </ul>
-</blockquote></li>
-
-</ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org6abff20">
-<h3 id="org6abff20">一様最小分散不偏推定量</h3>
-<ul>
-<li><p>
-定義
-</p>
-<blockquote>
-<p>
-\(\theta\) の任意の不偏推定量 \(\hat{\theta}'\) 
-に対して推定量の分散が最も小さいもの
-</p>
-<div>
-\begin{equation}
-  \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
-\end{equation}
-
-</div>
-
-<p>
-が存在すれば，それを
-<b>一様最小分散不偏推定量</b>
-という．
-</p>
-</blockquote>
-<ul>
-<li>常に存在するとは限らない</li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org31f3f9a">
-<h3 id="org31f3f9a">Cramér-Rao の不等式</h3>
+<section id="slide-org72967c0">
+<h3 id="org72967c0">Cramer-Raoの不等式</h3>
 <ul>
 <li><p>
 定理
@@ -449,170 +144,91 @@
 \end{equation}
 
 </div>
-</blockquote>
-<ul>
-<li>証明は講義ノート参照</li>
-
-</ul></li>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
-</section>
-<section id="slide-orge989ab2">
-<h3 id="orge989ab2">一様最小分散不偏推定量の存在</h3>
-<ul>
-<li>用語
-<ul>
-<li>下界 \(1/(nI(\theta))\) : Cramér-Rao 下界</li>
-<li>\(I(\theta)\) : Fisher 情報量</li>
 
-</ul></li>
+</section>
+<section id="slide-org9c4062f">
+<h3 id="org9c4062f">一様最小分散不偏推定量</h3>
+<ul>
 <li><p>
-定理 (Cramér-Raoの不等式の系)
+定理 (Cramer-Raoの不等式の系)
 </p>
 <blockquote>
 <p>
 \(\theta\) の不偏推定量 \(\hat{\theta}\) で
-分散が Cramér-Rao 下界に一致するものが存在すれば，
-それは一様最小分散不偏推定量となる．
+分散が Cramer-Rao 下界に一致するものが存在すれば，
+一様最小分散不偏推定量となる．
 </p>
 </blockquote></li>
 
 </ul>
-
-
 <div class="slide-footer"><br></div>
+
 </section>
-</section>
-<section>
-<section id="slide-org9387b54" data-background="#fef4f4">
-<h2 id="org9387b54">演習</h2>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgdf2a625" data-background="#fef4f4">
-<h3 id="orgdf2a625">練習問題</h3>
+<section id="slide-org12de658">
+<h3 id="org12de658">推定誤差</h3>
 <ul>
-<li>平均 \(\theta\) ，分散 \(\sigma^{2}\) の正規分布に従う
-独立な確率変数 \(X_{1},X_{2},\dotsc,X_{n}\)
-から求められる標本平均の分散を求めよ．</li>
+<li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
+<li>推定結果の定量評価には推定誤差の評価が重要
+<ul>
 <li><p>
-上記の正規分布の平均
-\(\theta\) に関する Fisher 情報量を求めよ．
+&ldquo;誤差 \(\hat{\theta}-\theta\) が
+区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 &rdquo; <br />
+(&ldquo;外側にある確率が \(\alpha\) 以下&rdquo;)
 </p>
 <blockquote>
 <div>
 \begin{equation}
-  f_{\theta}(x)
-  =
-  \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
+  P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
 \end{equation}
 
 </div>
 </blockquote></li>
 
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4a874fe" data-background="#fef4f4">
-<h3 id="org4a874fe">解答例</h3>
-<ul>
-<li><p>
-独立性に注意して計算する
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathbb{E}[\bar{X}]
-  &=
-    \mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]
-    =\theta\\
-  \mathrm{Var}(\bar{X})
-  &=
-    \mathrm{Var}\left(\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right)\\
-  &=\frac{1}{n^{2}}\sum_{i=1}^{n}\mathrm{Var}(X_{i})\\
-  &=\frac{1}{n^{2}}\sum_{i=1}^{n}\sigma^{2}
-    =\frac{1}{n}\sigma^{2}
-\end{align}
-
-</div>
-</blockquote></li>
+</ul></li>
+<li>この確率の厳密あるいは近似的な評価を利用</li>
 
 </ul>
 <div class="slide-footer"><br></div>
+
 </section>
-<section data-background="#fef4f4">
+<section id="slide-org05f5fdd">
+<h3 id="org05f5fdd">区間推定</h3>
 <ul>
 <li><p>
-定義通りに計算する
+定義
 </p>
 <blockquote>
-<div>
-\begin{align}
-  I(\theta)
-  &=\int_{-\infty}^\infty
-    \left(\frac{\partial}{\partial\theta}\log f_{\theta}(x)\right)^2
-    f_{\theta}(x)dx\\
-  &=\int_{-\infty}^\infty
-    \left(-\frac{x-\theta}{\sigma^2}\right)^{2}
-    \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-  &=\frac{1}{\sigma^4}
-    \int_{-\infty}^\infty
-    (x-\theta)^{2}
-    \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-  &=\frac{1}{\sigma^4}\mathrm{Var}(X)=\frac{1}{\sigma^2}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li>正規分布の分散について
-<ul>
-<li>3行目の積分の中身は分散の計算であることに注意</li>
-<li><p>
-特性関数を用いると簡単に計算できる
+<p>
+区間推定とは
+未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
+以下を満たす確率変数 \(L,U\) を観測データから求めることをいう．
 </p>
-<blockquote>
 <div>
-\begin{align}
-  \phi(s)
-  &=\mathbb{E}[e^{isX}]\\
-  \phi'(s)
-  &=\frac{d}{ds}\mathbb{E}[e^{isX}]
-    =\mathbb{E}[iXe^{isX}]\\
-  \phi''(s)
-  &=\mathbb{E}[-X^{2}e^{isX}]\\
-  \phi''(0)
-  &=\mathbb{E}[-X^{2}]
-\end{align}
+\begin{equation}
+  P(L\le\theta\le U)\ge 1{-}\alpha
+\end{equation}
 
 </div>
-</blockquote></li>
-<li>正規分布の特性関数を用いて確認せよ</li>
+</blockquote>
+<ul>
+<li>区間 \([L,U]\) : \(1{-}\alpha\) 信頼区間 (\(100(1{-}\alpha)\) % とも書く)</li>
+<li>\(L\) : \(1{-}\alpha\) 下側信頼限界</li>
+<li>\(U\) : \(1{-}\alpha\) 上側信頼限界</li>
+<li>\(1{-}\alpha\) : 信頼係数
+(\(\alpha=0.01,0.05,0.1\) など)</li>
 
 </ul></li>
 
 </ul>
-
-
 <div class="slide-footer"><br></div>
+
 </section>
-</section>
-<section>
-<section id="slide-org7d8d6ea">
-<h2 id="org7d8d6ea">正規分布モデルにおける点推定</h2>
-<div class="outline-text-2" id="text-org7d8d6ea">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org69441b7">
-<h3 id="org69441b7">観測値の生成モデル</h3>
+<section id="slide-org0421789">
+<h3 id="org0421789">加法的正規雑音モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -630,28 +246,6 @@
 </div>
 </blockquote></li>
 <li><p>
-誤差の仮定
-</p>
-<blockquote>
-<ul>
-<li>\(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
-互いに独立に分布する．</li>
-<li>\(\varepsilon_{1},\dotsc,\varepsilon_{n}\) は
-同じ分布に従う．</li>
-<li>\(\mathbb{E}[\varepsilon_{i}]=0,\ i=1,\dotsc,n\)</li>
-<li>\(\mathbb{E}[\varepsilon_{i}^{2}]<\infty,\ i=1,\dotsc,n\)</li>
-
-</ul>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org34d20e8">
-<h3 id="org34d20e8">誤差の正規性</h3>
-<ul>
-<li><p>
 以下の仮定を加える
 </p>
 <blockquote>
@@ -662,34 +256,26 @@
 </ul>
 </blockquote></li>
 <li><p>
-観測値の分布が議論できる
+観測値の分布
 </p>
 <blockquote>
 <p>
 このとき \(X\) は平均 \(\theta\) ，分散 \(\sigma^{2}\) の
 正規分布に従う．
 </p>
-<div>
-\begin{equation}
-  f_{\theta}(x)
-  =
-  \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
-\end{equation}
-
-</div>
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org47baef0">
-<h3 id="org47baef0">正規分布モデルの標本平均</h3>
+<section id="slide-orgdf12adb">
+<h3 id="orgdf12adb">標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
 <li><p>
-平均母数 \(\theta\) に関する Fisher 情報量:
+平均母数 \(\theta\) に関するFisher情報量:
 </p>
 <div>
 \begin{equation}
@@ -700,405 +286,20 @@
 
 </div></li>
 
-<li>Cramér-Rao 下界: \(1/nI(\theta)=\sigma^2/n\)</li>
-<li>標本平均 \(\bar{X}\) の分散: \(\sigma^2/n\) (= Cramér-Rao 下界)</li>
+<li>標本平均 \(\bar{X}\) の分散: \(\sigma^2/n=\) Cramer-Rao下界</li>
 
 </ul></li>
 <li>\(\bar{X}\) は平均の一様最小分散不偏推定量</li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
-</section>
-<section id="slide-org5bd98b0">
-<h3 id="org5bd98b0">一般の分布の場合の注意</h3>
-<ul>
-<li>標本平均の平均，分散は同様に計算される</li>
-<li>Fisher 情報量は誤差の分布によって異なる</li>
-<li>一般に標本平均の分散は Cramér-Rao 下界と異なる</li>
-<li>したがって標本平均が必ずしも良い不偏推定量になるとは限らない</li>
 
-</ul>
-
-
-<div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-org46513be" data-background="#fef4f4">
-<h2 id="org46513be">演習</h2>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org8ab116e" data-background="#fef4f4">
-<h3 id="org8ab116e">練習問題</h3>
-<ul>
-<li>加法的雑音モデルにおいて
-誤差 \(\varepsilon_{1},\dotsc,\varepsilon_{n}\)
-が区間 \([-a,a]\) の一様分布に従うとする．
-独立な観測データ \(X_{1},X_{2},\dotsc,X_{n}\)
-から求められる標本平均の分散を求めよ．</li>
-<li>上記のモデルにおいて
-\(\theta\) に関する Fisher 情報量を求めよ．</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org2d68ba3" data-background="#fef4f4">
-<h3 id="org2d68ba3">解答例</h3>
+<section id="slide-orgea74355">
+<h3 id="orgea74355">平均の区間推定</h3>
 <ul>
 <li><p>
-\(\varepsilon\) の分散
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathrm{Var}(\varepsilon)
-  &=\mathbb{E}[\varepsilon^{2}]\\
-  &=\int_{-a}^{a}\varepsilon^{2}\frac{1}{2a}d\varepsilon
-    =\frac{a^{2}}{3}\\
-  \mathrm{Var}(\bar{X})
-  &=\frac{a^{2}}{3n}
-\end{align}
-
-</div>
-</blockquote></li>
-<li>密度関数が滑らかでない(微分できない)ので
-Fisher 情報量は定義されない．</li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-この分布における良い推定量(Pitman 推定量)は
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \hat{\theta}(X_{1},X_{2},\dotsc,X_{n})
-  =
-  \frac{\min_{i}X_{i}+\max_{i}X_{i}}{2}
-\end{equation}
-
-</div>
-</blockquote>
-<p>
-となることが知られている(講義ノート参照)．
-</p></li>
-
-</ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-org0fbff6e">
-<h2 id="org0fbff6e">区間推定</h2>
-<div class="outline-text-2" id="text-org0fbff6e">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org8f9e82d">
-<h3 id="org8f9e82d">推定誤差</h3>
-<ul>
-<li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
-<li>推定結果の定量評価には推定誤差の評価が重要
-<ul>
-<li><p>
-&ldquo;誤差 \(\hat{\theta}-\theta\) が
-区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 &rdquo; <br />
-(&ldquo;外側にある確率が \(\alpha\) 以下&rdquo; と言い換えてもよい)
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul></li>
-<li>母数の範囲の推定に書き換え
-<ul>
-<li><p>
-&ldquo; \(\theta\) が含まれる確率が \(1{-}\alpha\) 以上となるような区間
-\([\hat{\theta}-u,\hat{\theta}-l]\) を推定&rdquo;
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  P(\hat{\theta}-u\le\theta\le \hat{\theta}-l)\ge 1{-}\alpha
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6867f6f">
-<h3 id="org6867f6f">区間推定</h3>
-<ul>
-<li><p>
-定義
-</p>
-<blockquote>
-<p>
-未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
-以下を満たす確率変数 \(L,U\) を観測データから求めること．
-</p>
-<div>
-\begin{equation}
-  P(L\le\theta\le U)\ge 1{-}\alpha
-\end{equation}
-
-</div>
-</blockquote>
-<ul>
-<li>区間 \([L,U]\) : \(1{-}\alpha\) <b>信頼区間</b> (\(100(1{-}\alpha)\) % と書くことも多い)</li>
-<li>\(L\) : \(1{-}\alpha\) <b>下側信頼限界</b></li>
-<li>\(U\) : \(1{-}\alpha\) <b>上側信頼限界</b></li>
-<li>\(1{-}\alpha\) : <b>信頼係数</b>
-(\(\alpha=0.01,0.05,0.1\) とすることが多い)</li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4f201b2">
-<h3 id="org4f201b2">信頼区間の性質</h3>
-<ul>
-<li>信頼区間は幅が狭いほど推定精度が良い
-<ul>
-<li>真の母数が取りうる値の範囲を限定することになるため</li>
-
-</ul></li>
-<li><p>
-最も推定精度の良い \(1{-}\alpha\) 信頼区間 \([L,U]\)
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  P(L\le\theta\le U)=1{-}\alpha
-\end{equation}
-
-</div>
-</blockquote>
-<ul>
-<li>信頼区間の幅が狭いほど \(P(L\le\theta\le U)\) は小さくなるため</li>
-
-</ul></li>
-<li>実行可能である限り
-\(1{-}\alpha\) 信頼区間 \([L,U]\) は上式を満たすように
-\(L,U\) を決定する</li>
-
-</ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-org5db2aa5" data-background="#fef4f4">
-<h2 id="org5db2aa5">演習</h2>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgd7dd76a" data-background="#fef4f4">
-<h3 id="orgd7dd76a">練習問題</h3>
-<ul>
-<li><p>
-確率変数 \(X,Y\) は独立で，
-それぞれ
-平均 \(\mu_{1},\mu_{2}\) ，
-分散 \(\sigma_{1}^{2},\sigma_{2}^{2}\) の
-正規分布に従うとする．
-このとき \(a,b\) を実数として新しい確率変数 \(Z\) を
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  Z=aX+bY
-\end{equation}
-
-</div>
-</blockquote>
-<p>
-で定義するとき，
-\(Z\) の平均と分散を求めよ．
-</p></li>
-<li>確率変数 \(Z\) がどのような分布になるか答えよ．</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orge27beb0" data-background="#fef4f4">
-<h3 id="orge27beb0">解答例</h3>
-<ul>
-<li><p>
-独立性から計算できる
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathbb{E}[Z]
-  &=\mathbb{E}[aX+bY]\\
-  &=a\mu_{1}+b\mu_{2}\\
-  \mathrm{Var}(Z)
-  &=\mathrm{Var}(aX+bY)\\
-  &=\mathrm{Var}(aX)+\mathrm{Var}(bY)\\
-  &=a^{2}\mathrm{Var}(X)+b^{2}\mathrm{Var}(Y)\\
-  &=a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-特性関数を考えるのがわかりやすい
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \phi_{Z}(s)
-  &=\mathbb{E}[e^{isZ}]
-    =\mathbb{E}[e^{is(aX+bY)}]\\
-  &=\mathbb{E}[e^{is(aX)}]\mathbb{E}[e^{is(bY)}]\\
-  &=\phi_{X}(as)\phi_{Y}(bs)\\
-  &=e^{\mu_{1}i(as)-\frac{\sigma_{1}^{2}(as)^{2}}{2}}e^{\mu_{2}i(bs)-\frac{\sigma_{2}^{2}(bs)^{2}}{2}}\\
-  &=e^{(a\mu_{1}+b\mu_{1})is-\frac{(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2})s^{2}}{2}}
-\end{align}
-
-</div>
-</blockquote>
-<p>
-これは
-平均 \(a\mu_{1}+b\mu_{1}\) ，
-分散 \(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}\)
-の正規分布の特性関数に他ならない．
-</p></li>
-
-</ul>
-
-
-<div class="slide-footer"><br></div>
-</section>
-</section>
-<section>
-<section id="slide-org188e495">
-<h2 id="org188e495">正規分布モデルにおける区間推定</h2>
-<div class="outline-text-2" id="text-org188e495">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org6235900">
-<h3 id="org6235900">標本平均の性質</h3>
-<ul>
-<li>正規分布に従う独立な確率変数の重み付き和は正規分布に従う</li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-一般の場合
-</p>
-<blockquote>
-<p>
-\(Z_1,Z_2,\dots,Z_k\) を独立な確率変数列とし，
-各 \(i=1,2,\dots,k\) に対して \(Z_i\) は平均 \(\mu_i\) ，
-分散 \(\sigma_i^2\) の正規分布に従うとする．
-</p>
-
-<p>
-このとき \(a_0,a_1,\dots,a_k\) を \((k+1)\) 個の0でない実数とすると，
-</p>
-<div>
-\begin{equation}
-  a_0+\sum_{i=1}^ka_iZ_i
-\end{equation}
-
-</div>
-
-<p>
-は
-平均 \(a_0+\sum_{i=1}^ka_i\mu_i\) ，
-分散 \(\sum_{i=1}^ka_i^2\sigma_i^2\) の正規分布に従う．
-</p>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-同分布の場合
-</p>
-<blockquote>
-<p>
-\(k=n\), \(\mu_i=\mu\), \(\sigma_i^2=\sigma^2\), \(a_0=0\),
-\(a_i=1/n\;(i=1,\dots,n)\)
-</p>
-<div>
-\begin{equation}
-  \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i \quad\text{(標本平均)}
-\end{equation}
-
-</div>
-
-<p>
-は平均 \(\mu\) , 分散 \(\sigma^2/n\) の正規分布に従う．
-</p>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-同分布を標準化した場合
-</p>
-<blockquote>
-<p>
-\(k=1\) , \(\mu_1=\mu\) , \(\sigma_1^2=\sigma^2/n\) ,
-\(a_0=-\sqrt{n}\mu/\sigma\) , \(a_1=\sqrt{n}/\sigma\)
-</p>
-<div>
-\begin{equation}
-  Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
-\end{equation}
-
-</div>
-
-<p>
-は標準正規分布に従う．
-</p>
-</blockquote></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-</section>
-<section>
-<ul>
-<li><p>
-標準化した確率変数の確率
+分散既知の場合の信頼区間
 </p>
 <blockquote>
 <p>
@@ -1112,54 +313,6 @@ Fisher 情報量は定義されない．</li>
 \end{equation}
 
 </div>
-</blockquote>
-<ul>
-<li><p>
-確率密度 \(f\) の \(\alpha\) <b>分位点</b> \(z_{\alpha}\)  (\(0 < \alpha < 1\))
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \int_{-\infty}^{z_{\alpha}}f(x)dx=\alpha
-\end{equation}
-
-</div>
-</blockquote></li>
-<li><p>
-標準正規分布の分位点の性質 (確率密度の対称性より)
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  z_{\alpha}=-z_{1-\alpha}
-\end{equation}
-
-</div>
-</blockquote></li>
-
-</ul></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4d0a85a">
-<h3 id="org4d0a85a">平均の区間推定 (分散既知)</h3>
-<ul>
-<li><p>
-信頼区間の構成
-</p>
-<blockquote>
-<p>
-\(\mu\) について解くと
-</p>
-<div>
-\begin{equation}
-  P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\le\mu
-  \le\bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right)=1{-}\alpha
-\end{equation}
-
-</div>
 
 <p>
 となるので，
@@ -1169,163 +322,949 @@ Fisher 情報量は定義されない．</li>
 <div>
 \begin{equation}
   \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
-  \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
+    \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
 \end{equation}
 
 </div>
 </blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
+
 </section>
-<section id="slide-org2b5b64a">
-<h3 id="org2b5b64a">標本平均と不偏分散の性質</h3>
+</section>
+<section>
+<section id="slide-org6ede0a9">
+<h2 id="org6ede0a9">最尤法</h2>
+<div class="outline-text-2" id="text-org6ede0a9">
+</div>
+</section>
+<section id="slide-org54fe088">
+<h3 id="org54fe088">離散分布の場合</h3>
 <ul>
-<li>\(\chi^2\) 分布の特徴付け
+<li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
 <ul>
-<li>標準正規分布に従う \(k\) 個の独立な確率変数の
-二乗和は自由度 \(k\) の \(\chi^2\) 分布に従う</li>
+<li>確率質量関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
+<li>確率関数の母数: \(\boldsymbol{\theta}=(\theta_1,\dots,\theta_p)\)</li>
+<li><p>
+独立な確率変数の同時確率:
+</p>
+<blockquote>
+<div>
+\begin{align}
+     & P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+=\prod_{i=1}^nP(X_i=x_i)\\
+     &=
+\prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+=f_{\boldsymbol{\theta}}(x_1)\cdot
+f_{\boldsymbol{\theta}}(x_2)\cdots
+f_{\boldsymbol{\theta}}(x_n)
+   \end{align}
+
+</div>
+</blockquote></li>
 
 </ul></li>
-<li>\(t\) 分布の特徴付け
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org8f8cee3">
+<h3 id="org8f8cee3">尤度関数</h3>
 <ul>
 <li><p>
-\(Z\) を標準正規分布に従う確率変数，
-\(Y\) を自由度 \(k\) の \(\chi^2\) 分布に従う確率変数とし，
-\(Z,Y\) は独立であるとする．
-このとき確率変数
+定義
+</p>
+<blockquote>
+<p>
+母数 \(\boldsymbol{\theta}\) に対して
+観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
 </p>
 <div>
 \begin{equation}
-  \frac{Z}{\sqrt{Y/k}}
+  L(\boldsymbol{\theta})
+  =\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
 \end{equation}
 
 </div>
 
 <p>
-は自由度 \(k\) の \(t\) 分布に従う
-</p></li>
+を
+\(\boldsymbol{\theta}\) の 
+<b>尤度</b> と言い，
+\(\boldsymbol{\theta}\) の関数 \(L\) を <b>尤度関数</b> と呼ぶ．
+</p>
+</blockquote>
+<ul>
+<li>観測データ 
+\(X_1,X_2,\dots,X_n\) 
+が現れるのに母数
+\(\boldsymbol{\theta}\) 
+の値がどの程度尤もらしいかを測る尺度</li>
 
 </ul></li>
 
 </ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3d55df4">
+<h3 id="org3d55df4">連続分布の場合</h3>
+<ul>
+<li>確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
+<li><p>
+<b>尤度関数</b>:
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  L(\boldsymbol{\theta})
+  =\prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+  =f_{\boldsymbol{\theta}}(x_1)\cdot
+  f_{\boldsymbol{\theta}}(x_2)\cdots
+  f_{\boldsymbol{\theta}}(x_n)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>確率変数 \(X_{i}\) が微小な区間
+\([x_{i}-\delta,x_{i}+\delta]\)
+に含まれる確率に比例</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgf43a53a">
+<h3 id="orgf43a53a">最尤法</h3>
+<ul>
+<li><p>
+最尤法: 
+</p>
+<blockquote>
+<p>
+観測データに対して「最も尤もらしい」母数の値
+を \(\boldsymbol{\theta}\) の推定量として採用する方法
+を最尤法という．
+</p>
+</blockquote></li>
+<li><p>
+最尤推定量:
+</p>
+<blockquote>
+<p>
+\(\Theta\) を尤度関数の定義域として，
+尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
+</p>
+<div>
+\begin{equation}
+  L(\hat{\boldsymbol{\theta}})
+  =\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+\end{equation}
+
+</div>
+<div>
+\begin{equation}
+  \hat{\boldsymbol{\theta}}
+  =\arg\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+\end{equation}
+
+</div>
+
+<p>
+を 
+\(\boldsymbol{\theta}\) 
+の <b>最尤推定量</b> という．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3dfa353">
+<h3 id="org3dfa353">最尤推定量の計算</h3>
+<ul>
+<li><p>
+<b>対数尤度関数</b>:
+</p>
+<blockquote>
+<p>
+
+</p>
+
+<div>
+\begin{equation}
+  \ell(\boldsymbol{\theta})
+  =\log L(\boldsymbol{\theta})
+  =\sum_{i=1}^n\log f_{\boldsymbol{\theta}}(X_i).
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>対数関数は狭義増加</li>
+<li>\(\ell(\boldsymbol{\theta})\) の最大化と \(L(\boldsymbol{\theta})\) の最大化は同義</li>
+<li>扱い易い和の形なのでこちらを用いることが多い</li>
+<li>大数の法則を用いて対数尤度関数の収束が議論できる</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org47caaf9" data-background="#fef4f4">
+<h2 id="org47caaf9">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7930ce8" data-background="#fef4f4">
+<h3 id="org7930ce8">練習問題</h3>
+<ul>
+<li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
+母数 \(\lambda\) の最尤推定量を求めよ．
+<ul>
+<li><p>
+\(\lambda>0\) の Poisson 分布 (確率質量関数)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  f(x)
+  =
+  \frac{\lambda^{x}}{x!}e^{-\lambda}
+  \quad
+  (x\text{は0以上の整数})
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+\(\lambda>0\) の指数分布 (確率密度関数)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  f(x)
+  =
+  \lambda e^{-\lambda x}
+  \quad
+  (x>0)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org7d97ae5" data-background="#fef4f4">
+<h3 id="org7d97ae5">参考: ガンマ分布の最尤推定</h3>
+<ul>
+<li>母数 \(\nu,\alpha>0\) のガンマ分布 (調べてみよ)</li>
+<li><p>
+対数尤度関数 (未知母数: \(\nu,\alpha\) )
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \ell(\nu,\alpha)
+  &=\sum_{i=1}^n\log\frac{\alpha^\nu}{\Gamma(\nu)}X_i^{\nu{-}1}e^{-\alpha X_i}\\
+  &=n\nu\log\alpha-n\log\Gamma(\nu)+\sum_{i=1}^n\{(\nu{-}1)\log X_i-\alpha X_i\}
+\end{align}
+
+</div>
+</blockquote></li>
+<li>\(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgbbed822">
+<h2 id="orgbbed822">最尤推定量の性質</h2>
+<div class="outline-text-2" id="text-orgbbed822">
+</div>
+</section>
+<section id="slide-orgc1fd282">
+<h3 id="orgc1fd282">一致性</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+全ての \(x\) に対して \(f(x)>0\) で
+\(f\) が連続ならば，最尤推定量 \(\hat\theta^*\) は
+一致推定量になる．
+すなわち，
+真の母数の値が \(\theta_0\) のとき，
+任意の \(\varepsilon>0\) に対して
+</p>
+<div>
+\begin{equation}
+  P\left(|\hat\theta^*-\theta_0|<\varepsilon\right)
+  \to1\quad(n\to\infty)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote>
+<ul>
+<li>観測データが十分多ければ，
+最尤推定量は真の値に一致する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org44982b8">
+<h3 id="org44982b8">証明の概略</h3>
+<ul>
+<li><p>
+対数尤度の大数の法則
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \frac{1}{n}\log L(\theta)
+  \rightarrow^{n\to\infty}
+  =\mathbb{E}_{\theta_0}[\log f(X,\theta)]
+\end{equation}
+
+</div>
+
+<p>
+ただし \(\mathbb{E}_{\theta_0}\) は真の母数での平均
+</p>
+</blockquote></li>
+
+</ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
 <li><p>
-標本平均と不偏分散の関係
+対数密度/質量の性質
 </p>
 <blockquote>
-<p>
-\(X_1,X_2,\dots,X_n\) は独立同分布な確率変数列で，
-平均 \(\mu\) ，分散 \(\sigma^2\) の正規分布に従うとする．
-不偏分散を
-</p>
 <div>
 \begin{equation}
-  s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+  \mathbb{E}_{\theta_0}[\log f(X,\theta)]
+  \le
+  \mathbb{E}_{\theta_0}[\log f(X,\theta_{0})]
 \end{equation}
 
 </div>
-
-<p>
-とすると， \(\bar{X}\) と \(s^2\) は独立であり，
-確率変数 \((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う．
+</blockquote>
+<ul>
+<li>対数関数の凸性を用いて証明 (資料参照)</li>
+<li><p>
+情報理論のエントロピーとも関係
 </p>
+<blockquote>
+<div>
+\begin{equation}
+  \mathbb{E}_{\theta_0}[-\log f(X,\theta)]
+  \ge
+  \mathbb{E}_{\theta_0}[-\log f(X,\theta_{0})]
+\end{equation}
+
+</div>
 </blockquote></li>
 
+</ul></li>
+
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
 <li><p>
-標準化した確率変数の性質
+対数尤度の性質
 </p>
 <blockquote>
 <p>
-前の命題と \(\sqrt{n}(\bar{X}-\mu)/\sigma\) が標準正規分布に従うこ
-とから，
-確率変数
+\(n\) が十分大きければ
 </p>
 <div>
 \begin{equation}
-  T=
-  \frac{\sqrt{n}(\bar{X}-\mu)}{s}
-  =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
-    {\sqrt{(n{-}1)s^2/\sigma^2\big/(n{-}1)}}
-  % =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
-  %   {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}
+  \frac{1}{n}\log L(\theta)
+  \le
+  \frac{1}{n}\log L(\theta_{0})
 \end{equation}
 
 </div>
 
 <p>
-は自由度 \(n{-}1\) の \(t\) 分布に従う．
+がほぼ確実に成り立つ
+</p>
+</blockquote>
+<ul>
+<li>\(n\) が大きければ，真の値で対数尤度は最大になる</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org79e3b52">
+<h3 id="org79e3b52">漸近正規性</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(f(x)>0\)
+が連続で2階微分可能ならば
+\(\sqrt{n}(\hat\theta^*-\theta_0)\)
+は
+\(n\to\infty\)
+で正規分布
+\(\mathcal{N}(0,I(\theta_0)^{-1})\)
+に近づく．
+</p>
+</blockquote>
+<ul>
+<li>\(I(\theta_0)\) は Fisher 情報量</li>
+<li>観測データが十分多ければ，
+最尤推定量の誤差(分散)は
+Cramer-Rao 下界に一致する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org07f0c15">
+<h3 id="org07f0c15">証明の概略</h3>
+<ul>
+<li><p>
+真の母数の性質
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \mathbb{E}_{\theta_0}\left[
+    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right]
+  =0
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+Fisher 情報量
+</p>
+<blockquote>
+<div>
+\begin{align}
+  I(\theta_0)
+  &=\mathbb{E}_{\theta_0}
+    \left[
+    -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+    \right]
+  \\
+  &=\mathbb{E}_{\theta_0}\left[\left(
+    \frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+最大値の性質
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  L(\hat\theta^*)=\max_{\theta\in\Theta}L(\theta)
+\end{equation}
+
+</div>
+<div>
+\begin{equation}
+  \ell(\hat\theta^*)=\max_{\theta\in\Theta}\ell(\theta)
+\end{equation}
+
+</div>
+<div>
+\begin{equation}
+  \frac{\partial}{\partial\theta}\ell(\hat\theta^*)
+  =\sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i,\hat\theta^*)
+  =0
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+Taylor 展開による近似
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i,\theta_0)
+  +(\hat\theta^*-\theta_0)
+  \sum_{i=1}^n\frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)
+  =0
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>\(\tilde\theta\)
+は
+\(\{X_i\}\) に依存して決まる
+\(\theta_0\)
+と
+\(\hat\theta^*\)
+の間の値</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+誤差の近似
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \sqrt{n}(\hat\theta^*-\theta_0)
+  \left\{-\frac{1}{n}\sum_{i=1}^n
+  \frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)
+  \right\}\qquad&\\
+  =
+  \frac{1}{\sqrt{n}}\sum_{i=1}^n
+  \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)&
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+左辺
+</p>
+<blockquote>
+<p>
+\(n\)
+が大きくなると
+\(\tilde\theta\to\theta_0\)
+となり，大数の法則により以下が成り立つ．
+</p>
+<div>
+\begin{align}
+  &-\frac{1}{n}\sum_{i=1}^n
+    \frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)\\
+  &\qquad\to
+    \mathbb{E}_{\theta_0}\left[
+    -\frac{\partial^2}{\partial\theta^2}\log f(X_i,\theta_0)\right]
+    =I(\theta_0)
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+右辺
+</p>
+<blockquote>
+<p>
+\(n\to\infty\)
+のとき中心極限定理により右辺
+</p>
+<div>
+\begin{align}
+  &\frac{1}{\sqrt{n}}\sum_{i=1}^n
+    \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+  &=
+    \sqrt{n}\times
+    \frac{1}{n}\sum_{i=1}^n
+    \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+  &=
+    \sqrt{n}\times
+    \left(\frac{\partial}{\partial\theta}\log f(X,\theta_0)
+    \text{の標本平均}\right)
+\end{align}
+
+</div>
+
+<p>
+は
+平均 \(0\) 分散 \(I(\theta_0)\) の正規分布
+\(\mathcal{N}(0,I(\theta_0))\) に近づく．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+両辺を整理
+</p>
+<blockquote>
+<p>
+\(n\to\infty\) のとき
+</p>
+<div>
+\begin{equation}
+  \sqrt{n}I(\theta_0)(\hat\theta^*-\theta_0)
+  \sim \mathcal{N}(0,I(\theta_0))\quad(n\to\infty)
+\end{equation}
+
+</div>
+
+<p>
+であるので
+</p>
+<div>
+\begin{align}
+  \sqrt{n}(\hat\theta^*-\theta_0)
+  \sim &\mathcal{N}\left(0,I(\theta_0)^{-1}I(\theta_0)I(\theta_0)^{-1}\right)\\
+       &= \mathcal{N}\left(0,I(\theta_0)^{-1}\right)
+\end{align}
+
+</div>
+
+<p>
+となる．
 </p>
 </blockquote></li>
 
 </ul>
 <div class="slide-footer"><br></div>
+
+
 </section>
-<section id="slide-orge30227f">
-<h3 id="orge30227f">平均の区間推定 (分散未知)</h3>
+</section>
+<section>
+<section id="slide-org100c6e7">
+<h2 id="org100c6e7">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-org100c6e7">
+</div>
+</section>
+<section id="slide-orge956aba">
+<h3 id="orge956aba">推定量の漸近正規性</h3>
+<ul>
+<li><p>
+<b>漸近正規性</b>
+</p>
+<blockquote>
+<p>
+多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+</p>
+</blockquote>
+<ul>
+<li>モーメントに基づく記述統計量は漸近正規性をもつ</li>
+<li>最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ</li>
+<li>いずれも中心極限定理にもとづく</li>
+
+</ul></li>
+<li>正規分布を用いて近似的に信頼区間を構成することができる</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org20fc65f">
+<h3 id="org20fc65f">漸近正規性にもとづく区間推定</h3>
+<ul>
+<li><p>
+推定量の分布
+</p>
+<blockquote>
+<p>
+観測データ数 \(n\) が十分大きいとき，
+母数 \(\theta\) の推定量 \(\hat\theta\) が
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\hat\theta]=\theta_{0},\quad
+  \mathrm{Var}(\hat\theta)=s^{2}
+\end{equation}
+
+</div>
+
+<p>
+の正規分布で近似できるとする．
+</p>
+</blockquote></li>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot s,\;
+    \hat{\theta}+z_{1{-}\alpha/2}\cdot s
+  \right]  
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgbf62ad0">
+<h3 id="orgbf62ad0">標本平均の区間推定</h3>
+<ul>
+<li><p>
+定理 (標本平均の漸近正規性)
+</p>
+<blockquote>
+<p>
+確率分布が2次のモーメントを持てば，
+分布の平均 \(\mu\) の推定量である標本平均
+</p>
+<div>
+\begin{equation}
+  \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+\end{equation}
+
+</div>
+
+<p>
+は漸近正規性をもつ．
+確率変数 \(X\) の標準偏差の一致推定量を \(\hat\sigma\) とすれば, 
+\(\phi\) を標準正規分布の確率密度関数として，
+任意の \(a\le b\) に対して以下が成立する．
+</p>
+<div>
+\begin{equation}
+  P\left(a\le\frac{\sqrt{n}(\bar{X}-\mu)}{\hat\sigma}
+    \le b\right)\to\int_a^b\phi(x)dx\quad(n\to\infty)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+推定量の分散
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \mathrm{Var}(\bar{X})
+  =\frac{\sigma^{2}}{n}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+\(\sigma\) の一致推定量
+</p>
+<blockquote>
+<p>
+例えば不偏分散
+</p>
+<div>
+\begin{equation}
+  \hat{\sigma}^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+\end{equation}
+
+</div>
+
+<p>
+の平方根を用いれば良い．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
 <ul>
 <li><p>
 信頼区間の構成
 </p>
 <blockquote>
 <p>
-\(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
-\(1{-}\alpha/2\) 分位点とすれば
+平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
 </p>
 <div>
 \begin{equation}
-  P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
-  \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
+  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}},\;
+    \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}}\right]
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>サンプル数 \(n\) が十分大きい場合に近似的に正しい</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org55faeb4">
+<h3 id="org55faeb4">最尤推定量の区間推定</h3>
+<ul>
+<li><p>
+定理 (最尤推定量の漸近正規性)
+</p>
+<blockquote>
+<p>
+観測データ数 \(n\) が十分大きいとき，
+1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\hat\theta]=\theta_{0},\quad
+  \mathrm{Var}(\hat\theta)=\frac{1}{nI(\hat\theta)}
 \end{equation}
 
 </div>
 
 <p>
-となるので，
-分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
-以下で構成される．
+の正規分布で近似できる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
 </p>
 <div>
 \begin{equation}
-  \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
-  \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
+  \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}},\;
+    \hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>サンプル数 \(n\) が十分大きい場合に近似的に正しい</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga6762ff" data-background="#fef4f4">
+<h2 id="orga6762ff">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6effb8b" data-background="#fef4f4">
+<h3 id="org6effb8b">練習問題</h3>
+<ul>
+<li>選挙の投票率を調べるために，
+400人にアンケートを実施した結果，
+320人が投票に行き，残りが行かなかったと答えた．
+以下の問に答えよ．
+<ul>
+<li>投票率を最尤推定しなさい．</li>
+<li>投票率の最尤推定量の分散を求めよ．</li>
+<li>投票率の0.9信頼区間を求めよ．
+ただし \(z_{0.95}=1.64\) として計算せよ．</li>
+<li><p>
+ヒント: 以下のような確率変数を考えるとよい．
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X=
+  \begin{cases}
+    1, &\text{投票に行った}\\
+    0, &\text{行かなかった}
+  \end{cases}
 \end{equation}
 
 </div>
 </blockquote></li>
 
+</ul></li>
+
 </ul>
-
-
 <div class="slide-footer"><br></div>
+
 </section>
 </section>
 <section>
-<section id="slide-orgbf72f3e">
-<h2 id="orgbf72f3e">今回のまとめ</h2>
+<section id="slide-org6f8cc03">
+<h2 id="org6f8cc03">今回のまとめ</h2>
 <ul>
-<li>平均の点推定
-<ul>
-<li>点推定の考え方</li>
-<li>良い不偏推定量</li>
-<li>正規分布モデルの標本平均の性質</li>
-
-</ul></li>
-<li>平均の区間推定
-<ul>
-<li>区間推定の考え方</li>
-<li>正規分布モデルにおける区間推定</li>
-
-</ul></li>
+<li>最尤法の考え方</li>
+<li>最尤推定量の一致性</li>
+<li>最尤推定量の漸近正規性</li>
+<li>最尤推定量による区間推定</li>
 
 </ul>
 <div class="slide-footer"><br></div>
@@ -1354,7 +1293,6 @@ mouseWheel: false,
 fragmentInURL: true,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
-
 overview: true,
 
 transition: 'fade',
