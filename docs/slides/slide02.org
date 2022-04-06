@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 16:35:52 mura>
+# Time-stamp: <2022-04-06 16:11:20 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -14,11 +14,11 @@
 
 * 前回のおさらい
 - 有限試行の確率空間
-  - 確率論の基本用語: 試行，見本点，見本空間，事象
-  - 事象は見本空間の部分集合
+  - 確率論の基本用語 : 試行，標本点，標本空間，事象
+  - 事象は標本空間の部分集合
   - 事象の演算は集合の演算と等価
   - 確率測度の基本的な性質(正値性，加法性，全確率)
-  - 確率空間は見本空間，事象の集合，確率測度の3つ組
+  - 確率空間は標本空間，事象の集合，確率測度の3つ組
 * COMMENT メモ
 - 校正に関して記述
 
@@ -44,10 +44,8 @@
 
 ** 有理数の可算性
 - 区間 \((0,1)\) に含まれる全ての有理数は可算
-  #+begin_quote
-  有理数と自然数に1対1の対応があることを示せばよい．
+  - 有理数と自然数に1対1の対応があることを示せばよい
   #     有理数を列挙した無限に大きな表で対応を考える．
-  #+end_quote
   | 分子\分母 | 2   | 3   | 4     | 5   | 6     | \(\cdots\) |
   |-----------+-----+-----+-------+-----+-------+----------|
   |         / | <   |     |       |     |       |          |
@@ -57,9 +55,7 @@
   |         4 |     |     |       | 4/5 | +4/6+ | \(\cdots\) |
   |         5 |     |     |       |     | 5/6   | \(\cdots\) |
   |  \(\vdots\) |     |     |       |     |       | \(\cdots\) |
-  #+begin_quote
-  対応づけ出来そうだが規則の記述は難しそう
-  #+end_quote
+  - 対応づけ出来そうだが規則の記述は難しそう
 
 ** Bernsteinの定理
 - 1対1の対応が存在することを示す代わりに，
@@ -68,7 +64,7 @@
   \(A\)の部分集合と\(B\)の間に
   それぞれ1対1の対応が存在することを示せばよい．
 
-#+HEADER: :width 800 :height 400 
+#+HEADER: :width 800 :height 400
 #+begin_src R :file figs/bernstein.png :exports results :results graphics
   par(mai=rep(0,length=4),mfrow=c(1,2))
   t<-seq(0,2*pi,length=101)
@@ -104,15 +100,15 @@
   - 全ての自然数 \(n\) から有理数の部分集合 \(1/q\) への1対1対応
     #+begin_src latex
       \begin{equation}
-	n\mapsto \frac{1}{q}=\frac{1}{n+1}
+        n\mapsto \frac{1}{q}=\frac{1}{n+1}
       \end{equation}
     #+end_src
     (有理数としては \(1/q\) の形しか用いない)
   - 全ての有理数 \(p/q\) から自然数 \(n\) の部分集合への1対1対応
     #+begin_src latex
       \begin{equation}
-	\frac{p}{q}
-	\mapsto n=2^{p}\times 3^{q}
+        \frac{p}{q}
+        \mapsto n=2^{p}\times 3^{q}
       \end{equation}
     #+end_src
     (自然数としては2と3の倍数しか用いない)
@@ -123,7 +119,7 @@
     # 	   =\frac{(q-1)(q-2)}{2}+p
     # 	 \end{equation}
     # #+end_src
-
+    
 
 * 演習
 :PROPERTIES:
@@ -137,7 +133,7 @@
 - 自然数の組 \((m,n)\) が可算であるかどうか論じよ．
 - 1以上の有理数が可算であるかどうか論じよ．
 
-** 整数の可算性
+** COMMENT 整数の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -183,7 +179,7 @@
 # 	 \end{align}
 #        #+end_src
 
-** 自然数の組の可算性
+** COMMENT 自然数の組の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -211,7 +207,7 @@
   | \(\vdots\) |    |    |    |    |    |          |
 - 規則(数式)は考えてみよ
 
-** 1以上の有理数の可算性
+** COMMENT 1以上の有理数の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -253,7 +249,7 @@
     有理数の集合は可算なので，
     仮定より無理数と有理数の和である実数も可算となる．
     #+end_quote
-
+    
 #+reveal: split
 - その3
   #+begin_quote
@@ -271,7 +267,7 @@
   #+end_src
   ただし，有限桁の小数の場合は \(0\) で埋める．
   #+end_quote
-
+  
 #+reveal: split
 - その4
   #+begin_quote
@@ -335,7 +331,7 @@
   - 実数 \(\mathbb{R}\) (区間 \((-\infty,\infty)\))
   - 2つの実数の組 \((x,y)\in\mathbb{R}^{2}\)
   - 2次元空間で \(xy\) 座標がともに整数となる点の集合
-  - 表が出るまでコインを投げ続ける試行の見本空間
+  - 表が出るまでコインを投げ続ける試行の標本空間
 
 ** COMMENT 解答
 :PROPERTIES:
@@ -347,19 +343,19 @@
   - 実数 \(\mathbb{R}\) (区間 \((-\infty,\infty)\)) : 連続
   - 2つの実数の組 \((x,y)\in\mathbb{R}^{2}\) : 連続
   - 2次元空間で \(xy\) 座標がともに整数となる点の集合 : 可算
-  - 表が出るまでコインを投げ続ける試行の見本空間 : 可算
+  - 表が出るまでコインを投げ続ける試行の標本空間 : 可算
 
 
 * 一般の確率測度
 # #+begin_notes
-# 有限試行ではない一般の見本空間を考えた場合に，
+# 有限試行ではない一般の標本空間を考えた場合に，
 # 確率測度 \(P\) がどんな性質をもたなくてはいけないかを説明する．
 # #+end_notes
 
 ** 可測集合
 - 可測集合 (measurable set) ::
   確率測度 \(P\) で確率の値を測ることができる集合\\
-  (見本点の集合の中で事象として考えてよいもの)
+  (標本点の集合の中で事象として考えてよいもの)
 - 可測 (measurable) ::
   "集合 \(A\) が可測"とは
   集合 \(A\) を確率測度 \(P\) で測ることができること
@@ -369,7 +365,7 @@
   対象全体 (関数 \(P\) の *定義域*) を
   \(\mathcal{F}\) と書く
 - 定義域 \(\mathcal{F}\) は
-  可測な事象(見本空間の部分集合) \(A\subset\Omega\) の集まり
+  可測な事象(標本空間の部分集合) \(A\subset\Omega\) の集まり
 - このような"集合の集合"を
   *集合族 (family of sets)* という
 
@@ -393,12 +389,12 @@
     \end{align}
   #+end_src
   #+end_quote
-- (\(\sigma.1\))-(\(\sigma.3\)) は
-  定義域 \(\mathcal{F}\) の満たすべき条件でもある
-
+  - (\(\sigma.1\))-(\(\sigma.3\)) は
+    定義域 \(\mathcal{F}\) の満たすべき条件でもある
+  
 ** 条件の意味
 - (\(\sigma.1\)) ::
-  見本空間(全事象)は可測である( \(P\) で測ることができる)
+  標本空間(全事象)は可測である( \(P\) で測ることができる)
 - (\(\sigma.2\)) :: 
   ある事象が可測なら，その余事象も可測である
 - (\(\sigma.3\)) :: 
@@ -428,14 +424,14 @@
     \end{align}
   #+end_src
   #+end_quote
-- (P.2)を 
-  \(\sigma\)-加法性 
-  (\(\sigma\)-additivity) という．
+  - (P.2)を 
+    *\(\sigma\)-加法性 (\(\sigma\)-additivity)*
+    という
 
 ** 確率空間
 - 定義
   #+begin_quote
-  見本空間 \(\Omega\) と確率測度 \(P\) ，
+  標本空間 \(\Omega\) と確率測度 \(P\) ，
   および \(P\) の定義域である 
   \(\sigma\)-加法族
   \(\mathcal{F}\) の組 
@@ -445,7 +441,7 @@
   #+end_quote
 
 
-* Lebesgue測度
+* Lebesgue 測度
 # #+begin_notes
 # 一般の確率測度の中でも
 # 応用上最も重要な測度について説明する．
@@ -457,7 +453,7 @@
   試行 \(T\) を
   "区間 \((0,1]\) から無作為に一点抜き出すこと"
   とする．
-  このとき見本空間は
+  このとき標本空間は
   #+begin_src latex
     \begin{equation}
       \Omega=(0,1]
@@ -489,26 +485,26 @@
 - 集合の測度(確率)は (P.2) の性質より
   排反な区間の長さの和から計算できる
 
-** Lebesgue測度
+** Lebesgue 測度
 - 定義
   #+begin_quote
   "区間 \((0,1]\) から無作為に一点抜き出す"試行 \(T\)
   によって考えられる確率測度 \(P\) を \((0,1]\) 上の
-  *Lebesgue測度 (Lebesgue measure)*
+  *Lebesgue 測度 (Lebesgue measure)*
   という．
-  またLebesgue測度の定義域となる
+  また Lebesgue 測度の定義域となる
   \(\sigma\)-加法族を
   \(\mathbb{R}\) の
-  *Borel集合族 (Borel field)*
+  *Borel 集合族 (Borel field)*
   という．
   #+end_quote
-- Lebesgue測度は \(\mu\) で表されることが多い
-- 厳密な定義についてはLebesgue積分の本を参考
+  - Lebesgue 測度は \(\mu\) で表されることが多い
+  - 厳密な定義については Lebesgue 積分の本を参照
 
-** Lebesgue測度の計算
+** Lebesgue 測度の計算
 - 一点が抜き出される確率
   #+begin_quote
-  Lebesgue測度において，
+  Lebesgue 測度において，
   \(P\{a\}\)
   (一点 \(a\) が抜き出される確率)は \(0\) となる．
 
@@ -527,7 +523,7 @@
   #+end_quote
   # - 可算個の点からなる事象の確率
   #   #+begin_quote
-  #   Lebesgue測度において
+  #   Lebesgue 測度において
   #   可算個の点からなる事象の確率は
   #   いずれも \(0\) となる．
   #   #+end_quote
@@ -583,9 +579,9 @@
 - 異なる区間の場合
   #+begin_quote
   "区間 \((0,5]\) から無作為に一点抜き出す"試行を考えたとき，
-  その見本空間は \(\Omega=(0,5]\) となる．
+  その標本空間は \(\Omega=(0,5]\) となる．
   この試行の確率測度は
-  Lebesgue測度 \(\mu\) を定数倍(正規化)し，
+  Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
   #+begin_src latex
     \begin{equation}
       P(A)=\frac{\mu(A)}{\mu(\Omega)}=\frac{\mu(A)}{5},\;A\in\mathcal{F}
@@ -604,7 +600,7 @@
   #+end_quote
 - 以下は等しくないことに注意 (有理数と無理数の例)
   - 事象 \(A\) の確率が \(0\) である
-  - 事象 \(A\) に含まれる見本点が全く起こらない
+  - 事象 \(A\) に含まれる標本点が全く起こらない
 
 ** "ほとんど確実"
 - 確率での特殊な言い回し
@@ -696,10 +692,10 @@
 - 一般の確率空間
   - 有限集合と無限集合
   - 集合の濃度 (無限集合は更に分類される)
-    - 可算集合: 自然数，整数，有理数
-    - 連続集合: 無理数，実数
+    - 可算集合 : 自然数，整数，有理数
+    - 連続集合 : 無理数，実数
   - 一般の確率測度と \(\sigma\)-加法性の関係
-  - Lebesgue測度とBorel集合族 (応用上重要な概念)
+  - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
   - "ほとんど確実に成り立つ"
 
 
