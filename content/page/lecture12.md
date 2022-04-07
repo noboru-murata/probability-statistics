@@ -11,7 +11,7 @@ weight = 1013
 
 ## スライド {#スライド}
 
-{{&lt; myslide base="probability-statistics" name="slide12" &gt;}}
+{{< myslide base="probability-statistics" name="slide12" >}}
 
 
 ## ハンドアウト {#ハンドアウト}
