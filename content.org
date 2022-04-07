@@ -5,7 +5,7 @@
 #+LINK: github https://noboru-murata.github.io/probability-statistics/
 #+STARTUP: hidestars content indent
 
-# Time-stamp: <2022-04-06 16:09:40 mura>
+# Time-stamp: <2022-04-07 22:14:04 mura>
 # C-c C-e H A (generate MDs for all subtrees)
 
 * 概要

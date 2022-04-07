@@ -3,7 +3,7 @@ title = "第12講"
 author = ["Noboru Murata"]
 date = 2020-04-01T00:00:00+09:00
 draft = false
-weight = 1013
+weight = 1017
 +++
 
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-08-22 Sun&gt; </span></span> 更新
@@ -11,7 +11,7 @@ weight = 1013
 
 ## スライド {#スライド}
 
-{{< myslide base="probability-statistics" name="slide12" >}}
+{{&lt; myslide base="probability-statistics" name="slide12" &gt;}}
 
 
 ## ハンドアウト {#ハンドアウト}

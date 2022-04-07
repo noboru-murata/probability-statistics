@@ -6,12 +6,12 @@ draft = false
 weight = 1002
 +++
 
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-04-02 Sat&gt; </span></span> 更新
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2022-04-06 Wed&gt; </span></span> 更新
 
 
 ## スライド {#スライド}
 
-{{< myslide base="probability-statistics" name="slide01" >}}
+{{&lt; myslide base="probability-statistics" name="slide01" &gt;}}
 
 
 ## ハンドアウト {#ハンドアウト}

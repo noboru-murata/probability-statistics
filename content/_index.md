@@ -17,8 +17,7 @@ weight = 1001
 
 -   [確率論](https://noboru-murata.github.io/probability-statistics/pdfs/probability.pdf)
 -   [統計学](https://noboru-murata.github.io/probability-statistics/pdfs/statistics.pdf)
-
-随時修正します．
+    随時修正します．
 
 
 ## 参考資料 {#参考資料}
