@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 16:36:39 mura>
+# Time-stamp: <2022-04-11 17:10:56 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -19,7 +19,7 @@
     - 可算集合: 自然数，整数，有理数
     - 連続集合: 無理数，実数
   - 一般の確率測度と \(\sigma\)-加法性の関係
-  - Lebesgue測度とBorel集合族 (応用上重要な概念)
+  - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
   - "ほとんど確実に成り立つ"
 
 * COMMENT メモ
@@ -76,6 +76,7 @@
   l <- sqrt(x)*2*pi
   text(1.1*cos(l),1.1*sin(l),labels=x,
        cex=2)
+  text(0.9,0,labels=0,cex=2)
   lines(cos(2*pi*sqrt(t[10:20])),sin(2*pi*sqrt(t[10:20])),
         col="red", lwd=8)
   lines(cos(2*pi*sqrt(t[80:90])),sin(2*pi*sqrt(t[80:90])),
@@ -215,7 +216,7 @@
   *絶対連続* (absolutely continuous)
   な分布と呼ぶ．
   #+end_quote
-  - 見本空間上で積分が定義できる場合であることに注意
+  - 標本空間上で積分が定義できる場合であることに注意
 
 ** 確率密度の例
 - 歪んだ目盛りのルーレット
@@ -278,9 +279,9 @@
 - Riemann 積分 (区分求積法に基づく)
 - Lebesgue 積分 (確率測度に基づく)
 
-** Riemann積分
-  - 定義
+** Riemann 積分
 #+begin_leftcol
+- 定義
 #+begin_src R :file figs/riemann.png :exports results :results graphics
   par(family="HiraginoSans-W4")
   e <- 0.01
@@ -359,7 +360,7 @@
   それぞれの極限が存在して，
   なおかつ一致するならば，
   これを \(f(x)\) の 
-  *Riemann積分* (Riemann integral)
+  *Riemann 積分* (Riemann integral)
   という．
   #+begin_src latex
     \begin{equation}
@@ -370,10 +371,9 @@
   #+end_src
   #+end_quote
 
-** Lebesgue積分
-- 定義
-
+** Lebesgue 積分
 #+begin_leftcol
+- 定義
 #+begin_src R :file figs/lebesgue.png :exports results :results graphics
   par(family="HiraginoSans-W4")
   col<-"purple"
@@ -439,8 +439,8 @@
 #+reveal: split
 - 定義(つづき)
   #+begin_quote
-  このとき \(\mu\) をLebesgue測度とし，
-  単関数 \(f_n(x)\) の *Lebesgue積分* を
+  このとき \(\mu\) を Lebesgue 測度とし，
+  単関数 \(f_n(x)\) の *Lebesgue 積分* を
   #+begin_src latex
     \begin{equation}
       \int_K f_n(x)dx
@@ -451,7 +451,7 @@
   分割を細かくしたとき \(f_n(x)\) は \(f(x)\) に近づいていくが，
   この極限が存在するならば，
   これを \(f(x)\) の 
-  *Lebesgue積分* (Lebesgue integral)
+  *Lebesgue 積分* (Lebesgue integral)
   という．
   #+begin_src latex
     \begin{equation}
@@ -462,21 +462,21 @@
   #+end_quote
 
 ** 表記に関する注意
-- Lebesgue積分特有の記法
+- Lebesgue 積分特有の記法
   #+begin_quote
   2つの積分を明示的に区別するために，
-  Lebesgue積分を
+  Lebesgue 積分を
   #+begin_src latex
     \begin{equation}
       \int_K f(x)\mu(dx),
-      \quad\text{(\(\mu\)はLebesgue測度)}
+      \quad\text{(\(\mu\)は Lebesgue 測度)}
     \end{equation}
   #+end_src
   と書くことがある．
   #+end_quote
   - この講義での以降の積分は，
     特に断わらないかぎり
-    Lebesgue積分を考える
+    Lebesgue 積分を考える
 
 ** 2つの積分の違い
 - 特異な例
@@ -494,17 +494,17 @@
   #+end_src
   を考える．
   #+end_quote
-  - この関数はDirichletの関数と呼ばれ
+  - この関数は Dirichlet の関数と呼ばれ
     #+begin_src latex
       \begin{equation}
 	f(x)=
 	\lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
       \end{equation}
     #+end_src
-    と書けることが知られている．
+    と書けることが知られている
 
 #+reveal: split
-- Riemann積分の場合
+- Riemann 積分の場合
   #+begin_quote
   どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
   #+begin_src latex
@@ -521,11 +521,11 @@
   #+end_src
   であり，
   \(n\) をいくら大きくしても極限は一致しない．
-  したがってこの関数のRiemann積分は存在しない．
+  したがってこの関数の Riemann 積分は存在しない．
   #+end_quote
 
 #+reveal: split
-- Lebesgue積分の場合
+- Lebesgue 積分の場合
   #+begin_quote
   適当な値域の分割において
   #+begin_src latex
@@ -534,7 +534,7 @@
       \alpha_{j}\le 1<\alpha_{j+1}
     \end{equation}
   #+end_src
-  となるのであれば，Lebesgue測度の性質より
+  となるのであれば，Lebesgue 測度の性質より
   #+begin_src latex
     \begin{equation}
       \int f_{n}(x)dx 
@@ -553,14 +553,14 @@
       = 0
     \end{equation}
   #+end_src
-  となりLebesgue積分可能である．
+  となり Lebesgue 積分可能である．
   #+end_quote
 
 ** 積分の一致する条件
 - 定理
   #+begin_quote
   有界閉区間 \(K\) で \(f\) が連続なら，
-  \(K\) 上の \(f\) のLebesgue積分の値はRiemann積分の値と一致する．
+  \(K\) 上の \(f\) の Lebesgue 積分の値は Riemann 積分の値と一致する．
   #+end_quote
   - 応用上重要な問題に現れる
     「あまり特殊でない関数」では
@@ -603,7 +603,7 @@
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
-- 見本空間で関数が正値で，積分が1となればよい．
+- 標本空間で関数が正値で，積分が1となればよい．
   1. 
      #+begin_src latex
        \begin{equation}
@@ -642,7 +642,7 @@
 #+end_leftcol 
 #+begin_rightcol
 #+begin_quote
-- 見本空間: \((-\infty,\infty)\)
+- 標本空間: \((-\infty,\infty)\)
 - 母数: 平均 \(\mu\), 分散 \(\sigma^{2}\)
 - 密度関数:
   #+begin_src latex
@@ -673,7 +673,7 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-- 見本空間: 区間 \([a,b]\)
+- 標本空間: 区間 \([a,b]\)
 - 母数: 区間の端点 \(a,b\)
 - 密度関数:
   #+begin_src latex
@@ -703,7 +703,7 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-- 見本空間: \((-\infty,\infty)\)
+- 標本空間: \((-\infty,\infty)\)
 - 母数: 位置 (location) \(\mu\) ， 
   尺度 (scale) \(\sigma\)
 - 密度関数:
@@ -724,7 +724,7 @@
 # Cauchy分布は平均値や分散が定義されない分布の例としても有名である．
 # なお，平均値，分散については後節で定義する．
 
-** \(\chi^{2}\) -分布 (\(\chi^{2}\) distribution)
+** カイ2乗分布 (\(\chi^{2}\) distribution)
 #+begin_leftcol
 #+begin_src R :file figs/pdf_chisq.png :exports results :results graphics
   par(family="HiraginoSans-W4") 
@@ -732,7 +732,7 @@
        col=4, lwd=3,
        xlab="x",ylab="確率密度")
 #+end_src
-#+CAPTION: \(\chi^{2}\) -分布 (自由度\(3\))
+#+CAPTION: \(\chi^{2}\)-分布 (自由度\(3\))
 #+NAME: fig:pdf_chisq
 #+ATTR_HTML: :width 100%
 #+ATTR_LATEX: :width 0.6\linewidth
@@ -740,7 +740,7 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-- 見本空間: \([0,\infty)\)
+- 標本空間: \([0,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
   #+begin_src latex
@@ -755,7 +755,7 @@
 #+end_quote
 #+end_rightcol  
 
-** \(t\) -分布 (Student's t distribution)
+** \(t\) 分布 (Student's t distribution)
 #+begin_leftcol
 #+begin_src R :file figs/pdf_t.png :exports results :results graphics
   par(family="HiraginoSans-W4") 
@@ -763,7 +763,7 @@
        col=5, lwd=3, ylim=c(0,0.4),
        xlab="x",ylab="確率密度")
 #+end_src
-#+CAPTION: \(t\) -分布 (自由度\(3\))
+#+CAPTION: \(t\)-分布 (自由度\(3\))
 #+NAME: fig:pdf_t
 #+ATTR_HTML: :width 100%
 #+ATTR_LATEX: :width 0.6\linewidth
@@ -771,7 +771,7 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-- 見本空間: \((-\infty,\infty)\)
+- 標本空間: \((-\infty,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
   #+begin_src latex
@@ -783,7 +783,7 @@
     \end{equation}
   #+end_src
 - 備考: 標準正規分布と
-  自由度 \(\nu\) の \(\chi^{2}\) -分布の比の分布で，
+  自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
   検定に利用される．
 #+end_quote
 #+end_rightcol  
@@ -805,7 +805,7 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-- 見本空間: \([0,\infty)\)
+- 標本空間: \([0,\infty)\)
 - 母数: 比率 (rate) \(\lambda>0\)
 - 密度関数:
   #+begin_src latex
@@ -822,7 +822,7 @@
 
 
 * 確率密度がない分布
-** 確率密度が定義されない例 (1/2)
+** 確率密度が定義されない例 (その1)
 - \(\delta\) 分布
   #+begin_quote
   確率測度を
@@ -848,7 +848,7 @@
   抜き出しを考えていることになる．
   #+end_quote
 
-** 確率密度が定義されない例 (1/2)
+** 確率密度が定義されない例 (その2)
 - 有理数の抜き出し
   #+begin_quote
   有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
@@ -887,7 +887,7 @@
   \end{equation}
 #+end_src
 とならなくてはいけないが，
-1点のLebesgue測度は0なので
+1点の Lebesgue 測度は0なので
 #+begin_src latex
   \begin{equation}
     f(q_i)\times\mu(q_i)
@@ -960,7 +960,7 @@
 - 確率密度
   - 確率密度の積分による確率測度の表現
   - 確率密度の満たすべき条件
-  - Riemann積分とLebesgue積分
+  - Riemann 積分と Lebesgue 積分
   - いろいろな確率分布
 
 

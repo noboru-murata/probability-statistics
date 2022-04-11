@@ -1,0 +1,772 @@
+#+TITLE: 独立変数の和の性質
+#+SUBTITLE: 確率・統計 - 第6講
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE:
+# Time-stamp: <2021-08-22 16:38:44 mura>
+:REVEAL:
+#+INCLUDE: "./reveal.js/org/mycourse.org"
+#+STARTUP: hidestars content indent
+# C-c C-x C-v でinlineを切り替え
+# <m C-i でlatex block (math env用)
+# C-c '
+:END:
+
+* 前回のおさらい
+- 条件付確率と独立性
+  - 同時確率，周辺確率，条件付確率
+  - 条件付確率分布，条件付確率密度，条件付平均値
+  - 条件付確率とBeyesの定理
+  - 確率変数と事象の独立性
+
+** 特性関数
+- 定義
+  #+begin_quote
+  特性関数
+  は指数関数を用いて変数変換された確率変数の平均として
+  #+begin_src latex
+    \begin{equation}
+      \phi(s)=\mathbb{E}[e^{isX}]
+    \end{equation}
+  #+end_src
+  で定義される．
+  #+end_quote
+  - 特性関数は実数値ではなく複素数値をとることに注意する．
+
+** 特性関数の性質
+- 逆変換の存在
+  #+begin_quote
+  特性関数と確率測度(確率密度)は一対一に対応している
+
+  (Levy-Havilandの反転公式)
+  #+end_quote
+- 分布の同一性
+  #+begin_quote
+  2つの分布の特性関数が同じであれば，
+  2つの分布が同じであることが言える．
+  #+end_quote
+
+** 標準正規分布の特性関数
+- \(X\) を標準正規分布に従う確率変数とする
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \phi_{X}(s)
+      &=\mathbb{E}[e^{isX}]\\
+      &=\int_{-\infty}^{\infty}e^{isx}\cdot
+	\frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
+      &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
+	\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
+      &=e^{-\frac{s^{2}}{2}}
+    \end{align}
+  #+end_src
+  #+end_quote
+
+** 独立性の重要な性質
+- 平均値の乗法性
+  #+begin_quote
+  確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
+  \(\Rightarrow\) 
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[X_1X_2\dotsm X_n]
+      =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 分散の加法性
+  #+begin_quote
+  確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
+  \(\Rightarrow\) 
+  #+begin_src latex
+    \begin{align}
+      &\mathrm{Var}(X_1+X_2+\dotsb+X_n)\\
+      &=\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+    \end{align}
+  #+end_src
+  #+end_quote
+
+* COMMENT メモ
+- 校正に関して記述
+
+
+* 大数の法則
+# #+begin_notes
+# 確率的なゆらぎに起因する確率変数の不確実な部分が，
+# 同一の確率法則に従う多数の確率変数を
+# 足し合わせることによって
+# 相殺し取り除かれる．
+# 大数の法則と呼ばれるこの性質を証明する．
+# #+end_notes
+
+** 記号の準備
+- 確率変数列
+  #+begin_quote
+  確率変数の列(可算無限でも良い)を
+  #+begin_src latex
+    \begin{equation}
+      \{X_{n}\}=\{X_{1},X_{2},X_{3},\dotsc\}
+    \end{equation}
+  #+end_src
+  と書く．
+  一般に \(X_{n}\) はそれぞれ異なる分布 \(P^{X_{n}}\) に従っていて構わない．
+  #+end_quote
+
+#+reveal: split
+- 確率変数列の性質の記述
+  #+begin_quote
+  確率変数 \(X_{n}\) の平均や分散などをまとめて表記するときは
+  \(\{\mathbb{E}[X_{n}]\}\)
+  や
+  \(\{\mathrm{Var}(X_{n})\}\)
+  のように書く．
+  例えば
+  #+begin_src latex
+    \begin{equation}
+      \sup_{n} \mathrm{Var}(X_{n}) < \infty
+    \end{equation}
+  #+end_src
+  は "\(\{\mathrm{Var}(X_{n})\}\) が有界である" と書く．
+  #+end_quote
+
+** 大数の法則
+- 定理
+  #+begin_quote
+  \(\{X_n\}\) を確率変数列として
+  #+begin_src latex
+    \begin{equation}
+      S_n=\sum_{k=1}^n X_k
+    \end{equation}
+  #+end_src
+  とする．
+  また，
+  \(\{X_n\}\) は独立で，
+  \(\{\mathrm{Var}(X_n)\}\) は有界とする．
+  任意の \(\varepsilon>0\) に対して，
+  \(n(\varepsilon)\) を十分大きくとれば，
+  すべての \(n>n(\varepsilon)\) に対して
+  #+begin_src latex
+    \begin{equation}
+      P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+      <\varepsilon
+    \end{equation}
+  #+end_src
+  とすることができる．
+  #+end_quote
+
+** Čebyšëv の不等式
+- 定理
+  #+begin_quote
+  任意の確率変数 \(X\) において任意の \(a>0\) に対して
+  #+begin_src latex
+    \begin{equation}
+      P\left(|X(\omega)-\mathbb{E}[X]|>a\right)
+      \le\frac{1}{a^2}\mathrm{Var}(X)
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+#+reveal: split
+- 証明
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      A=\left\{\omega\big||X(\omega)-\mathbb{E}[X]|>a\right\}
+    \end{equation}
+  #+end_src
+  とする．分散の性質から
+  #+begin_src latex
+    \begin{align}
+      \mathrm{Var}(X)
+      &=\mathbb{E}[(X-\mathbb{E}[X])^2]\\
+      &=\mathbb{E}[(X-\mathbb{E}[X])^2, \Omega]\\
+      &=\mathbb{E}[(X-\mathbb{E}[X])^2, A+A^c]\\
+      &=\mathbb{E}[(X-\mathbb{E}[X])^2, A]+\mathbb{E}[(X-\mathbb{E}[X])^2, A^c]\\
+      &\ge \mathbb{E}[(X-\mathbb{E}[X])^2,A]\ge a^2 P(A)
+    \end{align}
+  #+end_src
+  であるので，題意が証明される．
+  #+end_quote
+
+** 大数の法則の略証
+- step 1
+  #+begin_quote
+  まず \(a>0\) として Čebyšëv の不等式より
+  #+begin_src latex
+    \begin{equation}
+      P\left(|S_n-\mathbb{E}[S_n]|>a\right)
+      \le\frac{1}{a^2}\mathrm{Var}(S_n)
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+#+reveal: split
+- step 2
+  #+begin_quote
+  \(\{X_n\}\) の独立性より
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(S_n)
+      =\sum_{k=1}^n\mathrm{Var}(X_k)
+      \le n\cdot\max_{k}\mathrm{Var}(X_k)
+    \end{equation}
+  #+end_src
+  がいえる．
+  #+end_quote
+- step 3
+  #+begin_quote
+  \(a=n\varepsilon\) と置き換えることによって
+  #+begin_src latex
+    \begin{equation}
+      P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+      \le\frac{1}{n\varepsilon^2}\max_{k}\mathrm{Var}(X_k)
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+#+reveal: split
+- step 4
+  #+begin_quote
+  \(n\to\infty\) 
+  とすると右辺は
+  \(\{\mathrm{Var}(X_n)\}\)
+  の有界性より0になる．
+  したがって任意の \(\varepsilon>0\) に対して
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}
+      P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+      \to 0
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+** Kolmogorov の大数の強法則
+- 定理
+  #+begin_quote
+  \(\{X_n\}\) を確率変数列として
+  #+begin_src latex
+    \begin{equation}
+      S_n=\sum_{k=1}^n X_k
+    \end{equation}
+  #+end_src
+  とする．
+  \(\{X_n\}\) が独立で，
+  \(\{\mathrm{Var}(X_n)\}\) が有界ならば
+  #+begin_src latex
+    \begin{equation}
+      \frac{S_n-\mathbb{E}[S_n]}{n}\to 0 \text{ a.s.}
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+#+reveal: split
+- 大数の法則(弱法則)より強い意味での収束性を主張
+  - 大数の弱法則: 確率収束
+  - 大数の強法則: 概収束
+
+** 同分布の場合の大数の強法則
+- 定理
+  #+begin_quote
+  確率変数列 \(\{X_n\}\) が独立で同じ分布に従い，
+  \(\{\mathbb{E}[|X_n|]\}\) が有界であるとする．
+  \(\{X_n\}\) の平均値を \(\mu\) とすると，
+  #+begin_src latex
+    \begin{equation}
+      \frac{S_n}{n}\to \mu\quad \text{a.s.}
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+  - 絶対値の平均が有界という条件に緩められている
+
+#+reveal: split
+- 定理の意味
+  #+begin_quote
+  条件を満たすならば，
+  \(n\) が十分大きくとれる(十分多くの観測を行うことができる)とき，
+  平均値 \(\mu\) の近似値として観測値の算術平均
+  #+begin_src latex
+    \begin{equation}
+      \frac{S_n}{n}=\frac{\sum_{i=1}^nX_i}{n}
+    \end{equation}
+  #+end_src
+  を使って良い.
+  #+end_quote
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 確率変数 \(X\) は平均50，標準偏差10の分布に従うとする．
+  このとき以下の確率を Čebyšëv の不等式を用いて評価せよ．
+  - \(P(|X-50| > 10)\)
+  - \(P(|X-50| > 20)\)
+  - \(P(|X-50| > 30)\)
+
+** COMMENT 解答例
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- \(\mathrm{Var}(X)=10^{2}\) なので
+  以下のように計算される
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      P(|X-50| > 10)&\le1 \\
+      P(|X-50| > 20)&\le0.25\\
+      P(|X-50| > 30)&\le0.11
+    \end{align}
+  #+end_src
+  #+end_quote
+  - \(X\) がどんな分布に従っていても成り立つことに注意
+
+
+* 中心極限定理
+# #+begin_notes
+# 大数の法則を精密化したものが
+# 中心極限定理である．
+# #+end_notes
+
+** Lindeberg の中心極限定理
+- 定理
+  #+begin_quote
+  \(\{X_n\}\) は独立で，その分散が有界，
+  \(S_n=\sum_{k=1}^n X_k\) とする．
+  すべての \(\varepsilon>0\) に対し
+  #+begin_src latex
+    \begin{multline}
+      \frac{1}{\mathrm{Var}(S_n)}\sum_{k=1}^n
+      \mathbb{E}\left[(X_k-\mathbb{E}[X_k])^2,
+	|X_k-\mathbb{E}[X_k]|\ge\varepsilon\sqrt{\mathrm{Var}(S_n)}\right]\\
+      \to 0 \; (n\to\infty)
+    \end{multline}
+  #+end_src
+  ならば，
+  \(n\to\infty\)
+  のとき
+  #+begin_src latex
+    \begin{equation}
+      T_n=\frac{S_n-\mathbb{E}[S_n]}{\sqrt{\mathrm{Var}(S_n)}}
+    \end{equation}
+  #+end_src
+  の確率法則は
+  標準正規分布
+  \(N(0,1)\) に近づく．
+  #+end_quote
+
+** 同分布の場合の中心極限定理
+- 定理
+  #+begin_quote
+  \(\{X_n\}\) が独立で，正の分散を持つ同じ分布に従うときには
+  中心極限定理が成り立つ．
+  #+end_quote
+  - "正の分散を持つ"とは定数ではないことを意味する．
+
+#+reveal: split
+- Lindeberg の条件の確認
+  #+begin_quote
+  同分布の場合には
+  #+begin_src latex
+    \begin{multline}
+      \frac{1}{\mathrm{Var}(X)}
+      \mathbb{E}\left[(X-\mathbb{E}[X])^2,
+	|X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\right]
+      \to 0\\
+      (n\to\infty)
+    \end{multline}
+  #+end_src
+  と書かれる．
+  左辺は，
+  平均値から
+  \(\sqrt{n\mathrm{Var}(X)}\)
+  以上離れた見本点が得られるという
+  事象 \(|X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\) の起こる確率を表すが，
+  これは \(n\) が大きくなるとともに0に近づくので，
+  Lindebergの条件は満たされる．
+  #+end_quote
+
+#+reveal: split
+- \(T_n\) の書き換え
+  #+begin_quote
+  \(\{X_n\}\) の
+  平均を \(\mathbb{E}[X]=\mu\) ，
+  分散を \(\mathrm{Var}(X)=\sigma^{2}\) 
+  と書き，
+  \(\{X_n\}\) の標本平均を
+  #+begin_src latex
+    \begin{equation}
+      \bar{X}_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i}=\frac{S_{n}}{n}
+    \end{equation}
+  #+end_src
+  と定義すると
+  #+begin_src latex
+    \begin{equation}
+      T_n=\frac{S_n-\mathbb{E}[S_n]}{\sqrt{\mathrm{Var}(S_n)}}
+      =\frac{n\bar{X}_{n}-n\mathbb{E}[X]}{\sqrt{n\mathrm{Var}(X)}}
+      =\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}
+    \end{equation}
+  #+end_src
+  である．
+  #+end_quote
+
+#+reveal: split
+- 定理の別表現
+  #+begin_quote
+  \(\{X_n\}\) は独立で，
+  平均 \(\mu\) ，標準偏差 \(\sigma\) 
+  の同じ分布に従うとする．
+  このとき，すべての実数 \(a < b\) に対して
+  #+begin_src latex
+    \begin{equation}
+      P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
+      \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
+      (n\to\infty)
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+
+#+reveal: split
+- 定理の意味
+  #+begin_quote
+  \(X_i\) の分布が何であっても，
+  サンプル数 \(n\) が十分大きければ，
+  標本平均と真の平均の差
+  \(\bar{X}_n-\mu\) 
+  の分布は，
+  *標準正規分布*
+  #+begin_src latex
+    \begin{equation}
+      P\Bigl(a\frac{\sigma}{\sqrt{n}}\leq\bar{X}_n-\mu\leq
+      b\frac{\sigma}{\sqrt{n}} \Bigr)
+      \simeq
+      \frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx
+    \end{equation}
+  #+end_src
+  で近似できる
+  #+end_quote
+
+#+reveal: split
+- 評価の例
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \alpha&=1&&\frac{1}{\sqrt{2\pi}}\int_{-1}^{1}e^{-\frac{x^2}{2}}dx=0.6827\\
+      \alpha&=2&&\frac{1}{\sqrt{2\pi}}\int_{-2}^{2}e^{-\frac{x^2}{2}}dx=0.9545\\
+      \alpha&=3&&\frac{1}{\sqrt{2\pi}}\int_{-3}^{3}e^{-\frac{x^2}{2}}dx=0.9973
+    \end{align}
+  #+end_src
+  #+end_quote
+  - Čebyšëv の不等式による評価と比較してみよ
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 以下の関数を \(x=0\) のまわりで Taylor 展開せよ．
+  - \(\log(1+x)\)
+  - \(\exp(x)\)
+  #+begin_quote
+  関数 \(f(x)\) の点 \(x=a\) における Taylor 展開: 
+  #+begin_src latex
+    \begin{multline}
+      f(x)=f(a)
+      +(x-a)\frac{f^{(1)}(a)}{1!}
+      +(x-a)^2\frac{f^{(2)}(a)}{2!}
+      +\dotsb\\
+      +(x-a)^{n-1}\frac{f^{(n-1)}(a)}{(n-1)!}
+      +(x-a)^n\frac{f^{(n)}(\xi)}{n!}
+    \end{multline}
+    \begin{equation}
+      \xi=a+\theta(x-a),\quad 0<\theta<1
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** COMMENT 解答例
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 対数関数
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \log(1+x)
+      =x-\frac{1}{2}x^2+\frac{1}{3}x^3-\frac{1}{4}x^4+\dotsb
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 指数関数
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \exp(x)
+      =1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\dotsb
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 以下の極限を求めよ
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** COMMENT 解答例
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- Napier 数の計算の一般化
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
+      = e^x
+    \end{equation}
+  #+end_src
+  #+end_quote
+- より一般的には
+  は \(\lim_{n\to\infty}r_n(x)=0\) となる関数に対して
+  以下を用いる場合がある
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}\left(1+\frac{f(x)+r_n(x)}{n}\right)^n
+      =e^{f(x)}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+
+* 定理の略証
+** 証明の考え方
+- 以下は同分布 (平均 \(\mu\) 分散 \(\sigma^{2}\)) の場合で考える
+- step 1
+  #+begin_quote
+  確率変数 \(Y_{nk}\) を
+  #+begin_src latex
+    \begin{equation}
+      Y_{nk}
+      =\frac{X_k-\mathbb{E}[X]}{\sqrt{n\mathrm{Var}(X)}}
+      =\frac{X_k-\mu}{\sqrt{n}\sigma}
+    \end{equation}
+  #+end_src
+  とおくと
+  \(T_n\) は
+  #+begin_src latex
+    \begin{equation}
+      T_n=\sum_{k=1}^nY_{nk}
+    \end{equation}
+  #+end_src
+  と表される．
+  #+end_quote
+
+#+reveal: split
+- step 2
+  #+begin_quote
+  このとき
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[Y_{nk}]&=0, \\
+      \mathrm{Var}(Y_{nk})&=\mathbb{E}[Y_{nk}^2]
+			    =\frac{1}{n}\frac{\mathrm{Var(X)}}{\sigma^{2}}
+			    =\frac{1}{n},\\
+      \mathbb{E}[T_n] &=0, \\
+      \mathrm{Var}(T_n)&=\sum_{k=1}^n\mathrm{Var}(Y_{nk})
+			 =\sum_{k=1}^n\mathbb{E}[Y_{nk}^2]
+			 =1
+    \end{align}
+  #+end_src
+  となる．
+  #+end_quote
+
+#+reveal: split
+- step 3
+  #+begin_quote
+  \(\{Y_{nk},k=1,2,\dotsc,n\}\)
+  は独立であるから，
+  \(T_n\)
+  の特性関数は独立変数の平均値の乗法性より
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[e^{isT_n}]=\prod_{k=1}^{n}\mathbb{E}[e^{isY_{nk}}]
+    \end{equation}
+  #+end_src
+  と分解できる．
+  #+end_quote
+
+#+reveal: split
+- step 4
+  #+begin_quote
+  \(Y_{nk}\) の特性関数に着目して
+  指数関数を適当な項までTaylor展開する．
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[e^{isY_{nk}}]
+      &=\mathbb{E}\left[1+isY_{nk}-\frac{1}{2}s^2Y_{nk}^2
+	+\text{(\(Y_{nk}^3\)以上の項)}\right]\\
+      &=1+is\mathbb{E}[Y_{nk}]-\frac{1}{2}s^2\mathbb{E}[Y_{nk}^2]
+	+\mathbb{E}[\text{(\(s^{3}Y_{nk}^3\)以上の項)}]\\
+      &=1-\frac{1}{2n}s^2
+	+\frac{r_{n}(s)}{n}
+    \end{align}
+  #+end_src
+  ただし \(r_{n}(s)\) は \(\lim_{n\to\infty}r_{n}(s)=0\) となることに注意．
+  #+end_quote
+
+#+reveal: split
+- step 5
+  #+begin_quote
+  したがって 
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[e^{isT_n}]
+      =\prod_{k=1}^{n}\left(
+	1-\frac{1}{2n}s^2
+	+\frac{r_{n}(s)}{n}\right)
+      =\left(
+	1+\frac{-s^2/2}{n}
+	+\frac{r_{n}(s)}{n}\right)^{n}
+    \end{equation}
+  #+end_src
+  であるから
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}\mathbb{E}[e^{isT_n}]
+      =\lim_{n\to\infty}\left(
+	1+\frac{-s^2/2}{n}
+	+\frac{r_{n}(s)}{n}\right)^{n}
+      =e^{-\frac{s^2}{2}}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 偏りのないコインを投げたとき表なら1，
+  裏なら-1となる確率変数 \(X\) を考える．
+  n回投げたときに得られた結果を
+  \(X_1,X_2,\dotsc,X_n\) と書く．
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
+    \end{equation}
+  #+end_src
+  #+end_quote
+  とするとき，以下の問に答えよ．
+  - \(Y_{n}\) の平均と分散を求めよ．
+  - \(Y_{n}\) の特性関数 \(\phi_n(s)\) を求めよ．
+  - 特性関数 \(\phi_n(s)\) の極限 \(\lim_{n\to\infty}\phi_n(s)\) を求めよ．
+** COMMENT ヒント
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- \(X\)の性質は以下のとおり
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[X]
+      &=\frac{1}{2}\times(1)+\frac{1}{2}\times(-1)=0\\
+      \mathrm{Var}(X)
+      &=\mathbb{E}[X^{2}]
+        =\frac{1}{2}\times(1)^{2}+\frac{1}{2}\times(-1)^{2}=1\\
+      \phi_{X}(s)
+      &=\mathbb{E}[e^{isX}]
+        =\frac{1}{2}\times e^{is}+\frac{1}{2}\times e^{-is}
+        =\cos(s)\\
+    \end{align}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- \(Y\)と\(X\)の関係は以下のとおり
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[Y_{n}]
+      &=\frac{1}{\sqrt{n}}\sum_{k=1}^{n}\mathbb{E}[X_{k}]\\
+      \mathrm{Var}(Y_{n})
+      &=\frac{1}{\sqrt{n}^{2}}\sum_{k=1}^{n}\mathrm{Var}(X_{k})\\
+      \phi_{Y_{n}}(s)
+      &=\prod_{k=1}^{n}\phi_{X}(s/\sqrt{n})
+    \end{align}
+  #+end_src
+  #+end_quote
+  - 特性関数の展開については注意せよ
+
+#+reveal: split
+- \(\cos(z)\)の Taylor 展開
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \cos(z)
+      &=\frac{e^{iz}+e^{-iz}}{2}\\
+      &=\frac{1}{2}
+	\left(1+\frac{1}{1!}(iz)+\frac{1}{2!}(iz)^2+\frac{1}{3!}(iz)^3+\dotsb\right)\\
+      &\qquad+\frac{1}{2}
+	\left(1+\frac{1}{1!}(-iz)+\frac{1}{2!}(-iz)^2+\frac{1}{3!}(-iz)^3+\dotsb\right)\\
+      &=1-\frac{1}{2!}z^2+\frac{1}{4!}z^4+\dotsb
+    \end{align}
+  #+end_src
+  #+end_quote
+  - 上記は練習問題の解を利用したもの
+  - 定義に従って計算しても同じ展開が得られる
+  - これを用いて中心極限定理の証明と同様な議論をすればよい
+
+
+* 今回のまとめ
+- 独立変数の和の性質
+  - 大数の法則とその条件
+  - 中心極限定理とその条件
+
+** COMMENT 注意
+- 確認テスト (講義6の中)
+  - 期間: 6/16講義終了-6/22 13:00
+  - 時間制限: 1時間 
+  - 5問 (Bayes の定理の計算問題)
+  - 試験の意味を考えて誠実な対応をすること
+  - ネットワーク環境等には自身で配慮すること
+- 統計の講義ノートを掲載 (講義資料の中)
+  - 1-4章に沿って講義で説明
+  - 付録は補足的な事項
+
+
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      
+  
+   
+   

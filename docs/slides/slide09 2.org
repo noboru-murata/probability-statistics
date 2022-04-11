@@ -1,0 +1,950 @@
+#+TITLE: 最尤推定
+#+SUBTITLE: 確率・統計 - 第9講
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE:
+# Time-stamp: <2021-08-22 17:05:31 mura>
+:REVEAL:
+#+INCLUDE: "./reveal.js/org/mycourse.org"
+#+STARTUP: hidestars content indent
+# C-c C-x C-v でinlineを切り替え
+# <m C-i でlatex block (math env用)
+# C-c '
+:END:
+
+* 前回のおさらい
+- 平均の点推定
+  - 点推定の考え方
+  - 良い不偏推定量
+  - 正規分布モデルの標本平均の性質
+- 平均の区間推定
+  - 区間推定の考え方
+  - 正規分布モデルにおける区間推定
+
+** 統計的推測の考え方
+- 観測データは確率変数の集合
+- 確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要
+- 現象の理解のためには観測された実現値より確率分布にこそ興味がある
+- 一般に分析対象のデータには
+  独立性と同分布性が同時に仮定される
+- 観測データの背後の確率分布を推定
+  - 分布のもつ特性量(平均や分散など)を評価する
+  - 分布そのもの(確率関数や確率密度)を決定する
+
+** 点推定
+- 定義
+  #+begin_quote
+  点推定とは
+  母数(パラメタ) \(\theta\) を \(X_1,\dotsc,X_n\) の関数
+  #+begin_src latex
+    \begin{equation}
+      \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
+    \end{equation}
+  #+end_src
+  で推定することで，
+  \(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
+  #+end_quote
+
+** Cramer-Raoの不等式
+- 定理
+  #+begin_quote
+  1次元母数 \(\theta\) を含む連続分布を考え，
+  その確率密度関数 \(f_\theta(x)\) は \(\theta\) に関して
+  偏微分可能であるとする．
+  このとき，緩やかな仮定の下で，
+  \(\theta\) の任意の不偏推定量 \(\hat{\theta}\) に対して
+  以下の不等式が成り立つ．
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)},
+    \end{equation}
+    \begin{equation}
+      I(\theta)=\int_{-\infty}^\infty
+      \left(\frac{\partial}{\partial\theta}\log f_\theta(x)\right)^2
+      f_\theta(x)dx.
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 一様最小分散不偏推定量
+- 定理 (Cramer-Raoの不等式の系)
+  #+begin_quote
+  \(\theta\) の不偏推定量 \(\hat{\theta}\) で
+  分散が Cramer-Rao 下界に一致するものが存在すれば，
+  一様最小分散不偏推定量となる．
+  #+end_quote
+
+** 推定誤差
+- 推定量 \(\hat{\theta}\) には推定誤差が必ず存在
+- 推定結果の定量評価には推定誤差の評価が重要
+  - "誤差 \(\hat{\theta}-\theta\) が
+    区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 " \\
+    ("外側にある確率が \(\alpha\) 以下")
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
+      \end{equation}
+    #+end_src
+    #+end_quote
+- この確率の厳密あるいは近似的な評価を利用
+
+** 区間推定
+- 定義
+  #+begin_quote
+  区間推定とは
+  未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
+  以下を満たす確率変数 \(L,U\) を観測データから求めることをいう．
+  #+begin_src latex
+    \begin{equation}
+      P(L\le\theta\le U)\ge 1{-}\alpha
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 区間 \([L,U]\) : \(1{-}\alpha\) 信頼区間 (\(100(1{-}\alpha)\) % とも書く)
+  - \(L\) : \(1{-}\alpha\) 下側信頼限界
+  - \(U\) : \(1{-}\alpha\) 上側信頼限界
+  - \(1{-}\alpha\) : 信頼係数
+    (\(\alpha=0.01,0.05,0.1\) など)
+
+** 加法的正規雑音モデル
+- 加法的雑音モデル
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \begin{array}{c@{}c@{}c@{}c@{}cl}
+	X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
+	\text{(確率変数)}&&\text{(未知母数)}&&
+					       \text{(誤差)}
+      \end{array}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 以下の仮定を加える
+  #+begin_quote
+  - \(\varepsilon_{1},\dotsc,\varepsilon_{n}\)
+    は平均0，分散 \(\sigma^{2}\) の正規分布に従う．
+  #+end_quote
+- 観測値の分布
+  #+begin_quote
+  このとき \(X\) は平均 \(\theta\) ，分散 \(\sigma^{2}\) の
+  正規分布に従う．
+  #+end_quote
+
+** 標本平均
+- 平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
+  - 平均母数 \(\theta\) に関するFisher情報量:
+    #+begin_src latex
+      \begin{equation}
+	I(\theta)
+	=
+	\frac{1}{\sigma^2}
+      \end{equation}
+    #+end_src
+  - 標本平均 \(\bar{X}\) の分散: \(\sigma^2/n=\) Cramer-Rao下界
+- \(\bar{X}\) は平均の一様最小分散不偏推定量
+
+** 平均の区間推定
+- 分散既知の場合の信頼区間
+  #+begin_quote
+  \(z_{1{-}\alpha/2}\) を標準正規分布の
+  \(1{-}\alpha/2\) 分位点とすれば
+  #+begin_src latex
+    \begin{equation}
+      P\Bigl(-z_{1{-}\alpha/2}\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+      \le z_{1{-}\alpha/2}\Bigr)=1{-}\alpha
+    \end{equation}
+  #+end_src
+  となるので，
+  \(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
+  以下で構成される．
+  #+begin_src latex
+    \begin{equation}
+      \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
+        \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+* COMMENT メモ
+- 校正に関して記述
+
+
+* 最尤法
+** 離散分布の場合
+- 観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
+  - 確率質量関数: \(f_{\boldsymbol{\theta}}(x)\) 
+  - 確率関数の母数: \(\boldsymbol{\theta}=(\theta_1,\dots,\theta_p)\) 
+  - 独立な確率変数の同時確率:
+    #+begin_quote
+    #+begin_src latex
+      \begin{align}
+	& P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+   =\prod_{i=1}^nP(X_i=x_i)\\
+	&=
+   \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+   =f_{\boldsymbol{\theta}}(x_1)\cdot
+   f_{\boldsymbol{\theta}}(x_2)\cdots
+   f_{\boldsymbol{\theta}}(x_n)
+      \end{align}
+    #+end_src
+    #+end_quote
+
+** 尤度関数
+- 定義
+  #+begin_quote
+  母数 \(\boldsymbol{\theta}\) に対して
+  観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
+  #+begin_src latex
+    \begin{equation}
+      L(\boldsymbol{\theta})
+      =\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
+    \end{equation}
+  #+end_src
+  を
+  \(\boldsymbol{\theta}\) の 
+  *尤度* と言い，
+  \(\boldsymbol{\theta}\) の関数 \(L\) を *尤度関数* と呼ぶ．
+  #+end_quote
+  - 観測データ 
+    \(X_1,X_2,\dots,X_n\) 
+    が現れるのに母数
+    \(\boldsymbol{\theta}\) 
+    の値がどの程度尤もらしいかを測る尺度
+
+** 連続分布の場合
+- 確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義
+- *尤度関数*:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      L(\boldsymbol{\theta})
+      =\prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+      =f_{\boldsymbol{\theta}}(x_1)\cdot
+      f_{\boldsymbol{\theta}}(x_2)\cdots
+      f_{\boldsymbol{\theta}}(x_n)
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 確率変数 \(X_{i}\) が微小な区間
+  \([x_{i}-\delta,x_{i}+\delta]\)
+  に含まれる確率に比例
+
+** 最尤法
+- 最尤法: 
+  #+begin_quote
+  観測データに対して「最も尤もらしい」母数の値
+  を \(\boldsymbol{\theta}\) の推定量として採用する方法
+  を最尤法という．
+  #+end_quote
+- 最尤推定量:
+  #+begin_quote
+  \(\Theta\) を尤度関数の定義域として，
+  尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
+  #+begin_src latex
+    \begin{equation}
+      L(\hat{\boldsymbol{\theta}})
+      =\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+    \end{equation}
+    \begin{equation}
+      \hat{\boldsymbol{\theta}}
+      =\arg\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+    \end{equation}
+  #+end_src
+  を 
+  \(\boldsymbol{\theta}\) 
+  の *最尤推定量* という．
+  #+end_quote
+
+** 最尤推定量の計算
+- *対数尤度関数*:
+  #+begin_quote
+
+  #+begin_src latex
+    \begin{equation}
+      \ell(\boldsymbol{\theta})
+      =\log L(\boldsymbol{\theta})
+      =\sum_{i=1}^n\log f_{\boldsymbol{\theta}}(X_i).
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 対数関数は狭義増加
+  - \(\ell(\boldsymbol{\theta})\) の最大化と \(L(\boldsymbol{\theta})\) の最大化は同義
+  - 扱い易い和の形なのでこちらを用いることが多い
+  - 大数の法則を用いて対数尤度関数の収束が議論できる
+
+
+* 演習
+  :PROPERTIES:
+  :reveal_background: #fef4f4
+  :END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
+  母数 \(\lambda\) の最尤推定量を求めよ．
+  - \(\lambda>0\) の Poisson 分布 (確率質量関数)
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	f(x)
+	=
+	\frac{\lambda^{x}}{x!}e^{-\lambda}
+	\quad
+	(x\text{は0以上の整数})
+      \end{equation}
+    #+end_src
+    #+end_quote
+  - \(\lambda>0\) の指数分布 (確率密度関数)
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	f(x)
+	=
+	\lambda e^{-\lambda x}
+	\quad
+	(x>0)
+      \end{equation}
+    #+end_src
+    #+end_quote
+
+** COMMENT 解答例: Poisson分布の最尤推定
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 対数尤度関数 (未知母数: \(\lambda\) )
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \ell(\lambda)=\sum_{i=1}^n\log\frac{\lambda^{X_i}}{X_i!}e^{-\lambda}
+      =\sum_{i=1}^n(X_i\log\lambda-\log X_i!)-n\lambda
+    \end{equation}
+  #+end_src
+  
+  #+end_quote
+- 少なくとも1つの \(i\) について \(X_i>0\) を仮定する
+
+#+reveal: split
+- \(\ell(\lambda)\) の微分:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \ell'(\lambda)=\frac{1}{\lambda}\sum_{i=1}^nX_i-n,\quad
+      \ell''(\lambda)=-\frac{1}{\lambda^2}\sum_{i=1}^nX_i<0
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化
+- \(\lambda\) の最尤推定量:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \hat{\lambda}=\frac{1}{n}\sum_{i=1}^nX_i
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** COMMENT 解答例: 指数分布の最尤推定
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 対数尤度関数 (未知母数: \(\lambda\) )
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \ell(\lambda)=\sum_{i=1}^n\log\lambda e^{-\lambda X_i}
+      =n\log\lambda-\lambda\sum_{i=1}^nX_i
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- \(\ell(\lambda)\) の微分:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \ell'(\lambda)=\frac{n}{\lambda}-\sum_{i=1}^nX_i,\quad
+      \ell''(\lambda)=-\frac{n}{\lambda^2}<0
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化
+- \(\lambda\) の最尤推定量:
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \hat{\lambda}=\frac{1}{\frac{1}{n}\sum_{i=1}^nX_i}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 参考: ガンマ分布の最尤推定
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 母数 \(\nu,\alpha>0\) のガンマ分布 (調べてみよ)
+- 対数尤度関数 (未知母数: \(\nu,\alpha\) )
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \ell(\nu,\alpha)
+      &=\sum_{i=1}^n\log\frac{\alpha^\nu}{\Gamma(\nu)}X_i^{\nu{-}1}e^{-\alpha X_i}\\
+      &=n\nu\log\alpha-n\log\Gamma(\nu)+\sum_{i=1}^n\{(\nu{-}1)\log X_i-\alpha X_i\}
+    \end{align}
+  #+end_src
+  #+end_quote
+- \(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める
+
+
+* 最尤推定量の性質
+** 一致性
+- 定理
+  #+begin_quote
+  全ての \(x\) に対して \(f(x)>0\) で
+  \(f\) が連続ならば，最尤推定量 \(\hat\theta^*\) は
+  一致推定量になる．
+  すなわち，
+  真の母数の値が \(\theta_0\) のとき，
+  任意の \(\varepsilon>0\) に対して
+  #+begin_src latex
+    \begin{equation}
+      P\left(|\hat\theta^*-\theta_0|<\varepsilon\right)
+      \to1\quad(n\to\infty)
+    \end{equation}
+  #+end_src
+  が成り立つ．
+  #+end_quote
+  - 観測データが十分多ければ，
+    最尤推定量は真の値に一致する
+
+** 証明の概略
+- 対数尤度の大数の法則
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \frac{1}{n}\log L(\theta)
+      \rightarrow^{n\to\infty}
+      =\mathbb{E}_{\theta_0}[\log f(X,\theta)]
+    \end{equation}
+  #+end_src
+  ただし \(\mathbb{E}_{\theta_0}\) は真の母数での平均
+  #+end_quote
+
+#+reveal: split
+- 対数密度/質量の性質
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}_{\theta_0}[\log f(X,\theta)]
+      \le
+      \mathbb{E}_{\theta_0}[\log f(X,\theta_{0})]
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 対数関数の凸性を用いて証明 (資料参照)
+  - 情報理論のエントロピーとも関係
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	\mathbb{E}_{\theta_0}[-\log f(X,\theta)]
+	\ge
+	\mathbb{E}_{\theta_0}[-\log f(X,\theta_{0})]
+      \end{equation}
+    #+end_src
+    #+end_quote
+
+#+reveal: split
+- 対数尤度の性質
+  #+begin_quote
+  \(n\) が十分大きければ
+  #+begin_src latex
+    \begin{equation}
+      \frac{1}{n}\log L(\theta)
+      \le
+      \frac{1}{n}\log L(\theta_{0})
+    \end{equation}
+  #+end_src
+  がほぼ確実に成り立つ
+  #+end_quote
+  - \(n\) が大きければ，真の値で対数尤度は最大になる
+
+** 漸近正規性
+- 定理
+  #+begin_quote
+  \(f(x)>0\)
+  が連続で2階微分可能ならば
+  \(\sqrt{n}(\hat\theta^*-\theta_0)\)
+  は
+  \(n\to\infty\)
+  で正規分布
+  \(\mathcal{N}(0,I(\theta_0)^{-1})\)
+  に近づく．
+  #+end_quote
+  - \(I(\theta_0)\) は Fisher 情報量
+  - 観測データが十分多ければ，
+    最尤推定量の誤差(分散)は
+    Cramer-Rao 下界に一致する
+
+** 証明の概略
+- 真の母数の性質
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}_{\theta_0}\left[
+	\frac{\partial}{\partial\theta}\log f(X,\theta_0)\right]
+      =0
+    \end{equation}
+  #+end_src
+  #+end_quote
+- Fisher 情報量
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      I(\theta_0)
+      &=\mathbb{E}_{\theta_0}
+	\left[
+        -\frac{\partial^2}{\partial\theta^2}\log f(X,\theta_0)
+	\right]
+      \\
+      &=\mathbb{E}_{\theta_0}\left[\left(
+	\frac{\partial}{\partial\theta}\log f(X,\theta_0)\right)^2\right]
+    \end{align}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 最大値の性質
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      L(\hat\theta^*)=\max_{\theta\in\Theta}L(\theta)
+    \end{equation}
+    \begin{equation}
+      \ell(\hat\theta^*)=\max_{\theta\in\Theta}\ell(\theta)
+    \end{equation}
+    \begin{equation}
+      \frac{\partial}{\partial\theta}\ell(\hat\theta^*)
+      =\sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i,\hat\theta^*)
+      =0
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- Taylor 展開による近似
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i,\theta_0)
+      +(\hat\theta^*-\theta_0)
+      \sum_{i=1}^n\frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)
+      =0
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - \(\tilde\theta\)
+    は
+    \(\{X_i\}\) に依存して決まる
+    \(\theta_0\)
+    と
+    \(\hat\theta^*\)
+    の間の値
+
+#+reveal: split
+- 誤差の近似
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \sqrt{n}(\hat\theta^*-\theta_0)
+      \left\{-\frac{1}{n}\sum_{i=1}^n
+      \frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)
+      \right\}\qquad&\\
+      =
+      \frac{1}{\sqrt{n}}\sum_{i=1}^n
+      \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)&
+    \end{align}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 左辺
+  #+begin_quote
+  \(n\)
+  が大きくなると
+  \(\tilde\theta\to\theta_0\)
+  となり，大数の法則により以下が成り立つ．
+  #+begin_src latex
+    \begin{align}
+      &-\frac{1}{n}\sum_{i=1}^n
+	\frac{\partial^2}{\partial\theta^2}\log f(X_i,\tilde\theta)\\
+      &\qquad\to
+	\mathbb{E}_{\theta_0}\left[
+	-\frac{\partial^2}{\partial\theta^2}\log f(X_i,\theta_0)\right]
+	=I(\theta_0)
+    \end{align}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+  - 右辺
+    #+begin_quote
+    \(n\to\infty\)
+    のとき中心極限定理により右辺
+    #+begin_src latex
+      \begin{align}
+	&\frac{1}{\sqrt{n}}\sum_{i=1}^n
+	  \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+	&=
+	  \sqrt{n}\times
+	  \frac{1}{n}\sum_{i=1}^n
+	  \frac{\partial}{\partial\theta}\log f(X_i,\theta_0)\\
+	&=
+	  \sqrt{n}\times
+	  \left(\frac{\partial}{\partial\theta}\log f(X,\theta_0)
+	  \text{の標本平均}\right)
+      \end{align}
+    #+end_src
+    は
+    平均 \(0\) 分散 \(I(\theta_0)\) の正規分布
+    \(\mathcal{N}(0,I(\theta_0))\) に近づく．
+    #+end_quote
+
+#+reveal: split
+- 両辺を整理
+  #+begin_quote
+  \(n\to\infty\) のとき
+  #+begin_src latex
+    \begin{equation}
+      \sqrt{n}I(\theta_0)(\hat\theta^*-\theta_0)
+      \sim \mathcal{N}(0,I(\theta_0))\quad(n\to\infty)
+    \end{equation}
+  #+end_src
+  であるので
+  #+begin_src latex
+    \begin{align}
+      \sqrt{n}(\hat\theta^*-\theta_0)
+      \sim &\mathcal{N}\left(0,I(\theta_0)^{-1}I(\theta_0)I(\theta_0)^{-1}\right)\\
+	   &= \mathcal{N}\left(0,I(\theta_0)^{-1}\right)
+    \end{align}
+  #+end_src
+  となる．
+  #+end_quote
+
+
+* 漸近正規性にもとづく区間推定
+** 推定量の漸近正規性
+- *漸近正規性*
+  #+begin_quote
+  多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
+  #+end_quote
+  - モーメントに基づく記述統計量は漸近正規性をもつ
+  - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
+  - いずれも中心極限定理にもとづく
+- 正規分布を用いて近似的に信頼区間を構成することができる
+  # - 推定誤差の分布が正規分布で近似できる場合
+
+** 漸近正規性にもとづく区間推定
+- 推定量の分布
+  #+begin_quote
+  観測データ数 \(n\) が十分大きいとき，
+  母数 \(\theta\) の推定量 \(\hat\theta\) が
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[\hat\theta]=\theta_{0},\quad
+      \mathrm{Var}(\hat\theta)=s^{2}
+    \end{equation}
+  #+end_src
+  の正規分布で近似できるとする．
+  #+end_quote
+- 信頼区間の構成
+  #+begin_quote
+  母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
+  #+begin_src latex
+    \begin{equation}
+      \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot s,\;
+	\hat{\theta}+z_{1{-}\alpha/2}\cdot s
+      \right]  
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 標本平均の区間推定
+- 定理 (標本平均の漸近正規性)
+  #+begin_quote
+  確率分布が2次のモーメントを持てば，
+  分布の平均 \(\mu\) の推定量である標本平均
+  #+begin_src latex
+    \begin{equation}
+      \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+    \end{equation}
+  #+end_src
+  は漸近正規性をもつ．
+  確率変数 \(X\) の標準偏差の一致推定量を \(\hat\sigma\) とすれば, 
+  \(\phi\) を標準正規分布の確率密度関数として，
+  任意の \(a\le b\) に対して以下が成立する．
+  #+begin_src latex
+    \begin{equation}
+      P\left(a\le\frac{\sqrt{n}(\bar{X}-\mu)}{\hat\sigma}
+	\le b\right)\to\int_a^b\phi(x)dx\quad(n\to\infty)
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 推定量の分散
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(\bar{X})
+      =\frac{\sigma^{2}}{n}
+    \end{equation}
+  #+end_src
+  #+end_quote
+- \(\sigma\) の一致推定量
+  #+begin_quote
+  例えば不偏分散
+  #+begin_src latex
+    \begin{equation}
+      \hat{\sigma}^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+    \end{equation}
+  #+end_src
+  の平方根を用いれば良い．
+  #+end_quote
+
+#+reveal: split
+    - 信頼区間の構成
+      #+begin_quote
+      平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
+      #+begin_src latex
+	\begin{equation}
+	  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}},\;
+	    \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}}\right]
+	\end{equation}
+      #+end_src
+      #+end_quote
+      - サンプル数 \(n\) が十分大きい場合に近似的に正しい
+
+** 最尤推定量の区間推定
+- 定理 (最尤推定量の漸近正規性)
+  #+begin_quote
+  観測データ数 \(n\) が十分大きいとき，
+  1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[\hat\theta]=\theta_{0},\quad
+      \mathrm{Var}(\hat\theta)=\frac{1}{nI(\hat\theta)}
+    \end{equation}
+  #+end_src
+  の正規分布で近似できる．
+  #+end_quote
+
+#+reveal: split
+- 信頼区間の構成
+  #+begin_quote
+  母数 \(\theta\) の \(1{-}\alpha\) 信頼区間は以下で構成される．
+  #+begin_src latex
+    \begin{equation}
+      \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}},\;
+	\hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - サンプル数 \(n\) が十分大きい場合に近似的に正しい
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 選挙の投票率を調べるために，
+  400人にアンケートを実施した結果，
+  320人が投票に行き，残りが行かなかったと答えた．
+  以下の問に答えよ．
+  - 投票率を最尤推定しなさい．
+  - 投票率の最尤推定量の分散を求めよ．
+  - 投票率の0.9信頼区間を求めよ．
+    ただし \(z_{0.95}=1.64\) として計算せよ．
+  - ヒント: 以下のような確率変数を考えるとよい．
+    #+begin_quote
+    #+begin_src latex
+      \begin{equation}
+	X=
+	\begin{cases}
+	  1, &\text{投票に行った}\\
+	  0, &\text{行かなかった}
+	\end{cases}
+      \end{equation}
+    #+end_src
+    #+end_quote
+
+** COMMENT 解答例
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 確率質量関数
+  #+begin_quote
+  投票率を \(\theta\) とし，
+  確率変数 \(X\) の確率質量関数を以下で定義する．
+  #+begin_src latex
+    \begin{align}
+      f(1)&=\theta\\
+      f(0)&=1-\theta
+    \end{align}
+  #+end_src
+  以下のようにまとめられる．(他にも書き方はある)
+  #+begin_src latex
+    \begin{equation}
+      f(x)=\theta^{x}(1-\theta)^{1-x}
+    \end{equation}
+  #+end_src
+  #+end_quote
+  
+#+reveal: split
+- 対数尤度
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \ell(\theta)
+      &=\sum_{i=1}^{400}\log f(X_{i})\\
+      &=\sum_{i=1}^{400}
+	\left\{
+	X_{i}\log\theta+(1-X_{i})\log(1-\theta)
+	\right\}\\
+      &=n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)
+    \end{align}
+  #+end_src
+  ただし \(\bar{X}\) は標本平均．
+  #+end_quote
+
+#+reveal: split
+- 最尤推定量
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      \ell'(\hat\theta)
+      &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
+      \hat\theta&=\bar{X}
+    \end{align}
+  #+end_src
+  #+end_quote
+- 推定値
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \hat\theta
+      =\bar{X}
+      =\frac{320}{400}=0.8
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- Fisher 情報量を用いた場合
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      I(\theta)
+      &=\mathbb{E}
+	\left[
+	-\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
+	\right]\\
+      &=\mathbb{E}
+	\left[
+	\frac{X}{\theta^{2}}+\frac{(1-X)}{(1-\theta)^{2}}
+	\right]\\
+      &=\frac{1}{\theta}+\frac{1}{(1-\theta)}
+	=\frac{1}{\theta(1-\theta)}
+    \end{align}
+  #+end_src
+  よって真の母数が \(\theta_{0}\) のときの推定量の分散は以下のとおり
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(\hat\theta)=\frac{\theta_{0}(1-\theta_{0})}{n}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 標本平均の性質を用いた場合
+  #+begin_quote
+  確率変数の平均と分散は
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[X]
+      &=1\times\theta+0\times(1-\theta)
+	=\theta\\
+      \mathrm{Var}(X)
+      &=\mathbb{E}[X^{2}]-\mathbb{E}[X]^{2}\\
+      &=\theta-\theta^2=\theta(1-\theta)
+    \end{align}
+  #+end_src
+  であるので，
+  真の母数が \(\theta_{0}\) のときの推定量の分散は以下のとおり
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(\hat\theta)
+      =\mathrm{Var}(\bar{X})
+      =\frac{\theta_{0}(1-\theta_{0})}{n}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+reveal: split
+- 推定量の分散の一致推定量
+  #+begin_quote
+  真の値 \(\theta_{0}\) の代理として
+  最尤推定量 \(\hat\theta\) を用いる
+  #+begin_src latex
+    \begin{equation}
+      s^{2}
+      =\frac{\hat\theta(1-\hat\theta)}{n}
+      =\frac{0.8\times0.2}{400}=4\times 10^{-4}
+    \end{equation}
+    \begin{equation}
+      s
+      =0.02
+    \end{equation}
+  #+end_src
+  #+end_quote
+- 0.9信頼区間 (90%信頼区間)
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \left[
+	\hat\theta-z_{0.95}\cdot s,\;
+	\hat\theta+z_{0.95}\cdot s
+      \right]
+      =[0.7672,\;0.8328]
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+
+* 今回のまとめ
+- 最尤法の考え方
+- 最尤推定量の一致性
+- 最尤推定量の漸近正規性
+- 最尤推定量による区間推定
+
+** COMMENT 注意
+- 確認テスト (講義10の中)
+  - 期間: 7/7講義終了-7/13 13:00
+  - 時間制限: 1時間 
+  - 5問 (推定の計算問題，数値をよく確認すること)
+  - 試験の意味を考えて誠実な対応をすること
+  - ネットワーク環境等には自身で配慮すること
+
+
+
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      
+      
+   
