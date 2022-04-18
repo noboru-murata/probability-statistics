@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 16:38:10 mura>
+# Time-stamp: <2022-04-18 18:02:40 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -334,7 +334,7 @@
 - 定義
   #+begin_quote
   定理の2. より
-  \(P(\cdot|A)\) は \(A\) を見本空間とする確率法則になっている．
+  \(P(\cdot|A)\) は \(A\) を標本空間とする確率法則になっている．
   これを \(A\) のもとにおける
   *条件付確率分布* (conditional probability distribution) 
   という．
@@ -580,7 +580,7 @@
   #+end_quote
   - 指示関数は実数値関数
   - \(Y=1_A(\omega)\) 確率変数 \\
-    (見本点 \(\omega\) が事象 \(A\) に含まれたかどうかを表す)
+    (標本点 \(\omega\) が事象 \(A\) に含まれたかどうかを表す)
 
 #+reveal: split
 - 定義

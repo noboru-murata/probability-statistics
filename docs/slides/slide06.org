@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 16:38:44 mura>
+# Time-stamp: <2022-04-18 18:03:01 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -390,7 +390,7 @@
   左辺は，
   平均値から
   \(\sqrt{n\mathrm{Var}(X)}\)
-  以上離れた見本点が得られるという
+  以上離れた標本点が得られるという
   事象 \(|X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\) の起こる確率を表すが，
   これは \(n\) が大きくなるとともに0に近づくので，
   Lindebergの条件は満たされる．
