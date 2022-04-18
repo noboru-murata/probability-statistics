@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-11 17:10:56 mura>
+# Time-stamp: <2022-04-18 17:48:48 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -90,7 +90,7 @@
 #+reveal: split
 - 考え方
   #+begin_quote
-  これまで扱ってきた単純なルーレットに対応づけて考えるればよい．
+  これまで扱ってきた単純なルーレットに対応づけて考えればよい．
   - 歪んだ目盛りの指す区間: \([a,b]\)
   - これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)
   したがって確率測度は以下で計算される．
