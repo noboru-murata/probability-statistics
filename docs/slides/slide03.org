@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-18 17:48:48 mura>
+# Time-stamp: <2022-04-19 10:22:58 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -257,7 +257,7 @@
   2. \(x=-\log(l)\)
   3. \(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)
 
-** COMMENT ヒント
+** ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -599,7 +599,7 @@
        \end{equation}
      #+end_src
      
-** COMMENT ヒント
+** ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -920,12 +920,12 @@
   で積分すると1となることを確かめよ.
 - 次の関数が確率密度となるように \(a\) を定めよ．
   #+begin_src latex
-    \begin{equation*}
+    \begin{equation}
       h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
-    \end{equation*}
+    \end{equation}
   #+end_src
   
-** COMMENT ヒント
+** ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
