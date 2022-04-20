@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-18 17:59:43 mura>
+# Time-stamp: <2022-04-20 17:15:48 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -69,7 +69,7 @@
   # #+end_quote
 
 ** 確率変数の例
-- 骰子振りの確率変数
+- [[color:green][骰子振りの確率変数]]
   #+begin_quote
   骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
 
@@ -83,7 +83,7 @@
   #+end_quote
 
 #+reveal: split
-- 二回の骰子振りの確率変数
+- [[color:green][二回の骰子振りの確率変数]]
   #+begin_quote
   骰子を二回振ったときの出た目の和を考える．
   このときの標本空間は
@@ -116,7 +116,7 @@
   #+end_quote
 
 #+reveal: split
-- ルーレット回しの確率変数
+- [[color:green][ルーレット回しの確率変数]]
   #+begin_quote
   "ルーレット回し"の試行において，
   ルーレットの目盛り \(\omega\) が有理数なら1点，
@@ -145,7 +145,7 @@
   #+end_quote
 
 #+reveal: split
-- 骰子振り
+- [[color:green][骰子振り]]
   #+begin_quote
   "1が出るまで骰子を振り続ける"試行で得られる標本点を \(\omega\) とする．
   このとき，系列 \(\omega\) の長さ
@@ -158,7 +158,7 @@
   #+end_quote
 
 #+reveal: split
-- 工場の製品
+- [[color:green][工場の製品]]
   #+begin_quote
   ある工場で生産されるエンジンの抜き取り検査をして，
   最大出力と燃費を測定したとする．
@@ -293,7 +293,7 @@
   #+end_quote
 
 ** 確率変数の確率空間の例
-- 二回の骰子振りの確率変数 \(X\)
+- [[color:green][二回の骰子振りの確率変数 \(X\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
   #+begin_src latex
@@ -320,7 +320,7 @@
   #+end_quote
 
 #+reveal: split
-- 二回の骰子振りの確率変数 \(Y\)
+- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
   #+begin_src latex
@@ -345,7 +345,7 @@
   #+end_quote
 
 #+reveal: split
-- ルーレット回しの確率変数 \(X\)
+- [[color:green][ルーレット回しの確率変数 \(X\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
   #+begin_src latex
@@ -547,7 +547,7 @@
   #+end_quote
 
 ** 確率変数の変換の例
-- 二回の骰子振りの確率変数の変換
+- [[color:green][二回の骰子振りの確率変数の変換]]
   #+begin_quote
   骰子を二回振ったときの出た目の和を考え，
   和が偶数なら100円貰え，
@@ -636,13 +636,13 @@
   #+end_quote
   - \(X(\omega)\) は \(\omega\) の関数であるが，
     全ての可能な \(\omega\) について和を取っているので，
-    \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する．
+    \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する
   - また，確率変数は関数であるので，
     \(\mathbb{E}\) は関数 \(X(\omega)\) に作用する
-    作用素と考えることができる．
+    作用素と考えることができる
 
 ** 平均値の例
-- 骰子振りの確率変数
+- [[color:green][骰子振りの確率変数]]
   #+begin_quote
   出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
   骰子の目を \(\omega\) で表すことにすれば 
@@ -670,7 +670,7 @@
   #+end_quote
 
 #+reveal: split
-- 二回の骰子振りの確率変数
+- [[color:green][二回の骰子振りの確率変数 \(X\)]]
   #+begin_quote
   出た目の和 \(X\) の平均値は，
   二つの目を \(\omega_1,\omega_2\) で表すことにすれば
@@ -696,24 +696,25 @@
   #+end_quote
 
 #+reveal: split
-#+begin_quote
-二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
-#+begin_src latex
-  \begin{align}
-    \mathbb{E}[Y]
-    &=Y(1,1)\cdot P\{(1,1)\}
-      +Y(1,2)\cdot P\{(1,2)\}
-      % +Y(1,3)\cdot P\{(1,3)\}
-      +\\
-    &\qquad\dotsb
-      +Y(6,5)\cdot P\{(6,5)\}
-      +Y(6,6)\cdot P\{(6,6)\}\\
-    &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
-    &=0
-  \end{align}
-#+end_src
-である．
-#+end_quote
+- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
+  #+begin_quote
+  二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
+  #+begin_src latex
+    \begin{align}
+      \mathbb{E}[Y]
+      &=Y(1,1)\cdot P\{(1,1)\}
+        +Y(1,2)\cdot P\{(1,2)\}
+        % +Y(1,3)\cdot P\{(1,3)\}
+        +\\
+      &\qquad\dotsb
+        +Y(6,5)\cdot P\{(6,5)\}
+        +Y(6,6)\cdot P\{(6,6)\}\\
+      &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
+      &=0
+    \end{align}
+  #+end_src
+  である．
+  #+end_quote
 	  
 ** 連続分布の平均値
 - 定義
@@ -735,10 +736,10 @@
   - 連続分布の場合も
     \(X(\omega)\) は \(\omega\) の関数であるが，
     \(\omega\) に関して積分しているので，
-    平均値 \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する．
+    平均値 \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する
 
 ** 平均値の例
-- ルーレット回しの確率変数
+- [[color:green][ルーレット回しの確率変数]]
   #+begin_quote
   ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
   確率変数 \(X\) の平均値は
@@ -777,7 +778,7 @@
   # である．
   # #+end_quote
 
-** 注意
+** 平均に関する注意
 - 標本空間の制限付平均値
   #+begin_quote
   標本空間を \(A\subset\Omega\) に制限した場合の平均値を
@@ -835,7 +836,7 @@
   #+end_quote
 
 ** 平均値の計算の例
-- 二回の骰子振りの確率変数
+- [[color:green][二回の骰子振りの確率変数]]
   #+begin_quote
   出た目の和 \(X\) の平均値は平均の和の関係を用いると
   #+begin_src latex
@@ -952,7 +953,7 @@
   #+end_quote
 
 ** 確率変数の確率空間による計算
-- 離散分布に従う場合
+- 離散分布に従う場合 :
   #+begin_quote
   #+begin_src latex
     \begin{align}
@@ -964,7 +965,7 @@
   #+end_quote
 
 #+reveal: split
-- 連続分布に従う場合
+- 連続分布に従う場合 :
   #+begin_quote
   #+begin_src latex
     \begin{align}
@@ -976,7 +977,7 @@
   #+end_quote
 
 ** 分散の計算例
-- 二回の骰子振りの確率変数 \(X\)
+- [[color:green][二回の骰子振りの確率変数 \(X\)]]
   #+begin_quote
   出た目の和 \(X\) の分散は
   #+begin_src latex
@@ -992,7 +993,7 @@
   #+end_quote
 
 #+reveal: split
-- 二回の骰子振りの確率変数 \(Y\)
+- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
   #+begin_quote
   また二つの目の大小関係を表す \(Y\) の分散は
   #+begin_src latex
@@ -1007,7 +1008,7 @@
   #+end_quote
 
 #+reveal: split
-- ルーレット回しの確率変数 \(X\)
+- [[color:green][ルーレット回しの確率変数 \(X\)]]
   #+begin_quote
   有理数・無理数を区別する \(X\) の分散は
   #+begin_src latex
@@ -1066,7 +1067,7 @@
   #+end_src
   で定義される．
   #+end_quote
-  - 分散は平均値のまわりの2次モーメントである
+  - /[[color:orange][分散は平均値のまわりの2次モーメントである]]/
 
 #+reveal: split
 - 絶対モーメント
@@ -1143,9 +1144,9 @@
   #+end_src
   で定義される．
   #+end_quote
-  - 特性関数は実数値ではなく複素数値をとることに注意する．
+  - /[[color:orange][特性関数は実数値ではなく複素数値をとることに注意する]]/
 
-** 注意
+** 特性関数に関する注意
 - Fourier変換との関係
   #+begin_quote
   # #+begin_src latex
@@ -1206,7 +1207,7 @@
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
-1. 定義に従って計算する．
+1. 定義に従って計算する
    #+begin_quote
    #+begin_src latex
      \begin{align}
@@ -1217,8 +1218,8 @@
      \end{align}
    #+end_src
    #+end_quote
-2. 指数の肩の2次式を整理する．
-3. 標準正規分布の結果を利用する．
+2. 指数の肩の2次式を整理する
+3. 標準正規分布の結果を利用する
 
 
 * 今回のまとめ
