@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-20 17:15:48 mura>
+# Time-stamp: <2022-04-26 10:07:10 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -154,7 +154,7 @@
       X(\omega)=\text{系列\(\omega\)の長さ}
     \end{equation}
   #+end_src
-  は自然数 \(\mathbb{N}\) 上の確率変数と考えることができる．
+  は自然数 \(\mathbb{N}\) の値を取る確率変数と考えることができる．
   #+end_quote
 
 #+reveal: split
@@ -436,7 +436,7 @@
   2. 確率測度
   3. 確率密度
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -797,7 +797,7 @@
 #+reveal: split
 - 確率変数ベクトル
   #+begin_quote
-  \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算ればよい．
+  \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
   #+begin_src latex
     \begin{equation}
       \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
@@ -888,7 +888,7 @@
   1. \(\omega\) の確率空間の確率測度
   2. \(Y\) の確率空間の確率測度
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -930,7 +930,7 @@
   は平均値を用いて
   #+begin_src latex
     \begin{equation}
-      \mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}{X})^2]
+      \mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]
     \end{equation}
   #+end_src
   で定義される．
@@ -1095,7 +1095,7 @@
   1. 区間 \((-1,1)\) 上の一様分布
   2. ルーレット回しの確率変数 \(Y\)
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -1203,7 +1203,7 @@
   2. 標準正規分布
   3. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
 
-** COMMENT ヒント
+** ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
