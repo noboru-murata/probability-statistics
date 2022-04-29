@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-12 10:24:55 mura>
+# Time-stamp: <2022-04-29 15:18:49 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -22,15 +22,13 @@
 * COMMENT メモ
 - 校正に関して記述
 
-
+  
 * 有理数の可算性
-# #+begin_notes
 # 集合を含まれる要素の数によって分類することがある．
 # この場合無限個の要素からなる集合でも，
 # "数えられる無限個"と
 # "数えられない無限個"では性質が異なる．
 # まず数えられる無限個を考える．
-# #+end_notes
 
 ** 可算集合
 - 定義
@@ -221,9 +219,7 @@
 
 
 * 無理数の非可算性
-# #+begin_notes
 # 次に数えられない無限個とは何かを考える．
-# #+end_notes
 
 ** 非可算集合
 - 定義
@@ -347,10 +343,8 @@
 
 
 * 一般の確率測度
-# #+begin_notes
 # 有限試行ではない一般の標本空間を考えた場合に，
 # 確率測度 \(P\) がどんな性質をもたなくてはいけないかを説明する．
-# #+end_notes
 
 ** 可測集合
 - 可測集合 (measurable set) ::
@@ -442,10 +436,8 @@
 
 
 * Lebesgue 測度
-# #+begin_notes
 # 一般の確率測度の中でも
 # 応用上最も重要な測度について説明する．
-# #+end_notes
 
 ** ルーレット回しの確率測度
 - 区間 \((0,1]\) からの無作為抽出 
@@ -698,7 +690,16 @@
   - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
   - "ほとんど確実に成り立つ"
 
+** COMMENT 注意
+- 確認テスト (講義2の中)
+  - 確率空間に関する基本問題
+  - 期間と時間制限に注意
+  - 試験の意味を考えて誠実な対応をすること
+  - ネットワーク環境等には自身で配慮すること
+  - 過去問などに取り組んでから受けることをお勧め
 
+    
+* Footnotes
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted

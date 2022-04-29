@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-18 18:02:40 mura>
+# Time-stamp: <2022-04-29 15:29:49 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -143,11 +143,9 @@
 
 
 * 条件付確率
-# #+begin_notes
 # 条件付確率とは，
 # 時間的な前後とは関係なく事象の間に定義される
 # 一種の因果関係を記述するための確率論の枠組である．
-# #+end_notes
   
 ** 条件付確率
 - 定義
@@ -193,7 +191,7 @@
   とすることがある
 
 ** 条件付確率の例
-- 骰子を一回振る試行
+- [[color:green][骰子を一回振る試行]]
   #+begin_quote
   以下の事象を定義する．
   #+begin_src latex
@@ -208,7 +206,7 @@
   #+end_quote
 
 #+reveal: split
-- "偶数の目が出たとき，それが素数である" 確率
+- [[color:green]["偶数の目が出たとき，それが素数である" 確率]]
   #+begin_quote
   #+begin_src latex
     \begin{align}
@@ -222,7 +220,7 @@
   #+end_quote
 
 #+reveal: split
-- "偶数の目が出たとき，それが素数でない" 確率
+- [[color:green]["偶数の目が出たとき，それが素数でない" 確率]]
   #+begin_quote
   #+begin_src latex
     \begin{align}
@@ -230,10 +228,11 @@
       &=\frac{P(A\cap B^{c})}{P(A)}\\
       &=\frac{P(\text{偶数かつ素数でない目が出る})}{P(\text{偶数の目が出る})}\\
       &=\frac{2/6}{1/2}=\frac{2}{3}
-	=1-P(B|A)
+        =1-P(B|A)
     \end{align}
   #+end_src
   #+end_quote
+
   # #+begin_src latex
   #   \begin{align}
   #     P(B|A)
@@ -361,11 +360,9 @@
 
 
 * Bayesの定理
-# #+begin_notes
 # 事象をうまく分解することによって導かれるBayesの定理を利用して
 # 条件が逆向きとなる関係を陽に計算することもできる．
 # 確率的な推論には欠くことのできない重要な概念となっている．
-# #+end_notes
 
 ** Bayesの定理 (基本形)
 - 定理
@@ -378,7 +375,7 @@
     \end{equation}
   #+end_src
   #+end_quote
-  - 定理の4.より導かれる
+  - 前出の定理の4.より導かれる
   - 左辺と右辺で事象 \(A,B\) の役割が異なる
 
 ** Bayesの定理 (一般形)
@@ -430,12 +427,10 @@
 
 
 * 独立性
-# #+begin_notes
 # 独立性とは2つの確率変数が
 # 確率法則の意味で無関係となることである．
 # その定義の仕方はいくつかあるが，
 # 本質は条件付確率の性質によって理解できる．
-# #+end_notes
 
 ** 確率変数の独立性
 - 定義 (有限試行の場合)
@@ -716,6 +711,7 @@
   - 確率変数と事象の独立性
 
 
+* Footnotes
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted

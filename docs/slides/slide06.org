@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-18 18:03:01 mura>
+# Time-stamp: <2022-04-29 15:41:58 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -31,7 +31,7 @@
   #+end_src
   で定義される．
   #+end_quote
-  - 特性関数は実数値ではなく複素数値をとることに注意する．
+  - 特性関数は実数値ではなく複素数値をとることに注意する
 
 ** 特性関数の性質
 - 逆変換の存在
@@ -91,13 +91,11 @@
 
 
 * 大数の法則
-# #+begin_notes
 # 確率的なゆらぎに起因する確率変数の不確実な部分が，
 # 同一の確率法則に従う多数の確率変数を
 # 足し合わせることによって
 # 相殺し取り除かれる．
 # 大数の法則と呼ばれるこの性質を証明する．
-# #+end_notes
 
 ** 記号の準備
 - 確率変数列
@@ -267,8 +265,8 @@
 
 #+reveal: split
 - 大数の法則(弱法則)より強い意味での収束性を主張
-  - 大数の弱法則: 確率収束
-  - 大数の強法則: 概収束
+  - 大数の弱法則 : 確率収束
+  - 大数の強法則 : 概収束
 
 ** 同分布の場合の大数の強法則
 - 定理
@@ -333,10 +331,8 @@
 
 
 * 中心極限定理
-# #+begin_notes
 # 大数の法則を精密化したものが
 # 中心極限定理である．
-# #+end_notes
 
 ** Lindeberg の中心極限定理
 - 定理
@@ -393,7 +389,7 @@
   以上離れた標本点が得られるという
   事象 \(|X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\) の起こる確率を表すが，
   これは \(n\) が大きくなるとともに0に近づくので，
-  Lindebergの条件は満たされる．
+  Lindeberg の条件は満たされる．
   #+end_quote
 
 #+reveal: split
@@ -445,7 +441,7 @@
   標本平均と真の平均の差
   \(\bar{X}_n-\mu\) 
   の分布は，
-  *標準正規分布*
+  *標準正規分布* を利用して
   #+begin_src latex
     \begin{equation}
       P\Bigl(a\frac{\sigma}{\sqrt{n}}\leq\bar{X}_n-\mu\leq
@@ -454,7 +450,7 @@
       \frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx
     \end{equation}
   #+end_src
-  で近似できる
+  で近似できる．
   #+end_quote
 
 #+reveal: split
@@ -752,16 +748,15 @@
 
 ** COMMENT 注意
 - 確認テスト (講義6の中)
-  - 期間: 6/16講義終了-6/22 13:00
-  - 時間制限: 1時間 
-  - 5問 (Bayes の定理の計算問題)
+  - Bayes の定理の計算問題
+  - 期間と時間制限に注意
   - 試験の意味を考えて誠実な対応をすること
   - ネットワーク環境等には自身で配慮すること
-- 統計の講義ノートを掲載 (講義資料の中)
-  - 1-4章に沿って講義で説明
-  - 付録は補足的な事項
+  - 過去問などで手を動かしてから受けることをお勧め
+- 次週は理解度確認
 
-
+  
+* Footnotes
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted
