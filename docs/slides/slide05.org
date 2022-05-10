@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-29 15:29:49 mura>
+# Time-stamp: <2022-05-10 08:45:16 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -63,7 +63,7 @@
   1. 標準正規分布
   2. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -402,7 +402,7 @@
 :END:
 - Bayes の定理(一般形)を証明せよ．
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -645,7 +645,7 @@
   - Aの売上が上がったとき，
     B,Cの一方のみ評価が上がった確率はいくつか？
 
-** COMMENT ヒント
+** ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

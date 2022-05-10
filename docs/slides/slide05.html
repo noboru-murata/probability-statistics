@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-orga57e400">
-<h2 id="orga57e400">前回のおさらい</h2>
+<section id="slide-orgfea29a2">
+<h2 id="orgfea29a2">前回のおさらい</h2>
 <ul>
 <li>確率変数
 <ul>
@@ -64,8 +64,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org59b635f">
-<h3 id="org59b635f">特性関数</h3>
+<section id="slide-orge01a99e">
+<h3 id="orge01a99e">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -95,8 +95,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgdce23ba">
-<h3 id="orgdce23ba">特性関数の性質</h3>
+<section id="slide-org73446b4">
+<h3 id="org73446b4">特性関数の性質</h3>
 <ul>
 <li><p>
 逆変換の存在
@@ -126,12 +126,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org354c380" data-background="#fef4f4">
-<h2 id="org354c380">演習</h2>
+<section id="slide-org1ba16a7" data-background="#fef4f4">
+<h2 id="org1ba16a7">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org457776a" data-background="#fef4f4">
-<h3 id="org457776a">練習問題</h3>
+<section id="slide-org5c322a3" data-background="#fef4f4">
+<h3 id="org5c322a3">練習問題</h3>
 <ul>
 <li>以下の確率測度の特性関数を求めよ．
 <ol>
@@ -144,15 +144,135 @@
 <div class="slide-footer"><br></div>
 
 </section>
+<section id="slide-org4eec87a" data-background="#fef4f4">
+<h3 id="org4eec87a">解答例</h3>
+<ul>
+<li>\(X\): 標準正規分布に従う確率変数</li>
+<li><p>
+定義に従って計算
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{X}(s)
+  &=\mathbb{E}[e^{isX}]\\
+  &=\int_{-\infty}^{\infty}e^{isx}\cdot
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
+  &=\int_{-\infty}^{\infty}
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}+isx}dx\\
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+2次式を整理
+</p>
+<blockquote>
+<div>
+\begin{align}
+  -\frac{x^{2}}{2}+isx
+  &=-\frac{x^{2}-2isx}{2}\\
+  &=-\frac{x^{2}-2isx+(is)^{2}-(is)^{2}}{2}\\
+  &=-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+正規分布の密度関数の積分(=1)に帰着
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{X}(s)
+  &=\int_{-\infty}^{\infty}
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}}dx\\
+  &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
+  &=e^{-\frac{s^{2}}{2}}
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>厳密には複素積分の基本的性質 (Cauchy の積分定理) を使う</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li>\(Y\): 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布に従う確率変数</li>
+<li><p>
+前問と同様に定義に従って計算
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{Y}(s)
+  &=\mathbb{E}[e^{isY}]\\
+  &=\int_{-\infty}^{\infty}e^{isy}\cdot
+    \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}}dy
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(Y=\sigma X + \mu\) の関係を利用
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{Y}(s)
+  &=\mathbb{E}[e^{isY}]
+    =\mathbb{E}[e^{is(\sigma X + \mu)}]\\
+  &=e^{\mu is}\cdot\mathbb{E}[e^{i(\sigma s) X)}]
+    =e^{\mu is}\cdot\phi_{X}(\sigma s)\\
+  &=e^{\mu is}e^{-\frac{\sigma^{2}s^{2}}{2}}
+    =e^{\mu is-\frac{\sigma^{2}s^{2}}{2}}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
 </section>
 <section>
-<section id="slide-org85fb775">
-<h2 id="org85fb775">条件付確率</h2>
+<section id="slide-org2c44fc4">
+<h2 id="org2c44fc4">条件付確率</h2>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orged58ea8">
-<h3 id="orged58ea8">条件付確率</h3>
+<section id="slide-org0049aed">
+<h3 id="org0049aed">条件付確率</h3>
 <ul>
 <li><p>
 定義
@@ -181,8 +301,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgc75345d">
-<h3 id="orgc75345d">同時確率と条件付確率</h3>
+<section id="slide-orgd6f6820">
+<h3 id="orgd6f6820">同時確率と条件付確率</h3>
 <ul>
 <li><p>
 <b>同時確率</b> \(P(A\cap B)\)
@@ -205,8 +325,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org7acaf73">
-<h3 id="org7acaf73">条件付確率に関する注意</h3>
+<section id="slide-org609a02d">
+<h3 id="org609a02d">条件付確率に関する注意</h3>
 <ul>
 <li>事象 \(A\) は空でない \(A\not=\emptyset\) とする</li>
 <li><p>
@@ -233,8 +353,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org5b4f235">
-<h3 id="org5b4f235">条件付確率の例</h3>
+<section id="slide-orgf56737d">
+<h3 id="orgf56737d">条件付確率の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子を一回振る試行</span>
@@ -309,8 +429,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org264f7c2">
-<h3 id="org264f7c2">確率変数による条件の表現</h3>
+<section id="slide-org79e980b">
+<h3 id="org79e980b">確率変数による条件の表現</h3>
 <ul>
 <li><p>
 確率変数が一つの値を取る場合
@@ -437,8 +557,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org948419a">
-<h3 id="org948419a">条件付確率の性質</h3>
+<section id="slide-orge64a527">
+<h3 id="orge64a527">条件付確率の性質</h3>
 <ul>
 <li><p>
 定理
@@ -465,8 +585,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org9a3a4de">
-<h3 id="org9a3a4de">条件付確率分布</h3>
+<section id="slide-orgc0a2409">
+<h3 id="orgc0a2409">条件付確率分布</h3>
 <ul>
 <li><p>
 定義
@@ -485,8 +605,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org6b93216">
-<h3 id="org6b93216">条件付平均値</h3>
+<section id="slide-orgaa589c1">
+<h3 id="orgaa589c1">条件付平均値</h3>
 <ul>
 <li><p>
 定義
@@ -521,13 +641,13 @@
 </section>
 </section>
 <section>
-<section id="slide-org4dcf013">
-<h2 id="org4dcf013">Bayesの定理</h2>
+<section id="slide-orgc5f9644">
+<h2 id="orgc5f9644">Bayesの定理</h2>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgd67b1b3">
-<h3 id="orgd67b1b3">Bayesの定理 (基本形)</h3>
+<section id="slide-org7012646">
+<h3 id="org7012646">Bayesの定理 (基本形)</h3>
 <ul>
 <li><p>
 定理
@@ -554,8 +674,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org9949c3c">
-<h3 id="org9949c3c">Bayesの定理 (一般形)</h3>
+<section id="slide-org6dd3a8d">
+<h3 id="org6dd3a8d">Bayesの定理 (一般形)</h3>
 <ul>
 <li><p>
 定理
@@ -584,12 +704,12 @@
 </section>
 </section>
 <section>
-<section id="slide-orgbdd84dd" data-background="#fef4f4">
-<h2 id="orgbdd84dd">演習</h2>
+<section id="slide-orgc10c998" data-background="#fef4f4">
+<h2 id="orgc10c998">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc28b5c0" data-background="#fef4f4">
-<h3 id="orgc28b5c0">練習問題</h3>
+<section id="slide-orga3b98a1" data-background="#fef4f4">
+<h3 id="orga3b98a1">練習問題</h3>
 <ul>
 <li>Bayes の定理(一般形)を証明せよ．</li>
 
@@ -597,15 +717,50 @@
 <div class="slide-footer"><br></div>
 
 </section>
+<section id="slide-org4c591fa" data-background="#fef4f4">
+<h3 id="org4c591fa">解答例</h3>
+<ul>
+<li><p>
+証明
+</p>
+<blockquote>
+<p>
+事象 \(B\) と \(A_i\) との関係は
+全事象を利用すると
+</p>
+<div>
+\begin{equation}
+  P(B)
+  =P(\Omega\cap B)
+  =P(\sum_{k=1}^nA_k\cap B)
+  =\sum_{k=1}^nP(A_k\cap B)
+\end{equation}
+
+</div>
+
+<p>
+と分解できる．
+すなわち
+\(\Omega=A_1+A_2+\dotsb+A_n\) のとき
+\(A_k\cap B\) は互いに排反な事象となる．
+これと定理を用いれば分母の表現が得られる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
 </section>
 <section>
-<section id="slide-org0561e99">
-<h2 id="org0561e99">独立性</h2>
+<section id="slide-org7c93870">
+<h2 id="org7c93870">独立性</h2>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org351beab">
-<h3 id="org351beab">確率変数の独立性</h3>
+<section id="slide-orgf3a093b">
+<h3 id="orgf3a093b">確率変数の独立性</h3>
 <ul>
 <li><p>
 定義 (有限試行の場合)
@@ -754,8 +909,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org5a2802f">
-<h3 id="org5a2802f">独立性の性質</h3>
+<section id="slide-org9c04056">
+<h3 id="org9c04056">独立性の性質</h3>
 <ul>
 <li><p>
 定理
@@ -844,8 +999,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org86f46e6">
-<h3 id="org86f46e6">事象の独立性</h3>
+<section id="slide-orge49fc89">
+<h3 id="orge49fc89">事象の独立性</h3>
 <ul>
 <li><p>
 指示関数
@@ -905,8 +1060,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgaaadd7d">
-<h3 id="orgaaadd7d">事象の独立性の同値条件</h3>
+<section id="slide-orgf3feb68">
+<h3 id="orgf3feb68">事象の独立性の同値条件</h3>
 <ul>
 <li><p>
 定理
@@ -950,12 +1105,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org1507e5e" data-background="#fef4f4">
-<h2 id="org1507e5e">演習</h2>
+<section id="slide-org15c906c" data-background="#fef4f4">
+<h2 id="org15c906c">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7b89af3" data-background="#fef4f4">
-<h3 id="org7b89af3">練習問題</h3>
+<section id="slide-org6c0f3e8" data-background="#fef4f4">
+<h3 id="org6c0f3e8">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -1000,10 +1155,96 @@ B,Cの一方のみ評価が上がった確率はいくつか？</li>
 <div class="slide-footer"><br></div>
 
 </section>
+<section id="slide-org368eef6" data-background="#fef4f4">
+<h3 id="org368eef6">ヒント</h3>
+<ul>
+<li><p>
+扱う事象を整理する
+</p>
+<blockquote>
+<div>
+\begin{align}
+  A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
+  B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
+  C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+前提条件を書き下す
+</p>
+<blockquote>
+<div>
+\begin{align}
+  &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
+  &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
+  &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
+  &P(B)=0.5&&P(B^{c})=0.5\\
+  &P(C)=0.6&&P(C^{c})=0.4\\
+  &\mathrm{Cov}(X,Y)=0.1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+求める確率は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  &P(B\cap C)\\
+  &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+  &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+  &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li><p>
+第1問は共分散の計算を利用すれば求められる
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathrm{Cov}(X,Y)
+  &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+  &=P(X=1,Y=1)-P(X=1)P(Y=1)
+\end{align}
+
+</div>
+</blockquote></li>
+<li>第1問の結果を利用すると前提条件から 
+\(P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})\)
+も求められる</li>
+<li>第2,3問は必要な確率を整理して Bayes の定理を用いればよい</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
 </section>
 <section>
-<section id="slide-org5b68c85">
-<h2 id="org5b68c85">今回のまとめ</h2>
+<section id="slide-org62a0bd3">
+<h2 id="org62a0bd3">今回のまとめ</h2>
 <ul>
 <li>条件付確率と独立性
 <ul>
