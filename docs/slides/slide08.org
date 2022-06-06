@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 16:54:36 mura>
+# Time-stamp: <2022-06-06 21:29:29 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -24,7 +24,7 @@
 * COMMENT メモ
 - 校正に関して記述
 
-
+* COMMENT 確率論の復習
 ** 確率と統計
 - 確率
   #+begin_quote
@@ -175,7 +175,7 @@
   で推定すること．
   #+end_quote
   # \(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
-- [[color:darkgreen][平均や分散は分布の母数の1つ]]
+- [[color:green][平均や分散は分布の母数の1つ]]
   #+begin_quote
   - 平均 \(\mu\) を
     標本平均 \(\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\) によって
@@ -205,7 +205,7 @@
   *一様最小分散不偏推定量*
   という．
   #+end_quote
-  - 常に存在するとは限らない
+  - /[[color:orange][常に存在するとは限らない]]/
 
 ** Cramér-Rao の不等式
 - 定理
@@ -231,7 +231,7 @@
 
 ** 一様最小分散不偏推定量の存在
 - 用語
-  - 下界 \(1/(nI(\theta))\) : Cramér-Rao 下界
+  - 下界 \(1/nI(\theta)\) : Cramér-Rao 下界
   - \(I(\theta)\) : Fisher 情報量
 - 定理 (Cramér-Raoの不等式の系)
   #+begin_quote
@@ -373,7 +373,7 @@
 
 ** 正規分布モデルの標本平均
 - 平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
-  - 平均母数 \(\theta\) に関する Fisher 情報量:
+  - 平均母数 \(\theta\) に関する Fisher 情報量 :
     #+begin_src latex
       \begin{equation}
 	I(\theta)
@@ -381,8 +381,8 @@
 	\frac{1}{\sigma^2}
       \end{equation}
     #+end_src
-  - Cramér-Rao 下界: \(1/nI(\theta)=\sigma^2/n\) 
-  - 標本平均 \(\bar{X}\) の分散: \(\sigma^2/n\) (= Cramér-Rao 下界)
+  - Cramér-Rao 下界 : \(1/nI(\theta)=\sigma^2/n\) 
+  - 標本平均 \(\bar{X}\) の分散 : \(\sigma^2/n\) (= Cramér-Rao 下界)
 - \(\bar{X}\) は平均の一様最小分散不偏推定量
 
 ** 一般の分布の場合の注意
@@ -684,7 +684,7 @@
     は自由度 \(k\) の \(t\) 分布に従う
 
 #+reveal: split
-- 標本平均と不偏分散の関係
+- 命題 (標本平均と不偏分散の関係)
   #+begin_quote
   \(X_1,X_2,\dots,X_n\) は独立同分布な確率変数列で，
   平均 \(\mu\) ，分散 \(\sigma^2\) の正規分布に従うとする．
@@ -750,6 +750,7 @@
   - 正規分布モデルにおける区間推定
 
 
+* Footnotes
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted
