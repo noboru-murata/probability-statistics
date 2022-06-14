@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-06 21:29:29 mura>
+# Time-stamp: <2022-06-13 21:02:03 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -11,6 +11,9 @@
 # <m C-i でlatex block (math env用)
 # C-c '
 :END:
+
+* COMMENT メモ
+- 校正に関して記述
 
 * 前回のおさらい
 - 確率モデルと推定量
@@ -21,10 +24,7 @@
   - 推定量の平均値の不偏性
   - 推定量の分散の大きさ
 
-* COMMENT メモ
-- 校正に関して記述
-
-* COMMENT 確率論の復習
+* COMMENT 確率論の復習(とりあえず不要)
 ** 確率と統計
 - 確率
   #+begin_quote
@@ -264,7 +264,7 @@
   #+end_src
   #+end_quote
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -296,7 +296,7 @@
 	\left(\frac{\partial}{\partial\theta}\log f_{\theta}(x)\right)^2
 	f_{\theta}(x)dx\\
       &=\int_{-\infty}^\infty
-	\left(-\frac{x-\theta}{\sigma^2}\right)^{2}
+	\left(\frac{x-\theta}{\sigma^2}\right)^{2}
 	\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
       &=\frac{1}{\sigma^4}
 	\int_{-\infty}^\infty
@@ -408,7 +408,7 @@
 - 上記のモデルにおいて
   \(\theta\) に関する Fisher 情報量を求めよ．
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -528,7 +528,7 @@
   \(Z\) の平均と分散を求めよ．
 - 確率変数 \(Z\) がどのような分布になるか答えよ．
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2021-08-22 17:05:31 mura>
+# Time-stamp: <2022-06-14 11:16:14 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -11,6 +11,9 @@
 # <m C-i でlatex block (math env用)
 # C-c '
 :END:
+
+* COMMENT メモ
+- 校正に関して記述
 
 * 前回のおさらい
 - 平均の点推定
@@ -29,7 +32,7 @@
   独立性と同分布性が同時に仮定される
 - 観測データの背後の確率分布を推定
   - 分布のもつ特性量(平均や分散など)を評価する
-  - 分布そのもの(確率関数や確率密度)を決定する
+  - 分布そのもの(確率質量関数や確率密度関数)を決定する
 
 ** 点推定
 - 定義
@@ -133,7 +136,7 @@
 
 ** 標本平均
 - 平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
-  - 平均母数 \(\theta\) に関するFisher情報量:
+  - 平均母数 \(\theta\) に関するFisher情報量 :
     #+begin_src latex
       \begin{equation}
 	I(\theta)
@@ -166,26 +169,23 @@
   #+end_src
   #+end_quote
 
-* COMMENT メモ
-- 校正に関して記述
-
 
 * 最尤法
 ** 離散分布の場合
 - 観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
-  - 確率質量関数: \(f_{\boldsymbol{\theta}}(x)\) 
-  - 確率関数の母数: \(\boldsymbol{\theta}=(\theta_1,\dots,\theta_p)\) 
-  - 独立な確率変数の同時確率:
+  - 確率質量関数 : \(f_{\boldsymbol{\theta}}(x)\) 
+  - 確率質量関数の母数 : \(\boldsymbol{\theta}=(\theta_1,\dots,\theta_p)\) 
+  - 独立な確率変数の同時確率 :
     #+begin_quote
     #+begin_src latex
       \begin{align}
-	& P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
-   =\prod_{i=1}^nP(X_i=x_i)\\
-	&=
-   \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
-   =f_{\boldsymbol{\theta}}(x_1)\cdot
-   f_{\boldsymbol{\theta}}(x_2)\cdots
-   f_{\boldsymbol{\theta}}(x_n)
+        & P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+          =\prod_{i=1}^nP(X_i=x_i)\\
+        &=
+          \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+          =f_{\boldsymbol{\theta}}(x_1)\cdot
+          f_{\boldsymbol{\theta}}(x_2)\cdots
+          f_{\boldsymbol{\theta}}(x_n)
       \end{align}
     #+end_src
     #+end_quote
@@ -210,11 +210,11 @@
     \(X_1,X_2,\dots,X_n\) 
     が現れるのに母数
     \(\boldsymbol{\theta}\) 
-    の値がどの程度尤もらしいかを測る尺度
+    の値がどの程度 *尤もらしいか* を測る尺度
 
 ** 連続分布の場合
 - 確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義
-- *尤度関数*:
+- *尤度関数* :
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -226,18 +226,18 @@
     \end{equation}
   #+end_src
   #+end_quote
-- 確率変数 \(X_{i}\) が微小な区間
-  \([x_{i}-\delta,x_{i}+\delta]\)
-  に含まれる確率に比例
+  - 確率データ \(X_{i}\) が微小な区間
+    \([x_{i}-\delta,x_{i}+\delta]\)
+    に含まれる確率に比例する量
 
 ** 最尤法
-- 最尤法: 
+- 最尤法 : 
   #+begin_quote
   観測データに対して「最も尤もらしい」母数の値
   を \(\boldsymbol{\theta}\) の推定量として採用する方法
-  を最尤法という．
+  を *最尤法* という．
   #+end_quote
-- 最尤推定量:
+- 最尤推定量 :
   #+begin_quote
   \(\Theta\) を尤度関数の定義域として，
   尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
@@ -257,7 +257,7 @@
   #+end_quote
 
 ** 最尤推定量の計算
-- *対数尤度関数*:
+- *対数尤度関数* :
   #+begin_quote
 
   #+begin_src latex
@@ -309,11 +309,11 @@
     #+end_src
     #+end_quote
 
-** COMMENT 解答例: Poisson分布の最尤推定
+** 解答例 : Poisson分布の最尤推定
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
-- 対数尤度関数 (未知母数: \(\lambda\) )
+- 対数尤度関数 (未知母数 : \(\lambda\) )
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -321,12 +321,11 @@
       =\sum_{i=1}^n(X_i\log\lambda-\log X_i!)-n\lambda
     \end{equation}
   #+end_src
-  
   #+end_quote
-- 少なくとも1つの \(i\) について \(X_i>0\) を仮定する
+  - 少なくとも1つの \(i\) について \(X_i>0\) を仮定する
 
 #+reveal: split
-- \(\ell(\lambda)\) の微分:
+- \(\ell(\lambda)\) の微分 :
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -335,8 +334,8 @@
     \end{equation}
   #+end_src
   #+end_quote
-- 方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化
-- \(\lambda\) の最尤推定量:
+- 上に凸なので方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化
+- \(\lambda\) の最尤推定量 :
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -345,11 +344,11 @@
   #+end_src
   #+end_quote
 
-** COMMENT 解答例: 指数分布の最尤推定
+** 解答例 : 指数分布の最尤推定
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
-- 対数尤度関数 (未知母数: \(\lambda\) )
+- 対数尤度関数 (未知母数 : \(\lambda\) )
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -360,7 +359,7 @@
   #+end_quote
 
 #+reveal: split
-- \(\ell(\lambda)\) の微分:
+- \(\ell(\lambda)\) の微分 :
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -370,7 +369,7 @@
   #+end_src
   #+end_quote
 - 方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化
-- \(\lambda\) の最尤推定量:
+- \(\lambda\) の最尤推定量 :
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -379,7 +378,7 @@
   #+end_src
   #+end_quote
 
-** 参考: ガンマ分布の最尤推定
+** 参考 : ガンマ分布の最尤推定
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -394,7 +393,7 @@
     \end{align}
   #+end_src
   #+end_quote
-- \(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める
+  - \(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める
 
 
 * 最尤推定量の性質
@@ -425,14 +424,14 @@
     \begin{equation}
       \frac{1}{n}\log L(\theta)
       \rightarrow^{n\to\infty}
-      =\mathbb{E}_{\theta_0}[\log f(X,\theta)]
+      \mathbb{E}_{\theta_0}[\log f(X,\theta)]
     \end{equation}
   #+end_src
-  ただし \(\mathbb{E}_{\theta_0}\) は真の母数での平均
   #+end_quote
+  - \(\mathbb{E}_{\theta_0}\) は真の母数 (\(X\)を生成している分布) での平均を表す
 
 #+reveal: split
-- 対数密度/質量の性質
+- 対数密度・質量の性質
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -443,7 +442,7 @@
   #+end_src
   #+end_quote
   - 対数関数の凸性を用いて証明 (資料参照)
-  - 情報理論のエントロピーとも関係
+  - 情報理論のエントロピー (平均符号長) とも関係
     #+begin_quote
     #+begin_src latex
       \begin{equation}
@@ -483,7 +482,7 @@
   #+end_quote
   - \(I(\theta_0)\) は Fisher 情報量
   - 観測データが十分多ければ，
-    最尤推定量の誤差(分散)は
+    最尤推定量の誤差の分散は
     Cramer-Rao 下界に一致する
 
 ** 証明の概略
@@ -497,7 +496,7 @@
     \end{equation}
   #+end_src
   #+end_quote
-- Fisher 情報量
+- Fisher 情報量 (以下が等しいことは講義資料を参照)
   #+begin_quote
   #+begin_src latex
     \begin{align}
@@ -641,7 +640,7 @@
   - モーメントに基づく記述統計量は漸近正規性をもつ
   - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
   - いずれも中心極限定理にもとづく
-- 正規分布を用いて近似的に信頼区間を構成することができる
+- 正規分布を用いて近似的に信頼区間を構成可能
   # - 推定誤差の分布が正規分布で近似できる場合
 
 ** 漸近正規性にもとづく区間推定
@@ -692,15 +691,6 @@
   #+end_quote
 
 #+reveal: split
-- 推定量の分散
-  #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\bar{X})
-      =\frac{\sigma^{2}}{n}
-    \end{equation}
-  #+end_src
-  #+end_quote
 - \(\sigma\) の一致推定量
   #+begin_quote
   例えば不偏分散
@@ -710,6 +700,17 @@
     \end{equation}
   #+end_src
   の平方根を用いれば良い．
+  #+end_quote
+- 推定量の分散
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      \mathrm{Var}(\bar{X})
+      =\frac{\sigma^{2}}{n}
+      \simeq
+      =\frac{\hat{\sigma}^{2}}{n}
+    \end{equation}
+  #+end_src
   #+end_quote
 
 #+reveal: split
@@ -782,7 +783,7 @@
     #+end_src
     #+end_quote
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -861,7 +862,7 @@
 	=\frac{1}{\theta(1-\theta)}
     \end{align}
   #+end_src
-  よって真の母数が \(\theta_{0}\) のときの推定量の分散は以下のとおり
+  したがって真の母数が \(\theta_{0}\) のときの推定量の分散は以下で与えられる．
   #+begin_src latex
     \begin{equation}
       \mathrm{Var}(\hat\theta)=\frac{\theta_{0}(1-\theta_{0})}{n}
@@ -884,7 +885,7 @@
     \end{align}
   #+end_src
   であるので，
-  真の母数が \(\theta_{0}\) のときの推定量の分散は以下のとおり
+  真の母数が \(\theta_{0}\) のときの推定量の分散は以下で与えられる．
   #+begin_src latex
     \begin{equation}
       \mathrm{Var}(\hat\theta)
@@ -927,20 +928,24 @@
 
 * 今回のまとめ
 - 最尤法の考え方
-- 最尤推定量の一致性
-- 最尤推定量の漸近正規性
+- 最尤推定量の性質
+  - 一致性
+  - 漸近正規性
 - 最尤推定量による区間推定
+  - 標本平均の場合
+  - 母数推定の場合
 
-** COMMENT 注意
+** 注意
 - 確認テスト (講義10の中)
-  - 期間: 7/7講義終了-7/13 13:00
-  - 時間制限: 1時間 
-  - 5問 (推定の計算問題，数値をよく確認すること)
+  - 推定の計算問題 (数値をよく確認すること)
+  - 期間と時間制限に注意
   - 試験の意味を考えて誠実な対応をすること
   - ネットワーク環境等には自身で配慮すること
+  - 過去問などで手を動かしてから受けることをお勧め
+- 次週は理解度確認
 
 
-
+* Footnotes
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted
