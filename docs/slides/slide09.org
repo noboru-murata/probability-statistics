@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-14 11:16:14 mura>
+# Time-stamp: <2022-06-25 22:28:24 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -231,13 +231,13 @@
     に含まれる確率に比例する量
 
 ** 最尤法
-- 最尤法 : 
+- 最尤法
   #+begin_quote
   観測データに対して「最も尤もらしい」母数の値
   を \(\boldsymbol{\theta}\) の推定量として採用する方法
   を *最尤法* という．
   #+end_quote
-- 最尤推定量 :
+- 最尤推定量
   #+begin_quote
   \(\Theta\) を尤度関数の定義域として，
   尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
@@ -935,14 +935,14 @@
   - 標本平均の場合
   - 母数推定の場合
 
-** 注意
+** COMMENT 注意
 - 確認テスト (講義10の中)
   - 推定の計算問題 (数値をよく確認すること)
   - 期間と時間制限に注意
   - 試験の意味を考えて誠実な対応をすること
   - ネットワーク環境等には自身で配慮すること
   - 過去問などで手を動かしてから受けることをお勧め
-- 次週は理解度確認
+- 次回は理解度確認
 
 
 * Footnotes

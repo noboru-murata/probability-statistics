@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-13 21:02:03 mura>
+# Time-stamp: <2022-06-17 15:11:54 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -102,21 +102,21 @@
   #+end_quote
 
 ** 良い推定量
-    - 不偏性
-      #+begin_quote
-      *推定量の平均*
-      が真の母数
-      \(\theta\)
-      に一致すること．
-      #+begin_src latex
-	\begin{equation}
-	  \mathbb{E}[\hat\theta]
-	  =\theta
-	\end{equation}
-      #+end_src
-      #+end_quote
-      - 観測値に基づく推定値(見本点)が
-	真の値のまわりにばらつくと考えればよい
+- 不偏性
+  #+begin_quote
+  *推定量の平均*
+  が真の母数
+  \(\theta\)
+  に一致すること．
+  #+begin_src latex
+    \begin{equation}
+      \mathbb{E}[\hat\theta]
+      =\theta
+    \end{equation}
+  #+end_src
+  #+end_quote
+  - 観測値に基づく推定値(見本点)が
+    真の値のまわりにばらつくと考えればよい
 
 ** 良い不偏推定量
 - 不偏推定量は複数存在

@@ -5,7 +5,7 @@
 #+LINK: github https://noboru-murata.github.io/probability-statistics/
 #+STARTUP: hidestars content indent
 
-# Time-stamp: <2022-06-14 11:20:36 mura>
+# Time-stamp: <2022-06-25 22:32:24 mura>
 # C-c C-e H A (generate MDs for all subtrees)
 
 * 概要
@@ -124,7 +124,7 @@
 :EXPORT_FILE_NAME: lecture09
 :EXPORT_DATE: <2020-04-01 Wed>
 :END:
-<2022-06-14 Tue> 更新
+<2022-06-25 Sat> 更新
 ** スライド
 #+hugo: {{< myslide base="probability-statistics" name="slide09" >}}
 ** ハンドアウト
@@ -135,7 +135,7 @@
 :EXPORT_FILE_NAME: lecture10
 :EXPORT_DATE: <2020-04-01 Wed>
 :END:
-<2021-08-22 Sun> 更新
+<2022-06-25 Sat> 更新
 ** スライド
 #+hugo: {{< myslide base="probability-statistics" name="slide10" >}}
 ** ハンドアウト
@@ -146,7 +146,7 @@
 :EXPORT_FILE_NAME: lecture11
 :EXPORT_DATE: <2021-04-01 Thu>
 :END:
-<2021-08-22 Sun> 更新
+<2022-06-25 Sat> 更新
 ** スライド
 #+hugo: {{< myslide base="probability-statistics" name="slide11" >}}
 ** ハンドアウト
@@ -157,7 +157,7 @@
 :EXPORT_FILE_NAME: lecture12
 :EXPORT_DATE: <2020-04-01 Wed>
 :END:
-<2021-08-22 Sun> 更新
+<2022-06-25 Sat> 更新
 ** スライド
 #+hugo: {{< myslide base="probability-statistics" name="slide12" >}}
 ** ハンドアウト

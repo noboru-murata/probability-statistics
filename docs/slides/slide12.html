@@ -47,9 +47,16 @@
 </section>
 
 <section>
-<section id="slide-org0967b51">
-<h2 id="org0967b51">前回のおさらい</h2>
+<section id="slide-org6a46837">
+<h2 id="org6a46837">前回のおさらい</h2>
 <ul>
+<li>統計的仮説検定</li>
+<li>正規分布を用いた検定
+<ul>
+<li>平均値の差の検定</li>
+<li>平均値の検定</li>
+
+</ul></li>
 <li>分散未知の正規分布を用いた検定
 <ul>
 <li>平均値の検定</li>
@@ -63,8 +70,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org2571b5a">
-<h3 id="org2571b5a">統計的仮説検定</h3>
+<section id="slide-org3d2ef2c">
+<h3 id="org3d2ef2c">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -75,8 +82,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgf24b57a">
-<h3 id="orgf24b57a">検定における仮説</h3>
+<section id="slide-orgc64bcf8">
+<h3 id="orgc64bcf8">検定における仮説</h3>
 <ul>
 <li><p>
 <b>帰無仮説</b> \(H_0\)
@@ -99,8 +106,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgf36603d">
-<h3 id="orgf36603d">検定の基本的手続き</h3>
+<section id="slide-org56388e0">
+<h3 id="org56388e0">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
 <li>仮説のもとで <b>検定統計量</b> が従う <b>帰無分布</b> を調べる</li>
@@ -118,25 +125,25 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org2f7ff88">
-<h3 id="org2f7ff88">検定の用語</h3>
+<section id="slide-org427692d">
+<h3 id="org427692d">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
-<li>帰無仮説を <b>棄却</b>: 帰無仮説は誤っていると判断すること</li>
-<li>帰無仮説を <b>受容</b>: 帰無仮説を積極的に棄却できないこと</li>
+<li>帰無仮説を <b>棄却</b> : 帰無仮説は誤っていると判断すること</li>
+<li>帰無仮説を <b>受容</b> : 帰無仮説を積極的に棄却できないこと</li>
 
 </ul></li>
 <li>検定の誤り
 <ul>
-<li><b>第一種過誤</b>: &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
-<li><b>第二種過誤</b>: &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
+<li><b>第一種過誤</b> : &ldquo;正しい帰無仮説を棄却する&rdquo; 誤り</li>
+<li><b>第二種過誤</b> : &ldquo;誤った帰無仮説を受容する&rdquo; 誤り</li>
 
 </ul></li>
 <li>検定の設計
 <ul>
-<li>サイズ: &ldquo;第一種過誤が起きる確率&rdquo; を小さく</li>
-<li>検出力: &ldquo;第二種過誤が起きない確率&rdquo; を大きく</li>
+<li><b>サイズ</b> : &ldquo;第一種過誤が起きる確率&rdquo; を小さく</li>
+<li><b>検出力</b> : &ldquo;第二種過誤が起きない確率&rdquo; を大きく</li>
 
 </ul></li>
 
@@ -144,8 +151,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgd604cf7">
-<h3 id="orgd604cf7">有意水準と\(p\)-値</h3>
+<section id="slide-org21d16bf">
+<h3 id="org21d16bf">有意水準と\(p\)-値</h3>
 <ul>
 <li><p>
 <b>有意水準</b>
@@ -156,12 +163,9 @@
 </p>
 </blockquote></li>
 <li><p>
-\(p\)-値 (<b>有意確率</b>): (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
+<b>\(p\)-値 (有意確率)</b> : (検定統計量 \(T\), 棄却域 \(R_{\alpha}\))
 </p>
 <blockquote>
-<p>
-検定統計量の値が棄却域に含まれる有意水準の最小値
-</p>
 <div>
 \begin{equation}
   \text{(\(p\)-値)}
@@ -169,7 +173,11 @@
 \end{equation}
 
 </div>
-</blockquote></li>
+</blockquote>
+<ul>
+<li>検定統計量の値が棄却域に含まれる有意水準の最小値</li>
+
+</ul></li>
 <li><p>
 有意水準と \(p\)-値の関係
 </p>
@@ -183,17 +191,182 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orge0feaa9">
-<h3 id="orge0feaa9">両側検定と片側検定</h3>
+<section id="slide-orga85bb53">
+<h3 id="orga85bb53">正規分布を用いた平均値の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+確率変数列の平均値が \(\mu\) と等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  X_i=\theta+\varepsilon_{i},
+  \quad i=1,\dotsc,n
+  \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+\end{equation}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta=\mu
+  \quad\text{vs}\quad
+  H_{1}: \theta\not=\mu
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は 帰無仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4097e48">
+<h3 id="org4097e48">正規分布を用いた平均値の差の検定</h3>
+<ul>
+<li><p>
+問題
+</p>
+<blockquote>
+<p>
+2つの確率変数列の平均値が等しいか検定せよ．
+</p>
+<div>
+\begin{equation}
+  X_1,X_2,\dotsc,X_n, \qquad
+  Y_1,Y_2,\dotsc,Y_m 
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+検定問題
+</p>
+<blockquote>
+<div>
+\begin{align}
+  X_i&=\theta_{1}+\varepsilon_{1i},
+       \quad i=1,\dotsc,n
+       \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
+  Y_j&=\theta_{2}+\varepsilon_{2j},
+       \quad j=1,\dotsc,m
+       \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
+\end{align}
+
+</div>
+
+<p>
+を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
+</p>
+<div>
+\begin{equation}
+  H_{0}: \theta_{1}=\theta_{2}
+  \quad\text{vs}\quad
+  H_{1}: \theta_{1}\not=\theta_{2}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+検定統計量
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+は仮説が正しいとき標準正規分布に従う．
+</p>
+</blockquote></li>
+<li><p>
+棄却域 (両側検定の場合)
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  R_{\alpha}
+  =
+  \left(-\infty,-z_{1{-}\alpha/2}\right)
+  \cup
+  \left(z_{1{-}\alpha/2},\infty\right)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfe39c99">
+<h3 id="orgfe39c99">両側検定と片側検定</h3>
 <ul>
 <li>対立仮説によって棄却域の形は変わりうる
-<ul>
-<li><span style="color:darkgreen;">2つの薬の治験結果に対する仮説</span>:
-<ul>
-<li>古い薬(高価)と新しい薬(安価)の効能が変わらない</li>
-<li>古い薬に比べて新しい薬の効能が改善した</li>
 
-</ul></li>
+<ul>
 <li><p>
 両側検定:
 </p>
@@ -231,18 +404,18 @@
 <div class="slide-footer"><br></div>
 </section>
 <section>
-<div class="leftcol" id="org486f7bc">
+<div class="leftcol" id="org28989e8">
 
-<div id="org341fb99" class="figure">
+<div id="orgf082ea0" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>片側検定の棄却域(帰無分布の右の場合)</p>
 </div>
 
 </div>
-<div class="rightcol" id="org80ae7c8">
+<div class="rightcol" id="orgaf86cb8">
 
-<div id="org9ed2b65" class="figure">
+<div id="orgc4891f2" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>両側検定の棄却域</p>
@@ -252,8 +425,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org184fd54">
-<h3 id="org184fd54">平均値の検定</h3>
+<section id="slide-org1b4acf6">
+<h3 id="org1b4acf6">分散未知の正規分布の平均値の検定</h3>
 <ul>
 <li><p>
 問題
@@ -408,8 +581,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org098f8ed">
-<h3 id="org098f8ed">平均値の差の検定</h3>
+<section id="slide-org04fb649">
+<h3 id="org04fb649">平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -505,8 +678,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org219114d">
-<h3 id="org219114d">分散の検定</h3>
+<section id="slide-orgfa93a2e">
+<h3 id="orgfa93a2e">分散の検定</h3>
 <ul>
 <li><p>
 問題
@@ -587,8 +760,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org98b8661">
-<h3 id="org98b8661">分散の比の検定</h3>
+<section id="slide-orgfc00399">
+<h3 id="orgfc00399">分散の比の検定</h3>
 <ul>
 <li><p>
 問題
@@ -675,16 +848,52 @@
 </ul>
 <div class="slide-footer"><br></div>
 
+
 </section>
 </section>
 <section>
-<section id="slide-org1db546a">
-<h2 id="org1db546a">漸近正規性にもとづく検定</h2>
-<div class="outline-text-2" id="text-org1db546a">
+<section id="slide-org38e2e92" data-background="#fef4f4">
+<h2 id="org38e2e92">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8dc603a" data-background="#fef4f4">
+<h3 id="org8dc603a">練習問題</h3>
+<ul>
+<li><p>
+以下の問に答えよ．
+</p>
+<blockquote>
+<p>
+携帯電話の利用料(月額)を調べた．
+18〜25歳の 80 人では平均 7400 円(標準偏差 2500 円)，
+30〜40歳の 100 人では平均 8200 円(標準偏差 2800 円)であった．
+それぞれの年齢層の利用料は正規分布に従い，
+上記の標準偏差は正確に求められているとする．
+</p>
+
+<p>
+このとき，
+利用料の平均に違いがあると言えるかを
+有意水準 0.05 で考えなさい．
+</p>
+</blockquote>
+<ul>
+<li>\(z_{0.95}=1.64, z_{0.975}=1.96\)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org2927282">
+<h2 id="org2927282">漸近正規性にもとづく検定</h2>
+<div class="outline-text-2" id="text-org2927282">
 </div>
 </section>
-<section id="slide-org8b11212">
-<h3 id="org8b11212">推定量の漸近正規性</h3>
+<section id="slide-orgf49a9c7">
+<h3 id="orgf49a9c7">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 漸近正規性 (データ数が多いときの性質)
@@ -706,8 +915,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgdc747dd">
-<h3 id="orgdc747dd">最尤推定量の漸近正規性</h3>
+<section id="slide-org5d9381c">
+<h3 id="org5d9381c">最尤推定量の漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -729,7 +938,7 @@
 最尤推定量の誤差(分散)は
 Cramer-Rao 下界に一致する</li>
 <li><p>
-Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
+Fisher 情報量 (\(f\) : 確率質量関数または確率密度関数)
 </p>
 <blockquote>
 <div>
@@ -753,8 +962,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org99ee4fc">
-<h3 id="org99ee4fc">最尤推定量の検定</h3>
+<section id="slide-orgcdb06a2">
+<h3 id="orgcdb06a2">最尤推定量の検定</h3>
 <ul>
 <li><p>
 問題
@@ -781,8 +990,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgec73206">
-<h3 id="orgec73206">考え方</h3>
+<section id="slide-orge525db8">
+<h3 id="orge525db8">考え方</h3>
 <ul>
 <li><p>
 最尤推定量の性質
@@ -809,8 +1018,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orga04850d">
-<h3 id="orga04850d">\(Z\)-検定 (正規分布による検定)</h3>
+<section id="slide-org019d78b">
+<h3 id="org019d78b">\(Z\)-検定 (正規分布による検定)</h3>
 <ul>
 <li><p>
 検定統計量
@@ -832,15 +1041,15 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 <section>
 <ul>
 <li><p>
-\(z_{1{-}\alpha/2}\):
+両側検定 (有意水準 : \(\alpha\))
 </p>
 <blockquote>
 <p>
-標準正規分布の \(1{-}\alpha/2\) 分位点
+\(z_{1{-}\alpha/2}\) : 標準正規分布の \(1{-}\alpha/2\) 分位点
 </p>
 </blockquote></li>
 <li><p>
-棄却域:
+棄却域
 </p>
 <blockquote>
 <div>
@@ -857,8 +1066,8 @@ Fisher 情報量 (\(f\) は確率質量関数または確率密度関数)
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org01d0ec1">
-<h3 id="org01d0ec1">例題 (McNemar検定)</h3>
+<section id="slide-org05caa31">
+<h3 id="org05caa31">例題 (McNemar検定)</h3>
 <ul>
 <li><p>
 問題
@@ -935,7 +1144,7 @@ A社とB社の開発した2つの文字認識機械がある．
 (n=10,000)</li>
 
 </ul>
-<div class="leftcol" id="orgea4fe87">
+<div class="leftcol" id="orgcc4df0f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -969,7 +1178,7 @@ A社とB社の開発した2つの文字認識機械がある．
 </table>
 
 </div>
-<div class="rightcol" id="org2fe4ca5">
+<div class="rightcol" id="orgb9cd7ae">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1009,12 +1218,12 @@ A社とB社の開発した2つの文字認識機械がある．
 </section>
 </section>
 <section>
-<section id="slide-orgeb406ff" data-background="#fef4f4">
-<h2 id="orgeb406ff">演習</h2>
+<section id="slide-org3099f82" data-background="#fef4f4">
+<h2 id="org3099f82">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org47ed57f" data-background="#fef4f4">
-<h3 id="org47ed57f">練習問題</h3>
+<section id="slide-org8d2a60d" data-background="#fef4f4">
+<h3 id="org8d2a60d">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ
@@ -1067,20 +1276,18 @@ A社とB社の開発した2つの文字認識機械がある．
 </section>
 </section>
 <section>
-<section id="slide-orgf8c7e11">
-<h2 id="orgf8c7e11">今回のまとめ</h2>
+<section id="slide-org24aed5e">
+<h2 id="org24aed5e">今回のまとめ</h2>
 <ul>
 <li>最尤推定量を用いた検定
 <ul>
-<li>漸近正規性</li>
+<li>最尤推定量の漸近正規性</li>
 <li>正規分布を用いた検定に帰着</li>
 
 </ul></li>
 
 </ul>
 <div class="slide-footer"><br></div>
-</section>
-</section>
 </div>
 </div>
 <script src="./reveal.js/dist/reveal.js"></script>
