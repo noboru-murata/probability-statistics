@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-25 15:03:33 mura>
+# Time-stamp: <2022-06-28 10:29:02 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -69,7 +69,7 @@
 ** 尤度関数
 - 定義
   #+begin_quote
-  パラメタ \(\boldsymbol{\theta}\) に対して
+  母数 \(\boldsymbol{\theta}\) に対して
   観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
   #+begin_src latex
     \begin{equation}
@@ -88,8 +88,8 @@
 ** 最尤法
 - 最尤法
   #+begin_quote
-  観測データに対して"最も尤もらしい"パラメタ値
-  を \(\boldsymbol{\theta}\) の推定量として採用する方法
+  観測データに対して"最も尤もらしい"母数の値を
+  \(\boldsymbol{\theta}\) の推定量として採用する方法
   を最尤法という．
   #+end_quote
 - 最尤推定量
@@ -115,7 +115,7 @@
 - 定理 (最尤推定量の漸近正規性)
   #+begin_quote
   観測データ数 \(n\) が十分大きいとき，
-  1次元パラメタ \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
+  1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
   #+begin_src latex
     \begin{equation}
       \mathbb{E}[\hat\theta]=\theta_{0},\quad
@@ -254,6 +254,7 @@
     ある定数 \(a < b\) を用いて \(\text{(棄却域)}=(-\infty,a)\cup(b,\infty)\)
     #+end_quote
 #  - 右片側検定と左片側検定を合わせて *片側検定* と呼ぶ
+#+reveal: split
 - 平均の検定の場合 :
   - 対立仮説を \(H_1:\mu\neq\mu_0\) にとった場合は両側検定
   - 対立仮説を \(H_1:\mu>\mu_0\) にとった場合は右片側検定
@@ -558,7 +559,7 @@
   平均値が \(\mu\) と等しいか検定せよ．
   #+end_quote
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -662,7 +663,7 @@
   本来の平均値が等しいと言えるだろうか？
   #+end_quote
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
