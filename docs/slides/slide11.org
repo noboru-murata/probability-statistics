@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-25 22:16:34 mura>
+# Time-stamp: <2022-07-05 08:51:14 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -62,6 +62,82 @@
 - 検定の設計
   - *サイズ* : "第一種過誤が起きる確率" を小さく
   - *検出力* : "第二種過誤が起きない確率" を大きく
+
+#+reveal: split
+#+begin_leftcol
+#+begin_src R :file figs/test1.png :exports results :results graphics
+  if(Sys.info()["sysname"]=="Darwin"){par(family="HiraginoSans-W4")}
+  shape<-3; rate<-1
+  dnull <- function(x)dgamma(x,shape=shape,rate=rate)
+  qnull <- function(x)qgamma(x,shape=shape,rate=rate)
+  dalt <- function(x)dgamma(x,shape=shape+4,rate=rate)
+  qalt <- function(x)qgamma(x,shape=shape+4,rate=rate)
+  d <- 0.02
+  z <- rbind(c(qnull(0.80), 10),
+             c(qnull(0.95), 10))
+  rcol <- c("palegreen","pink")
+  for (i in 2:2) {
+      curve(dnull(x),
+            from=0, to=10,
+            col="blue", lwd=2, ann=FALSE, axes=FALSE)
+      curve(dalt(x), 0, 10,
+            col="brown", lwd=2, add=TRUE)
+      abline(h=0, col=gray(0.9))
+      box()
+      x <- seq(min(z[i,]), max(z[i,]), 0.1)
+      xx <- c(x,max(z[i,]), min(z[i,]))
+      yy <- c(dnull(x), rep(0,2))
+      polygon(xx, yy, col=rcol[i])
+      yy <- c(dalt(x), rep(0,2))
+      polygon(xx, yy, col=adjustcolor(rcol[i],alpha=.3))
+      lines(c(z[i,1], z[i,1]), c(max(dnull(z[i,1]),dalt(z[i,1]))+d, -d),
+            col=rcol[i], lty="solid", lwd=2)
+      text(7,.2,labels="対立仮説の分布")  
+  }
+#+end_src
+#+CAPTION: 有意水準が小さい場合
+#+NAME: fig:test1
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/test1.png]]
+#+end_leftcol
+#+begin_rightcol
+#+begin_src R :file figs/test2.png :exports results :results graphics
+  if(Sys.info()["sysname"]=="Darwin"){par(family="HiraginoSans-W4")}
+  shape<-3; rate<-1
+  dnull <- function(x)dgamma(x,shape=shape,rate=rate)
+  qnull <- function(x)qgamma(x,shape=shape,rate=rate)
+  dalt <- function(x)dgamma(x,shape=shape+4,rate=rate)
+  qalt <- function(x)qgamma(x,shape=shape+4,rate=rate)
+  d <- 0.02
+  z <- rbind(c(qnull(0.80), 10),
+             c(qnull(0.95), 10))
+  rcol <- c("palegreen","pink")
+  for (i in 1:1) {
+      curve(dnull(x),
+            from=0, to=10,
+            col="blue", lwd=2, ann=FALSE, axes=FALSE)
+      curve(dalt(x), 0, 10,
+            col="brown", lwd=2, add=TRUE)
+      abline(h=0, col=gray(0.9))
+      box()
+      x <- seq(min(z[i,]), max(z[i,]), 0.1)
+      xx <- c(x,max(z[i,]), min(z[i,]))
+      yy <- c(dnull(x), rep(0,2))
+      polygon(xx, yy, col=rcol[i])
+      yy <- c(dalt(x), rep(0,2))
+      polygon(xx, yy, col=adjustcolor(rcol[i],alpha=.3))
+      lines(c(z[i,1], z[i,1]), c(max(dnull(z[i,1]),dalt(z[i,1]))+d, -d),
+            col=rcol[i], lty="solid", lwd=2)
+      text(7,.2,labels="対立仮説の分布")  
+  }
+#+end_src
+#+CAPTION: 有意水準が大きい場合
+#+NAME: fig:test2
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/test2.png]]
+#+end_rightcol
 
 ** 有意水準と\(p\)-値
 - *有意水準*
@@ -258,7 +334,7 @@
   #+end_quote
   - \(z_{0.95}=1.64, z_{0.975}=1.96\)
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -311,7 +387,7 @@
 :END:
 - 前問において\(p\)-値を計算する方法を考えよ．
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -620,7 +696,7 @@
 - Welch の \(t\)-検定において
   \(p\)-値はどのように計算すればよいか述べよ．
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -840,7 +916,7 @@
     \(F_{0.95}(39,34)=1.74, F_{0.975}(39,34)=1.95\),
     \(t_{0.95}(73)=1.67, t_{0.975}(73)=1.99\)
 
-** COMMENT 解答例
+** 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
