@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>一般の確率空間</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">一般の確率空間</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 - 第2講</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-orgb494092">
+<h2 id="orgb494092">前回のおさらい</h2>
+<ul>
+<li>有限試行の確率空間
+<ul>
+<li>確率論の基本用語 : 試行，標本点，標本空間，事象</li>
+<li>事象は標本空間の部分集合</li>
+<li>事象の演算は集合の演算と等価</li>
+<li>確率測度の基本的な性質(正値性，加法性，全確率)</li>
+<li>確率空間は標本空間，事象の集合，確率測度の3つ組</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org41a8627">
+<h2 id="org41a8627">有理数の可算性</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org0dabd7e">
+<h3 id="org0dabd7e">可算集合</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+集合の全ての要素に自然数で順番に番号が与えられることを
+<b>可算 (可付番) (enumerable, countable)</b> という．
+</p>
+</blockquote></li>
+<li>自明な可算集合の例
+<ul>
+<li>要素が有限個の集合</li>
+<li>自然数</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org25ad62d">
+<h3 id="org25ad62d">有理数の可算性</h3>
+<ul>
+<li><p>
+区間 \((0,1)\) に含まれる全ての有理数は可算
+</p>
+<ul>
+<li>有理数と自然数に1対1の対応があることを示せばよい</li>
+
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">分子\分母</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">4</th>
+<th scope="col" class="org-left">5</th>
+<th scope="col" class="org-left">6</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">1/2</td>
+<td class="org-left">1/3</td>
+<td class="org-left">1/4</td>
+<td class="org-left">1/5</td>
+<td class="org-left">1/6</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">2/3</td>
+<td class="org-left"><del>2/4</del></td>
+<td class="org-left">2/5</td>
+<td class="org-left"><del>2/6</del></td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3/4</td>
+<td class="org-left">3/5</td>
+<td class="org-left"><del>3/6</del></td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">4/5</td>
+<td class="org-left"><del>4/6</del></td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">5/6</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>対応づけ出来そうだが規則の記述は難しそう</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgf284cf4">
+<h3 id="orgf284cf4">Bernsteinの定理</h3>
+<ul>
+<li>1対1の対応が存在することを示す代わりに，
+\(A\)と\(B\)の部分集合，
+および
+\(A\)の部分集合と\(B\)の間に
+それぞれ1対1の対応が存在することを示せばよい．</li>
+
+</ul>
+
+
+<div id="org64c75e1" class="figure">
+<p><img src="figs/bernstein.png" alt="bernstein.png" height="100%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Bernsteinの定理</p>
+</div>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org9471295">
+<h3 id="org9471295">有理数の可算性 (再考)</h3>
+<ul>
+<li>Bernstein の定理を用いた場合
+<ul>
+<li><p>
+全ての自然数 \(n\) から有理数の部分集合 \(1/q\) への1対1対応
+</p>
+<div>
+\begin{equation}
+  n\mapsto \frac{1}{q}=\frac{1}{n+1}
+\end{equation}
+
+</div>
+
+<p>
+(有理数としては \(1/q\) の形しか用いない)
+</p></li>
+<li><p>
+全ての有理数 \(p/q\) から自然数 \(n\) の部分集合への1対1対応
+</p>
+<div>
+\begin{equation}
+  \frac{p}{q}
+  \mapsto n=2^{p}\times 3^{q}
+\end{equation}
+
+</div>
+
+<p>
+(自然数としては2と3の倍数しか用いない)
+</p></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1530738" data-background="#fef4f4">
+<h2 id="org1530738">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org1f88712" data-background="#fef4f4">
+<h3 id="org1f88712">練習問題</h3>
+<ul>
+<li>整数が可算であることを示せ．</li>
+<li>自然数の組 \((m,n)\) が可算であるかどうか論じよ．</li>
+<li>1以上の有理数が可算であるかどうか論じよ．</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3962592" data-background="#fef4f4">
+<h3 id="org3962592">整数の可算性</h3>
+<ul>
+<li><p>
+示すべきこと
+</p>
+<blockquote>
+<p>
+自然数と整数の間に1対1の対応づけがある．
+</p>
+</blockquote></li>
+<li><p>
+構成例
+</p>
+<blockquote>
+<ul>
+<li>奇数の自然数: \(n\mapsto z=(n-1)/2\) (非負の整数)</li>
+<li>偶数の自然数: \(n\mapsto z=-n/2\) (負の整数)</li>
+
+</ul>
+</blockquote></li>
+<li>Bernsteinの定理を使った場合も考えてみよ</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org7cb0866" data-background="#fef4f4">
+<h3 id="org7cb0866">自然数の組の可算性</h3>
+<ul>
+<li><p>
+以下の表に番号を振ることを考えればよい
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">(m,n)</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">4</th>
+<th scope="col" class="org-left">5</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">(1,1)</td>
+<td class="org-left">(1,2)</td>
+<td class="org-left">(1,3)</td>
+<td class="org-left">(1,4)</td>
+<td class="org-left">(1,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">(2,1)</td>
+<td class="org-left">(2,2)</td>
+<td class="org-left">(2,3)</td>
+<td class="org-left">(2,4)</td>
+<td class="org-left">(2,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">(3,1)</td>
+<td class="org-left">(3,2)</td>
+<td class="org-left">(3,3)</td>
+<td class="org-left">(3,4)</td>
+<td class="org-left">(3,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">(4,1)</td>
+<td class="org-left">(4,2)</td>
+<td class="org-left">(4,3)</td>
+<td class="org-left">(4,4)</td>
+<td class="org-left">(4,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">(5,1)</td>
+<td class="org-left">(5,2)</td>
+<td class="org-left">(5,3)</td>
+<td class="org-left">(5,4)</td>
+<td class="org-left">(5,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+例えば斜めに振っていく
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">(m,n)</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-right">5</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">7</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-right">12</td>
+<td class="org-right">17</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-right">9</td>
+<td class="org-right">13</td>
+<td class="org-right">18</td>
+<td class="org-right">24</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">10</td>
+<td class="org-right">14</td>
+<td class="org-right">19</td>
+<td class="org-right">25</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">15</td>
+<td class="org-right">20</td>
+<td class="org-right">26</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+<li>規則(数式)は考えてみよ</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org438e015" data-background="#fef4f4">
+<h3 id="org438e015">1以上の有理数の可算性</h3>
+<ul>
+<li>1以上の有理数は
+(自然数，区間 \([0,1)\) の有理数) 
+と分解して考えることができる</li>
+<li>区間 \([0,1)\) の有理数は番号付けできる
+(区間 \((0,1)\) に0を加えただけ)ので，
+(自然数，自然数) に対応づけられる</li>
+<li>前問の結果を用いれば明らか</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org9c5d292">
+<h2 id="org9c5d292">無理数の非可算性</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org05b68b9">
+<h3 id="org05b68b9">非可算集合</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+可算でないことを
+<b>非可算 (unenumerable, uncountable)</b>
+という．(不可算と書かれている場合もある)
+</p>
+</blockquote></li>
+<li>非可算集合の例
+<ul>
+<li>区間 \((0,1)\) に含まれる無理数</li>
+<li>実数全体</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org53bfcff">
+<h3 id="org53bfcff">Cantorの対角線論法</h3>
+<ul>
+<li>無理数の非可算性の証明 (背理法)</li>
+<li>証明の概要 (詳しくは講義資料)
+<ul>
+<li class="fragment appear"><p>
+その1
+</p>
+<blockquote>
+<p>
+区間 \((0,1)\) に含まれる <b>無理数の集合は可算</b> と仮定する．
+</p>
+</blockquote></li>
+<li class="fragment appear"><p>
+その2
+</p>
+<blockquote>
+<p>
+有理数の集合は可算なので，
+仮定より無理数と有理数の和である実数も可算となる．
+</p>
+</blockquote></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+その3
+</p>
+<blockquote>
+<p>
+自然数との対応付けを行い，番号順に並べる．
+</p>
+<div>
+\begin{equation}
+  \begin{array}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+    1:&0.&d^{1}_{1}&d^{1}_{2}&d^{1}_{3}&d^{1}_{4}&\dotsm\\
+    2:&0.&d^{2}_{1}&d^{2}_{2}&d^{2}_{3}&d^{2}_{4}&\dotsm\\
+    3:&0.&d^{3}_{1}&d^{3}_{2}&d^{3}_{3}&d^{3}_{4}&\dotsm\\
+    4:&0.&d^{4}_{1}&d^{4}_{2}&d^{4}_{3}&d^{4}_{4}&\dotsm\\
+    \vdots&&&\vdots
+  \end{array}
+\end{equation}
+
+</div>
+
+<p>
+ただし，有限桁の小数の場合は \(0\) で埋める．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+その4
+</p>
+<blockquote>
+<p>
+第n番の数の第n桁目 \(d^{n}_{n}\) とは <b>異なる数</b> 
+\(\tilde{d}^{n}_{n}\not=d^{n}_{n}\)
+を選び，これらを並べた次の数を考える．
+</p>
+<div>
+\begin{equation}
+  \begin{array}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+    0.&\tilde{d}^{1}_{1}&\tilde{d}^{2}_{2}&\tilde{d}^{3}_{3}&\tilde{d}^{4}_{4}
+    &\dotsm
+  \end{array}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+その5
+</p>
+<blockquote>
+<p>
+区間 \((0,1)\) に含まれるこの数の番号を探す．
+</p>
+</blockquote></li>
+<li><p>
+その6
+</p>
+<blockquote>
+<p>
+第n番の数とは第n桁目が <b>違っている</b> ので，
+この数は区間 \((0,1)\) の <b>全ての実数を並べたはずの表にはない</b> ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+その7
+</p>
+<blockquote>
+<p>
+番号が振られていない数が存在するので
+区間 \((0,1)\) の実数が可算である
+(並べて番号が付けられる)ことに矛盾する．
+</p>
+</blockquote></li>
+<li><p>
+その8
+</p>
+<blockquote>
+<p>
+つまり最初の仮定
+<b>&ldquo;無理数の集合は可算&rdquo;</b>
+が間違っていたということ．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org76a880e">
+<h3 id="org76a880e">集合の分類</h3>
+<ul>
+<li>無限集合を更に分類(可算と非可算)する必要がある</li>
+<li><b>集合の濃度</b>
+<ul>
+<li>この講義で必要な概念は以下の3つ
+<dl>
+<dt>有限の濃度</dt><dd>有限個の要素からなる集合</dd>
+<dt>可算の濃度</dt><dd>自然数，有理数など</dd>
+<dt>連続の濃度</dt><dd>無理数，実数など</dd>
+
+</dl></li>
+
+</ul></li>
+<li>より詳しくは位相と集合の本を参照</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org9649b53" data-background="#fef4f4">
+<h2 id="org9649b53">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0cc4e46" data-background="#fef4f4">
+<h3 id="org0cc4e46">練習問題</h3>
+<ul>
+<li>以下の集合の濃度を答えなさい．
+<ul>
+<li>区間 \((0,1)\) に含まれる有理数</li>
+<li>区間 \((0,1)\) に含まれる無理数</li>
+<li>実数 \(\mathbb{R}\) (区間 \((-\infty,\infty)\))</li>
+<li>2つの実数の組 \((x,y)\in\mathbb{R}^{2}\)</li>
+<li>2次元空間で \(xy\) 座標がともに整数となる点の集合</li>
+<li>表が出るまでコインを投げ続ける試行の標本空間</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+</section>
+<section>
+<section id="slide-org6cd7b77">
+<h2 id="org6cd7b77">一般の確率測度</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgd1f52fd">
+<h3 id="orgd1f52fd">可測集合</h3>
+<dl>
+<dt>可測集合 (measurable set)</dt><dd>確率測度 \(P\) で確率の値を測ることができる集合<br />
+(標本点の集合の中で事象として考えてよいもの)</dd>
+<dt>可測 (measurable)</dt><dd>&ldquo;集合 \(A\) が可測&rdquo;とは
+集合 \(A\) を確率測度 \(P\) で測ることができること</dd>
+
+</dl>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgefebca9">
+<h3 id="orgefebca9">集合族</h3>
+<ul>
+<li>確率測度 \(P\) で確率の値を測ることができる
+対象全体 (関数 \(P\) の <b>定義域</b>) を
+\(\mathcal{F}\) と書く</li>
+<li>定義域 \(\mathcal{F}\) は
+可測な事象(標本空間の部分集合) \(A\subset\Omega\) の集まり</li>
+<li>このような&ldquo;集合の集合&rdquo;を
+<b>集合族 (family of sets)</b> という</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgacafc80">
+<h3 id="orgacafc80">\(\sigma\)-加法族</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+以下の (\(\sigma.1\))-(\(\sigma.3\)) 
+の3つの条件を満たす集合族を
+<b>\(\sigma\)-加法族 (\(\sigma\)-algebra)</b>
+と呼ぶ．
+</p>
+<div>
+\begin{align}
+  (\sigma.1)\quad
+  &\Omega\in\mathcal{F}\\
+  (\sigma.2)\quad
+  &A\in\mathcal{F}
+    \Rightarrow A^c\in\mathcal{F}\\
+  (\sigma.3)\quad
+  &A_n\in\mathcal{F},\; (n=1,2,\dotsc)
+    \Rightarrow \bigcup_{n=1}^\infty A_n\in\mathcal{F}
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>(\(\sigma.1\))-(\(\sigma.3\)) は
+定義域 \(\mathcal{F}\) の満たすべき条件でもある</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgaf1c125">
+<h3 id="orgaf1c125">条件の意味</h3>
+<dl>
+<dt>(\(\sigma.1\))</dt><dd>標本空間(全事象)は可測である( \(P\) で測ることができる)</dd>
+<dt>(\(\sigma.2\))</dt><dd>ある事象が可測なら，その余事象も可測である</dd>
+<dt>(\(\sigma.3\))</dt><dd>可測集合の可算(自然数で番号付けできる)無限和も可測である</dd>
+
+</dl>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3209a75">
+<h3 id="org3209a75">確率測度</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+集合関数 \(P\) は条件(P.1), (P.2)を満たすとき
+<b>測度 (measure)</b>
+と呼ばれ，
+さらに(P.3)まで満たすとき
+<b>確率測度 (probability measure)</b>
+と呼ばれる．
+また \(P(A)\) を \(A\) の
+<b>測度</b>
+という．
+</p>
+<div>
+\begin{align}
+  (P.1)\quad
+  &P(A)\ge 0,\; A\in\mathcal{F}\\
+  (P.2)\quad
+  &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+    =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+  (P.3)\quad
+  &P(\Omega)=1
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>(P.2)を 
+<b>\(\sigma\)-加法性 (\(\sigma\)-additivity)</b>
+という</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgedc4b0a">
+<h3 id="orgedc4b0a">確率空間</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+標本空間 \(\Omega\) と確率測度 \(P\) ，
+および \(P\) の定義域である 
+\(\sigma\)-加法族
+\(\mathcal{F}\) の組 
+\((\Omega,\mathcal{F},P)\) を
+<b>確率空間 (probability spcae)</b>
+という．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgf205c67">
+<h2 id="orgf205c67">Lebesgue 測度</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orga5bdd4d">
+<h3 id="orga5bdd4d">ルーレット回しの確率測度</h3>
+<ul>
+<li><p>
+区間 \((0,1]\) からの無作為抽出 
+</p>
+<blockquote>
+<p>
+試行 \(T\) を
+&ldquo;区間 \((0,1]\) から無作為に一点抜き出すこと&rdquo;
+とする．
+このとき標本空間は
+</p>
+<div>
+\begin{equation}
+  \Omega=(0,1]
+\end{equation}
+
+</div>
+
+<p>
+であり無限試行となる．
+確率測度は事象 \(A\) が
+区間 \([a,b]\), \((a,b)\), \([a,b)\) または \((a,b]\)
+といった簡単な集合であれば
+</p>
+<div>
+\begin{equation}
+  P(A)=|A|=b-a,\;\text{(\(|A|\)は区間の長さを表す)}
+\end{equation}
+
+</div>
+
+<p>
+とすればよい．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgcf394d2">
+<h3 id="orgcf394d2">確率測度の定義域</h3>
+<ul>
+<li>確率測度 \(P\) の定義域 \(\mathcal{F}\) は
+集合演算で作られる</li>
+<li><p>
+<b>可算個</b> の区間を組み合わせてつくられる集合
+</p>
+<div>
+\begin{align}
+  \mathcal{F}
+  &=\{\text{可算個の任意の区間の和，差，交，}\\
+  &\qquad\qquad\qquad\text{余集合から作られる集合}\}
+\end{align}
+
+</div></li>
+
+<li>集合の測度(確率)は (P.2) の性質より
+排反な区間の長さの和から計算できる</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org77903fb">
+<h3 id="org77903fb">Lebesgue 測度</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+&ldquo;区間 \((0,1]\) から無作為に一点抜き出す&rdquo;試行 \(T\)
+によって考えられる確率測度 \(P\) を \((0,1]\) 上の
+<b>Lebesgue 測度 (Lebesgue measure)</b>
+という．
+また Lebesgue 測度の定義域となる
+\(\sigma\)-加法族を
+\(\mathbb{R}\) の
+<b>Borel 集合族 (Borel field)</b>
+という．
+</p>
+</blockquote>
+<ul>
+<li>Lebesgue 測度は \(\mu\) で表されることが多い</li>
+<li>厳密な定義については Lebesgue 積分の本を参照</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org1268d47">
+<h3 id="org1268d47">Lebesgue 測度の計算</h3>
+<ul>
+<li><p>
+一点が抜き出される確率
+</p>
+<blockquote>
+<p>
+Lebesgue 測度において，
+\(P\{a\}\)
+(一点 \(a\) が抜き出される確率)は \(0\) となる．
+</p>
+
+<p>
+例えば \(\{1,1/2,1/3,\dotsc\}\) という可算集合を考えると，
+</p>
+<div>
+\begin{equation}
+  P\left\{\frac{1}{n}\right\}\ge\varepsilon>0
+  \Rightarrow 
+  P\left(\left\{1,\frac{1}{2},\frac{1}{3},\dotsc\right\}\right)
+  =\sum_{n=1}^\infty P\left\{\frac{1}{n}\right\}
+  % \ge\sum_{n=1}^\infty\varepsilon 
+  \to\infty
+\end{equation}
+
+</div>
+
+<p>
+となり矛盾が生じる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+抜き出した点が有理数である確率
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{R}_{(0,1]}&=\{\text{区間\((0,1]\)上の実数全体}\}(=\Omega)\\
+  \mathbb{Q}_{(0,1]}&=\{\text{区間\((0,1]\)上の有理数全体}\}
+\end{align}
+
+</div>
+
+<p>
+と書くことにする．
+有理数は <b>可算</b> であるからその要素に番号が付けられ，
+</p>
+<div>
+\begin{equation}
+  \mathbb{Q}_{(0,1]}=\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}
+\end{equation}
+
+</div>
+
+<p>
+と書けるので，(P.2)の性質により計算できる．
+</p>
+<div>
+\begin{align}
+  P(\mathbb{Q}_{(0,1]})
+  &=P\left(\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}\right)\\
+  &=P\{q_1\}+P\{q_2\}+P\{q_3\}+\dotsb+P\{q_n\}+\dotsb\\
+  &=0+0+0+\dotsb+0+\dotsb
+    =0
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+抜き出した点が無理数である確率
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \text{(区間\((0,1]\)上の無理数全体)}=\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]}
+\end{equation}
+
+</div>
+
+<p>
+を用いて求められる．
+</p>
+<div>
+\begin{equation}
+  P(\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]})
+  =P(\mathbb{R}_{(0,1]})-P(\mathbb{Q}_{(0,1]})=1-0=1
+\end{equation}
+
+</div>
+
+<p>
+無理数全体は <b>可算でない</b> ため有理数のように成分毎の可算無限和では書けず，
+したがって(P.2)の性質を使って計算することはできない．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+異なる区間の場合
+</p>
+<blockquote>
+<p>
+&ldquo;区間 \((0,5]\) から無作為に一点抜き出す&rdquo;試行を考えたとき，
+その標本空間は \(\Omega=(0,5]\) となる．
+この試行の確率測度は
+Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
+</p>
+<div>
+\begin{equation}
+  P(A)=\frac{\mu(A)}{\mu(\Omega)}=\frac{\mu(A)}{5},\;A\in\mathcal{F}
+\end{equation}
+
+</div>
+
+<p>
+とすることによって構成できる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgc82e4dc">
+<h3 id="orgc82e4dc">零集合</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+空集合でない集合 \(A\) で
+その事象が起こる確率が \(P(A)=0\) となるものがある．
+こうした集合を <b>零集合 (null set)</b>
+と呼ぶ．
+</p>
+</blockquote></li>
+<li>以下は等しくないことに注意 (有理数と無理数の例)
+<ul>
+<li>事象 \(A\) の確率が \(0\) である</li>
+<li>事象 \(A\) に含まれる標本点が全く起こらない</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org400434a">
+<h3 id="org400434a">&ldquo;ほとんど確実&rdquo;</h3>
+<ul>
+<li><p>
+確率での特殊な言い回し
+</p>
+<blockquote>
+<p>
+事象
+\(A=\{\omega|\alpha(\omega)\}\)
+の確率が1であるとき，
+<b>&ldquo;ほとんど確実に (almost surely)&rdquo;</b>
+あるいは
+<b>&ldquo;条件 \(\alpha(\omega)\) が確率1で成り立つ&rdquo;</b>
+といい，
+以下のように書く．
+</p>
+<div>
+\begin{equation}
+  \alpha(\omega)\;\text{a.s.}
+\end{equation}
+
+</div>
+</blockquote></li>
+<li>別の表現
+<ul>
+<li>事象 \(A\) の余事象 \(A^c\) は零集合</li>
+<li>条件 \(\alpha\) は成り立たないこともあるが，その確率は0</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1e13d81" data-background="#fef4f4">
+<h2 id="org1e13d81">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgbc4ab4c" data-background="#fef4f4">
+<h3 id="orgbc4ab4c">練習問題</h3>
+<ul>
+<li>Buffonの針 (Buffon&rsquo;s needle) の問題を考えよ</li>
+
+</ul>
+
+<div class="leftcol" id="orgbf2b735">
+
+<div id="org5d11576" class="figure">
+<p><img src="figs/buffon.png" alt="buffon.png" width="100%" /> 
+</p>
+<p><span class="figure-number">Figure 2: </span>Buffonの針</p>
+</div>
+
+</div>
+<div class="rightcol" id="org9279cae">
+<blockquote>
+<p>
+2次元平面上に等間隔 \(d\) で平行線が引いてある．
+長さ \(l\) の針をこの平面上にランダムに落としたとき，
+平行線と交わる確率を求めよ．ただし \(l< d\) とする．
+</p>
+</blockquote>
+
+</div>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org7422991">
+<h3 id="org7422991">解答</h3>
+<ul>
+<li>講義資料20頁の例2.11を参照</li>
+<li>講義資料23頁の練習問題(4)-(7)にも目を通しておくこと</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb3ca60f">
+<h2 id="orgb3ca60f">今回のまとめ</h2>
+<ul>
+<li>一般の確率空間
+<ul>
+<li>有限集合と無限集合</li>
+<li>集合の濃度 (無限集合は更に分類される)
+<ul>
+<li>可算集合 : 自然数，整数，有理数</li>
+<li>連続集合 : 無理数，実数</li>
+
+</ul></li>
+<li>一般の確率測度と \(\sigma\)-加法性の関係</li>
+<li>Lebesgue 測度と Borel 集合族 (応用上重要な概念)</li>
+<li>&ldquo;ほとんど確実に成り立つ&rdquo;</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>独立変数の和の性質</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">独立変数の和の性質</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 - 第6講</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-org709b245">
+<h2 id="org709b245">前回のおさらい</h2>
+<ul>
+<li>条件付確率と独立性
+<ul>
+<li>同時確率，周辺確率，条件付確率</li>
+<li>条件付確率分布，条件付確率密度，条件付平均値</li>
+<li>条件付確率とBeyesの定理</li>
+<li>確率変数と事象の独立性</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgf7f93c4">
+<h3 id="orgf7f93c4">特性関数</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+特性関数
+は指数関数を用いて変数変換された確率変数の平均として
+</p>
+<div>
+\begin{equation}
+  \phi(s)=\mathbb{E}[e^{isX}]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li>特性関数は実数値ではなく複素数値をとることに注意する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgdb407ed">
+<h3 id="orgdb407ed">特性関数の性質</h3>
+<ul>
+<li><p>
+逆変換の存在
+</p>
+<blockquote>
+<p>
+特性関数と確率測度(確率密度)は一対一に対応している
+</p>
+
+<p>
+(Levy-Havilandの反転公式)
+</p>
+</blockquote></li>
+<li><p>
+分布の同一性
+</p>
+<blockquote>
+<p>
+2つの分布の特性関数が同じであれば，
+2つの分布が同じであることが言える．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org5772a1b">
+<h3 id="org5772a1b">標準正規分布の特性関数</h3>
+<ul>
+<li><p>
+\(X\) を標準正規分布に従う確率変数とする
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi_{X}(s)
+  &=\mathbb{E}[e^{isX}]\\
+  &=\int_{-\infty}^{\infty}e^{isx}\cdot
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
+  &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
+    \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
+  &=e^{-\frac{s^{2}}{2}}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org7cb5776">
+<h3 id="org7cb5776">独立性の重要な性質</h3>
+<ul>
+<li><p>
+平均値の乗法性
+</p>
+<blockquote>
+<p>
+確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
+\(\Rightarrow\) 
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X_1X_2\dotsm X_n]
+  =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+分散の加法性
+</p>
+<blockquote>
+<p>
+確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
+\(\Rightarrow\) 
+</p>
+<div>
+\begin{align}
+  &\mathrm{Var}(X_1+X_2+\dotsb+X_n)\\
+  &=\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+</section>
+<section>
+<section id="slide-org780da00">
+<h2 id="org780da00">大数の法則</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orga6a7646">
+<h3 id="orga6a7646">記号の準備</h3>
+<ul>
+<li><p>
+確率変数列
+</p>
+<blockquote>
+<p>
+確率変数の列(可算無限でも良い)を
+</p>
+<div>
+\begin{equation}
+  \{X_{n}\}=\{X_{1},X_{2},X_{3},\dotsc\}
+\end{equation}
+
+</div>
+
+<p>
+と書く．
+一般に \(X_{n}\) はそれぞれ異なる分布 \(P^{X_{n}}\) に従っていて構わない．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率変数列の性質の記述
+</p>
+<blockquote>
+<p>
+確率変数 \(X_{n}\) の平均や分散などをまとめて表記するときは
+\(\{\mathbb{E}[X_{n}]\}\)
+や
+\(\{\mathrm{Var}(X_{n})\}\)
+のように書く．
+例えば
+</p>
+<div>
+\begin{equation}
+  \sup_{n} \mathrm{Var}(X_{n}) < \infty
+\end{equation}
+
+</div>
+
+<p>
+は &ldquo;\(\{\mathrm{Var}(X_{n})\}\) が有界である&rdquo; と書く．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org581a3b5">
+<h3 id="org581a3b5">大数の法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) を確率変数列として
+</p>
+<div>
+\begin{equation}
+  S_n=\sum_{k=1}^n X_k
+\end{equation}
+
+</div>
+
+<p>
+とする．
+また，
+\(\{X_n\}\) は独立で，
+\(\{\mathrm{Var}(X_n)\}\) は有界とする．
+任意の \(\varepsilon>0\) に対して，
+\(n(\varepsilon)\) を十分大きくとれば，
+すべての \(n>n(\varepsilon)\) に対して
+</p>
+<div>
+\begin{equation}
+  P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+  <\varepsilon
+\end{equation}
+
+</div>
+
+<p>
+とすることができる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org9b9ef29">
+<h3 id="org9b9ef29">Čebyšëv の不等式</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+任意の確率変数 \(X\) において任意の \(a>0\) に対して
+</p>
+<div>
+\begin{equation}
+  P\left(|X(\omega)-\mathbb{E}[X]|>a\right)
+  \le\frac{1}{a^2}\mathrm{Var}(X)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+証明
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  A=\left\{\omega\big||X(\omega)-\mathbb{E}[X]|>a\right\}
+\end{equation}
+
+</div>
+
+<p>
+とする．分散の性質から
+</p>
+<div>
+\begin{align}
+  \mathrm{Var}(X)
+  &=\mathbb{E}[(X-\mathbb{E}[X])^2]\\
+  &=\mathbb{E}[(X-\mathbb{E}[X])^2, \Omega]\\
+  &=\mathbb{E}[(X-\mathbb{E}[X])^2, A+A^c]\\
+  &=\mathbb{E}[(X-\mathbb{E}[X])^2, A]+\mathbb{E}[(X-\mathbb{E}[X])^2, A^c]\\
+  &\ge \mathbb{E}[(X-\mathbb{E}[X])^2,A]\ge a^2 P(A)
+\end{align}
+
+</div>
+
+<p>
+であるので，題意が証明される．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orga4d01cc">
+<h3 id="orga4d01cc">大数の法則の略証</h3>
+<ul>
+<li><p>
+step 1
+</p>
+<blockquote>
+<p>
+まず \(a>0\) として Čebyšëv の不等式より
+</p>
+<div>
+\begin{equation}
+  P\left(|S_n-\mathbb{E}[S_n]|>a\right)
+  \le\frac{1}{a^2}\mathrm{Var}(S_n)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 2
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) の独立性より
+</p>
+<div>
+\begin{equation}
+  \mathrm{Var}(S_n)
+  =\sum_{k=1}^n\mathrm{Var}(X_k)
+  \le n\cdot\max_{k}\mathrm{Var}(X_k)
+\end{equation}
+
+</div>
+
+<p>
+がいえる．
+</p>
+</blockquote></li>
+<li><p>
+step 3
+</p>
+<blockquote>
+<p>
+\(a=n\varepsilon\) と置き換えることによって
+</p>
+<div>
+\begin{equation}
+  P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+  \le\frac{1}{n\varepsilon^2}\max_{k}\mathrm{Var}(X_k)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 4
+</p>
+<blockquote>
+<p>
+\(n\to\infty\) 
+とすると右辺は
+\(\{\mathrm{Var}(X_n)\}\)
+の有界性より0になる．
+したがって任意の \(\varepsilon>0\) に対して
+</p>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}
+  P\left(\frac{|S_n-\mathbb{E}[S_n]|}{n}>\varepsilon\right)
+  \to 0
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org56fc39a">
+<h3 id="org56fc39a">Kolmogorov の大数の強法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) を確率変数列として
+</p>
+<div>
+\begin{equation}
+  S_n=\sum_{k=1}^n X_k
+\end{equation}
+
+</div>
+
+<p>
+とする．
+\(\{X_n\}\) が独立で，
+\(\{\mathrm{Var}(X_n)\}\) が有界ならば
+</p>
+<div>
+\begin{equation}
+  \frac{S_n-\mathbb{E}[S_n]}{n}\to 0 \text{ a.s.}
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li>大数の法則(弱法則)より強い意味での収束性を主張
+<ul>
+<li>大数の弱法則 : 確率収束</li>
+<li>大数の強法則 : 概収束</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org6bdadea">
+<h3 id="org6bdadea">同分布の場合の大数の強法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+確率変数列 \(\{X_n\}\) が独立で同じ分布に従い，
+\(\{\mathbb{E}[|X_n|]\}\) が有界であるとする．
+\(\{X_n\}\) の平均値を \(\mu\) とすると，
+</p>
+<div>
+\begin{equation}
+  \frac{S_n}{n}\to \mu\quad \text{a.s.}
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote>
+<ul>
+<li>絶対値の平均が有界という条件に緩められている</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+定理の意味
+</p>
+<blockquote>
+<p>
+条件を満たすならば，
+\(n\) が十分大きくとれる(十分多くの観測を行うことができる)とき，
+平均値 \(\mu\) の近似値として観測値の算術平均
+</p>
+<div>
+\begin{equation}
+  \frac{S_n}{n}=\frac{\sum_{i=1}^nX_i}{n}
+\end{equation}
+
+</div>
+
+<p>
+を使って良い.
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org2f0e56e" data-background="#fef4f4">
+<h2 id="org2f0e56e">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7d1bb03" data-background="#fef4f4">
+<h3 id="org7d1bb03">練習問題</h3>
+<ul>
+<li>確率変数 \(X\) は平均50，標準偏差10の分布に従うとする．
+このとき以下の確率を Čebyšëv の不等式を用いて評価せよ．
+<ul>
+<li>\(P(|X-50| > 10)\)</li>
+<li>\(P(|X-50| > 20)\)</li>
+<li>\(P(|X-50| > 30)\)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org39d446c" data-background="#fef4f4">
+<h3 id="org39d446c">解答例</h3>
+<ul>
+<li><p>
+\(\mathrm{Var}(X)=10^{2}\) なので
+以下のように計算される
+</p>
+<blockquote>
+<div>
+\begin{align}
+  P(|X-50| > 10)&\le1 \\
+  P(|X-50| > 20)&\le0.25\\
+  P(|X-50| > 30)&\le0.11
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>\(X\) がどんな分布に従っていても成り立つことに注意</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga87abb6">
+<h2 id="orga87abb6">中心極限定理</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org6749709">
+<h3 id="org6749709">Lindeberg の中心極限定理</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) は独立で，その分散が有界，
+\(S_n=\sum_{k=1}^n X_k\) とする．
+すべての \(\varepsilon>0\) に対し
+</p>
+<div>
+\begin{multline}
+  \frac{1}{\mathrm{Var}(S_n)}\sum_{k=1}^n
+  \mathbb{E}\left[(X_k-\mathbb{E}[X_k])^2,
+    |X_k-\mathbb{E}[X_k]|\ge\varepsilon\sqrt{\mathrm{Var}(S_n)}\right]\\
+  \to 0 \; (n\to\infty)
+\end{multline}
+
+</div>
+
+<p>
+ならば，
+\(n\to\infty\)
+のとき
+</p>
+<div>
+\begin{equation}
+  T_n=\frac{S_n-\mathbb{E}[S_n]}{\sqrt{\mathrm{Var}(S_n)}}
+\end{equation}
+
+</div>
+
+<p>
+の確率法則は
+標準正規分布
+\(N(0,1)\) に近づく．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org99f1413">
+<h3 id="org99f1413">同分布の場合の中心極限定理</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) が独立で，正の分散を持つ同じ分布に従うときには
+中心極限定理が成り立つ．
+</p>
+</blockquote>
+<ul>
+<li>&ldquo;正の分散を持つ&rdquo;とは定数ではないことを意味する．</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+Lindeberg の条件の確認
+</p>
+<blockquote>
+<p>
+同分布の場合には
+</p>
+<div>
+\begin{multline}
+  \frac{1}{\mathrm{Var}(X)}
+  \mathbb{E}\left[(X-\mathbb{E}[X])^2,
+    |X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\right]
+  \to 0\\
+  (n\to\infty)
+\end{multline}
+
+</div>
+
+<p>
+と書かれる．
+左辺は，
+平均値から
+\(\sqrt{n\mathrm{Var}(X)}\)
+以上離れた標本点が得られるという
+事象 \(|X-\mathbb{E}[X]|\ge\varepsilon\sqrt{n\mathrm{Var}(X)}\) の起こる確率を表すが，
+これは \(n\) が大きくなるとともに0に近づくので，
+Lindeberg の条件は満たされる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+\(T_n\) の書き換え
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) の
+平均を \(\mathbb{E}[X]=\mu\) ，
+分散を \(\mathrm{Var}(X)=\sigma^{2}\) 
+と書き，
+\(\{X_n\}\) の標本平均を
+</p>
+<div>
+\begin{equation}
+  \bar{X}_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i}=\frac{S_{n}}{n}
+\end{equation}
+
+</div>
+
+<p>
+と定義すると
+</p>
+<div>
+\begin{equation}
+  T_n=\frac{S_n-\mathbb{E}[S_n]}{\sqrt{\mathrm{Var}(S_n)}}
+  =\frac{n\bar{X}_{n}-n\mathbb{E}[X]}{\sqrt{n\mathrm{Var}(X)}}
+  =\frac{\sqrt{n}(\bar{X}_{n}-\mu)}{\sigma}
+\end{equation}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+定理の別表現
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) は独立で，
+平均 \(\mu\) ，標準偏差 \(\sigma\) 
+の同じ分布に従うとする．
+このとき，すべての実数 \(a < b\) に対して
+</p>
+<div>
+\begin{equation}
+  P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
+  \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
+  (n\to\infty)
+\end{equation}
+
+</div>
+
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+定理の意味
+</p>
+<blockquote>
+<p>
+\(X_i\) の分布が何であっても，
+サンプル数 \(n\) が十分大きければ，
+標本平均と真の平均の差
+\(\bar{X}_n-\mu\) 
+の分布は，
+<b>標準正規分布</b> を利用して
+</p>
+<div>
+\begin{equation}
+  P\Bigl(a\frac{\sigma}{\sqrt{n}}\leq\bar{X}_n-\mu\leq
+  b\frac{\sigma}{\sqrt{n}} \Bigr)
+  \simeq
+  \frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx
+\end{equation}
+
+</div>
+
+<p>
+で近似できる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+評価の例
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \alpha&=1&&\frac{1}{\sqrt{2\pi}}\int_{-1}^{1}e^{-\frac{x^2}{2}}dx=0.6827\\
+  \alpha&=2&&\frac{1}{\sqrt{2\pi}}\int_{-2}^{2}e^{-\frac{x^2}{2}}dx=0.9545\\
+  \alpha&=3&&\frac{1}{\sqrt{2\pi}}\int_{-3}^{3}e^{-\frac{x^2}{2}}dx=0.9973
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>Čebyšëv の不等式による評価と比較してみよ</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org83c789c" data-background="#fef4f4">
+<h2 id="org83c789c">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgef6bb06" data-background="#fef4f4">
+<h3 id="orgef6bb06">練習問題</h3>
+<ul>
+<li><p>
+以下の関数を \(x=0\) のまわりで Taylor 展開せよ．
+</p>
+<ul>
+<li>\(\log(1+x)\)</li>
+<li>\(\exp(x)\)</li>
+
+</ul>
+<blockquote>
+<p>
+関数 \(f(x)\) の点 \(x=a\) における Taylor 展開: 
+</p>
+<div>
+\begin{multline}
+  f(x)=f(a)
+  +(x-a)\frac{f^{(1)}(a)}{1!}
+  +(x-a)^2\frac{f^{(2)}(a)}{2!}
+  +\dotsb\\
+  +(x-a)^{n-1}\frac{f^{(n-1)}(a)}{(n-1)!}
+  +(x-a)^n\frac{f^{(n)}(\xi)}{n!}
+\end{multline}
+
+</div>
+<div>
+\begin{equation}
+  \xi=a+\theta(x-a),\quad 0<\theta<1
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orge774404" data-background="#fef4f4">
+<h3 id="orge774404">解答例</h3>
+<ul>
+<li><p>
+対数関数
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \log(1+x)
+  =x-\frac{1}{2}x^2+\frac{1}{3}x^3-\frac{1}{4}x^4+\dotsb
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+指数関数
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \exp(x)
+  =1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\dotsb
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3b0051f" data-background="#fef4f4">
+<h3 id="org3b0051f">練習問題</h3>
+<ul>
+<li><p>
+以下の極限を求めよ
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org9b11456" data-background="#fef4f4">
+<h3 id="org9b11456">解答例</h3>
+<ul>
+<li><p>
+Napier 数の計算の一般化
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n
+  = e^x
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+より一般的には
+は \(\lim_{n\to\infty}r_n(x)=0\) となる関数に対して
+以下を用いる場合がある
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}\left(1+\frac{f(x)+r_n(x)}{n}\right)^n
+  =e^{f(x)}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgd19280e">
+<h2 id="orgd19280e">定理の略証</h2>
+<div class="outline-text-2" id="text-orgd19280e">
+</div>
+</section>
+<section id="slide-org9ac0c06">
+<h3 id="org9ac0c06">証明の考え方</h3>
+<ul>
+<li><p>
+以下では同分布の場合の定理を考える
+</p>
+<blockquote>
+<p>
+\(\{X_n\}\) は独立で，
+平均 \(\mathbb{E}[X]=\mu\)， 
+分散 \(\mathrm{Var}(X)=\sigma^{2}>0\)
+の同分布に従い，
+\(S_n=\sum_{k=1}^n X_k\) とする．
+\(n\to\infty\)
+のとき
+</p>
+<div>
+\begin{equation}
+  T_n
+  =\frac{S_n-\mathbb{E}[S_n]}{\sqrt{\mathrm{Var}(S_n)}}
+\end{equation}
+
+</div>
+
+<p>
+の確率法則は
+標準正規分布
+\(N(0,1)\) に近づく．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 1
+</p>
+<blockquote>
+<p>
+確率変数 \(Y_{nk}\) を
+</p>
+<div>
+\begin{equation}
+  Y_{nk}
+  =\frac{X_k-\mathbb{E}[X]}{\sqrt{n\mathrm{Var}(X)}}
+  =\frac{X_k-\mu}{\sqrt{n}\sigma}
+\end{equation}
+
+</div>
+
+<p>
+とおくと
+\(\mathrm{Var}(S_n)=n\mathrm{Var}(X)\)
+であることから
+\(T_n\) は
+</p>
+<div>
+\begin{equation}
+  T_n=\sum_{k=1}^nY_{nk}
+\end{equation}
+
+</div>
+
+<p>
+と表される．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 2
+</p>
+<blockquote>
+<p>
+このとき
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[Y_{nk}]&=0, \\
+  \mathrm{Var}(Y_{nk})&=\mathbb{E}[Y_{nk}^2]
+			=\frac{1}{n}\frac{\mathrm{Var(X)}}{\sigma^{2}}
+			=\frac{1}{n},\\
+  \mathbb{E}[T_n] &=0, \\
+  \mathrm{Var}(T_n)&=\sum_{k=1}^n\mathrm{Var}(Y_{nk})
+		     =\sum_{k=1}^n\mathbb{E}[Y_{nk}^2]
+		     =1
+\end{align}
+
+</div>
+
+<p>
+となる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 3
+</p>
+<blockquote>
+<p>
+\(\{Y_{nk},k=1,2,\dotsc,n\}\)
+は独立であるから，
+\(T_n\)
+の特性関数は独立変数の平均値の乗法性より
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[e^{isT_n}]=\prod_{k=1}^{n}\mathbb{E}[e^{isY_{nk}}]
+\end{equation}
+
+</div>
+
+<p>
+と分解できる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 4
+</p>
+<blockquote>
+<p>
+\(Y_{nk}\) の特性関数に着目して
+指数関数を適当な項までTaylor展開する．
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[e^{isY_{nk}}]
+  &=\mathbb{E}\left[1+isY_{nk}-\frac{1}{2}s^2Y_{nk}^2
+    +\text{(\(Y_{nk}^3\)以上の項)}\right]\\
+  &=1+is\mathbb{E}[Y_{nk}]-\frac{1}{2}s^2\mathbb{E}[Y_{nk}^2]
+    +\mathbb{E}[\text{(\(s^{3}Y_{nk}^3\)以上の項)}]\\
+  &=1-\frac{1}{2n}s^2
+    +\frac{r_{n}(s)}{n}
+\end{align}
+
+</div>
+
+<p>
+ただし \(r_{n}(s)\) は \(\lim_{n\to\infty}r_{n}(s)=0\) となることに注意．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+step 5
+</p>
+<blockquote>
+<p>
+したがって 
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[e^{isT_n}]
+  =\prod_{k=1}^{n}\left(
+    1-\frac{1}{2n}s^2
+    +\frac{r_{n}(s)}{n}\right)
+  =\left(
+    1+\frac{-s^2/2}{n}
+    +\frac{r_{n}(s)}{n}\right)^{n}
+\end{equation}
+
+</div>
+
+<p>
+であるから
+</p>
+<div>
+\begin{equation}
+  \lim_{n\to\infty}\mathbb{E}[e^{isT_n}]
+  =\lim_{n\to\infty}\left(
+    1+\frac{-s^2/2}{n}
+    +\frac{r_{n}(s)}{n}\right)^{n}
+  =e^{-\frac{s^2}{2}}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga50f01a" data-background="#fef4f4">
+<h2 id="orga50f01a">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0ed13c5" data-background="#fef4f4">
+<h3 id="org0ed13c5">練習問題</h3>
+<ul>
+<li><p>
+偏りのないコインを投げたとき表なら1，
+裏なら-1となる確率変数 \(X\) を考える．
+n回投げたときに得られた結果を
+\(X_1,X_2,\dotsc,X_n\) と書く．
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
+\end{equation}
+
+</div>
+</blockquote>
+<p>
+とするとき，以下の問に答えよ．
+</p>
+<ul>
+<li>\(Y_{n}\) の平均と分散を求めよ．</li>
+<li>\(Y_{n}\) の特性関数 \(\phi_n(s)\) を求めよ．</li>
+<li>特性関数 \(\phi_n(s)\) の極限 \(\lim_{n\to\infty}\phi_n(s)\) を求めよ．</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfb10f6e" data-background="#fef4f4">
+<h3 id="orgfb10f6e">ヒント</h3>
+<ul>
+<li><p>
+\(X\)の性質は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[X]
+  &=\frac{1}{2}\times(1)+\frac{1}{2}\times(-1)=0\\
+  \mathrm{Var}(X)
+  &=\mathbb{E}[X^{2}]
+    =\frac{1}{2}\times(1)^{2}+\frac{1}{2}\times(-1)^{2}=1\\
+  \phi_{X}(s)
+  &=\mathbb{E}[e^{isX}]
+    =\frac{1}{2}\times e^{is}+\frac{1}{2}\times e^{-is}
+    =\cos(s)\\
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(Y\)と\(X\)の関係は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y_{n}]
+  &=\frac{1}{\sqrt{n}}\sum_{k=1}^{n}\mathbb{E}[X_{k}]\\
+  \mathrm{Var}(Y_{n})
+  &=\frac{1}{\sqrt{n}^{2}}\sum_{k=1}^{n}\mathrm{Var}(X_{k})\\
+  \phi_{Y_{n}}(s)
+  &=\prod_{k=1}^{n}\phi_{X}(s/\sqrt{n})
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>特性関数の展開については注意せよ</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(\cos(z)\)の Taylor 展開
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \cos(z)
+  &=\frac{e^{iz}+e^{-iz}}{2}\\
+  &=\frac{1}{2}
+    \left(1+\frac{1}{1!}(iz)+\frac{1}{2!}(iz)^2+\frac{1}{3!}(iz)^3+\dotsb\right)\\
+  &\qquad+\frac{1}{2}
+    \left(1+\frac{1}{1!}(-iz)+\frac{1}{2!}(-iz)^2+\frac{1}{3!}(-iz)^3+\dotsb\right)\\
+  &=1-\frac{1}{2!}z^2+\frac{1}{4!}z^4+\dotsb
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>上記は練習問題の解を利用したもの</li>
+<li>定義に従って計算しても同じ展開が得られる</li>
+<li>これを用いて中心極限定理の証明と同様な議論をすればよい</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga73acc0">
+<h2 id="orga73acc0">今回のまとめ</h2>
+<ul>
+<li>独立変数の和の性質
+<ul>
+<li>大数の法則とその条件</li>
+<li>中心極限定理とその条件</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgcc5bc4a">
+<h3 id="orgcc5bc4a">注意</h3>
+<ul>
+<li>確認テスト (講義6の中)
+<ul>
+<li>Bayes の定理の計算問題</li>
+<li>期間と時間制限に注意</li>
+<li>試験の意味を考えて誠実な対応をすること</li>
+<li>ネットワーク環境等には自身で配慮すること</li>
+<li>過去問などで手を動かしてから受けることをお勧め</li>
+
+</ul></li>
+<li>次週は理解度確認</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+
+});
+</script>
+</body>
+</html>
