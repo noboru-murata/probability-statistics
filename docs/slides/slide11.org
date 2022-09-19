@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-07-05 14:27:45 mura>
+# Time-stamp: <2022-09-19 14:56:24 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -274,7 +274,7 @@
   #+end_quote
   - \(z_{0.95}=1.64, z_{0.975}=1.96\)
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -327,7 +327,7 @@
 :END:
 - 前問において\(p\)-値を計算する方法を考えよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -639,7 +639,7 @@
 - Welch の \(t\)-検定において
   \(p\)-値はどのように計算すればよいか述べよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -870,7 +870,7 @@
     \(F_{0.95}(39,34)=1.74, F_{0.975}(39,34)=1.95\),
     \(t_{0.95}(73)=1.67, t_{0.975}(73)=1.99\)
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

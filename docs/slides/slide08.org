@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-06-17 15:11:54 mura>
+# Time-stamp: <2022-09-19 14:52:14 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -264,7 +264,7 @@
   #+end_src
   #+end_quote
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -408,7 +408,7 @@
 - 上記のモデルにおいて
   \(\theta\) に関する Fisher 情報量を求めよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -528,7 +528,7 @@
   \(Z\) の平均と分散を求めよ．
 - 確率変数 \(Z\) がどのような分布になるか答えよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

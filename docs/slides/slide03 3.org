@@ -1,0 +1,971 @@
+#+TITLE: 確率密度
+#+SUBTITLE: 確率・統計 - 第3講
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE:
+# Time-stamp: <2022-04-29 15:20:36 mura>
+:REVEAL:
+#+INCLUDE: "./reveal.js/org/mycourse.org"
+#+STARTUP: hidestars content indent
+# C-c C-x C-v でinlineを切り替え
+# <m C-i でlatex block (math env用)
+# C-c '
+:END:
+
+* 前回のおさらい
+- 一般の確率空間
+  - 有限集合と無限集合
+  - 集合の濃度 (無限集合は更に分類される)
+    - 可算集合: 自然数，整数，有理数
+    - 連続集合: 無理数，実数
+  - 一般の確率測度と \(\sigma\)-加法性の関係
+  - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
+  - "ほとんど確実に成り立つ"
+
+* COMMENT メモ
+- 校正に関して記述
+
+
+* 確率測度と確率密度
+# 実数上に値を取る一般の確率測度を具体的に表現するためには，
+# 確率密度による積分表現を用いることになる．
+
+** 歪んだ目盛りのルーレットの例
+- 問題
+  #+begin_quote
+  起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
+  #+begin_src latex
+    \begin{equation}
+      x=l^{2}
+    \end{equation}
+  #+end_src
+  として周長1のルーレットを作る．
+
+  事象として同じ長さの区間
+  \([0.1,0.2]\), \([0.8,0.9]\)
+  を考えたとき，
+  その確率
+  #+begin_src latex
+    \begin{equation}
+      P([0.1,0.2]),\quad P([0.8,0.9])
+    \end{equation}
+  #+end_src
+  の大小関係はどのような関係になるか?
+  #+end_quote
+
+#+reveal: split
+- 解答
+  #+begin_quote
+  #+begin_src latex
+    \begin{equation}
+      P([0.1,0.2]) > P([0.8,0.9])
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+#+begin_src R :file figs/roulette.png :exports results :results graphics
+  par(mar=rep(0,4),family="HiraginoSans-W4")
+  t <- seq(0,1,length=100)
+  plot(1.1*cos(2*pi*t),1.1*sin(2*pi*t),
+       type="n",axes=F,ann=F)
+  lines(cos(2*pi*t),sin(2*pi*t),
+        col="grey", lwd=4)
+  x <- seq(0.1,1,by=0.1)
+  l <- sqrt(x)*2*pi
+  text(1.1*cos(l),1.1*sin(l),labels=x,
+       cex=2)
+  text(0.9,0,labels=0,cex=2)
+  lines(cos(2*pi*sqrt(t[10:20])),sin(2*pi*sqrt(t[10:20])),
+        col="red", lwd=8)
+  lines(cos(2*pi*sqrt(t[80:90])),sin(2*pi*sqrt(t[80:90])),
+        col="blue", lwd=8)
+#+end_src
+#+NAME: fig:roulette
+#+ATTR_HTML: :height 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/roulette.png]]
+
+#+reveal: split
+- 考え方
+  #+begin_quote
+  これまで扱ってきた単純なルーレットに対応づけて考えればよい．
+  - 歪んだ目盛りの指す区間: \([a,b]\)
+  - これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)
+  したがって確率測度は以下で計算される．
+  #+begin_src latex
+    \begin{equation}
+      P([a,b]) = \sqrt{b}-\sqrt{a}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 一様でない抜き出しの例
+- 問題
+  #+begin_quote
+  "\(\Omega=[0,1]\) の点を異なる確率で抜き出す"
+  という試行において，
+  区間 \([0,0.5)\) から点が抜き出される事象と，
+  区間 \([0.5,1]\) から点が抜き出される事象を比較すると，
+  前者より後者が3倍起こりやすい状況を考える．
+
+  このとき確率測度をどのように定義すれば良いか?
+  #+end_quote
+
+#+reveal: split
+   - 解答
+#+begin_leftcol  
+#+begin_src R :file figs/density.png :exports results :results graphics
+  par(family="HiraginoSans-W4")
+  x <- c(-0.3,0,  0,0.5,0.5,  1,1,1.3)
+  y <- c(   0,0,0.5,0.5,1.5,1.5,0,  0)
+  plot(x, y, type="n", ann=F, axes=F)
+  abline(h=0, col=gray(0.9))
+  polygon(x, y, density=10, angle=45,
+          col="blue", lty="solid", lwd=4)
+  axis(1)
+  axis(2)
+  title(main="重み付けの関数",
+        xlab=expression(omega), ylab="重み")
+#+end_src
+#+NAME: fig:density
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/density.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+#+begin_src latex
+  \begin{equation}
+    f(x)=
+    \begin{cases}
+      0.5, & (0\le x< 0.5)\\
+      1.5, & (0.5\le x\le 1)
+    \end{cases}
+  \end{equation}
+#+end_src
+として，
+確率測度を
+#+begin_src latex
+  \begin{equation}
+    P(A)=\int_{A}f(\omega)d\omega
+  \end{equation}
+#+end_src
+で定義する．
+#+end_quote
+#+end_rightcol  
+
+#+reveal: split
+- 確率の偏りの確認
+  #+begin_quote
+  例えば区間 \([0.1,0.2]\) と \([0.8,0.9]\) を比べてみる
+  #+begin_src latex
+    \begin{align}
+      P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
+		    =\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
+      P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
+		    =\left[1.5\omega\right]_{0.8}^{0.9}=0.15
+    \end{align}
+  #+end_src
+  #+end_quote
+
+** 確率測度の条件 (再掲)
+- 以下の3つの条件が成立する
+  #+begin_quote
+  #+begin_src latex
+    \begin{align}
+      (P.1)\quad
+      &P(A)\ge 0,\; A\in\mathcal{F}\\
+      (P.2)\quad
+      &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+	=\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+      (P.3)\quad
+      &P(\Omega)=1
+    \end{align}
+  #+end_src
+  #+end_quote
+
+** 積分による表現の正当性
+- (P.1) \(f(x)\) の正値性から明らか
+- (P.2) 積分区間を分割しても積分値が変わらないという積分の性質から明らか
+- (P.3) 区間 \([0,1]\) 上の積分
+  #+begin_src latex
+    \begin{equation}
+      P([0,1])=\int_{0}^{1}f(\omega)d\omega
+      =0.5\times0.5+0.5\times1.5=1
+    \end{equation}
+  #+end_src
+  より全確率が \(1\) となっている
+
+** 確率密度
+- 定義
+  #+begin_quote
+  確率測度がある関数の積分
+  #+begin_src latex
+    \begin{equation}
+      P(A)=\int_{A}f(\omega)d\omega
+    \end{equation}
+  #+end_src
+  で書かれているとき，
+  その被積分関数を 
+  *確率密度(関数)* (probability density function)
+  という．
+
+  また確率密度を持つ確率測度を
+  *絶対連続* (absolutely continuous)
+  な分布と呼ぶ．
+  #+end_quote
+  - 標本空間上で積分が定義できる場合であることに注意
+
+** 確率密度の例
+- 歪んだ目盛りのルーレット
+  #+begin_quote
+  歪んだ目盛をもつルーレットの確率密度は，
+  任意の \(a,b\;(0 < a < b\le1)\) に対して
+  #+begin_src latex
+    \begin{equation}
+      P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
+    \end{equation}
+  #+end_src
+  となる
+  以下の関数 \(f\) である．
+  #+begin_src latex
+    \begin{equation}
+      f(\omega)=
+      \begin{cases}
+	\frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
+	0,&(\text{それ以外})
+      \end{cases}
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 起点 \(0\) から周に沿った長さ \(l\) の位置に対して，
+  以下のような歪んだ目盛り \(x\) を付けた
+  周長1のルーレットの確率密度を求めよ．
+  1. \(x=\sqrt{l}\)
+  2. \(x=-\log(l)\)
+  3. \(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)
+
+** ヒント
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 歪んでいないルーレットと対応づければ良い．
+  #+begin_src latex
+    \begin{align}
+      P(a < x < b)
+      &=P(a < g(l) < b)\\
+      &=P(g^{-1}(a) < l < g^{-1}(b))\\
+      &=g^{-1}(b)-g^{-1}(a)\\
+      &=\int_{a}^{b}f(\omega)d\omega
+    \end{align}
+  #+end_src
+  (\(g\) が単調増加の場合，減少する場合は符号に注意)
+
+
+* 異なる2つの積分
+** 積分の考え方
+- Riemann 積分 (区分求積法に基づく)
+- Lebesgue 積分 (確率測度に基づく)
+
+** Riemann 積分
+#+begin_leftcol
+- 定義
+#+begin_src R :file figs/riemann.png :exports results :results graphics
+  par(family="HiraginoSans-W4")
+  e <- 0.01
+  x <- seq(0,5,by=e)
+  f <- function(x){(x-1)*(x-2)*(x-4)+8}
+  y <- f(x)
+  par(mai=c(0.1,0.1,0.1,0.1))
+  plot(x, y, type="n", ann=F, axes=F)
+  
+  d<-0.25
+  abline(h=0)
+  abline(v=seq(0+d,5-d,by=d), col=gray(0.7))
+  lines(x, y, lty="solid", lwd=3)
+  axis(1,at=c(0,5),labels=F)
+  
+  tmpa<-seq(0,d,by=e)
+  tmpb<-seq(0,5-d,by=d)
+  tmp<-t(matrix(tmpa,length(tmpa),length(tmpb)))
+  tmp<-tmp+matrix(tmpb,length(tmpb),length(tmpa))
+  xdup<-as.vector(t(tmp))
+  ymin<-rep(apply(f(tmp),1,min),each=length(tmpa))
+  ymax<-rep(apply(f(tmp),1,max),each=length(tmpa))
+  
+  lines(xdup,ymin, col="blue", lty="solid", lwd=4)
+  lines(xdup,ymax, col="red", lty="solid", lwd=4)
+  
+  xoff<-0.5
+  yoff<-4
+  idx<-3
+  xpos<-d*(idx+0.5)
+  ypos<-ymin[min(which(xdup>=xpos))]
+  text(xpos+xoff,ypos-yoff,
+       expression(min(f(x),x %in% I[i]) %*% d[i]),cex=2,pos=4)
+  arrows(xpos+xoff,ypos-yoff,xpos+0.5*d,ypos/2)
+  rect(xpos-0.5*d,0,xpos+0.5*d,ypos,col="blue",density=20)
+  
+  xpos<-d*(length(tmpb)-(idx+0.5))
+  ypos<-ymax[min(which(xdup>=xpos))]
+  text(xpos-xoff,ypos+yoff,
+       expression(max(f(x),x %in% I[i]) %*% d[i]),cex=2,pos=2)
+  arrows(xpos-xoff,ypos+yoff,xpos,ypos)
+  rect(xpos-0.5*d,0,xpos+0.5*d,ypos,col="red",density=20)
+#+end_src
+#+NAME: fig:riemann
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/riemann.png]]
+#+end_leftcol
+#+begin_rightcol
+#+begin_quote
+有界な積分領域 \(K\) を \(n\) 個の区間 
+\(I_i\) (幅は \(d_i\)) に分割する．
+各区間における関数 \(f(x)\) の最小値と最大値を用いて
+有限和 \(s_n\),\(S_n\) を次のように定義する．
+#+begin_src latex
+  \begin{align}
+    s_n
+    &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
+    S_n
+    &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
+  \end{align}
+#+end_src
+#+end_quote
+#+end_rightcol
+
+#+reveal: split
+- 定義(つづき)
+  #+begin_quote
+  各区間の大小関係から
+  #+begin_src latex
+    \begin{equation}
+      s_n\le S_n
+    \end{equation}
+  #+end_src
+  が成り立っているが，分割を細かくしたとき，
+  それぞれの極限が存在して，
+  なおかつ一致するならば，
+  これを \(f(x)\) の 
+  *Riemann 積分* (Riemann integral)
+  という．
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}s_n
+      =\lim_{n\to\infty}S_n
+      =\int_K f(x)dx
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** Lebesgue 積分
+#+begin_leftcol
+- 定義
+#+begin_src R :file figs/lebesgue.png :exports results :results graphics
+  par(family="HiraginoSans-W4")
+  col<-"purple"
+  
+  e <- 0.01
+  x <- seq(0,5,by=e)
+  f <- function(x){(x-1)*(x-2)*(x-4)+8}
+  y <- f(x)
+  par(mai=c(0.1,0.1,0.1,0.1))
+  plot(x, y, type="n", ann=F, axes=F)
+  
+  d<-1
+  abline(h=seq(0,20,by=d), col=gray(0.7))
+  abline(h=0)
+  lines(x, y, lty="solid", lwd=4)
+  axis(1,at=c(0,5),labels=F)
+  
+  ymin<-floor(y/d)*d
+  lines(x,ymin, col=col, lty="solid", lwd=4)
+  
+  ypos<-d*7
+  tmp<-which(ymin==ypos)
+  idx<-c(min(tmp),tmp[which(diff(tmp)>1)+1])
+  jdx<-c(tmp[which(diff(tmp)>1)],max(tmp))
+  
+  for (i in 1:length(idx)) {
+      rect(x[idx[i]],0,x[jdx[i]],ypos,col=col,density=20)
+  }
+  
+  abline(h=c(ypos,ypos+d), col=gray(0.5))
+  
+  xpos<-mean(x[c(idx,jdx)])
+  xoff<-0
+  yoff<-6
+  
+  text(0,ypos,expression(alpha[i]),cex=2,pos=4)
+  text(0,ypos+d,expression(alpha[i+1]),cex=2,pos=4)
+  text(xpos+xoff,ypos+yoff,
+       expression(alpha[i] %*% E[i]),cex=2,pos=3)
+  
+  for (i in 1:length(idx)) {
+      arrows(xpos+xoff,ypos+yoff,mean(x[c(idx[i],jdx[i])]),ypos)
+  }
+#+end_src
+#+NAME: fig:lebesgue
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/lebesgue.png]]
+#+end_leftcol
+#+begin_rightcol
+#+begin_quote
+区間 \(K\) 上で定義された
+関数 \(f(x)\) の値域を \(n\) 個の区間に分割する．
+区間の端点を \(\alpha_i\) とし，
+\(f(x)\) が区間 \([\alpha_i,\alpha_{i+1})\) で値を取る
+\(x\) の領域を
+\(E_i\subset K\) で表し，
+\(E_i\) 上で値が \(\alpha_i\) となる
+階段関数 \(f_n(x)\) (単関数)を考える．
+#+end_quote
+#+end_rightcol
+
+#+reveal: split
+- 定義(つづき)
+  #+begin_quote
+  このとき \(\mu\) を Lebesgue 測度とし，
+  単関数 \(f_n(x)\) の *Lebesgue 積分* を
+  #+begin_src latex
+    \begin{equation}
+      \int_K f_n(x)dx
+      =\sum_{i=1}^n\alpha_i\mu(E_i)
+    \end{equation}
+  #+end_src
+  で定義する．
+  分割を細かくしたとき \(f_n(x)\) は \(f(x)\) に近づいていくが，
+  この極限が存在するならば，
+  これを \(f(x)\) の 
+  *Lebesgue 積分* (Lebesgue integral)
+  という．
+  #+begin_src latex
+    \begin{equation}
+      \lim_{n\to\infty}\int_K f_n(x)dx
+      =\int_K f(x)dx
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 表記に関する注意
+- Lebesgue 積分特有の記法
+  #+begin_quote
+  2つの積分を明示的に区別するために，
+  Lebesgue 積分を
+  #+begin_src latex
+    \begin{equation}
+      \int_K f(x)\mu(dx),
+      \quad\text{(\(\mu\)は Lebesgue 測度)}
+    \end{equation}
+  #+end_src
+  と書くことがある．
+  #+end_quote
+  - この講義での以降の積分は，
+    特に断わらないかぎり
+    Lebesgue 積分を考える
+
+** 2つの積分の違い
+- 特異な例
+  #+begin_quote
+  \([0,1]\) 上で次のような関数
+  #+begin_src latex
+    \begin{equation}
+      f(x)=
+      \begin{cases}
+	1, & \text{\(x\)が有理数}\\
+	0, & \text{\(x\)が無理数}
+      \end{cases}
+      \label{eq:dirichlet_fn}
+    \end{equation}
+  #+end_src
+  を考える．
+  #+end_quote
+  - この関数は Dirichlet の関数と呼ばれ
+    #+begin_src latex
+      \begin{equation}
+	f(x)=
+	\lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
+      \end{equation}
+    #+end_src
+    と書けることが知られている
+
+#+reveal: split
+- Riemann 積分の場合
+  #+begin_quote
+  どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
+  #+begin_src latex
+    \begin{equation}
+      \min_{x\in I_i}f(x)=0,\quad
+      \max_{x\in I_i}f(x)=1
+    \end{equation}
+  #+end_src
+  #+begin_src latex
+    \begin{align}
+      s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
+      S_n&=\sum_{i=0}^{n}1\times d_{i}=1
+    \end{align}
+  #+end_src
+  であり，
+  \(n\) をいくら大きくしても極限は一致しない．
+  したがってこの関数の Riemann 積分は存在しない．
+  #+end_quote
+
+#+reveal: split
+- Lebesgue 積分の場合
+  #+begin_quote
+  適当な値域の分割において
+  #+begin_src latex
+    \begin{equation}
+      \alpha_{i}\le 0<\alpha_{i+1},\quad
+      \alpha_{j}\le 1<\alpha_{j+1}
+    \end{equation}
+  #+end_src
+  となるのであれば，Lebesgue 測度の性質より
+  #+begin_src latex
+    \begin{equation}
+      \int f_{n}(x)dx 
+      = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
+      % = \alpha_{i}\cdot1+\alpha_{j}\cdot0
+      =\alpha_{i}
+    \end{equation}
+  #+end_src
+  となるが，
+  \(n\to\infty\) のとき 
+  \(\alpha_{i}\to0,\;\alpha_{j}\to1\) となるので
+  #+begin_src latex
+    \begin{equation}
+      \int f(x)dx 
+      = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
+      = 0
+    \end{equation}
+  #+end_src
+  となり Lebesgue 積分可能である．
+  #+end_quote
+
+** 積分の一致する条件
+- 定理
+  #+begin_quote
+  有界閉区間 \(K\) で \(f\) が連続なら，
+  \(K\) 上の \(f\) の Lebesgue 積分の値は Riemann 積分の値と一致する．
+  #+end_quote
+  - 応用上重要な問題に現れる
+    「あまり特殊でない関数」では
+    ほとんど一致すると考えてよい
+
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 以下の関数が
+  \(\mathbb{R}\)
+  上の確率密度関数となるように \(a\) の値を定めよ．
+  1.
+     #+begin_src latex
+       \begin{equation}
+	 f(x)=
+	 \begin{cases}
+	   0& (x < 0)\\
+	   \exp(ax) & (x\geq0)
+	 \end{cases}
+       \end{equation}
+     #+end_src
+  2.
+     #+begin_src latex
+       \begin{equation}
+	 g(x)=
+	 \begin{cases}
+	   0& (|x|>1)\\
+	   a \cos(\pi x/2) & (|x|\leq1)
+	 \end{cases}
+       \end{equation}
+     #+end_src
+     
+** ヒント
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 標本空間で関数が正値で，積分が1となればよい．
+  1. 
+     #+begin_src latex
+       \begin{equation}
+	 \int_{0}^{\infty}\exp(ax)dx
+	 =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
+	 =\frac{-1}{a}
+	 =1
+       \end{equation}
+     #+end_src
+  2.
+     #+begin_src latex
+       \begin{equation}
+	 \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
+	 =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
+	 =a\frac{4}{\pi}
+	 =1
+       \end{equation}
+     #+end_src
+     
+
+* 確率密度関数の例
+** 正規分布 (normal/Gaussian distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_norm.png :exports results :results graphics
+  par(family="HiraginoSans-W4")
+  plot(function(x)dnorm(x,mean=0,sd=1),-6,6,
+       col=3, lwd=3, ylim=c(0,0.4),
+       xlab="x",ylab="確率密度"
+       )
+#+end_src
+#+CAPTION: 正規分布 (平均\(0\),分散\(1\))
+#+NAME: fig:pdf_norm
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_norm.png]]
+#+end_leftcol 
+#+begin_rightcol
+#+begin_quote
+- 標本空間: \((-\infty,\infty)\)
+- 母数: 平均 \(\mu\), 分散 \(\sigma^{2}\)
+- 密度関数:
+  #+begin_src latex
+    \begin{equation}
+      f(x)
+      =
+      \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+    \end{equation}
+  #+end_src
+- 備考: \(\mu=0,\sigma=1\) のとき
+  *標準正規分布* と呼ぶ．
+#+end_quote
+#+end_rightcol  
+
+** 一様分布 (uniform distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_unif.png :exports results :results graphics
+  par(family="HiraginoSans-W4")
+  plot(function(x)dunif(x,min=0,max=1), -1, 2,
+       col=6, lwd=3,
+       xlab="x",ylab="確率密度")
+#+end_src
+#+CAPTION: 一様分布 (区間\([0,1]\))
+#+NAME: fig:pdf_unif
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_unif.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+- 標本空間: 区間 \([a,b]\)
+- 母数: 区間の端点 \(a,b\)
+- 密度関数:
+  #+begin_src latex
+    \begin{equation}
+      \frac{1}{b-a}
+      \quad(b\le x\le a)
+    \end{equation}
+  #+end_src
+- 備考: ルーレット回しの
+  確率密度関数に相当する．
+#+end_quote
+#+end_rightcol  
+
+** Cauchy分布 (Cauchy distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_cauchy.png :exports results :results graphics
+  par(family="HiraginoSans-W4") 
+  plot(function(x)dcauchy(x,location=0,scale=1),-6,6,
+       col=2, lwd=3, ylim=c(0,0.4),
+       xlab="x",ylab="確率密度")
+#+end_src
+#+CAPTION: Cauchy分布 (位置\(0\),尺度\(1\))
+#+NAME: fig:pdf_cauchy
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_cauchy.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+- 標本空間: \((-\infty,\infty)\)
+- 母数: 位置 (location) \(\mu\) ， 
+  尺度 (scale) \(\sigma\)
+- 密度関数:
+  #+begin_src latex
+    \begin{equation}
+      f(x)=
+      \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
+    \end{equation}
+  #+end_src
+- 備考: 裾の重い分布の典型として用いられる．
+  正規分布の比から導かれる．
+#+end_quote
+#+end_rightcol  
+
+# 2つの量\(Y,Z\)が標準正規分布に従うとき，
+# そのの比\(X=Y/Z\)は
+# \(\mu=0,\;\sigma=1\)のCauchy分布に従う．
+# Cauchy分布は平均値や分散が定義されない分布の例としても有名である．
+# なお，平均値，分散については後節で定義する．
+
+** @@latex:@@\(\chi^{2}\)-分布 (\(\chi^{2}\)-distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_chisq.png :exports results :results graphics
+  par(family="HiraginoSans-W4") 
+  plot(function(x)dchisq(x,3,ncp=0), -1, 10,
+       col=4, lwd=3,
+       xlab="x",ylab="確率密度")
+#+end_src
+#+CAPTION: \(\chi^{2}\)-分布 (自由度\(3\))
+#+NAME: fig:pdf_chisq
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_chisq.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+- 標本空間: \([0,\infty)\)
+- 母数: 自由度 \(\nu\)
+- 密度関数:
+  #+begin_src latex
+    \begin{multline}
+      f(x)=
+      \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
+      \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
+    \end{multline}
+  #+end_src
+- 備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
+  検定に利用される．
+#+end_quote
+#+end_rightcol  
+
+** @@latex:@@\(t\)-分布 (Student's \(t\)-distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_t.png :exports results :results graphics
+  par(family="HiraginoSans-W4") 
+  plot(function(x)dt(x,df=3,ncp=0), -6, 6,
+       col=5, lwd=3, ylim=c(0,0.4),
+       xlab="x",ylab="確率密度")
+#+end_src
+#+CAPTION: \(t\)-分布 (自由度\(3\))
+#+NAME: fig:pdf_t
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_t.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+- 標本空間: \((-\infty,\infty)\)
+- 母数: 自由度 \(\nu\)
+- 密度関数:
+  #+begin_src latex
+    \begin{equation}
+      f(x)=
+      \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
+      {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
+      \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
+    \end{equation}
+  #+end_src
+- 備考: 標準正規分布と
+  自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
+  検定に利用される．
+#+end_quote
+#+end_rightcol  
+
+** 指数分布 (exponential distribution)
+#+begin_leftcol
+#+begin_src R :file figs/pdf_exp.png :exports results :results graphics
+  par(family="HiraginoSans-W4") 
+  plot(function(x)dexp(x,rate=1), -1, 4,
+       col="orange", lwd=3, 
+       xlab="x",ylab="確率密度"
+       )
+#+end_src
+#+CAPTION: 指数分布(比率\(1\))
+#+NAME: fig:pdf_exp
+#+ATTR_HTML: :width 100%
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:figs/pdf_exp.png]]
+#+end_leftcol  
+#+begin_rightcol
+#+begin_quote
+- 標本空間: \([0,\infty)\)
+- 母数: 比率 (rate) \(\lambda>0\)
+- 密度関数:
+  #+begin_src latex
+    \begin{equation}
+      f(x)=
+      \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
+    \end{equation}
+  #+end_src
+- 備考:
+  タクシーなどの待ち時間のモデル
+  として利用される．
+#+end_quote
+#+end_rightcol  
+
+
+* 確率密度がない分布
+** 確率密度が定義されない例 (その1)
+- \(\delta\) 分布
+  #+begin_quote
+  確率測度を
+  #+begin_src latex
+    \begin{equation}
+      P(A)=\delta_a(A)=
+      \begin{cases}
+	1, & a\in A\\
+	0, & a\not\in A
+      \end{cases}
+    \end{equation}
+  #+end_src
+  で定義する．
+  これは
+  #+begin_src latex
+    \begin{align}
+      &(\text{\(a\)が抜き出される確率})=1\\
+      &(\text{\(\Omega-{a}\)の点が抜き出される確率})=0
+    \end{align}
+  #+end_src
+  であるから，\(\Omega\) から1点抜き出すと
+  それは *ほとんど確実に* \(a\) であるような
+  抜き出しを考えていることになる．
+  #+end_quote
+
+** 確率密度が定義されない例 (その2)
+- 有理数の抜き出し
+  #+begin_quote
+  有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
+  これを \(q_{1},q_{2},\dotsc\) で表す．
+  #+begin_src latex
+    \begin{equation}
+      P(A)=\sum_{i:q_i\in A}2^{-i}
+    \end{equation}
+  #+end_src
+  という確率測度を考える．
+  例えば
+  #+begin_src latex
+    \begin{equation}
+      P(\mathbb{Q}_{[0,1]})=1,\quad
+      P(\Omega-\mathbb{Q}_{[0,1]})=0
+    \end{equation}
+  #+end_src
+  である．
+  #+end_quote
+
+#+reveal: split
+#+begin_quote
+この確率測度においては確率密度を考えることができない．
+なぜなら1点 \(q_i\) の起こる確率は
+#+begin_src latex
+  \begin{equation}
+    P\{q_i\}=2^{-i}
+  \end{equation}
+#+end_src
+であるので，
+密度関数 \(f\) は
+#+begin_src latex
+  \begin{equation}
+    P\{q_i\}=\int_{\{q_i\}}f(x)\mu(dx)
+    =f(q_i)\times\mu(q_i)=2^{-i}
+  \end{equation}
+#+end_src
+とならなくてはいけないが，
+1点の Lebesgue 測度は0なので
+#+begin_src latex
+  \begin{equation}
+    f(q_i)\times\mu(q_i)
+    =f(q_i)\times0=0
+  \end{equation}
+#+end_src
+となり，
+\(f\) を構成することは不可能である．
+#+end_quote
+   
+
+* 演習
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+** 練習問題
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 正規分布の確率密度関数
+  #+begin_src latex
+    \begin{equation}
+      f(x)
+      =
+      \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+    \end{equation}
+  #+end_src
+  が
+  \((-\infty,\infty)\)
+  で積分すると1となることを確かめよ.
+- 次の関数が確率密度となるように \(a\) を定めよ．
+  #+begin_src latex
+    \begin{equation}
+      h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
+    \end{equation}
+  #+end_src
+  
+** ヒント
+:PROPERTIES:
+:reveal_background: #fef4f4
+:END:
+- 2つの正規分布の積を考えて，
+  重積分を極座標に変換すればよい．
+  簡単のため変数変換した
+  #+begin_src latex
+    \begin{equation}
+      g(x)=e^{-x^{2}}
+    \end{equation}
+  #+end_src
+  を考えると
+  以下のように計算できる．
+  #+begin_src latex
+    \begin{align}
+      \int_{-\infty}^{\infty}
+      \int_{-\infty}^{\infty}
+      g(x)g(y)dxdy
+      &=
+	\int_{-\infty}^{\infty}
+	\int_{-\infty}^{\infty}
+	e^{-x^{2}-y^{2}}dxdy\\
+      &=
+	\int_{0}^{2\pi}
+	\int_{0}^{\infty}
+	e^{-r^{2}}rdrd\theta
+    \end{align}
+  #+end_src
+  
+
+* 今回のまとめ
+- 確率密度
+  - 確率密度の積分による確率測度の表現
+  - 確率密度の満たすべき条件
+  - Riemann 積分と Lebesgue 積分
+  - いろいろな確率分布
+
+
+* Footnotes
+* COMMENT ローカル変数
+# Local Variables:
+# org-latex-listings: minted
+# End:
+      
+  

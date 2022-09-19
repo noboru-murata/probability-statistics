@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-29 15:20:36 mura>
+# Time-stamp: <2022-09-19 15:01:55 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -11,6 +11,9 @@
 # <m C-i でlatex block (math env用)
 # C-c '
 :END:
+
+* COMMENT メモ
+- 校正に関して記述
 
 * 前回のおさらい
 - 一般の確率空間
@@ -21,9 +24,6 @@
   - 一般の確率測度と \(\sigma\)-加法性の関係
   - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
   - "ほとんど確実に成り立つ"
-
-* COMMENT メモ
-- 校正に関して記述
 
 
 * 確率測度と確率密度
@@ -255,7 +255,7 @@
   2. \(x=-\log(l)\)
   3. \(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)
 
-** ヒント
+** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -597,7 +597,7 @@
        \end{equation}
      #+end_src
      
-** ヒント
+** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -923,7 +923,7 @@
     \end{equation}
   #+end_src
   
-** ヒント
+** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE: 
-# Time-stamp: <2022-04-29 15:09:06 mura>
+# Time-stamp: <2022-09-19 15:02:10 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -12,6 +12,10 @@
 # C-c '
 :END:
 
+* COMMENT メモ
+- 校正に関して記述
+- 見本 -> 標本へ
+  
 * COMMENT はじめに
 - 確率論とは
   #+begin_quote
@@ -22,10 +26,6 @@
   - 対象となる現象を客観的に調べる実験
   - 実験の結果観測される事柄
 
-* COMMENT メモ
-- 校正に関して記述
-- 見本 -> 標本へ
-  
 
 * 試行と標本空間
 # 不確定性のある現象を記述するための数学的な枠組である
@@ -498,7 +498,7 @@
   2枚カードを引く試行を考える.
   この試行の確率空間を構成せよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org4987261">
-<h2 id="org4987261">前回のおさらい</h2>
+<section id="slide-orgd1df21c">
+<h2 id="orgd1df21c">前回のおさらい</h2>
 <ul>
 <li>確率モデルと推定量
 <ul>
@@ -70,13 +70,13 @@
 </section>
 </section>
 <section>
-<section id="slide-org3c002ce">
-<h2 id="org3c002ce">点推定</h2>
-<div class="outline-text-2" id="text-org3c002ce">
+<section id="slide-org64522f5">
+<h2 id="org64522f5">点推定</h2>
+<div class="outline-text-2" id="text-org64522f5">
 </div>
 </section>
-<section id="slide-org3c280b3">
-<h3 id="org3c280b3">点推定</h3>
+<section id="slide-org28812bf">
+<h3 id="org28812bf">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -121,8 +121,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org9221e55">
-<h3 id="org9221e55">一様最小分散不偏推定量</h3>
+<section id="slide-orgd954762">
+<h3 id="orgd954762">一様最小分散不偏推定量</h3>
 <ul>
 <li><p>
 定義
@@ -154,8 +154,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgbce1e64">
-<h3 id="orgbce1e64">Cramér-Rao の不等式</h3>
+<section id="slide-orga89ab98">
+<h3 id="orga89ab98">Cramér-Rao の不等式</h3>
 <ul>
 <li><p>
 定理
@@ -193,8 +193,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org7ab9eaf">
-<h3 id="org7ab9eaf">一様最小分散不偏推定量の存在</h3>
+<section id="slide-orgb733217">
+<h3 id="orgb733217">一様最小分散不偏推定量の存在</h3>
 <ul>
 <li>用語
 <ul>
@@ -220,12 +220,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org2dc7549" data-background="#fef4f4">
-<h2 id="org2dc7549">演習</h2>
+<section id="slide-org290594f" data-background="#fef4f4">
+<h2 id="org290594f">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org314736e" data-background="#fef4f4">
-<h3 id="org314736e">練習問題</h3>
+<section id="slide-org569b93e" data-background="#fef4f4">
+<h3 id="org569b93e">練習問題</h3>
 <ul>
 <li>平均 \(\theta\) ，分散 \(\sigma^{2}\) の正規分布に従う
 独立な確率変数 \(X_{1},X_{2},\dotsc,X_{n}\)
@@ -249,104 +249,15 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org0d8865c" data-background="#fef4f4">
-<h3 id="org0d8865c">解答例</h3>
-<ul>
-<li><p>
-独立性に注意して計算する
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathbb{E}[\bar{X}]
-  &=
-    \mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]
-    =\theta\\
-  \mathrm{Var}(\bar{X})
-  &=
-    \mathrm{Var}\left(\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right)\\
-  &=\frac{1}{n^{2}}\sum_{i=1}^{n}\mathrm{Var}(X_{i})\\
-  &=\frac{1}{n^{2}}\sum_{i=1}^{n}\sigma^{2}
-    =\frac{1}{n}\sigma^{2}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-定義通りに計算する
-</p>
-<blockquote>
-<div>
-\begin{align}
-  I(\theta)
-  &=\int_{-\infty}^\infty
-    \left(\frac{\partial}{\partial\theta}\log f_{\theta}(x)\right)^2
-    f_{\theta}(x)dx\\
-  &=\int_{-\infty}^\infty
-    \left(\frac{x-\theta}{\sigma^2}\right)^{2}
-    \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-  &=\frac{1}{\sigma^4}
-    \int_{-\infty}^\infty
-    (x-\theta)^{2}
-    \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-  &=\frac{1}{\sigma^4}\mathrm{Var}(X)=\frac{1}{\sigma^2}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li>正規分布の分散について
-<ul>
-<li>3行目の積分の中身は分散の計算であることに注意</li>
-<li><p>
-特性関数を用いると簡単に計算できる
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \phi(s)
-  &=\mathbb{E}[e^{isX}]\\
-  \phi'(s)
-  &=\frac{d}{ds}\mathbb{E}[e^{isX}]=\mathbb{E}[iXe^{isX}]\\
-  \phi''(s)
-  &=\mathbb{E}[-X^{2}e^{isX}]\\
-  \phi''(0)
-  &=\mathbb{E}[-X^{2}]
-\end{align}
-
-</div>
-</blockquote></li>
-<li>正規分布の特性関数を用いて確認せよ</li>
-
-</ul></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-
-
-</section>
 </section>
 <section>
-<section id="slide-orgf0735dd">
-<h2 id="orgf0735dd">正規分布モデルにおける点推定</h2>
-<div class="outline-text-2" id="text-orgf0735dd">
+<section id="slide-org904b539">
+<h2 id="org904b539">正規分布モデルにおける点推定</h2>
+<div class="outline-text-2" id="text-org904b539">
 </div>
 </section>
-<section id="slide-org94d0645">
-<h3 id="org94d0645">観測値の生成モデル</h3>
+<section id="slide-org54757fc">
+<h3 id="org54757fc">観測値の生成モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -382,8 +293,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org515b4ca">
-<h3 id="org515b4ca">誤差の正規性</h3>
+<section id="slide-org18b36cf">
+<h3 id="org18b36cf">誤差の正規性</h3>
 <ul>
 <li><p>
 以下の仮定を加える
@@ -417,8 +328,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org5a20a0a">
-<h3 id="org5a20a0a">正規分布モデルの標本平均</h3>
+<section id="slide-org5178f2f">
+<h3 id="org5178f2f">正規分布モデルの標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
@@ -444,8 +355,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org8fdf15d">
-<h3 id="org8fdf15d">一般の分布の場合の注意</h3>
+<section id="slide-orgcb83383">
+<h3 id="orgcb83383">一般の分布の場合の注意</h3>
 <ul>
 <li>標本平均の平均，分散は同様に計算される</li>
 <li>Fisher 情報量は誤差の分布によって異なる</li>
@@ -459,12 +370,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org083f71f" data-background="#fef4f4">
-<h2 id="org083f71f">演習</h2>
+<section id="slide-orge59f5da" data-background="#fef4f4">
+<h2 id="orge59f5da">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge38d0e4" data-background="#fef4f4">
-<h3 id="orge38d0e4">練習問題</h3>
+<section id="slide-orgb7d8bac" data-background="#fef4f4">
+<h3 id="orgb7d8bac">練習問題</h3>
 <ul>
 <li>加法的雑音モデルにおいて
 誤差 \(\varepsilon_{1},\dotsc,\varepsilon_{n}\)
@@ -478,65 +389,15 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org753eedf" data-background="#fef4f4">
-<h3 id="org753eedf">解答例</h3>
-<ul>
-<li><p>
-\(\varepsilon\) の分散
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathrm{Var}(\varepsilon)
-  &=\mathbb{E}[\varepsilon^{2}]\\
-  &=\int_{-a}^{a}\varepsilon^{2}\frac{1}{2a}d\varepsilon
-    =\frac{a^{2}}{3}\\
-  \mathrm{Var}(\bar{X})
-  &=\frac{a^{2}}{3n}
-\end{align}
-
-</div>
-</blockquote></li>
-<li>密度関数が滑らかでない(微分できない)ので
-Fisher 情報量は定義されない．</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-この分布における良い推定量(Pitman 推定量)は
-</p>
-<blockquote>
-<div>
-\begin{equation}
-  \hat{\theta}(X_{1},X_{2},\dotsc,X_{n})
-  =
-  \frac{\min_{i}X_{i}+\max_{i}X_{i}}{2}
-\end{equation}
-
-</div>
-</blockquote>
-<p>
-となることが知られている(講義ノート参照)．
-</p></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-
-
-</section>
 </section>
 <section>
-<section id="slide-orgb5abf5c">
-<h2 id="orgb5abf5c">区間推定</h2>
-<div class="outline-text-2" id="text-orgb5abf5c">
+<section id="slide-orga944a58">
+<h2 id="orga944a58">区間推定</h2>
+<div class="outline-text-2" id="text-orga944a58">
 </div>
 </section>
-<section id="slide-org5f4a31f">
-<h3 id="org5f4a31f">推定誤差</h3>
+<section id="slide-org0d943df">
+<h3 id="org0d943df">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量評価には推定誤差の評価が重要
@@ -577,8 +438,8 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org05116fa">
-<h3 id="org05116fa">区間推定</h3>
+<section id="slide-org0862967">
+<h3 id="org0862967">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -608,8 +469,8 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgc98d5c8">
-<h3 id="orgc98d5c8">信頼区間の性質</h3>
+<section id="slide-org8f6d95a">
+<h3 id="org8f6d95a">信頼区間の性質</h3>
 <ul>
 <li>信頼区間は幅が狭いほど推定精度が良い
 <ul>
@@ -642,12 +503,12 @@ Fisher 情報量は定義されない．</li>
 </section>
 </section>
 <section>
-<section id="slide-org8ba55a9" data-background="#fef4f4">
-<h2 id="org8ba55a9">演習</h2>
+<section id="slide-org0243f6a" data-background="#fef4f4">
+<h2 id="org0243f6a">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org923fa41" data-background="#fef4f4">
-<h3 id="org923fa41">練習問題</h3>
+<section id="slide-orge3a1036" data-background="#fef4f4">
+<h3 id="orge3a1036">練習問題</h3>
 <ul>
 <li><p>
 確率変数 \(X,Y\) は独立で，
@@ -675,72 +536,15 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org87e203a" data-background="#fef4f4">
-<h3 id="org87e203a">解答例</h3>
-<ul>
-<li><p>
-独立性から計算できる
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \mathbb{E}[Z]
-  &=\mathbb{E}[aX+bY]\\
-  &=a\mu_{1}+b\mu_{2}\\
-  \mathrm{Var}(Z)
-  &=\mathrm{Var}(aX+bY)\\
-  &=\mathrm{Var}(aX)+\mathrm{Var}(bY)\\
-  &=a^{2}\mathrm{Var}(X)+b^{2}\mathrm{Var}(Y)\\
-  &=a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}
-\end{align}
-
-</div>
-</blockquote></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section data-background="#fef4f4">
-<ul>
-<li><p>
-特性関数を考えるのがわかりやすい
-</p>
-<blockquote>
-<div>
-\begin{align}
-  \phi_{Z}(s)
-  &=\mathbb{E}[e^{isZ}]
-    =\mathbb{E}[e^{is(aX+bY)}]\\
-  &=\mathbb{E}[e^{is(aX)}]\mathbb{E}[e^{is(bY)}]\\
-  &=\phi_{X}(as)\phi_{Y}(bs)\\
-  &=e^{\mu_{1}i(as)-\frac{\sigma_{1}^{2}(as)^{2}}{2}}e^{\mu_{2}i(bs)-\frac{\sigma_{2}^{2}(bs)^{2}}{2}}\\
-  &=e^{(a\mu_{1}+b\mu_{1})is-\frac{(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2})s^{2}}{2}}
-\end{align}
-
-</div>
-</blockquote>
-<p>
-これは
-平均 \(a\mu_{1}+b\mu_{1}\) ，
-分散 \(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}\)
-の正規分布の特性関数に他ならない．
-</p></li>
-
-</ul>
-<div class="slide-footer"><br></div>
-
-
-</section>
 </section>
 <section>
-<section id="slide-orgb02380d">
-<h2 id="orgb02380d">正規分布モデルにおける区間推定</h2>
-<div class="outline-text-2" id="text-orgb02380d">
+<section id="slide-org307c0d6">
+<h2 id="org307c0d6">正規分布モデルにおける区間推定</h2>
+<div class="outline-text-2" id="text-org307c0d6">
 </div>
 </section>
-<section id="slide-orgd837cfe">
-<h3 id="orgd837cfe">標本平均の性質</h3>
+<section id="slide-org4efeaa4">
+<h3 id="org4efeaa4">標本平均の性質</h3>
 <ul>
 <li>正規分布に従う独立な確率変数の重み付き和は正規分布に従う</li>
 
@@ -881,8 +685,8 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgb377e0c">
-<h3 id="orgb377e0c">平均の区間推定 (分散既知)</h3>
+<section id="slide-org8ce89bc">
+<h3 id="org8ce89bc">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -917,8 +721,8 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org66967c1">
-<h3 id="org66967c1">標本平均と不偏分散の性質</h3>
+<section id="slide-orge1f8b78">
+<h3 id="orge1f8b78">標本平均と不偏分散の性質</h3>
 <ul>
 <li>\(\chi^2\) 分布の特徴付け
 <ul>
@@ -1011,8 +815,8 @@ Fisher 情報量は定義されない．</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgdc9befc">
-<h3 id="orgdc9befc">平均の区間推定 (分散未知)</h3>
+<section id="slide-orgcb20a65">
+<h3 id="orgcb20a65">平均の区間推定 (分散未知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -1051,8 +855,8 @@ Fisher 情報量は定義されない．</li>
 </section>
 </section>
 <section>
-<section id="slide-orgbe2bb00">
-<h2 id="orgbe2bb00">今回のまとめ</h2>
+<section id="slide-orged95ba7">
+<h2 id="orged95ba7">今回のまとめ</h2>
 <ul>
 <li>平均の点推定
 <ul>

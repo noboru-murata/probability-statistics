@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-05-16 18:37:19 mura>
+# Time-stamp: <2022-09-19 15:00:58 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -12,6 +12,8 @@
 # C-c '
 :END:
 
+* COMMENT メモ
+- 校正に関して記述
 * 前回のおさらい
 - 確率変数
   - 確率空間上の関数としての確率変数
@@ -47,9 +49,6 @@
   2つの分布が同じであることが言える．
   #+end_quote
 
-* COMMENT メモ
-- 校正に関して記述
-
 
 * 演習
 :PROPERTIES:
@@ -63,7 +62,7 @@
   1. 標準正規分布
   2. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -402,7 +401,7 @@
 :END:
 - Bayes の定理(一般形)を証明せよ．
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -645,7 +644,7 @@
   - Aの売上が上がったとき，
     B,Cの一方のみ評価が上がった確率はいくつか？
 
-** ヒント
+** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -702,7 +701,7 @@
     も求められる
   - 第2,3問は必要な確率を整理して Bayes の定理を用いればよい
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:

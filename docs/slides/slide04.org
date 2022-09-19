@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
 #+DATE:
-# Time-stamp: <2022-04-29 15:20:46 mura>
+# Time-stamp: <2022-09-19 15:01:16 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -12,15 +12,15 @@
 # C-c '
 :END:
 
+* COMMENT メモ
+- 校正に関して記述
+
 * 前回のおさらい
 - 確率密度
   - 確率密度の積分による確率測度の表現
   - 確率密度の満たすべき条件
   - Riemann積分とLebesgue積分
   - いろいろな確率分布
-
-* COMMENT メモ
-- 校正に関して記述
 
 
 * 1次元の確率変数
@@ -432,7 +432,7 @@
   2. 確率測度
   3. 確率密度
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -882,7 +882,7 @@
   1. \(\omega\) の確率空間の確率測度
   2. \(Y\) の確率空間の確率測度
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -1087,7 +1087,7 @@
   1. 区間 \((-1,1)\) 上の一様分布
   2. ルーレット回しの確率変数 \(Y\)
 
-** 解答例
+** COMMENT 解答例
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -1193,7 +1193,7 @@
   2. 標準正規分布
   3. 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布
 
-** ヒント
+** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -1219,7 +1219,6 @@
   - 複数の確率変数の同時確率(結合確率)
   - 確率変数の平均，分散，モーメント
   - 確率変数の特性関数
-
 
 ** COMMENT 注意
 - 確認テスト (講義4の中)

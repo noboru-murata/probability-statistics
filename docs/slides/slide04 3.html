@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>確率変数</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">確率変数</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 - 第4講</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-org22ccf1b">
+<h2 id="org22ccf1b">前回のおさらい</h2>
+<ul>
+<li>確率密度
+<ul>
+<li>確率密度の積分による確率測度の表現</li>
+<li>確率密度の満たすべき条件</li>
+<li>Riemann積分とLebesgue積分</li>
+<li>いろいろな確率分布</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+</section>
+<section>
+<section id="slide-org674cd68">
+<h2 id="org674cd68">1次元の確率変数</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org6ba8351">
+<h3 id="org6ba8351">確率変数の定義</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+ある試行 \(T\) の確率空間を
+\((\Omega,\mathcal{F},P)\) とする．
+</p>
+
+<p>
+\(\Omega\) から実数 \(\mathbb{R}\) への写像
+</p>
+<div>
+\begin{align}
+  X:\;
+  &\Omega\to \mathbb{R}\\
+  &\omega\mapsto X(\omega)
+\end{align}
+
+</div>
+
+<p>
+として定義される実数値関数
+\(X(\omega)\)
+を確率空間
+\((\Omega,\mathcal{F},P)\)
+上の <b>(実)確率変数</b> (random variable)
+と呼ぶ．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3fc8c8a">
+<h3 id="org3fc8c8a">確率変数の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">骰子振りの確率変数</span>
+</p>
+<blockquote>
+<p>
+骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
+</p>
+
+<p>
+骰子の目を \(\omega\) で表すと賞金 \(X\) は
+</p>
+<div>
+\begin{equation}
+  X(\omega)=100\omega
+\end{equation}
+
+</div>
+
+<p>
+という確率変数であると考えることができる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数</span>
+</p>
+<blockquote>
+<p>
+骰子を二回振ったときの出た目の和を考える．
+このときの標本空間は
+</p>
+<div>
+\begin{align}
+  \Omega
+  &=\{(\omega_1,\omega_2)|\;\omega_1,\omega_2=1,2,\dotsc,6\}\\
+  &=\{1,2,\dotsc,6\}\times\{1,2,\dotsc,6\}
+    \quad\text{(直積集合)}
+\end{align}
+
+</div>
+
+<p>
+となり，
+出た目の和 \(X\) は確率変数である:
+</p>
+<div>
+\begin{equation}
+  X(\omega_1,\omega_2)=\omega_1+\omega_2
+\end{equation}
+
+</div>
+
+<p>
+出た目の大小で確率変数を定義することもできる:
+</p>
+<div>
+\begin{equation}
+  Y(\omega_1,\omega_2)=
+  \begin{cases}
+    1,& \omega_1>\omega_2\\
+    0,& \omega_1=\omega_2\\
+    -1,& \omega_1<\omega_2
+  \end{cases}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">ルーレット回しの確率変数</span>
+</p>
+<blockquote>
+<p>
+&ldquo;ルーレット回し&rdquo;の試行において，
+ルーレットの目盛り \(\omega\) が有理数なら1点，
+無理数なら0点の得点が得られるとする．
+このとき点数
+</p>
+<div>
+\begin{equation}
+  X(\omega)=
+  \begin{cases}
+    1, & \text{\(\omega\)が有理数}\\
+    0, & \text{\(\omega\)が無理数}
+  \end{cases}
+\end{equation}
+
+</div>
+
+<p>
+は \(\Omega=(0,1]\) 上の確率変数である．
+同様に出た目盛りが0にどれだけ近いかに応じて
+点数がもらえるとする．
+この点数を
+</p>
+<div>
+\begin{equation}
+  Y(\omega)=\log\frac{1}{\omega}
+\end{equation}
+
+</div>
+
+<p>
+で定めれば，
+\(Y\) も \(\Omega=(0,1]\) 上の確率変数である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">骰子振り</span>
+</p>
+<blockquote>
+<p>
+&ldquo;1が出るまで骰子を振り続ける&rdquo;試行で得られる標本点を \(\omega\) とする．
+このとき，系列 \(\omega\) の長さ
+</p>
+<div>
+\begin{equation}
+  X(\omega)=\text{系列\(\omega\)の長さ}
+\end{equation}
+
+</div>
+
+<p>
+は自然数 \(\mathbb{N}\) の値を取る確率変数と考えることができる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">工場の製品</span>
+</p>
+<blockquote>
+<p>
+ある工場で生産されるエンジンの抜き取り検査をして，
+最大出力と燃費を測定したとする．
+この場合は標本点 \(\omega\) は生産されるエンジンの個体を表し，
+最大出力 \(X(\omega)\) と燃費 \(Y(\omega)\) は個体 \(\omega\) ごとに異なる
+確率変数であると考えることができる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org91e11cb">
+<h2 id="org91e11cb">確率変数の確率空間</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org1da22de">
+<h3 id="org1da22de">確率変数の標本空間</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率変数 \(X(\omega)\) は
+\(\omega\) が従う確率法則によってばらつく確率的な量であるため，
+確率変数 \(X(\omega)\) の確率空間を考えることができる．
+確率変数 \(X(\omega)\) の取り得る全ての値の集合を
+<b>確率変数 \(X\) の標本空間</b> (sample space)
+と呼ぶ．
+</p>
+<div>
+\begin{equation}
+  \Omega^X
+  =X(\Omega)
+  \qquad \text{(\(\Omega\)の各点を\(X\)で写像した像(点)の集合)}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org255f3f0">
+<h3 id="org255f3f0">確率変数の確率法則</h3>
+<ul>
+<li><p>
+標本点の写像
+</p>
+<blockquote>
+<p>
+標本空間 \(\Omega^X\) の任意の部分集合 \(B\) に対して
+&ldquo;\(X\) の値が \(B\) に入る&rdquo; (\(X\in B\)) という事象を定義する．
+この事象に含まれる元の標本空間 \(\Omega\) の標本点は
+</p>
+<div>
+\begin{equation}
+  A
+  =\{\omega|\;\text{\(X(\omega)\)が\(B\)に入る}\}
+  =\{\omega|\;X(\omega)\in B\}\subset\Omega
+\end{equation}
+
+</div>
+
+<p>
+であり
+\(A\) の確率は元の確率空間で考えることができる．
+</p>
+<div>
+\begin{equation}
+  P(\text{\(X\)の値が\(B\)に入る})=P(A)
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+事象の写像
+</p>
+<blockquote>
+<p>
+\(X\) を \(\Omega\) の部分集合から
+\(\mathbb{R}\) の部分集合へ対応させる関数
+</p>
+<div>
+\begin{equation}
+  B=\{X(\omega)|\;\omega\in A\}=X(A)
+\end{equation}
+
+</div>
+
+<p>
+とみなして，その逆関数を
+</p>
+<div>
+\begin{equation}
+  X^{-1}(B)=\{\omega|\;X(\omega)\in B\}=A
+\end{equation}
+
+</div>
+
+<p>
+によって定義する．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率測度の変換
+</p>
+<blockquote>
+<p>
+\(X\) の値が \(B\) に入る確率は
+</p>
+<div>
+\begin{equation}
+  P(X^{-1}(B))=P\{\omega|\;X(\omega)\in B\}
+\end{equation}
+
+</div>
+
+<p>
+と表される．
+これを \(B\) の関数とみて
+</p>
+<div>
+\begin{equation}
+  P^X(B)=P(X^{-1}(B))
+\end{equation}
+
+</div>
+
+<p>
+と書くと，
+\(P^X\) は \(\Omega^X\) 上の \(X\) の
+確率測度を表す．
+</p>
+
+<p>
+\(\Omega^X\) は \(\mathbb{R}\) の部分集合なので，
+\(\Omega^X\) 上の Borel 集合族を 
+\(\mathcal{F}^X\) と書くことにすれば，
+\((\Omega^X,\mathcal{F}^X,P^X)\) 
+も確率空間になる．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率測度の条件の確認
+</p>
+<blockquote>
+<p>
+事象の写像の基本的な性質
+</p>
+<div>
+\begin{align}
+  &X^{-1}(B_1+B_2)=X^{-1}(B_1)+X^{-1}(B_2)\\
+  &X^{-1}(\Omega^X)=\Omega
+\end{align}
+
+</div>
+
+<p>
+より
+\(P^X\) が条件を満たしていることが確認できる．
+</p>
+<div>
+\begin{align}
+  P^{X}(B)
+  &=P(X^{-1}(B))\ge0
+  &&\text{(正値性)}\\
+  P^{X}(B_{1}+B_{2})
+  &=P(X^{-1}(B_{1}+B_{2}))\\
+  &=P(X^{-1}(B_{1})+X^{-1}(B_{2}))\\
+  &=P(X^{-1}(B_{1}))+P(X^{-1}(B_{2}))\\
+  &=P^{X}(B_{1})+P^{X}(B_{2})
+  &&\text{(加法性)}\\
+  P^{X}(\Omega^{X})
+  &=P(X^{-1}(\Omega^{X}))
+    =P(\Omega)=1
+  &&\text{(全確率)}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org73c2fb8">
+<h3 id="org73c2fb8">確率変数の確率空間の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+</p>
+<blockquote>
+<p>
+標本空間，および確率測度は以下のとおり．
+</p>
+<div>
+\begin{equation}
+  \Omega^X
+  =\{2,3,4,\dotsc,11,12\}
+\end{equation}
+
+</div>
+
+<div>
+\begin{align}
+  P^X(X=2)&=P\left((\omega_1,\omega_2)\in\{(1,1)\}\right)
+	    =\frac{1}{36},\\
+  P^X(X=3)&=P\left((\omega_1,\omega_2)\in\{(1,2),(2,1)\}\right)
+	    =2\cdot\frac{1}{36}=\frac{1}{18},\\
+  P^X(X=4)&=P\left((\omega_1,\omega_2)\in\{(1,3),(2,2),(3,1)\}\right)\\
+	  &\qquad=3\cdot\frac{1}{36}=\frac{1}{12},\\
+	  &\vdots\\
+	  % P^X(X=11)&=P\left((\omega_1,\omega_2)\in\{(5,6),(6,5)\}\right)
+	  % =2\cdot\frac{1}{36}=\frac{1}{18},\\
+	  % P^X(X=12)&=P\left((\omega_1,\omega_2)\in\{(6,6)\}\right)
+	  % =\frac{1}{36}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+</p>
+<blockquote>
+<p>
+標本空間，および確率測度は以下のとおり．
+</p>
+<div>
+\begin{equation}
+  \Omega^Y
+  =\{1,0,-1\}
+\end{equation}
+
+</div>
+
+<div>
+\begin{align}
+  P^Y(Y=1)
+  &=P\left((\omega_1,\omega_2)\in\{(2,1),(3,1),\dotsc,(6,5)\}\right)\\
+  &=15\cdot\frac{1}{36}=\frac{5}{12},\\
+  P^Y(Y=0)
+  &=P\left((\omega_1,\omega_2)\in\{(1,1),(2,2),\dotsc,(6,6)\}\right)\\
+  &=6\cdot\frac{1}{36}=\frac{1}{6},\\
+  P^Y(Y=-1)
+  &=P\left((\omega_1,\omega_2)\in\{(1,2),(1,3),\dotsc,(5,6)\}\right)\\
+  &=15\cdot\frac{1}{36}=\frac{5}{12}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">ルーレット回しの確率変数 \(X\)</span>
+</p>
+<blockquote>
+<p>
+標本空間，および確率測度は以下のとおり．
+</p>
+<div>
+\begin{equation}
+  \Omega^X
+  =\{1,0\}
+\end{equation}
+
+</div>
+
+<div>
+\begin{align}
+  P^X(X=1)&=P(\text{\(\omega\)が有理数})=0\\
+  P^X(X=0)&=P(\text{\(\omega\)が無理数})=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgf66a40c" data-background="#fef4f4">
+<h2 id="orgf66a40c">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgeb66182" data-background="#fef4f4">
+<h3 id="orgeb66182">練習問題</h3>
+<ul>
+<li><p>
+ルーレット回しの確率変数 \(Y\) 
+</p>
+<div>
+\begin{equation}
+  Y(\omega)=\log\frac{1}{\omega}  
+\end{equation}
+
+</div>
+
+<p>
+について，以下のそれぞれの項目を説明せよ．
+</p>
+<ol>
+<li>標本空間</li>
+<li>確率測度</li>
+<li>確率密度</li>
+
+</ol></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org487bb94" data-background="#fef4f4">
+<h3 id="org487bb94">解答例</h3>
+<ul>
+<li><p>
+標本空間
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \Omega^Y=\log\frac{1}{(0,1]}=-\log((0,1])
+  =[0,\infty)
+\end{equation}
+
+</div>
+</blockquote></li>
+<li><p>
+確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  P^Y(a < Y < b)
+  &=P\left(\{\omega|\;a < -\log\omega < b\}\right)\\
+  &=P\left(\{\omega|\;e^{-a} > \omega > e^{-b}\}\right)\\
+  &=e^{-a}-e^{-b}
+    =-e^{-b}-(-e^{-a})
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+確率密度
+</p>
+<blockquote>
+<p>
+確率測度の積分表現を微分すれば求められる
+</p>
+<div>
+\begin{equation}
+  f(y)=e^{-y},
+  \qquad P^Y(a < Y < b)=\int_a^bf(y)dy
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgcbe2b81">
+<h2 id="orgcbe2b81">多次元の確率変数</h2>
+<div class="outline-text-2" id="text-orgcbe2b81">
+</div>
+</section>
+<section id="slide-orgbd73b2d">
+<h3 id="orgbd73b2d">多次元の確率変数</h3>
+<ul>
+<li><p>
+同じ確率空間の上の複数の確率変数をまとめて
+ベクトルと見ることができる
+</p>
+<blockquote>
+<p>
+例: 2次元の値を取る関数
+</p>
+<div>
+\begin{equation}
+  \boldsymbol{X}(\omega)=(X_1(\omega),X_2(\omega))
+\end{equation}
+
+</div>
+
+<p>
+を考えると，2次元の確率変数を考えることができる．
+</p>
+
+<p>
+これを
+<b>2次元確率変数</b> (2-dimensional random variable)
+あるいは
+2次元の <b>確率ベクトル</b> (random vector)
+という．
+</p>
+
+<p>
+一般に \(n\) 次元で考えてよい．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+標本空間や確率測度も自然に考えることができる
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
+\end{equation}
+
+</div>
+<div>
+\begin{equation}
+  P^{\boldsymbol{X}}(B)
+  =P\{\omega|\;\boldsymbol{X}(\omega)\in B\}
+  =P(\boldsymbol{X}^{-1}(B)),\quad B\subset\Omega^{\boldsymbol{X}}
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org9800945">
+<h3 id="org9800945">多次元確率変数の用語</h3>
+<ul>
+<li>\(X_1(\omega),\dotsc,,X_n(\omega)\): 
+\(\boldsymbol{X}(\omega)\) の <b>成分変数</b></li>
+<li>\(\boldsymbol{X}(\omega)\): 
+\(X_1(\omega),\dotsc,X_n(\omega)\) の <b>結合変数</b></li>
+<li>\(P^{\boldsymbol{X}}\) 
+(\(\boldsymbol{X}(\omega)=(X_1(\omega),\dotsc,X_n(\omega))\)
+の確率測度): 
+\(X_1(\omega),\dotsc,X_n(\omega)\) の
+<b>同時確率分布</b> (joint probability distribution)</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1fff5ef">
+<h2 id="org1fff5ef">確率変数の変換</h2>
+<div class="outline-text-2" id="text-org1fff5ef">
+</div>
+</section>
+<section id="slide-orge440d84">
+<h3 id="orge440d84">確率変数の変換</h3>
+<ul>
+<li><p>
+変換
+</p>
+<blockquote>
+<p>
+実数値関数
+</p>
+<div>
+\begin{align}
+  \phi:\;
+  &\Omega^X\to \mathbb{R}\\
+  &X\mapsto\phi(X)
+\end{align}
+
+</div>
+
+<p>
+に対して
+</p>
+<div>
+\begin{equation}
+  Y(\omega)=\phi(X(\omega))
+  \qquad (Y=\phi\circ X\text{と書くこともある})
+\end{equation}
+
+</div>
+
+<p>
+とすると \(Y(\omega)\) という新しい実数値確率変数ができる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org96db89c">
+<h3 id="org96db89c">確率変数の変換の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数の変換</span>
+</p>
+<blockquote>
+<p>
+骰子を二回振ったときの出た目の和を考え，
+和が偶数なら100円貰え，
+奇数なら50円支払うというゲームを考える．
+骰子を二回振ったときの出た目をそれぞれ
+\(\omega_1, \omega_2\) とする．
+また，目の和を
+</p>
+<div>
+\begin{equation}
+  X(\omega_1,\omega_2)=\omega_1+\omega_2
+\end{equation}
+
+</div>
+
+<p>
+で表すとすると，賞金(罰金) \(Y\) は
+</p>
+<div>
+\begin{equation}
+  Y(\omega_1,\omega_2)=Y(X)=
+  \begin{cases}
+    100,& \text{\(X\)が偶数}\\
+    -50,& \text{\(X\)が奇数}
+  \end{cases}
+\end{equation}
+
+</div>
+
+<p>
+という \(X\) が変換された確率変数である．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org1f93084">
+<h3 id="org1f93084">変換後の確率空間</h3>
+<ul>
+<li><p>
+標本空間
+</p>
+<blockquote>
+<p>
+新しく作られた確率変数 \(Y\) の標本空間は，
+変換を順に追って
+</p>
+<div>
+\begin{equation}
+  \Omega^{Y}=\phi(X(\Omega))=(\phi\circ X)(\Omega)
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率測度
+</p>
+<blockquote>
+<p>
+\(\Omega^{Y}\) の適当な部分集合 \(C\) に対して，
+\(\Omega^{X}\) で対応する集合を \(B\) ，
+\(\Omega\) で対応する集合を \(A\) とすると
+</p>
+<div>
+\begin{align}
+  C&=\phi(B)=\phi(X(A))\\
+  B&=X(A)=\phi^{-1}(C)\\
+  A&=X^{-1}(B)=X^{-1}(\phi^{-1}(C))
+\end{align}
+
+</div>
+
+<p>
+となるので，その確率測度は
+</p>
+<div>
+\begin{align}
+  P^{Y}(C)
+  &=P^{X}(B)=P(A)
+  % &=P((\phi\circ X)^{-1}(C))\\
+  =P(X^{-1}(\phi^{-1}(C)))\\
+  &=P\{\omega|\;\phi(X(\omega))\in C\}\quad C\subset\Omega^{Y}
+\end{align}
+
+</div>
+
+<p>
+で計算される．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orged975ab">
+<h2 id="orged975ab">確率変数の平均値</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org283b984">
+<h3 id="org283b984">離散分布の平均値</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+標本空間が可算の場合，
+その確率空間上で定義された
+確率変数 \(X\) の <b>平均値 (期待値)</b>
+(expectation) 
+は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X]=\sum_{\omega\in\Omega}X(\omega)P\{\omega\}
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li>\(X(\omega)\) は \(\omega\) の関数であるが，
+全ての可能な \(\omega\) について和を取っているので，
+\(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する</li>
+<li>また，確率変数は関数であるので，
+\(\mathbb{E}\) は関数 \(X(\omega)\) に作用する
+作用素と考えることができる</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org8ab5848">
+<h3 id="org8ab5848">平均値の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">骰子振りの確率変数</span>
+</p>
+<blockquote>
+<p>
+出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
+骰子の目を \(\omega\) で表すことにすれば 
+\(P\{\omega\}=\frac{1}{6}\) なので，
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[X]
+  &=X(1)\cdot P\{1\}
+    +X(2)\cdot P\{2\}
+    +X(3)\cdot P\{3\}\\
+  &\qquad
+    +X(4)\cdot P\{4\}
+    +X(5)\cdot P\{5\}
+    +X(6)\cdot P\{6\}\\
+  &=100\cdot\frac{1}{6}
+    +200\cdot\frac{1}{6}
+    +300\cdot\frac{1}{6}
+    +400\cdot\frac{1}{6}
+    +500\cdot\frac{1}{6}
+    +600\cdot\frac{1}{6}\\
+  &=350
+\end{align}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+</p>
+<blockquote>
+<p>
+出た目の和 \(X\) の平均値は，
+二つの目を \(\omega_1,\omega_2\) で表すことにすれば
+\(P\{(\omega_1,\omega_2)\}=\frac{1}{36}\)
+なので，
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[X]
+  &=X(1,1)\cdot P\{(1,1)\}
+    +X(1,2)\cdot P\{(1,2)\}
+    % +X(1,3)\cdot P\{(1,3)\}
+    +\\
+  &\qquad\dotsb
+  % +X(6,4)\cdot P\{(6,4)\}
+    +X(6,5)\cdot P\{(6,5)\}
+    +X(6,6)\cdot P\{(6,6)\}\\
+  &=2\cdot\frac{1}{36}+3\cdot\frac{2}{36}+4\cdot\frac{3}{36}
+    +\dotsb+11\cdot\frac{2}{36}+12\cdot\frac{1}{36}\\
+  &=7
+\end{align}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+</p>
+<blockquote>
+<p>
+二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[Y]
+  &=Y(1,1)\cdot P\{(1,1)\}
+    +Y(1,2)\cdot P\{(1,2)\}
+    % +Y(1,3)\cdot P\{(1,3)\}
+    +\\
+  &\qquad\dotsb
+    +Y(6,5)\cdot P\{(6,5)\}
+    +Y(6,6)\cdot P\{(6,6)\}\\
+  &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
+  &=0
+\end{align}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org4800d12">
+<h3 id="org4800d12">連続分布の平均値</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率測度 \(P\) に確率密度 \(f\) がある場合，
+その確率空間上で定義された
+確率変数 \(X\) の
+<b>平均値 (期待値)</b> (expectation) 
+は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X]
+  =\int_\Omega X(\omega)P(d\omega)
+  =\int_\Omega X(\omega)f(\omega)d\omega
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li>連続分布の場合も
+\(X(\omega)\) は \(\omega\) の関数であるが，
+\(\omega\) に関して積分しているので，
+平均値 \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org5476690">
+<h3 id="org5476690">平均値の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">ルーレット回しの確率変数</span>
+</p>
+<blockquote>
+<p>
+ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
+確率変数 \(X\) の平均値は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X]
+  =\int_{0}^{1} X(\omega)\mu(d\omega)
+  =1\cdot\mu(\text{有理数})+0\cdot\mu(\text{無理数})=0
+\end{equation}
+
+</div>
+
+<p>
+または
+</p>
+
+<div>
+\begin{equation}
+  \mathbb{E}[X]
+  =0\cdot P^{X}(X=0)+1\cdot P^{X}(X=1)
+  =0\cdot1+1\cdot0=0
+\end{equation}
+
+</div>
+
+<p>
+で計算される．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgd1f7bef">
+<h3 id="orgd1f7bef">平均に関する注意</h3>
+<ul>
+<li><p>
+標本空間の制限付平均値
+</p>
+<blockquote>
+<p>
+標本空間を \(A\subset\Omega\) に制限した場合の平均値を
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[X,A]
+  &=\sum_{\omega\in A}X(\omega)P(\omega)\\
+  \mathbb{E}[X,A]
+  &=\int_A X(\omega)P(d\omega)
+    =\int_A X(\omega)f(\omega)d\omega
+\end{align}
+
+</div>
+
+<p>
+と書くことがある．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+確率変数ベクトル
+</p>
+<blockquote>
+<p>
+\(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
+  \in \mathbb{R}^n
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org1379e87">
+<h3 id="org1379e87">平均値の性質</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+平均値には以下のような性質がある．
+</p>
+<ol>
+<li>\(\Big.\mathbb{E}[aX+bY]=a\,\mathbb{E}[X]+b\,\mathbb{E}[Y]\) 
+(<b>線形性</b>)</li>
+<li>\(\Big.\mathbb{E}[X,\sum_{i=1}^nA_i]=\sum_{i=1}^n\mathbb{E}[X,A_i]\)</li>
+<li>\(A\) の上で恒等的に確率変数が定数，すなわち \(X(\omega)=a\) ならば<br />
+\(\Big.\mathbb{E}[X,A]=a\,P(A)\) <br />
+特に \(\Big.\mathbb{E}[a]=a\) (定数の平均値はその定数)</li>
+
+</ol>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(X\) の確率分布が考えられ，
+\(X\) の確率分布が \(P^X\) 
+あるいは密度関数が \(f^X\) で与えられる場合には以下が成り立つ．
+</p>
+<ol>
+<li>\(\Big.\mathbb{E}[X]=\sum_{x\in\Omega^X}xP^{X}\{x\}\)
+(\(X\) が離散分布)<br />
+\(\Big.\mathbb{E}[X]=\int_{x\in\Omega^X}xf^{X}(x)dx\)
+(\(X\) が連続分布)</li>
+<li>\(\Big.Y(\omega)=\phi(X(\omega))\) ならば<br />
+\(\Big.\mathbb{E}[Y]=\sum_{x\in\Omega^X}\phi(x)P^{X}\{x\}\)
+(\(X\) が離散分布)<br />
+\(\Big.\mathbb{E}[Y]=\int_{x\in\Omega^X}\phi(x)f^{X}(x)dx\)
+(\(X\) が連続分布)</li>
+
+</ol>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org202569c">
+<h3 id="org202569c">平均値の計算の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数</span>
+</p>
+<blockquote>
+<p>
+出た目の和 \(X\) の平均値は平均の和の関係を用いると
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[X]
+  &=\mathbb{E}[\omega_1+\omega_2]
+    =\mathbb{E}[\omega_1]+\mathbb{E}[\omega_2]
+    =2\mathbb{E}[\omega_1]\\
+  &=2\left(
+    1\cdot\frac{1}{6}+
+    2\cdot\frac{1}{6}+
+    3\cdot\frac{1}{6}+
+    4\cdot\frac{1}{6}+
+    5\cdot\frac{1}{6}+
+    6\cdot\frac{1}{6}
+    \right)\\
+  &=7
+\end{align}
+
+</div>
+
+<p>
+としても求まる．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org862d483" data-background="#fef4f4">
+<h2 id="org862d483">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org0260779" data-background="#fef4f4">
+<h3 id="org0260779">練習問題</h3>
+<ul>
+<li>ルーレット回しの確率変数 \(Y\) の平均値を
+以下の2通りの確率測度を用いて求めよ
+<ol>
+<li>\(\omega\) の確率空間の確率測度</li>
+<li>\(Y\) の確率空間の確率測度</li>
+
+</ol></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org3377a94" data-background="#fef4f4">
+<h3 id="org3377a94">解答例</h3>
+<ul>
+<li><p>
+\(\omega\) の確率空間の確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y]
+  &=\int_0^1\left(-\log \omega\right)\mu(d\omega)\\
+  &=\left[-\omega\log\omega+\omega\right]_0^1=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(Y\) の確率空間の確率測度
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y]
+  &=\int_0^\infty y e^{-y}dy\\
+  &=\left[-ye^{-y}\right]_0^\infty+\int_0^\infty e^{-y}dy
+    =\left[-e^{-y}\right]_0^\infty=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge5fb5ef">
+<h2 id="orge5fb5ef">確率変数の分散</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org10b4a9a">
+<h3 id="org10b4a9a">分散</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率変数 \(X\) の <b>分散</b> (variance) 
+は平均値を用いて
+</p>
+<div>
+\begin{equation}
+  \mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+
+<p>
+分散の平方根を <b>標準偏差</b> (standard deviation) 
+という．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org87df7ed">
+<h3 id="org87df7ed">共分散</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率変数 \(X,Y\) の <b>共分散</b>  (covariance)
+は
+</p>
+<div>
+\begin{equation}
+  \mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org61d35ad">
+<h3 id="org61d35ad">確率変数の確率空間による計算</h3>
+<ul>
+<li><p>
+離散分布に従う場合 :
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathrm{Var}(X)&=\sum_{x\in\Omega^X}(x-\mathbb{E}[X])^2P^X\{x\}\\
+  \mathrm{Cov}(X,Y)&=\sum_{x\in\Omega^X, y\in\Omega^Y}
+		     (x-\mathbb{E}[X])(y-\mathbb{E}[Y])P^{(X,Y)}\{x,y\}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+連続分布に従う場合 :
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathrm{Var}(X)&=\int_{x\in\Omega^X}(x-\mathbb{E}[X])^2f^X(x)dx\\
+  \mathrm{Cov}(X,Y)&=\int_{x\in\Omega^X, y\in\Omega^Y}
+		     (x-\mathbb{E}[X])(y-\mathbb{E}[Y])f^{(X,Y)}(x,y)dxdy
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org82c7e36">
+<h3 id="org82c7e36">分散の計算例</h3>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+</p>
+<blockquote>
+<p>
+出た目の和 \(X\) の分散は
+</p>
+<div>
+\begin{align}
+  &\mathbb{E}[(X-\mathbb{E}[X])^2]\\
+  &=(2-7)^2\cdot\frac{1}{36}+(3-7)^2\cdot\frac{2}{36}%+(4-7)^2\cdot\frac{1}{12}
+    +\dotsb%+(11-7)^2\cdot\frac{1}{18}
+    +(12-7)^2\cdot\frac{1}{36}\\
+  &=\frac{35}{6}
+\end{align}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+</p>
+<blockquote>
+<p>
+また二つの目の大小関係を表す \(Y\) の分散は
+</p>
+<div>
+\begin{align}
+  &\mathbb{E}[(Y-\mathbb{E}[Y])^2]\\
+  &=(1-0)^2\cdot\frac{5}{12}+(0-0)^2\cdot\frac{1}{6}
+    +(-1-0)^2\cdot\frac{5}{12}\\
+  &=\frac{5}{6}
+\end{align}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">ルーレット回しの確率変数 \(X\)</span>
+</p>
+<blockquote>
+<p>
+有理数・無理数を区別する \(X\) の分散は
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[(X-\mathbb{E}[X])^2]
+  =(1-0)^2\cdot0+(0-0)^2\cdot1=0
+\end{equation}
+
+</div>
+
+<p>
+である．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org771c3ac">
+<h3 id="org771c3ac">分散・共分散の性質</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+分散・共分散には以下の性質がある．
+</p>
+<ol>
+<li>\(\Big.\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)\) (対称性)</li>
+<li>\(\Big.\mathrm{Cov}(X,a)=0\)</li>
+<li>\(\Big.\mathrm{Cov}(X,X)=\mathrm{Var}(X)\ge0\) (正値性)</li>
+<li>\(\Big.\mathrm{Var}(aX+b)=a^2\,\mathrm{Var}(X)\) <br />
+\(\Big.\mathrm{Cov}(aX+b,cY+d)=ac\mathrm{Cov}(X,Y)\)</li>
+<li>\(\Big.\mathrm{Var}(aX+bY)=a^2\,\mathrm{Var}(X)+2ab\,\mathrm{Cov}(X,Y)+b^2\,\mathrm{Var}(Y)\)</li>
+<li>\(\Big.\mathrm{Var}(X)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2\) <br />
+\(\Big.\mathrm{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\cdot\mathbb{E}[Y]\)</li>
+<li>\(\Big.|\mathrm{Cov}(X,Y)|\le\sqrt{\mathrm{Var}(X)\mathrm{Var}(Y)}\) <br />
+(Schwarzの不等式の一つの表現)</li>
+
+</ol>
+</blockquote>
+<ul>
+<li>特に6.の関係は重要</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org52aead2">
+<h3 id="org52aead2">モーメント</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率変数 \(X\) の <b>k次モーメント</b> (積率; k-th moment) 
+は，確率変数の \(k\) 乗の平均
+</p>
+<div>
+\begin{equation}
+  m_k(X)=\mathbb{E}[X^k]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+分散と同じように平均値を中心として考えた
+<b>平均値のまわりのk次モーメント</b> は
+</p>
+<div>
+\begin{equation}
+  \mu_k(X)=\mathbb{E}[(X-\mathbb{E}[X])^k]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li><i><span style="color:orange;">分散は平均値のまわりの2次モーメントである</span></i></li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+絶対モーメント
+</p>
+<blockquote>
+<p>
+確率変数の絶対値のk乗のモーメント
+</p>
+<div>
+\begin{equation}
+  \tilde{m}_k(X)=\mathbb{E}[|X|^k]
+\end{equation}
+
+</div>
+
+<p>
+を <b>k次絶対モーメント</b>
+と呼ぶことがある．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org469800f" data-background="#fef4f4">
+<h2 id="org469800f">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org872c604" data-background="#fef4f4">
+<h3 id="org872c604">練習問題</h3>
+<ul>
+<li>以下の確率変数の分散を求めよ．
+<ol>
+<li>区間 \((-1,1)\) 上の一様分布</li>
+<li>ルーレット回しの確率変数 \(Y\)</li>
+
+</ol></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org716d91f" data-background="#fef4f4">
+<h3 id="org716d91f">解答例</h3>
+<ul>
+<li><p>
+一様分布の分散
+</p>
+<blockquote>
+<p>
+区間 \((-1,1)\) 上の一様分布に従う
+確率変数を \(U\) と書くと
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[(U-\mathbb{E}[U])^2]
+  =\int_{-1}^{1} u^{2}\cdot\frac{1}{2}du
+  =\frac{1}{3}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+ルーレット回しの確率変数 \(Y\)
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[(Y-\mathbb{E}[Y])^2]
+  &=\int_0^\infty (y-1)^2 e^{-y}dy\\
+  &=-\left[\left\{(y-1)^2+2(y-1)+2\right\}e^{-y}\right]_0^\infty\\
+  &=1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgfde8139">
+<h2 id="orgfde8139">特性関数</h2>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orgc731a56">
+<h3 id="orgc731a56">特性関数</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+<b>特性関数</b> (characteristic function) 
+は指数関数を用いて変数変換された確率変数の平均として
+</p>
+<div>
+\begin{equation}
+  \phi(z)=\mathbb{E}[e^{izX}]
+\end{equation}
+
+</div>
+
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li><i><span style="color:orange;">特性関数は実数値ではなく複素数値をとることに注意する</span></i></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-org9dc279a">
+<h3 id="org9dc279a">特性関数に関する注意</h3>
+<ul>
+<li><p>
+Fourier変換との関係
+</p>
+<blockquote>
+<p>
+1次元の連続分布 \(P\) に対して
+密度関数 \(f\) が存在すれば
+</p>
+<div>
+\begin{equation}
+  \phi(z)=\int_{-\infty}^{\infty}e^{izx}f(x)dx
+\end{equation}
+
+</div>
+
+<p>
+となり
+確率密度のFourier変換に対応する．
+離散分布では
+</p>
+<div>
+\begin{equation}
+  \phi(z)=\sum_{x\in\Omega}P\{x\}e^{izx},
+\end{equation}
+
+</div>
+
+<p>
+により計算される．
+</p>
+</blockquote></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+逆変換の存在
+</p>
+<blockquote>
+<p>
+Fourier変換には逆Fourier変換が存在して
+もとの関数を再構成できるように，
+特性関数と確率測度(確率密度)は一対一に対応している
+(<b>Levy-Havilandの反転公式</b>)．
+</p>
+</blockquote></li>
+<li><p>
+分布の同一性
+</p>
+<blockquote>
+<p>
+2つの分布の特性関数が同じであれば，
+2つの分布が同じであることが言える．
+後に中心極限定理の証明で述べるように
+特性関数は確率測度の性質を調べるために重要な働きをする．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb2bf790" data-background="#fef4f4">
+<h2 id="orgb2bf790">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4706a8f" data-background="#fef4f4">
+<h3 id="org4706a8f">練習問題</h3>
+<ul>
+<li>以下の確率測度の特性関数を求めよ．
+<ol>
+<li>区間 \((-1,1)\) 上の一様分布</li>
+<li>標準正規分布</li>
+<li>平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布</li>
+
+</ol></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
+</section>
+<section id="slide-orge082a07" data-background="#fef4f4">
+<h3 id="orge082a07">ヒント</h3>
+<ol>
+<li><p>
+定義に従って計算する
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \phi(z)
+  &=\int_{-1}^{1}e^{izx}\cdot\frac{1}{2}dx\\
+  &=\left[\frac{e^{izx}}{2iz}\right]_{-1}^{1}
+    =\frac{\sin(z)}{z}
+\end{align}
+
+</div>
+</blockquote></li>
+<li>指数の肩の2次式を整理する</li>
+<li>標準正規分布の結果を利用する</li>
+
+</ol>
+<div class="slide-footer"><br></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgbb12a0c">
+<h2 id="orgbb12a0c">今回のまとめ</h2>
+<ul>
+<li>確率変数
+<ul>
+<li>確率空間上の関数としての確率変数</li>
+<li>確率変数の確率空間</li>
+<li>複数の確率変数の同時確率(結合確率)</li>
+<li>確率変数の平均，分散，モーメント</li>
+<li>確率変数の特性関数</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/menu/menu.js'},
+{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
+{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+
+});
+</script>
+</body>
+</html>
