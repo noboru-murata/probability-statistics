@@ -1,9 +1,9 @@
 #+TITLE: 有限試行の確率空間
 #+SUBTITLE: 確率・統計 - 第1講
 #+AUTHOR: 村田 昇
-#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+EMAIL: noboru.murata@gmail.com
 #+DATE: 
-# Time-stamp: <2022-09-19 15:02:10 mura>
+# Time-stamp: <2023-04-06 15:31:42 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
