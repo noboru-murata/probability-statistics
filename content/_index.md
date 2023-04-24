@@ -11,15 +11,3 @@ weight = 1001
 まずはじめに測度論に基づいた確率論を概説し，数学的な枠組に慣れてもらいます．
 
 その後統計的な手法として，推定論と検定論の基礎を学びます．
-
-
-## 講義資料 {#講義資料}
-
--   [確率論](https://noboru-murata.github.io/probability-statistics/pdfs/probability.pdf)
--   [統計学](https://noboru-murata.github.io/probability-statistics/pdfs/statistics.pdf)
-    随時修正します．
-
-
-## 参考資料 {#参考資料}
-
-必要な参考書については講義中に指示します．

@@ -1,9 +1,9 @@
 #+TITLE: 一般の確率空間
 #+SUBTITLE: 確率・統計 - 第2講
 #+AUTHOR: 村田 昇
-#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2022-09-19 15:01:28 mura>
+# Time-stamp: <2023-04-24 17:18:26 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -131,7 +131,7 @@
 - 自然数の組 \((m,n)\) が可算であるかどうか論じよ．
 - 1以上の有理数が可算であるかどうか論じよ．
 
-** 整数の可算性
+** COMMENT 整数の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -177,7 +177,7 @@
 # 	 \end{align}
 #        #+end_src
 
-** 自然数の組の可算性
+** COMMENT 自然数の組の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
@@ -205,7 +205,7 @@
   | \(\vdots\) |    |    |    |    |    |          |
 - 規則(数式)は考えてみよ
 
-** 1以上の有理数の可算性
+** COMMENT 1以上の有理数の可算性
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
