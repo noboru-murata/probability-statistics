@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-04-24 17:18:26 mura>
+# Time-stamp: <2023-05-01 18:00:59 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -247,61 +247,64 @@
     #+end_quote
     
 #+reveal: split
-- その3
-  #+begin_quote
-  自然数との対応付けを行い，番号順に並べる．
-  #+begin_src latex
-    \begin{equation}
-      \begin{array}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
-	1:&0.&d^{1}_{1}&d^{1}_{2}&d^{1}_{3}&d^{1}_{4}&\dotsm\\
-	2:&0.&d^{2}_{1}&d^{2}_{2}&d^{2}_{3}&d^{2}_{4}&\dotsm\\
-	3:&0.&d^{3}_{1}&d^{3}_{2}&d^{3}_{3}&d^{3}_{4}&\dotsm\\
-	4:&0.&d^{4}_{1}&d^{4}_{2}&d^{4}_{3}&d^{4}_{4}&\dotsm\\
-	\vdots&&&\vdots
-      \end{array}
-    \end{equation}
-  #+end_src
-  ただし，有限桁の小数の場合は \(0\) で埋める．
-  #+end_quote
+- 証明 (つづき)
+  - その3
+    #+begin_quote
+    自然数との対応付けを行い，番号順に並べる．
+    #+begin_src latex
+      \begin{equation}
+        \begin{array}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+          1:&0.&d^{1}_{1}&d^{1}_{2}&d^{1}_{3}&d^{1}_{4}&\dotsm\\
+          2:&0.&d^{2}_{1}&d^{2}_{2}&d^{2}_{3}&d^{2}_{4}&\dotsm\\
+          3:&0.&d^{3}_{1}&d^{3}_{2}&d^{3}_{3}&d^{3}_{4}&\dotsm\\
+          4:&0.&d^{4}_{1}&d^{4}_{2}&d^{4}_{3}&d^{4}_{4}&\dotsm\\
+          \vdots&&&\vdots
+        \end{array}
+      \end{equation}
+    #+end_src
+    ただし，有限桁の小数の場合は \(0\) で埋める．
+    #+end_quote
   
 #+reveal: split
-- その4
-  #+begin_quote
-  第n番の数の第n桁目 \(d^{n}_{n}\) とは *異なる数* 
-  \(\tilde{d}^{n}_{n}\not=d^{n}_{n}\)
-  を選び，これらを並べた次の数を考える．
-  #+begin_src latex
-    \begin{equation}
-      \begin{array}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
-	0.&\tilde{d}^{1}_{1}&\tilde{d}^{2}_{2}&\tilde{d}^{3}_{3}&\tilde{d}^{4}_{4}
-	&\dotsm
-      \end{array}
-    \end{equation}
-  #+end_src
-  #+end_quote
-- その5
-  #+begin_quote
-  区間 \((0,1)\) に含まれるこの数の番号を探す．
-  #+end_quote
-- その6
-  #+begin_quote
-  第n番の数とは第n桁目が *違っている* ので，
-  この数は区間 \((0,1)\) の *全ての実数を並べたはずの表にはない* ．
-  #+end_quote
+- 証明 (つづき)
+  - その4
+    #+begin_quote
+    第n番の数の第n桁目 \(d^{n}_{n}\) とは *異なる数* 
+    \(\tilde{d}^{n}_{n}\not=d^{n}_{n}\)
+    を選び，これらを並べた次の数を考える．
+    #+begin_src latex
+      \begin{equation}
+        \begin{array}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+          0.&\tilde{d}^{1}_{1}&\tilde{d}^{2}_{2}&\tilde{d}^{3}_{3}&\tilde{d}^{4}_{4}
+          &\dotsm
+        \end{array}
+      \end{equation}
+    #+end_src
+    #+end_quote
+  - その5
+    #+begin_quote
+    区間 \((0,1)\) に含まれるこの数の番号を探す．
+    #+end_quote
+  - その6
+    #+begin_quote
+    第n番の数とは第n桁目が *違っている* ので，
+    この数は区間 \((0,1)\) の *全ての実数を並べたはずの表にはない* ．
+    #+end_quote
 
 #+reveal: split
-- その7
-  #+begin_quote
-  番号が振られていない数が存在するので
-  区間 \((0,1)\) の実数が可算である
-  (並べて番号が付けられる)ことに矛盾する．
-  #+end_quote
-- その8
-  #+begin_quote
-  つまり最初の仮定
-  *"無理数の集合は可算"*
-  が間違っていたということ．
-  #+end_quote
+- 証明 (つづき)
+  - その7
+    #+begin_quote
+    番号が振られていない数が存在するので
+    区間 \((0,1)\) の実数が可算である
+    (並べて番号が付けられる)ことに矛盾する．
+    #+end_quote
+  - その8
+    #+begin_quote
+    つまり最初の仮定
+    *"無理数の集合は可算"*
+    が間違っていたということ．
+    #+end_quote
 
 ** 集合の分類
 - 無限集合を更に分類(可算と非可算)する必要がある
