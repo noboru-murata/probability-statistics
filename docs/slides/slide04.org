@@ -1,9 +1,9 @@
 #+TITLE: 確率変数
 #+SUBTITLE: 確率・統計 - 第4講
 #+AUTHOR: 村田 昇
-#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2022-09-19 15:01:16 mura>
+# Time-stamp: <2023-05-08 17:31:59 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -476,7 +476,7 @@
 - 同じ確率空間の上の複数の確率変数をまとめて
   ベクトルと見ることができる
   #+begin_quote
-  例: 2次元の値を取る関数
+  例 : 2次元の値を取る関数
   #+begin_src latex
     \begin{equation}
       \boldsymbol{X}(\omega)=(X_1(\omega),X_2(\omega))
@@ -509,13 +509,13 @@
   #+end_quote
 
 ** 多次元確率変数の用語
-- \(X_1(\omega),\dotsc,,X_n(\omega)\): 
+- \(X_1(\omega),\dotsc,,X_n(\omega)\) : 
   \(\boldsymbol{X}(\omega)\) の *成分変数*
-- \(\boldsymbol{X}(\omega)\): 
+- \(\boldsymbol{X}(\omega)\) : 
   \(X_1(\omega),\dotsc,X_n(\omega)\) の *結合変数*
 - \(P^{\boldsymbol{X}}\) 
   (\(\boldsymbol{X}(\omega)=(X_1(\omega),\dotsc,X_n(\omega))\)
-  の確率測度): 
+  の確率測度) : 
   \(X_1(\omega),\dotsc,X_n(\omega)\) の
   *同時確率分布* (joint probability distribution)
 
