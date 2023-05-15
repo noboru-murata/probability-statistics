@@ -5,7 +5,7 @@
 #+LINK: github https://noboru-murata.github.io/probability-statistics/
 #+STARTUP: hidestars content indent
 
-# Time-stamp: <2023-05-08 17:33:07 mura>
+# Time-stamp: <2023-05-15 16:34:04 mura>
 # C-c C-e H A (generate MDs for all subtrees)
 
 * 概要
@@ -80,7 +80,7 @@
 :EXPORT_FILE_NAME: lecture05
 :EXPORT_DATE: <2020-04-01 Wed>
 :END:
-<2022-09-19 Mon> 更新
+<2023-05-15 Mon> 更新
 ** スライド
 #+hugo: {{< myslide base="probability-statistics" name="slide05" >}}
 ** ハンドアウト
