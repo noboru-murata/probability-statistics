@@ -1,9 +1,9 @@
 #+TITLE: 最尤推定
 #+SUBTITLE: 確率・統計 - 第9講
 #+AUTHOR: 村田 昇
-#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2022-09-19 14:59:47 mura>
+# Time-stamp: <2023-06-12 16:51:03 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -214,7 +214,7 @@
 
 ** 連続分布の場合
 - 確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義
-- *尤度関数* :
+- *尤度関数* 
   #+begin_quote
   #+begin_src latex
     \begin{equation}
@@ -708,7 +708,7 @@
       \mathrm{Var}(\bar{X})
       =\frac{\sigma^{2}}{n}
       \simeq
-      =\frac{\hat{\sigma}^{2}}{n}
+      \frac{\hat{\sigma}^{2}}{n}
     \end{equation}
   #+end_src
   #+end_quote
