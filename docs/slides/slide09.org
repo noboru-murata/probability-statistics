@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-06-12 16:51:03 mura>
+# Time-stamp: <2023-06-20 13:39:53 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -147,8 +147,8 @@
   - 標本平均 \(\bar{X}\) の分散: \(\sigma^2/n=\) Cramer-Rao下界
 - \(\bar{X}\) は平均の一様最小分散不偏推定量
 
-** 平均の区間推定
-- 分散既知の場合の信頼区間
+** 平均の区間推定 (分散既知)
+- 信頼区間の構成
   #+begin_quote
   \(z_{1{-}\alpha/2}\) を標準正規分布の
   \(1{-}\alpha/2\) 分位点とすれば
@@ -165,6 +165,28 @@
     \begin{equation}
       \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
         \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
+    \end{equation}
+  #+end_src
+  #+end_quote
+
+** 平均の区間推定 (分散未知)
+- 信頼区間の構成
+  #+begin_quote
+  \(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
+  \(1{-}\alpha/2\) 分位点とすれば
+  #+begin_src latex
+    \begin{equation}
+      P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
+        \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
+    \end{equation}
+  #+end_src
+  となるので，
+  分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
+  以下で構成される．
+  #+begin_src latex
+    \begin{equation}
+      \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
+        \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
     \end{equation}
   #+end_src
   #+end_quote
@@ -226,7 +248,7 @@
     \end{equation}
   #+end_src
   #+end_quote
-  - 確率データ \(X_{i}\) が微小な区間
+  - 観測データ \(X_{i}\) が微小な区間
     \([x_{i}-\delta,x_{i}+\delta]\)
     に含まれる確率に比例する量
 

@@ -47,8 +47,8 @@
 </section>
 
 <section>
-<section id="slide-org4ed7997">
-<h2 id="org4ed7997">前回のおさらい</h2>
+<section id="slide-org179705e">
+<h2 id="org179705e">前回のおさらい</h2>
 <ul>
 <li>平均の点推定
 <ul>
@@ -68,8 +68,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orga26c9f6">
-<h3 id="orga26c9f6">統計的推測の考え方</h3>
+<section id="slide-org39f122e">
+<h3 id="org39f122e">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -87,8 +87,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgebe42e1">
-<h3 id="orgebe42e1">点推定</h3>
+<section id="slide-orgd5b6d0a">
+<h3 id="orgd5b6d0a">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -115,8 +115,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org3ed9b3d">
-<h3 id="org3ed9b3d">Cramer-Raoの不等式</h3>
+<section id="slide-org3fb193d">
+<h3 id="org3fb193d">Cramer-Raoの不等式</h3>
 <ul>
 <li><p>
 定理
@@ -150,8 +150,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org2ce4945">
-<h3 id="org2ce4945">一様最小分散不偏推定量</h3>
+<section id="slide-orgc31f1fb">
+<h3 id="orgc31f1fb">一様最小分散不偏推定量</h3>
 <ul>
 <li><p>
 定理 (Cramer-Raoの不等式の系)
@@ -168,8 +168,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org86a10df">
-<h3 id="org86a10df">推定誤差</h3>
+<section id="slide-org61969ec">
+<h3 id="org61969ec">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量評価には推定誤差の評価が重要
@@ -195,8 +195,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgae328ca">
-<h3 id="orgae328ca">区間推定</h3>
+<section id="slide-org2d50ba6">
+<h3 id="org2d50ba6">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -227,8 +227,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org64e7a7a">
-<h3 id="org64e7a7a">加法的正規雑音モデル</h3>
+<section id="slide-org9aaedc6">
+<h3 id="org9aaedc6">加法的正規雑音モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -269,8 +269,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org20e7eaa">
-<h3 id="org20e7eaa">標本平均</h3>
+<section id="slide-org7cf7c67">
+<h3 id="org7cf7c67">標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
@@ -295,11 +295,11 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orge6a5bb9">
-<h3 id="orge6a5bb9">平均の区間推定</h3>
+<section id="slide-org8c9d91c">
+<h3 id="org8c9d91c">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
-分散既知の場合の信頼区間
+信頼区間の構成
 </p>
 <blockquote>
 <p>
@@ -331,17 +331,54 @@
 </ul>
 <div class="slide-footer"><br></div>
 
+</section>
+<section id="slide-orga39f53a">
+<h3 id="orga39f53a">平均の区間推定 (分散未知)</h3>
+<ul>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+\(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
+\(1{-}\alpha/2\) 分位点とすれば
+</p>
+<div>
+\begin{equation}
+  P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
+    \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
+\end{equation}
+
+</div>
+
+<p>
+となるので，
+分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
+以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
+    \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
+\end{equation}
+
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+
 
 </section>
 </section>
 <section>
-<section id="slide-org953aaad">
-<h2 id="org953aaad">最尤法</h2>
-<div class="outline-text-2" id="text-org953aaad">
+<section id="slide-org95e0641">
+<h2 id="org95e0641">最尤法</h2>
+<div class="outline-text-2" id="text-org95e0641">
 </div>
 </section>
-<section id="slide-orgf20f23b">
-<h3 id="orgf20f23b">離散分布の場合</h3>
+<section id="slide-orgffb1877">
+<h3 id="orgffb1877">離散分布の場合</h3>
 <ul>
 <li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
 <ul>
@@ -371,8 +408,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orga49070f">
-<h3 id="orga49070f">尤度関数</h3>
+<section id="slide-orgc801387">
+<h3 id="orgc801387">尤度関数</h3>
 <ul>
 <li><p>
 定義
@@ -410,8 +447,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org02c8abf">
-<h3 id="org02c8abf">連続分布の場合</h3>
+<section id="slide-org4c44b9a">
+<h3 id="org4c44b9a">連続分布の場合</h3>
 <ul>
 <li>確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
 <li><p>
@@ -430,7 +467,7 @@
 </div>
 </blockquote>
 <ul>
-<li>確率データ \(X_{i}\) が微小な区間
+<li>観測データ \(X_{i}\) が微小な区間
 \([x_{i}-\delta,x_{i}+\delta]\)
 に含まれる確率に比例する量</li>
 
@@ -440,8 +477,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgd9c55a6">
-<h3 id="orgd9c55a6">最尤法</h3>
+<section id="slide-org4ee0649">
+<h3 id="org4ee0649">最尤法</h3>
 <ul>
 <li><p>
 最尤法
@@ -487,8 +524,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org41bb8c5">
-<h3 id="org41bb8c5">最尤推定量の計算</h3>
+<section id="slide-orgb6e8b9c">
+<h3 id="orgb6e8b9c">最尤推定量の計算</h3>
 <ul>
 <li><p>
 <b>対数尤度関数</b> :
@@ -522,12 +559,12 @@
 </section>
 </section>
 <section>
-<section id="slide-org9804a5d" data-background="#fef4f4">
-<h2 id="org9804a5d">演習</h2>
+<section id="slide-org413ba58" data-background="#fef4f4">
+<h2 id="org413ba58">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8453eb7" data-background="#fef4f4">
-<h3 id="org8453eb7">練習問題</h3>
+<section id="slide-org40490d7" data-background="#fef4f4">
+<h3 id="org40490d7">練習問題</h3>
 <ul>
 <li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
 母数 \(\lambda\) の最尤推定量を求めよ．
@@ -571,13 +608,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgd293595">
-<h2 id="orgd293595">最尤推定量の性質</h2>
-<div class="outline-text-2" id="text-orgd293595">
+<section id="slide-orgffd41a5">
+<h2 id="orgffd41a5">最尤推定量の性質</h2>
+<div class="outline-text-2" id="text-orgffd41a5">
 </div>
 </section>
-<section id="slide-org467895e">
-<h3 id="org467895e">一致性</h3>
+<section id="slide-org1726dfb">
+<h3 id="org1726dfb">一致性</h3>
 <ul>
 <li><p>
 定理
@@ -613,8 +650,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org5100790">
-<h3 id="org5100790">証明の概略</h3>
+<section id="slide-org0716d1f">
+<h3 id="org0716d1f">証明の概略</h3>
 <ul>
 <li><p>
 対数尤度の大数の法則
@@ -706,8 +743,8 @@
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orgfd8ac83">
-<h3 id="orgfd8ac83">漸近正規性</h3>
+<section id="slide-org9fcc0b8">
+<h3 id="org9fcc0b8">漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -736,8 +773,8 @@ Cramer-Rao 下界に一致する</li>
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-orge6e0423">
-<h3 id="orge6e0423">証明の概略</h3>
+<section id="slide-orgdc1f91f">
+<h3 id="orgdc1f91f">証明の概略</h3>
 <ul>
 <li><p>
 真の母数の性質
@@ -969,13 +1006,13 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-orgada6c55">
-<h2 id="orgada6c55">漸近正規性にもとづく区間推定</h2>
-<div class="outline-text-2" id="text-orgada6c55">
+<section id="slide-orgc940d88">
+<h2 id="orgc940d88">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-orgc940d88">
 </div>
 </section>
-<section id="slide-org1a324c8">
-<h3 id="org1a324c8">推定量の漸近正規性</h3>
+<section id="slide-org81ac609">
+<h3 id="org81ac609">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 <b>漸近正規性</b>
@@ -997,8 +1034,8 @@ Taylor 展開による近似
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org46af3b5">
-<h3 id="org46af3b5">漸近正規性にもとづく区間推定</h3>
+<section id="slide-org2119988">
+<h3 id="org2119988">漸近正規性にもとづく区間推定</h3>
 <ul>
 <li><p>
 推定量の分布
@@ -1041,8 +1078,8 @@ Taylor 展開による近似
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org7fe56f9">
-<h3 id="org7fe56f9">標本平均の区間推定</h3>
+<section id="slide-orgcde7336">
+<h3 id="orgcde7336">標本平均の区間推定</h3>
 <ul>
 <li><p>
 定理 (標本平均の漸近正規性)
@@ -1143,8 +1180,8 @@ Taylor 展開による近似
 <div class="slide-footer"><br></div>
 
 </section>
-<section id="slide-org95e4f98">
-<h3 id="org95e4f98">最尤推定量の区間推定</h3>
+<section id="slide-orgb605c88">
+<h3 id="orgb605c88">最尤推定量の区間推定</h3>
 <ul>
 <li><p>
 定理 (最尤推定量の漸近正規性)
@@ -1200,12 +1237,12 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-org5f107d0" data-background="#fef4f4">
-<h2 id="org5f107d0">演習</h2>
+<section id="slide-orgd342791" data-background="#fef4f4">
+<h2 id="orgd342791">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8d4c044" data-background="#fef4f4">
-<h3 id="org8d4c044">練習問題</h3>
+<section id="slide-orgc213920" data-background="#fef4f4">
+<h3 id="orgc213920">練習問題</h3>
 <ul>
 <li>選挙の投票率を調べるために，
 400人にアンケートを実施した結果，
@@ -1240,8 +1277,8 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-org5664b5a">
-<h2 id="org5664b5a">今回のまとめ</h2>
+<section id="slide-org6c30678">
+<h2 id="org6c30678">今回のまとめ</h2>
 <ul>
 <li>最尤法の考え方</li>
 <li>最尤推定量の性質
