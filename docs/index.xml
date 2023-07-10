@@ -159,5 +159,15 @@
 フルスクリーン f フルスクリーン表示 esc 元に戻る 黒板 w スライドと黒板の切り替え (toggle) x/y チョークの色の切り替え (巡回) c 消去 メモ書き e 編集モードの切り替え (toggle) x/y ペンの色の切り替え (巡回) c 消去 </description>
     </item>
     
+    <item>
+      <title>統計的有意性とp値</title>
+      <link>https://noboru-murata.github.io/probability-statistics/post/post3/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://noboru-murata.github.io/probability-statistics/post/post3/</guid>
+      <description>検定の補足スライドです．これから実験で検定を使う人は是非ASAの提言に目を通して下さい．
+ASAの提言 American Statistical Association https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf 日本計量生物学会による和訳 https://www.biometrics.gr.jp/news/all/ASA.pdf スライド full size </description>
+    </item>
+    
   </channel>
 </rss>

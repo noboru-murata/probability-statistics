@@ -5,7 +5,7 @@
 #+LINK: github https://noboru-murata.github.io/probability-statistics/
 #+STARTUP: hidestars content indent
 
-# Time-stamp: <2023-07-03 16:45:05 mura>
+# Time-stamp: <2023-07-10 10:04:51 mura>
 # C-c C-e H A (generate MDs for all subtrees)
 
 * 概要
@@ -249,6 +249,25 @@ shortcut key が表示されますが，
 - e 編集モードの切り替え (toggle)
 - x/y ペンの色の切り替え (巡回)
 - c 消去
+
+* 統計的有意性とp値
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: ./post
+:EXPORT_FILE_NAME: post3
+:EXPORT_DATE: <2023-07-10 Mon>
+:END:
+検定の補足スライドです．
+これから実験で検定を使う人は是非ASAの提言に目を通して下さい．
+
+** ASAの提言
+- American Statistical Association
+  https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf
+- 日本計量生物学会による和訳
+  https://www.biometrics.gr.jp/news/all/ASA.pdf
+
+** スライド
+#+hugo: {{< myslide base="probability-statistics" name="p-value" >}}
+  
 
 * COMMENT ローカル変数
 # Local Variables:
