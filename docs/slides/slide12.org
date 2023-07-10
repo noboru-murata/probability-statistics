@@ -3,7 +3,7 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-07-03 16:44:16 mura>
+# Time-stamp: <2023-07-10 18:19:26 mura>
 :REVEAL:
 #+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
@@ -121,8 +121,8 @@
       T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
     \end{equation}
   #+end_src
-  は 帰無仮説が正しいとき標準正規分布に従う．
   #+end_quote
+  - 帰無分布は標準正規分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
   #+begin_src latex
@@ -176,8 +176,8 @@
       T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
     \end{equation}
   #+end_src
-  は仮説が正しいとき標準正規分布に従う．
   #+end_quote
+  - 帰無分布は標準正規分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
   #+begin_src latex
@@ -223,7 +223,7 @@
 #+reveal: split
 #+begin_leftcol
 #+NAME: fig:cr_one
-#+CAPTION: 片側検定の棄却域(帰無分布の右の場合)
+#+CAPTION: 右片側検定の棄却域
 #+ATTR_HTML: :width 100%
 #+ATTR_LATEX: :width 0.6\linewidth
 [[file:figs/cr_one.png]]
@@ -437,6 +437,8 @@
   #+begin_src latex
     \begin{equation}
       \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
+      \quad
+      \text{(\(s^{2}\)は\(X\)の不偏分散)}
     \end{equation}
   #+end_src
   #+end_quote
@@ -606,8 +608,9 @@
   \(\mathcal{N}(0,I(\theta_0)^{-1})\)
   に近づく．
   #+end_quote
+  - \(\hat\theta^*\) は最尤推定量，\(\theta_{0}\) は真の母数
   - 観測データが十分多ければ，
-    最尤推定量の誤差(分散)は
+    最尤推定量の分散(誤差)は
     Cramer-Rao 下界に一致する
   - Fisher 情報量 (\(f\) : 確率質量関数または確率密度関数)
     #+begin_quote
@@ -625,7 +628,7 @@
     #+end_src
     #+end_quote
 
-** 最尤推定量の検定 
+** 最尤推定量の検定
 - 問題
   #+begin_quote
   \(\theta_0\) を既知の定数として，
@@ -665,10 +668,10 @@
   #+end_src
   #+end_quote
   - 帰無分布は標準正規分布
-  - Fisher 情報量は真の値 \(\theta_{0}\) で計算できる
+  - Fisher 情報量は真の値 \(\theta_{0}\) で計算すればよい
 
 #+reveal: split
-- 有意水準 \(\alpha\)) の両側検定
+- 有意水準 \(\alpha\) の両側検定
   #+begin_quote
   \(z_{1{-}\alpha/2}\) : 標準正規分布の \(1{-}\alpha/2\) 分位点
   #+end_quote
