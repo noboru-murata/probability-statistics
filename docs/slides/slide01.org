@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE: 
-# Time-stamp: <2023-05-01 17:54:51 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-04-11 11:05:29 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -204,7 +204,7 @@
   ことになる．
   #+end_quote
 
-** 事象の演算 (集合の演算)
+** COMMENT 事象の演算 (集合の演算)
 - 和事象 (sum event) ::
   \(A\) または \(B\) が起こること．\\
   \(A,B\) の和集合 (union) \(A\cup B\)
@@ -228,6 +228,48 @@
 - 固有差 :: 
   \(A\supset B\) のとき \(A\backslash B\) を \(A-B\) と書く．
 
+** 事象の演算 (集合の演算)
+- 和事象 (sum event) ::
+  #+begin_quote
+  \(A\) または \(B\) が起こること
+  ⇔
+  \(A\cup B\) (和集合; union)
+  #+end_quote
+- 交事象 (product event) ::
+  #+begin_quote
+  \(A\) と \(B\) が同時に起こること
+  ⇔
+  \(A\cap B\) (交集合; intersection) 
+  #+end_quote
+- 差事象 (difference event) ::
+  #+begin_quote
+  \(A\) が起こり \(B\) が起こらないこと
+  ⇔
+  \(A\backslash B\) (差; difference) 
+  #+end_quote
+
+#+reveal: split
+- 余事象 (complementary event) :: 
+  #+begin_quote
+  \(A\) が起こらないこと
+  ⇔
+  \(A^c\) または \(\bar{A}\) (補集合; complement) 
+  #+end_quote
+- 排反事象 (exclusive event) ::
+  #+begin_quote
+  \(A,B\) が同時に起こらない
+  ⇔
+  \(A\cap B=\emptyset\) (互いに素; disjoint) 
+  #+end_quote
+- 直和 (direct sum, disjoint union) ::
+  #+begin_quote
+  \(A\) と \(B\) が排反のとき \(A\cup B\) を \(A+B\) と書く
+  #+end_quote
+- 固有差 ::
+  #+begin_quote
+  \(A\supset B\) のとき \(A\backslash B\) を \(A-B\) と書く
+  #+end_quote
+
 ** 事象の演算の例
 - [[color:green][骰子振り]]
   #+begin_quote
@@ -246,12 +288,12 @@
 ** 条件による事象の表現
 - 事象は標本点 \(\omega\) に関する
   *条件 (condition)* 
-  を表す式 \(\alpha(\omega)\) を用いて記述可能:
-  #+begin_src latex
-    \begin{equation}
-      A=\left\{\omega|\;\alpha(\omega)\right\}
-    \end{equation}
-  #+end_src
+  を表す式 \(\alpha(\omega)\) を用いて記述可能
+  #+begin_quote
+  \begin{equation}
+    A=\left\{\omega|\;\alpha(\omega)\right\}
+  \end{equation}
+  #+end_quote
 - 条件 \(\alpha\) を事象 \(A\) と同一視して
   単に事象 \(\alpha\) ということもある
 
@@ -259,63 +301,57 @@
 - [[color:green][骰子振り]]
   #+begin_quote
   "偶数の目" という事象 \(A\):
-  #+begin_src latex
-    \begin{equation}
-      A
-      =\{\omega|\;\omega\text{が偶数}\}
-      =\{2,4,6\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    A
+    =\{\omega|\;\omega\text{が偶数}\}
+    =\{2,4,6\}
+  \end{equation}
   #+end_quote
 - [[color:green][ルーレット回し]]
   #+begin_quote
   "区間 \((0,0.5]\) の値" という事象 \(A\):
-  #+begin_src latex
-    \begin{equation}
-      A=\{\omega|\;0<\omega\le0.5\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    A=\{\omega|\;0<\omega\le0.5\}
+  \end{equation}
   #+end_quote
 
 ** 条件による事象の演算
 - 和事象 (\(\alpha\) または \(\beta\)) : \(\alpha\vee\beta\) ::
-  #+begin_src latex
-    \begin{equation}
-      \{\omega|\;\alpha(\omega)\vee\beta(\omega)\}
-      =\{\omega|\;\alpha(\omega)\}\cup\{\omega|\;\beta(\omega)\}
-    \end{equation}
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    \{\omega|\;\alpha(\omega)\vee\beta(\omega)\}
+    =\{\omega|\;\alpha(\omega)\}\cup\{\omega|\;\beta(\omega)\}
+  \end{equation}
+  #+end_quote
 - 交事象 (\(\alpha\) かつ \(\beta\)) : \(\alpha\wedge\beta\) :: 
-  #+begin_src latex
-    \begin{equation}
-      \{\omega|\;\alpha(\omega)\wedge\beta(\omega)\}
-      =\{\omega|\;\alpha(\omega)\}\cap\{\omega|\;\beta(\omega)\}
-    \end{equation}
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    \{\omega|\;\alpha(\omega)\wedge\beta(\omega)\}
+    =\{\omega|\;\alpha(\omega)\}\cap\{\omega|\;\beta(\omega)\}
+  \end{equation}
+  #+end_quote
 - 余事象 (\(\alpha\) の否定) : \(\alpha^\neg\) :: 
-  #+begin_src latex
-    \begin{equation}
-      \{\omega|\;\alpha(\omega)^\neg\}
-      =\Omega-\{\omega|\;\alpha(\omega)\}
-    \end{equation}       
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    \{\omega|\;\alpha(\omega)^\neg\}
+    =\Omega-\{\omega|\;\alpha(\omega)\}
+  \end{equation}       
+  #+end_quote
   
 ** 条件による事象の演算の例
 - [[color:green][骰子振り]]
   #+begin_quote
   それぞれの事象を条件で書くと
-  #+begin_src latex
-    \begin{align}
-      &\{\omega|\;(\omega\text{が偶数})^\neg\}
-        =\{\omega|\;\omega\text{が奇数}\}\;\text{(余事象)}\\
-      &\{\omega|\;(\omega\text{が奇数})\wedge(\omega\text{が素数})\}
-        =\{3,5\}\;\text{(交事象)}\\
-      &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が素数})\}
-        =\{2,3,4,5,6\}\;\text{(和事象)}\\
-      &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が奇数})\}
-        =\{1,2,3,4,5,6\}\;\text{(直和)}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\{\omega|\;(\omega\text{が偶数})^\neg\}
+      =\{\omega|\;\omega\text{が奇数}\}\;\text{(余事象)}\\
+    &\{\omega|\;(\omega\text{が奇数})\wedge(\omega\text{が素数})\}
+      =\{3,5\}\;\text{(交事象)}\\
+    &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が素数})\}
+      =\{2,3,4,5,6\}\;\text{(和事象)}\\
+    &\{\omega|\;(\omega\text{が偶数})\vee(\omega\text{が奇数})\}
+      =\{1,2,3,4,5,6\}\;\text{(直和)}
+  \end{align}
   となる．
   #+end_quote
 
@@ -337,18 +373,16 @@
 :reveal_background: #fef4f4
 :END:
 - 一般には以下の2つの等式で表される関係を指す．
-  #+begin_src latex
-    \begin{align}
-      (A\cap B)^{c}
-      &=A^{c}\cup B^{c}
-      &\big(\overline{A\cap B}
-      &=\bar{A}\cup\bar{B}\big)\\
-      (A\cup B)^{c}
-      &=A^{c}\cap B^{c}
-      &\big(\overline{A\cup B}
-      &=\bar{A}\cap\bar{B}\big)
-    \end{align}
-  #+end_src
+  \begin{align}
+    (A\cap B)^{c}
+    &=A^{c}\cup B^{c}
+    &\big(\overline{A\cap B}
+    &=\bar{A}\cup\bar{B}\big)\\
+    (A\cup B)^{c}
+    &=A^{c}\cap B^{c}
+    &\big(\overline{A\cup B}
+    &=\bar{A}\cap\bar{B}\big)
+  \end{align}
 - ベン図での表現を考えてみよ．
 
 
@@ -366,25 +400,23 @@
   実数値集合関数 \(P\) ( \(\Omega\) の部分集合に作用して実数を出力する関数)を
   *確率測度 (probability measure)*
   という．
-  #+begin_src latex
-    \begin{align}
-      (P.1)\quad
-      &P(A)\ge0,%\; A\subset\Omega
-      &&\text{(正値性; positivity)}\\
-      (P.2)\quad
-      &P(A+B)=P(A)+P(B),%\; A,B\subset\Omega
-      &&\text{(加法性; additivity)}\\
-      (P.3)\quad
-      &P(\Omega)=1
-      &&\text{(全確率は\(1\))}
-    \end{align}
-  #+end_src
+  \begin{align}
+    (P.1)\quad
+    &P(A)\ge0,%\; A\subset\Omega
+    &&\text{(正値性; positivity)}\\
+    (P.2)\quad
+    &P(A+B)=P(A)+P(B),%\; A,B\subset\Omega
+    &&\text{(加法性; additivity)}\\
+    (P.3)\quad
+    &P(\Omega)=1
+    &&\text{(全確率は\(1\))}
+  \end{align}
   #+end_quote
-- 確率測度は
-  *確率分布 (probability distribution)*
-  あるいは単に
-  *分布 (distribution)*
-  と言うこともある．
+  - 確率測度は
+    *確率分布 (probability distribution)*
+    あるいは単に
+    *分布 (distribution)*
+    と言うこともある
 
 ** 確率測度の条件の意味
 - (P.1) ::
@@ -399,14 +431,12 @@
 - [[color:green][骰子振り]]
   #+begin_quote
   "いかさまのない骰子を1回振る" 試行 \(T\) の確率測度 \(P\) は
-  #+begin_src latex
-    \begin{align}
-      &P(\{1\})=P\{2\}=P\{3\}=P\{4\}=P\{5\}=P\{6\}
-        =\frac{1}{6}\\
-      &P(\text{素数の目が出る})
-        =P(\{2,3,5\})=\frac{1}{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &P(\{1\})=P\{2\}=P\{3\}=P\{4\}=P\{5\}=P\{6\}
+      =\frac{1}{6}\\
+    &P(\text{素数の目が出る})
+      =P(\{2,3,5\})=\frac{1}{2}
+  \end{align}
   のように，
   事象を入れるとその事象の起こる確率を返してくれる関数 \(P\) である．
   #+end_quote
@@ -428,35 +458,33 @@
 
 ** 確率測度の演算
 - 事象の演算に関しては以下の関係が成り立つ．
-  #+begin_src latex
-    \begin{align}
-      1.\quad
-      &P\Bigl(\sum_{i=1}^nA_i\Bigr)=\sum_{i=1}^nP(A_i)\\
-      2.\quad
-      &P(A-B)=P(A)-P(B)\\
-      3.\quad
-      &P(A^c)=1-P(A)\\
-      4.\quad
-      &P(A\cup B)=P(A)+P(B)-P(A\cap B)\\
-      5.\quad
-      &P(A)=\sum_{\omega\in A}P\{\omega\}
-    \end{align} 
-  #+end_src
+  #+begin_quote
+  \begin{align}
+    1.\quad
+    &P\Bigl(\sum_{i=1}^nA_i\Bigr)=\sum_{i=1}^nP(A_i)\\
+    2.\quad
+    &P(A-B)=P(A)-P(B)\\
+    3.\quad
+    &P(A^c)=1-P(A)\\
+    4.\quad
+    &P(A\cup B)=P(A)+P(B)-P(A\cap B)\\
+    5.\quad
+    &P(A)=\sum_{\omega\in A}P\{\omega\}
+  \end{align} 
+  #+end_quote
   
 ** 確率測度の演算の例
 - [[color:green][骰子振り]]
   #+begin_quote
   "いかさまのない骰子を1回振る" 試行 \(T\) において
   素数の目が出る確率は
-  #+begin_src latex
-    \begin{align}
-      P(\text{素数の目})
-      &=P(\{2,3,5\})\\
-      &=P\{2\}+P\{3\}+P\{5\}
-        =\frac{1}{6}+\frac{1}{6}+\frac{1}{6}
-        =\frac{1}{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(\text{素数の目})
+    &=P(\{2,3,5\})\\
+    &=P\{2\}+P\{3\}+P\{5\}
+      =\frac{1}{6}+\frac{1}{6}+\frac{1}{6}
+      =\frac{1}{2}
+  \end{align}
   となる．
   #+end_quote
   #   #+reveal: split
@@ -469,12 +497,10 @@
   #   \(\langle\text{裏，表}\rangle\) ，
   #   \(\langle\text{裏，裏}\rangle\) 
   #   の4通りが等しい確率で起こるので
-  #   #+begin_src latex
   #     \begin{equation}
   # 	 P\left(\langle\text{表，表}\rangle\right)
   # 	 =\frac{1}{4}
   #     \end{equation}
-  #   #+end_src
   #   である．
   #   #+end_quote
 
@@ -488,12 +514,12 @@
 :reveal_background: #fef4f4
 :END:
 - 確率測度の定義にもとづいて以下を証明せよ．
-  #+begin_src latex
-    \begin{align}
-      &P(A^c)=1-P(A)\\
-      &P(A\cup B)=P(A)+P(B)-P(A\cap B)
-    \end{align}
-  #+end_src
+  #+begin_quote
+  \begin{align}
+    &P(A^c)=1-P(A)\\
+    &P(A\cup B)=P(A)+P(B)-P(A\cap B)
+  \end{align}
+  #+end_quote
 - よく切ったトランプから
   2枚カードを引く試行を考える.
   この試行の確率空間を構成せよ．
@@ -503,23 +529,17 @@
 :reveal_background: #fef4f4
 :END:
 - 確率測度の3つの性質を用いる．1つめは
-  #+begin_src latex
-    \begin{equation}
-      P(A)+P(A^c)=P(A+A^c)=P(\Omega)=1
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)+P(A^c)=P(A+A^c)=P(\Omega)=1
+  \end{equation}
   より
-  #+begin_src latex
-    \begin{equation}
-      P(A^c)=1-P(A)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A^c)=1-P(A)
+  \end{equation}
   となる．また2つめについては
-  #+begin_src latex
-    \begin{equation}
-      (A\cup B) = (A-A\cap B) + (B-A\cap B) + (A\cap B)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    (A\cup B) = (A-A\cap B) + (B-A\cap B) + (A\cap B)
+  \end{equation}
   を用いればよい．
 
 
@@ -538,12 +558,10 @@
   が観測される確率は，
   6回骰子を振る \(6^6\) 通りの中の
   等しい確率で起こる1つなので
-  #+begin_src latex
-    \begin{equation}
-      P\left(\langle 6,5,4,3,2,1\rangle\right)
-      =\frac{1}{6^6}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\left(\langle 6,5,4,3,2,1\rangle\right)
+    =\frac{1}{6^6}
+  \end{equation}
   となる．
   #+end_quote
 
@@ -557,12 +575,10 @@
   最初の5回は1以外，
   最後に1の目の
   \(5^5\) 通りがあるので
-  #+begin_src latex
-    \begin{equation}
-      P\left(\langle *,*,*,*,*,1\rangle\right)
-      =\frac{5^5}{6^6}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\left(\langle *,*,*,*,*,1\rangle\right)
+    =\frac{5^5}{6^6}
+  \end{equation}
   である．
   #+end_quote
 
@@ -580,11 +596,9 @@
   これを \(A=\{a,b,c,\dotsc\}\) と書く．
   前出の加法性に従うなら事象 \(A=\{a,b,c,\dotsc\}\) に対して，
   1回の試行で例えば標本点 \(a\) と \(b\) が同時に観測されることはないので，
-  #+begin_src latex
-    \begin{equation}	     
-      P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb
-    \end{equation}
-  #+end_src
+  \begin{equation}	     
+    P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb
+  \end{equation}
   として良い．
   #+end_quote
 
@@ -592,28 +606,22 @@
 - 確率の和を考える
   #+begin_quote
   仮に各要素の出現確率が同じ \(\epsilon>0\) という値である場合
-  #+begin_src latex
-    \begin{equation}
-      P\{a\}=P\{b\}=P\{c\}=\dotsb=\epsilon\quad (\not=0)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\{a\}=P\{b\}=P\{c\}=\dotsb=\epsilon\quad (\not=0)
+  \end{equation}
   を考える．
   このとき要素数が無限個あるので
-  #+begin_src latex
-    \begin{equation}
-      P(A)=\epsilon+\epsilon+\epsilon+\dotsb\quad \to\infty
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=\epsilon+\epsilon+\epsilon+\dotsb\quad \to\infty
+  \end{equation}
   となり，確率の値が \(1\) を越えてしまう．
 
   事象 \(A\) が無限集合で
   各標本点が
   同様に起こり易い場合には
-  #+begin_src latex
-    \begin{equation}
-      P\{a\}=P\{b\}=P\{c\}=\dotsb=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\{a\}=P\{b\}=P\{c\}=\dotsb=0
+  \end{equation}
   でなくてはならない．
   #+end_quote
 
@@ -622,11 +630,9 @@
   #+begin_quote
   任意の標本点についてその確率が \(0\) なら，
   いくら足しても
-  #+begin_src latex
-    \begin{equation}
-      P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb=0
+  \end{equation}
   である．
 
   標本空間全体についてこの議論を行えば

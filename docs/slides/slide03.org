@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-05-01 18:03:00 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-04-11 11:49:49 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -15,6 +15,7 @@
 * COMMENT メモ
 - 校正に関して記述
 - section などにtex codeがおかしくなる場合がある．その場合は@@latex:@@を付加すれば良い
+
 
 * 前回のおさらい
 - 一般の確率空間
@@ -35,33 +36,27 @@
 - 問題
   #+begin_quote
   起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
-  #+begin_src latex
-    \begin{equation}
-      x=l^{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    x=l^{2}
+  \end{equation}
   として周長1のルーレットを作る．
 
   事象として同じ長さの区間
   \([0.1,0.2]\), \([0.8,0.9]\)
   を考えたとき，
   その確率
-  #+begin_src latex
-    \begin{equation}
-      P([0.1,0.2]),\quad P([0.8,0.9])
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P([0.1,0.2]),\quad P([0.8,0.9])
+  \end{equation}
   の大小関係はどのような関係になるか?
   #+end_quote
 
 #+reveal: split
 - 解答
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      P([0.1,0.2]) > P([0.8,0.9])
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P([0.1,0.2]) > P([0.8,0.9])
+  \end{equation}
   #+end_quote
 
 #+begin_src R :file figs/roulette.png :exports results :results graphics
@@ -93,11 +88,9 @@
   - 歪んだ目盛りの指す区間: \([a,b]\)
   - これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)
   したがって確率測度は以下で計算される．
-  #+begin_src latex
-    \begin{equation}
-      P([a,b]) = \sqrt{b}-\sqrt{a}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P([a,b]) = \sqrt{b}-\sqrt{a}
+  \end{equation}
   #+end_quote
 
 ** 一様でない抜き出しの例
@@ -135,22 +128,18 @@
 #+end_leftcol  
 #+begin_rightcol
 #+begin_quote
-#+begin_src latex
-  \begin{equation}
-    f(x)=
-    \begin{cases}
-      0.5, & (0\le x< 0.5)\\
-      1.5, & (0.5\le x\le 1)
-    \end{cases}
-  \end{equation}
-#+end_src
+\begin{equation}
+  f(x)=
+  \begin{cases}
+    0.5, & (0\le x< 0.5)\\
+    1.5, & (0.5\le x\le 1)
+  \end{cases}
+\end{equation}
 として，
 確率測度を
-#+begin_src latex
-  \begin{equation}
-    P(A)=\int_{A}f(\omega)d\omega
-  \end{equation}
-#+end_src
+\begin{equation}
+  P(A)=\int_{A}f(\omega)d\omega
+\end{equation}
 で定義する．
 #+end_quote
 #+end_rightcol  
@@ -159,53 +148,47 @@
 - 確率の偏りの確認
   #+begin_quote
   例えば区間 \([0.1,0.2]\) と \([0.8,0.9]\) を比べてみる
-  #+begin_src latex
-    \begin{align}
-      P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
-		    =\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
-      P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
-		    =\left[1.5\omega\right]_{0.8}^{0.9}=0.15
-    \end{align}
-  #+end_src
+  \begin{align}
+    P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
+                  =\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
+    P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
+                  =\left[1.5\omega\right]_{0.8}^{0.9}=0.15
+  \end{align}
   #+end_quote
 
 ** 確率測度の条件 (再掲)
 - 以下の3つの条件が成立する
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      (P.1)\quad
-      &P(A)\ge 0,\; A\in\mathcal{F}\\
-      (P.2)\quad
-      &P\biggl(\sum_{n=1}^\infty A_n\biggr)
-	=\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
-      (P.3)\quad
-      &P(\Omega)=1
-    \end{align}
-  #+end_src
+  \begin{align}
+    (P.1)\quad
+    &P(A)\ge 0,\; A\in\mathcal{F}\\
+    (P.2)\quad
+    &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+      =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+    (P.3)\quad
+    &P(\Omega)=1
+  \end{align}
   #+end_quote
 
 ** 積分による表現の正当性
 - (P.1) \(f(x)\) の正値性から明らか
 - (P.2) 積分区間を分割しても積分値が変わらないという積分の性質から明らか
 - (P.3) 区間 \([0,1]\) 上の積分
-  #+begin_src latex
-    \begin{equation}
-      P([0,1])=\int_{0}^{1}f(\omega)d\omega
-      =0.5\times0.5+0.5\times1.5=1
-    \end{equation}
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    P([0,1])=\int_{0}^{1}f(\omega)d\omega
+    =0.5\times0.5+0.5\times1.5=1
+  \end{equation}
+  #+end_quote
   より全確率が \(1\) となっている
 
 ** 確率密度
 - 定義
   #+begin_quote
   確率測度がある関数の積分
-  #+begin_src latex
-    \begin{equation}
-      P(A)=\int_{A}f(\omega)d\omega
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=\int_{A}f(\omega)d\omega
+  \end{equation}
   で書かれているとき，
   その被積分関数を 
   *確率密度(関数)* (probability density function)
@@ -222,22 +205,18 @@
   #+begin_quote
   歪んだ目盛をもつルーレットの確率密度は，
   任意の \(a,b\;(0 < a < b\le1)\) に対して
-  #+begin_src latex
-    \begin{equation}
-      P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
+  \end{equation}
   となる
   以下の関数 \(f\) である．
-  #+begin_src latex
-    \begin{equation}
-      f(\omega)=
-      \begin{cases}
-	\frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
-	0,&(\text{それ以外})
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(\omega)=
+    \begin{cases}
+      \frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
+      0,&(\text{それ以外})
+    \end{cases}
+  \end{equation}
   #+end_quote
 
 
@@ -261,15 +240,15 @@
 :reveal_background: #fef4f4
 :END:
 - 歪んでいないルーレットと対応づければ良い．
-  #+begin_src latex
-    \begin{align}
-      P(a < x < b)
-      &=P(a < g(l) < b)\\
-      &=P(g^{-1}(a) < l < g^{-1}(b))\\
-      &=g^{-1}(b)-g^{-1}(a)\\
-      &=\int_{a}^{b}f(\omega)d\omega
-    \end{align}
-  #+end_src
+  #+begin_quote
+  \begin{align}
+    P(a < x < b)
+    &=P(a < g(l) < b)\\
+    &=P(g^{-1}(a) < l < g^{-1}(b))\\
+    &=g^{-1}(b)-g^{-1}(a)\\
+    &=\int_{a}^{b}f(\omega)d\omega
+  \end{align}
+  #+end_quote
   (\(g\) が単調増加の場合，減少する場合は符号に注意)
 
 
@@ -335,14 +314,12 @@
 \(I_i\) (幅は \(d_i\)) に分割する．
 各区間における関数 \(f(x)\) の最小値と最大値を用いて
 有限和 \(s_n\),\(S_n\) を次のように定義する．
-#+begin_src latex
-  \begin{align}
-    s_n
-    &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
-    S_n
-    &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
-  \end{align}
-#+end_src
+\begin{align}
+  s_n
+  &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
+  S_n
+  &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
+\end{align}
 #+end_quote
 #+end_rightcol
 
@@ -350,24 +327,20 @@
 - 定義(つづき)
   #+begin_quote
   各区間の大小関係から
-  #+begin_src latex
-    \begin{equation}
-      s_n\le S_n
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    s_n\le S_n
+  \end{equation}
   が成り立っているが，分割を細かくしたとき，
   それぞれの極限が存在して，
   なおかつ一致するならば，
   これを \(f(x)\) の 
   *Riemann 積分* (Riemann integral)
   という．
-  #+begin_src latex
-    \begin{equation}
-      \lim_{n\to\infty}s_n
-      =\lim_{n\to\infty}S_n
-      =\int_K f(x)dx
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \lim_{n\to\infty}s_n
+    =\lim_{n\to\infty}S_n
+    =\int_K f(x)dx
+  \end{equation}
   #+end_quote
 
 ** Lebesgue 積分
@@ -440,24 +413,20 @@
   #+begin_quote
   このとき \(\mu\) を Lebesgue 測度とし，
   単関数 \(f_n(x)\) の *Lebesgue 積分* を
-  #+begin_src latex
-    \begin{equation}
-      \int_K f_n(x)dx
-      =\sum_{i=1}^n\alpha_i\mu(E_i)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \int_K f_n(x)dx
+    =\sum_{i=1}^n\alpha_i\mu(E_i)
+  \end{equation}
   で定義する．
   分割を細かくしたとき \(f_n(x)\) は \(f(x)\) に近づいていくが，
   この極限が存在するならば，
   これを \(f(x)\) の 
   *Lebesgue 積分* (Lebesgue integral)
   という．
-  #+begin_src latex
-    \begin{equation}
-      \lim_{n\to\infty}\int_K f_n(x)dx
-      =\int_K f(x)dx
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \lim_{n\to\infty}\int_K f_n(x)dx
+    =\int_K f(x)dx
+  \end{equation}
   #+end_quote
 
 ** 表記に関する注意
@@ -465,12 +434,10 @@
   #+begin_quote
   2つの積分を明示的に区別するために，
   Lebesgue 積分を
-  #+begin_src latex
-    \begin{equation}
-      \int_K f(x)\mu(dx),
-      \quad\text{(\(\mu\)は Lebesgue 測度)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \int_K f(x)\mu(dx),
+    \quad\text{(\(\mu\)は Lebesgue 測度)}
+  \end{equation}
   と書くことがある．
   #+end_quote
   - この講義での以降の積分は，
@@ -481,43 +448,35 @@
 - 特異な例
   #+begin_quote
   \([0,1]\) 上で次のような関数
-  #+begin_src latex
-    \begin{equation}
-      f(x)=
-      \begin{cases}
-	1, & \text{\(x\)が有理数}\\
-	0, & \text{\(x\)が無理数}
-      \end{cases}
-      \label{eq:dirichlet_fn}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x)=
+    \begin{cases}
+      1, & \text{\(x\)が有理数}\\
+      0, & \text{\(x\)が無理数}
+    \end{cases}
+    \label{eq:dirichlet_fn}
+  \end{equation}
   を考える．
   #+end_quote
   - この関数は Dirichlet の関数と呼ばれ
-    #+begin_src latex
-      \begin{equation}
-	f(x)=
-	\lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      f(x)=
+      \lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
+    \end{equation}
     と書けることが知られている
 
 #+reveal: split
 - Riemann 積分の場合
   #+begin_quote
   どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
-  #+begin_src latex
-    \begin{equation}
-      \min_{x\in I_i}f(x)=0,\quad
-      \max_{x\in I_i}f(x)=1
-    \end{equation}
-  #+end_src
-  #+begin_src latex
-    \begin{align}
-      s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
-      S_n&=\sum_{i=0}^{n}1\times d_{i}=1
-    \end{align}
-  #+end_src
+  \begin{equation}
+    \min_{x\in I_i}f(x)=0,\quad
+    \max_{x\in I_i}f(x)=1
+  \end{equation}
+  \begin{align}
+    s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
+    S_n&=\sum_{i=0}^{n}1\times d_{i}=1
+  \end{align}
   であり，
   \(n\) をいくら大きくしても極限は一致しない．
   したがってこの関数の Riemann 積分は存在しない．
@@ -527,31 +486,25 @@
 - Lebesgue 積分の場合
   #+begin_quote
   適当な値域の分割において
-  #+begin_src latex
-    \begin{equation}
-      \alpha_{i}\le 0<\alpha_{i+1},\quad
-      \alpha_{j}\le 1<\alpha_{j+1}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \alpha_{i}\le 0<\alpha_{i+1},\quad
+    \alpha_{j}\le 1<\alpha_{j+1}
+  \end{equation}
   となるのであれば，Lebesgue 測度の性質より
-  #+begin_src latex
-    \begin{equation}
-      \int f_{n}(x)dx 
-      = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
-      % = \alpha_{i}\cdot1+\alpha_{j}\cdot0
-      =\alpha_{i}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \int f_{n}(x)dx 
+    = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
+    % = \alpha_{i}\cdot1+\alpha_{j}\cdot0
+    =\alpha_{i}
+  \end{equation}
   となるが，
   \(n\to\infty\) のとき 
   \(\alpha_{i}\to0,\;\alpha_{j}\to1\) となるので
-  #+begin_src latex
-    \begin{equation}
-      \int f(x)dx 
-      = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
-      = 0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \int f(x)dx 
+    = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
+    = 0
+  \end{equation}
   となり Lebesgue 積分可能である．
   #+end_quote
 
@@ -578,25 +531,25 @@
   \(\mathbb{R}\)
   上の確率密度関数となるように \(a\) の値を定めよ．
   1.
-     #+begin_src latex
-       \begin{equation}
-	 f(x)=
-	 \begin{cases}
-	   0& (x < 0)\\
-	   \exp(ax) & (x\geq0)
-	 \end{cases}
-       \end{equation}
-     #+end_src
+     #+begin_quote
+     \begin{equation}
+       f(x)=
+       \begin{cases}
+         0& (x < 0)\\
+         \exp(ax) & (x\geq0)
+       \end{cases}
+     \end{equation}
+     #+end_quote
   2.
-     #+begin_src latex
-       \begin{equation}
-	 g(x)=
-	 \begin{cases}
-	   0& (|x|>1)\\
-	   a \cos(\pi x/2) & (|x|\leq1)
-	 \end{cases}
-       \end{equation}
-     #+end_src
+     #+begin_quote
+     \begin{equation}
+       g(x)=
+       \begin{cases}
+         0& (|x|>1)\\
+         a \cos(\pi x/2) & (|x|\leq1)
+       \end{cases}
+     \end{equation}
+     #+end_quote
      
 ** COMMENT ヒント
 :PROPERTIES:
@@ -604,23 +557,23 @@
 :END:
 - 標本空間で関数が正値で，積分が1となればよい．
   1. 
-     #+begin_src latex
-       \begin{equation}
-	 \int_{0}^{\infty}\exp(ax)dx
-	 =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
-	 =\frac{-1}{a}
-	 =1
-       \end{equation}
-     #+end_src
+     #+begin_quote
+     \begin{equation}
+       \int_{0}^{\infty}\exp(ax)dx
+       =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
+       =\frac{-1}{a}
+       =1
+     \end{equation}
+     #+end_quote
   2.
-     #+begin_src latex
-       \begin{equation}
-	 \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
-	 =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
-	 =a\frac{4}{\pi}
-	 =1
-       \end{equation}
-     #+end_src
+     #+begin_quote
+     \begin{equation}
+       \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
+       =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
+       =a\frac{4}{\pi}
+       =1
+     \end{equation}
+     #+end_quote
      
 
 * 確率密度関数の例
@@ -644,13 +597,11 @@
 - 標本空間: \((-\infty,\infty)\)
 - 母数: 平均 \(\mu\), 分散 \(\sigma^{2}\)
 - 密度関数:
-  #+begin_src latex
-    \begin{equation}
-      f(x)
-      =
-      \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x)
+    =
+    \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+  \end{equation}
 - 備考: \(\mu=0,\sigma=1\) のとき
   *標準正規分布* と呼ぶ．
 #+end_quote
@@ -675,12 +626,10 @@
 - 標本空間: 区間 \([a,b]\)
 - 母数: 区間の端点 \(a,b\)
 - 密度関数:
-  #+begin_src latex
-    \begin{equation}
-      \frac{1}{b-a}
-      \quad(b\le x\le a)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \frac{1}{b-a}
+    \quad(b\le x\le a)
+  \end{equation}
 - 備考: ルーレット回しの
   確率密度関数に相当する．
 #+end_quote
@@ -706,12 +655,10 @@
 - 母数: 位置 (location) \(\mu\) ， 
   尺度 (scale) \(\sigma\)
 - 密度関数:
-  #+begin_src latex
-    \begin{equation}
-      f(x)=
-      \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x)=
+    \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
+  \end{equation}
 - 備考: 裾の重い分布の典型として用いられる．
   正規分布の比から導かれる．
 #+end_quote
@@ -742,13 +689,11 @@
 - 標本空間: \([0,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
-  #+begin_src latex
-    \begin{multline}
-      f(x)=
-      \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
-      \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
-    \end{multline}
-  #+end_src
+  \begin{multline}
+    f(x)=
+    \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
+    \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
+  \end{multline}
 - 備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
   検定に利用される．
 #+end_quote
@@ -773,14 +718,12 @@
 - 標本空間: \((-\infty,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
-  #+begin_src latex
-    \begin{equation}
-      f(x)=
-      \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
-      {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
-      \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x)=
+    \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
+    {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
+    \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
+  \end{equation}
 - 備考: 標準正規分布と
   自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
   検定に利用される．
@@ -807,12 +750,10 @@
 - 標本空間: \([0,\infty)\)
 - 母数: 比率 (rate) \(\lambda>0\)
 - 密度関数:
-  #+begin_src latex
-    \begin{equation}
-      f(x)=
-      \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x)=
+    \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
+  \end{equation}
 - 備考:
   タクシーなどの待ち時間のモデル
   として利用される．
@@ -825,23 +766,19 @@
 - \(\delta\) 分布
   #+begin_quote
   確率測度を
-  #+begin_src latex
-    \begin{equation}
-      P(A)=\delta_a(A)=
-      \begin{cases}
-	1, & a\in A\\
-	0, & a\not\in A
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=\delta_a(A)=
+    \begin{cases}
+      1, & a\in A\\
+      0, & a\not\in A
+    \end{cases}
+  \end{equation}
   で定義する．
   これは
-  #+begin_src latex
-    \begin{align}
-      &(\text{\(a\)が抜き出される確率})=1\\
-      &(\text{\(\Omega-{a}\)の点が抜き出される確率})=0
-    \end{align}
-  #+end_src
+  \begin{align}
+    &(\text{\(a\)が抜き出される確率})=1\\
+    &(\text{\(\Omega-{a}\)の点が抜き出される確率})=0
+  \end{align}
   であるから，\(\Omega\) から1点抜き出すと
   それは *ほとんど確実に* \(a\) であるような
   抜き出しを考えていることになる．
@@ -852,19 +789,15 @@
   #+begin_quote
   有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
   これを \(q_{1},q_{2},\dotsc\) で表す．
-  #+begin_src latex
-    \begin{equation}
-      P(A)=\sum_{i:q_i\in A}2^{-i}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=\sum_{i:q_i\in A}2^{-i}
+  \end{equation}
   という確率測度を考える．
   例えば
-  #+begin_src latex
-    \begin{equation}
-      P(\mathbb{Q}_{[0,1]})=1,\quad
-      P(\Omega-\mathbb{Q}_{[0,1]})=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(\mathbb{Q}_{[0,1]})=1,\quad
+    P(\Omega-\mathbb{Q}_{[0,1]})=0
+  \end{equation}
   である．
   #+end_quote
 
@@ -872,27 +805,21 @@
 #+begin_quote
 この確率測度においては確率密度を考えることができない．
 なぜなら1点 \(q_i\) の起こる確率は
-#+begin_src latex
-  \begin{equation}
-    P\{q_i\}=2^{-i}
-  \end{equation}
-#+end_src
+\begin{equation}
+  P\{q_i\}=2^{-i}
+\end{equation}
 であるので，
 密度関数 \(f\) は
-#+begin_src latex
-  \begin{equation}
-    P\{q_i\}=\int_{\{q_i\}}f(x)\mu(dx)
-    =f(q_i)\times\mu(q_i)=2^{-i}
-  \end{equation}
-#+end_src
+\begin{equation}
+  P\{q_i\}=\int_{\{q_i\}}f(x)\mu(dx)
+  =f(q_i)\times\mu(q_i)=2^{-i}
+\end{equation}
 とならなくてはいけないが，
 1点の Lebesgue 測度は0なので
-#+begin_src latex
-  \begin{equation}
-    f(q_i)\times\mu(q_i)
-    =f(q_i)\times0=0
-  \end{equation}
-#+end_src
+\begin{equation}
+  f(q_i)\times\mu(q_i)
+  =f(q_i)\times0=0
+\end{equation}
 となり，
 \(f\) を構成することは不可能である．
 #+end_quote
@@ -907,22 +834,22 @@
 :reveal_background: #fef4f4
 :END:
 - 正規分布の確率密度関数
-  #+begin_src latex
-    \begin{equation}
-      f(x)
-      =
-      \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
-    \end{equation}
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    f(x)
+    =
+    \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+  \end{equation}
+  #+end_quote
   が
   \((-\infty,\infty)\)
   で積分すると1となることを確かめよ.
 - 次の関数が確率密度となるように \(a\) を定めよ．
-  #+begin_src latex
-    \begin{equation}
+  #+begin_quote
+  \begin{equation}
       h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
     \end{equation}
-  #+end_src
+  #+end_quote
   
 ** COMMENT ヒント
 :PROPERTIES:
@@ -931,28 +858,28 @@
 - 2つの正規分布の積を考えて，
   重積分を極座標に変換すればよい．
   簡単のため変数変換した
-  #+begin_src latex
-    \begin{equation}
-      g(x)=e^{-x^{2}}
-    \end{equation}
-  #+end_src
+  #+begin_quote
+  \begin{equation}
+    g(x)=e^{-x^{2}}
+  \end{equation}
+  #+end_quote
   を考えると
   以下のように計算できる．
-  #+begin_src latex
-    \begin{align}
+  #+begin_quote
+  \begin{align}
+    \int_{-\infty}^{\infty}
+    \int_{-\infty}^{\infty}
+    g(x)g(y)dxdy
+    &=
       \int_{-\infty}^{\infty}
       \int_{-\infty}^{\infty}
-      g(x)g(y)dxdy
-      &=
-	\int_{-\infty}^{\infty}
-	\int_{-\infty}^{\infty}
-	e^{-x^{2}-y^{2}}dxdy\\
-      &=
-	\int_{0}^{2\pi}
-	\int_{0}^{\infty}
-	e^{-r^{2}}rdrd\theta
-    \end{align}
-  #+end_src
+      e^{-x^{2}-y^{2}}dxdy\\
+    &=
+      \int_{0}^{2\pi}
+      \int_{0}^{\infty}
+      e^{-r^{2}}rdrd\theta
+  \end{align}
+  #+end_quote
   
 
 * 今回のまとめ

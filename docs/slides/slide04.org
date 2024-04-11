@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-05-08 17:31:59 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-04-11 16:20:33 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -14,6 +14,7 @@
 
 * COMMENT メモ
 - 校正に関して記述
+
 
 * 前回のおさらい
 - 確率密度
@@ -35,13 +36,11 @@
   \((\Omega,\mathcal{F},P)\) とする．
 
   \(\Omega\) から実数 \(\mathbb{R}\) への写像
-  #+begin_src latex
-    \begin{align}
-      X:\;
-      &\Omega\to \mathbb{R}\\
-      &\omega\mapsto X(\omega)
-    \end{align}
-  #+end_src
+  \begin{align}
+    X:\;
+    &\Omega\to \mathbb{R}\\
+    &\omega\mapsto X(\omega)
+  \end{align}
   として定義される実数値関数
   \(X(\omega)\)
   を確率空間
@@ -72,11 +71,9 @@
   骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
 
   骰子の目を \(\omega\) で表すと賞金 \(X\) は
-  #+begin_src latex
-    \begin{equation}
-      X(\omega)=100\omega
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X(\omega)=100\omega
+  \end{equation}
   という確率変数であると考えることができる．
   #+end_quote
 
@@ -85,32 +82,26 @@
   #+begin_quote
   骰子を二回振ったときの出た目の和を考える．
   このときの標本空間は
-  #+begin_src latex
-    \begin{align}
-      \Omega
-      &=\{(\omega_1,\omega_2)|\;\omega_1,\omega_2=1,2,\dotsc,6\}\\
-      &=\{1,2,\dotsc,6\}\times\{1,2,\dotsc,6\}
-        \quad\text{(直積集合)}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \Omega
+    &=\{(\omega_1,\omega_2)|\;\omega_1,\omega_2=1,2,\dotsc,6\}\\
+    &=\{1,2,\dotsc,6\}\times\{1,2,\dotsc,6\}
+      \quad\text{(直積集合)}
+  \end{align}
   となり，
   出た目の和 \(X\) は確率変数である:
-  #+begin_src latex
-    \begin{equation}
-      X(\omega_1,\omega_2)=\omega_1+\omega_2
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X(\omega_1,\omega_2)=\omega_1+\omega_2
+  \end{equation}
   出た目の大小で確率変数を定義することもできる:
-  #+begin_src latex
-    \begin{equation}
-      Y(\omega_1,\omega_2)=
-      \begin{cases}
-	1,& \omega_1>\omega_2\\
-	0,& \omega_1=\omega_2\\
-	-1,& \omega_1<\omega_2
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Y(\omega_1,\omega_2)=
+    \begin{cases}
+      1,& \omega_1>\omega_2\\
+      0,& \omega_1=\omega_2\\
+      -1,& \omega_1<\omega_2
+    \end{cases}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
@@ -120,24 +111,20 @@
   ルーレットの目盛り \(\omega\) が有理数なら1点，
   無理数なら0点の得点が得られるとする．
   このとき点数
-  #+begin_src latex
-    \begin{equation}
-      X(\omega)=
-      \begin{cases}
-	1, & \text{\(\omega\)が有理数}\\
-	0, & \text{\(\omega\)が無理数}
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X(\omega)=
+    \begin{cases}
+      1, & \text{\(\omega\)が有理数}\\
+      0, & \text{\(\omega\)が無理数}
+    \end{cases}
+  \end{equation}
   は \(\Omega=(0,1]\) 上の確率変数である．
   同様に出た目盛りが0にどれだけ近いかに応じて
   点数がもらえるとする．
   この点数を
-  #+begin_src latex
-    \begin{equation}
-      Y(\omega)=\log\frac{1}{\omega}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Y(\omega)=\log\frac{1}{\omega}
+  \end{equation}
   で定めれば，
   \(Y\) も \(\Omega=(0,1]\) 上の確率変数である．
   #+end_quote
@@ -147,11 +134,9 @@
   #+begin_quote
   "1が出るまで骰子を振り続ける"試行で得られる標本点を \(\omega\) とする．
   このとき，系列 \(\omega\) の長さ
-  #+begin_src latex
-    \begin{equation}
-      X(\omega)=\text{系列\(\omega\)の長さ}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X(\omega)=\text{系列\(\omega\)の長さ}
+  \end{equation}
   は自然数 \(\mathbb{N}\) の値を取る確率変数と考えることができる．
   #+end_quote
 
@@ -180,13 +165,11 @@
   確率変数 \(X(\omega)\) の取り得る全ての値の集合を
   *確率変数 \(X\) の標本空間* (sample space)
   と呼ぶ．
-  #+begin_src latex
-    \begin{equation}
-      \Omega^X
-      =X(\Omega)
-      \qquad \text{(\(\Omega\)の各点を\(X\)で写像した像(点)の集合)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \Omega^X
+    =X(\Omega)
+    \qquad \text{(\(\Omega\)の各点を\(X\)で写像した像(点)の集合)}
+  \end{equation}
   #+end_quote
 
 ** 確率変数の確率法則
@@ -195,20 +178,16 @@
   標本空間 \(\Omega^X\) の任意の部分集合 \(B\) に対して
   "\(X\) の値が \(B\) に入る" (\(X\in B\)) という事象を定義する．
   この事象に含まれる元の標本空間 \(\Omega\) の標本点は
-  #+begin_src latex
-    \begin{equation}
-      A
-      =\{\omega|\;\text{\(X(\omega)\)が\(B\)に入る}\}
-      =\{\omega|\;X(\omega)\in B\}\subset\Omega
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    A
+    =\{\omega|\;\text{\(X(\omega)\)が\(B\)に入る}\}
+    =\{\omega|\;X(\omega)\in B\}\subset\Omega
+  \end{equation}
   であり
   \(A\) の確率は元の確率空間で考えることができる．
-  #+begin_src latex
-    \begin{equation}
-      P(\text{\(X\)の値が\(B\)に入る})=P(A)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(\text{\(X\)の値が\(B\)に入る})=P(A)
+  \end{equation}
   #+end_quote
 
 #+reveal: split
@@ -216,17 +195,13 @@
   #+begin_quote
   \(X\) を \(\Omega\) の部分集合から
   \(\mathbb{R}\) の部分集合へ対応させる関数
-  #+begin_src latex
-    \begin{equation}
-      B=\{X(\omega)|\;\omega\in A\}=X(A)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    B=\{X(\omega)|\;\omega\in A\}=X(A)
+  \end{equation}
   とみなして，その逆関数を
-  #+begin_src latex
-    \begin{equation}
-      X^{-1}(B)=\{\omega|\;X(\omega)\in B\}=A
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X^{-1}(B)=\{\omega|\;X(\omega)\in B\}=A
+  \end{equation}
   によって定義する．
   #+end_quote
 
@@ -234,18 +209,14 @@
 - 確率測度の変換
   #+begin_quote
   \(X\) の値が \(B\) に入る確率は
-  #+begin_src latex
-    \begin{equation}
-      P(X^{-1}(B))=P\{\omega|\;X(\omega)\in B\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X^{-1}(B))=P\{\omega|\;X(\omega)\in B\}
+  \end{equation}
   と表される．
   これを \(B\) の関数とみて
-  #+begin_src latex
-    \begin{equation}
-      P^X(B)=P(X^{-1}(B))
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P^X(B)=P(X^{-1}(B))
+  \end{equation}
   と書くと，
   \(P^X\) は \(\Omega^X\) 上の \(X\) の
   確率測度を表す．
@@ -261,114 +232,95 @@
 - 確率測度の条件の確認
   #+begin_quote
   事象の写像の基本的な性質
-  #+begin_src latex
-    \begin{align}
-      &X^{-1}(B_1+B_2)=X^{-1}(B_1)+X^{-1}(B_2)\\
-      &X^{-1}(\Omega^X)=\Omega
-    \end{align}
-  #+end_src
+  \begin{align}
+    &X^{-1}(B_1+B_2)=X^{-1}(B_1)+X^{-1}(B_2)\\
+    &X^{-1}(\Omega^X)=\Omega
+  \end{align}
   より
   \(P^X\) が条件を満たしていることが確認できる．
-  #+begin_src latex
-    \begin{align}
-      P^{X}(B)
-      &=P(X^{-1}(B))\ge0
-      &&\text{(正値性)}\\
-      P^{X}(B_{1}+B_{2})
-      &=P(X^{-1}(B_{1}+B_{2}))\\
-      &=P(X^{-1}(B_{1})+X^{-1}(B_{2}))\\
-      &=P(X^{-1}(B_{1}))+P(X^{-1}(B_{2}))\\
-      &=P^{X}(B_{1})+P^{X}(B_{2})
-      &&\text{(加法性)}\\
-      P^{X}(\Omega^{X})
-      &=P(X^{-1}(\Omega^{X}))
-        =P(\Omega)=1
-      &&\text{(全確率)}
-    \end{align}
-  #+end_src
+  \begin{align}
+    P^{X}(B)
+    &=P(X^{-1}(B))\ge0
+    &&\text{(正値性)}\\
+    P^{X}(B_{1}+B_{2})
+    &=P(X^{-1}(B_{1}+B_{2}))\\
+    &=P(X^{-1}(B_{1})+X^{-1}(B_{2}))\\
+    &=P(X^{-1}(B_{1}))+P(X^{-1}(B_{2}))\\
+    &=P^{X}(B_{1})+P^{X}(B_{2})
+    &&\text{(加法性)}\\
+    P^{X}(\Omega^{X})
+    &=P(X^{-1}(\Omega^{X}))
+      =P(\Omega)=1
+    &&\text{(全確率)}
+  \end{align}
   #+end_quote
 
 ** 確率変数の確率空間の例
 - [[color:green][二回の骰子振りの確率変数 \(X\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
-  #+begin_src latex
-    \begin{equation}
-      \Omega^X
-      =\{2,3,4,\dotsc,11,12\}
-    \end{equation}
-  #+end_src
-  #+begin_src latex
-    \begin{align}
-      P^X(X=2)&=P\left((\omega_1,\omega_2)\in\{(1,1)\}\right)
-		=\frac{1}{36},\\
-      P^X(X=3)&=P\left((\omega_1,\omega_2)\in\{(1,2),(2,1)\}\right)
-		=2\cdot\frac{1}{36}=\frac{1}{18},\\
-      P^X(X=4)&=P\left((\omega_1,\omega_2)\in\{(1,3),(2,2),(3,1)\}\right)\\
-	      &\qquad=3\cdot\frac{1}{36}=\frac{1}{12},\\
-	      &\vdots\\
-              % P^X(X=11)&=P\left((\omega_1,\omega_2)\in\{(5,6),(6,5)\}\right)
-              % =2\cdot\frac{1}{36}=\frac{1}{18},\\
-              % P^X(X=12)&=P\left((\omega_1,\omega_2)\in\{(6,6)\}\right)
-              % =\frac{1}{36}
-    \end{align}
-  #+end_src
+  \begin{equation}
+    \Omega^X
+    =\{2,3,4,\dotsc,11,12\}
+  \end{equation}
+  \begin{align}
+    P^X(X=2)&=P\left((\omega_1,\omega_2)\in\{(1,1)\}\right)
+              =\frac{1}{36},\\
+    P^X(X=3)&=P\left((\omega_1,\omega_2)\in\{(1,2),(2,1)\}\right)
+              =2\cdot\frac{1}{36}=\frac{1}{18},\\
+    P^X(X=4)&=P\left((\omega_1,\omega_2)\in\{(1,3),(2,2),(3,1)\}\right)\\
+            &\qquad=3\cdot\frac{1}{36}=\frac{1}{12},\\
+            &\vdots\\
+            % P^X(X=11)&=P\left((\omega_1,\omega_2)\in\{(5,6),(6,5)\}\right)
+            % =2\cdot\frac{1}{36}=\frac{1}{18},\\
+            % P^X(X=12)&=P\left((\omega_1,\omega_2)\in\{(6,6)\}\right)
+            % =\frac{1}{36}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - [[color:green][二回の骰子振りの確率変数 \(Y\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
-  #+begin_src latex
-    \begin{equation}
-      \Omega^Y
-      =\{1,0,-1\}
-    \end{equation}
-  #+end_src
-  #+begin_src latex
-    \begin{align}
-      P^Y(Y=1)
-      &=P\left((\omega_1,\omega_2)\in\{(2,1),(3,1),\dotsc,(6,5)\}\right)\\
-      &=15\cdot\frac{1}{36}=\frac{5}{12},\\
-      P^Y(Y=0)
-      &=P\left((\omega_1,\omega_2)\in\{(1,1),(2,2),\dotsc,(6,6)\}\right)\\
-      &=6\cdot\frac{1}{36}=\frac{1}{6},\\
-      P^Y(Y=-1)
-      &=P\left((\omega_1,\omega_2)\in\{(1,2),(1,3),\dotsc,(5,6)\}\right)\\
-      &=15\cdot\frac{1}{36}=\frac{5}{12}
-    \end{align}
-  #+end_src
+  \begin{equation}
+    \Omega^Y
+    =\{1,0,-1\}
+  \end{equation}
+  \begin{align}
+    P^Y(Y=1)
+    &=P\left((\omega_1,\omega_2)\in\{(2,1),(3,1),\dotsc,(6,5)\}\right)\\
+    &=15\cdot\frac{1}{36}=\frac{5}{12},\\
+    P^Y(Y=0)
+    &=P\left((\omega_1,\omega_2)\in\{(1,1),(2,2),\dotsc,(6,6)\}\right)\\
+    &=6\cdot\frac{1}{36}=\frac{1}{6},\\
+    P^Y(Y=-1)
+    &=P\left((\omega_1,\omega_2)\in\{(1,2),(1,3),\dotsc,(5,6)\}\right)\\
+    &=15\cdot\frac{1}{36}=\frac{5}{12}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - [[color:green][ルーレット回しの確率変数 \(X\)]]
   #+begin_quote
   標本空間，および確率測度は以下のとおり．
-  #+begin_src latex
-    \begin{equation}
-      \Omega^X
-      =\{1,0\}
-    \end{equation}
-  #+end_src
-  #+begin_src latex
-    \begin{align}
-      P^X(X=1)&=P(\text{\(\omega\)が有理数})=0\\
-      P^X(X=0)&=P(\text{\(\omega\)が無理数})=1
-    \end{align}
-  #+end_src
+  \begin{equation}
+    \Omega^X
+    =\{1,0\}
+  \end{equation}
+  \begin{align}
+    P^X(X=1)&=P(\text{\(\omega\)が有理数})=0\\
+    P^X(X=0)&=P(\text{\(\omega\)が無理数})=1
+  \end{align}
   #+end_quote
 
 # #+reveal: split
 # - ルーレット回しの確率変数 \(Y\)
 #   #+begin_quote
 #   標本空間，および確率測度は以下のとおり．
-#   #+begin_src latex
 #     \begin{equation}
 #       \Omega^Y=\log\frac{1}{(0,1]}=-\log((0,1])
 #       =[0,\infty)
 #     \end{equation}
-#   #+end_src
-#   #+begin_src latex
 #     \begin{align}
 #       P^Y(a < Y < b)
 #       &=P\left(\{\omega|\;a < -\log\omega < b\}\right)\\
@@ -376,14 +328,11 @@
 #       &=e^{-a}-e^{-b}
 #         =-e^{-b}-(-e^{-a})
 #     \end{align}
-#   #+end_src
 #   これから \(Y\) の確率分布の密度関数は以下で与えられる．
-#   #+begin_src latex
 #     \begin{equation}
 #       f(y)=e^{-y},
 #       \qquad P^Y(a < Y < b)=\int_a^bf(y)dy
 #     \end{equation}
-#   #+end_src
 #   #+end_quote
 # #+begin_quote
 # \(X\)は実数値を取るので，
@@ -421,12 +370,12 @@
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
-- ルーレット回しの確率変数 \(Y\) 
-  #+begin_src latex
-    \begin{equation}
-      Y(\omega)=\log\frac{1}{\omega}  
-    \end{equation}
-  #+end_src
+- ルーレット回しの確率変数 \(Y\)
+  #+begin_quote
+  \begin{equation}
+    Y(\omega)=\log\frac{1}{\omega}  
+  \end{equation}
+  #+end_quote
   について，以下のそれぞれの項目を説明せよ．
   1. 標本空間
   2. 確率測度
@@ -438,36 +387,30 @@
 :END:
 - 標本空間
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \Omega^Y=\log\frac{1}{(0,1]}=-\log((0,1])
-      =[0,\infty)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \Omega^Y=\log\frac{1}{(0,1]}=-\log((0,1])
+    =[0,\infty)
+  \end{equation}
   #+end_quote
 - 確率測度
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      P^Y(a < Y < b)
-      &=P\left(\{\omega|\;a < -\log\omega < b\}\right)\\
-      &=P\left(\{\omega|\;e^{-a} > \omega > e^{-b}\}\right)\\
-      &=e^{-a}-e^{-b}
-        =-e^{-b}-(-e^{-a})
-    \end{align}
-  #+end_src
+  \begin{align}
+    P^Y(a < Y < b)
+    &=P\left(\{\omega|\;a < -\log\omega < b\}\right)\\
+    &=P\left(\{\omega|\;e^{-a} > \omega > e^{-b}\}\right)\\
+    &=e^{-a}-e^{-b}
+      =-e^{-b}-(-e^{-a})
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 確率密度
   #+begin_quote
   確率測度の積分表現を微分すれば求められる
-  #+begin_src latex
-    \begin{equation}
-      f(y)=e^{-y},
-      \qquad P^Y(a < Y < b)=\int_a^bf(y)dy
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(y)=e^{-y},
+    \qquad P^Y(a < Y < b)=\int_a^bf(y)dy
+  \end{equation}
   #+end_quote
 
 
@@ -477,11 +420,9 @@
   ベクトルと見ることができる
   #+begin_quote
   例 : 2次元の値を取る関数
-  #+begin_src latex
-    \begin{equation}
-      \boldsymbol{X}(\omega)=(X_1(\omega),X_2(\omega))
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \boldsymbol{X}(\omega)=(X_1(\omega),X_2(\omega))
+  \end{equation}
   を考えると，2次元の確率変数を考えることができる．
 
   これを
@@ -496,16 +437,14 @@
 #+reveal: split
 - 標本空間や確率測度も自然に考えることができる
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
-    \end{equation}
-    \begin{equation}
-      P^{\boldsymbol{X}}(B)
-      =P\{\omega|\;\boldsymbol{X}(\omega)\in B\}
-      =P(\boldsymbol{X}^{-1}(B)),\quad B\subset\Omega^{\boldsymbol{X}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
+  \end{equation}
+  \begin{equation}
+    P^{\boldsymbol{X}}(B)
+    =P\{\omega|\;\boldsymbol{X}(\omega)\in B\}
+    =P(\boldsymbol{X}^{-1}(B)),\quad B\subset\Omega^{\boldsymbol{X}}
+  \end{equation}
   #+end_quote
 
 ** 多次元確率変数の用語
@@ -525,20 +464,16 @@
 - 変換
   #+begin_quote
   実数値関数
-  #+begin_src latex
-    \begin{align}
-      \phi:\;
-      &\Omega^X\to \mathbb{R}\\
-      &X\mapsto\phi(X)
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi:\;
+    &\Omega^X\to \mathbb{R}\\
+    &X\mapsto\phi(X)
+  \end{align}
   に対して
-  #+begin_src latex
-    \begin{equation}
-      Y(\omega)=\phi(X(\omega))
-      \qquad (Y=\phi\circ X\text{と書くこともある})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Y(\omega)=\phi(X(\omega))
+    \qquad (Y=\phi\circ X\text{と書くこともある})
+  \end{equation}
   とすると \(Y(\omega)\) という新しい実数値確率変数ができる．
   #+end_quote
 
@@ -551,21 +486,17 @@
   骰子を二回振ったときの出た目をそれぞれ
   \(\omega_1, \omega_2\) とする．
   また，目の和を
-  #+begin_src latex
-    \begin{equation}
-      X(\omega_1,\omega_2)=\omega_1+\omega_2
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X(\omega_1,\omega_2)=\omega_1+\omega_2
+  \end{equation}
   で表すとすると，賞金(罰金) \(Y\) は
-  #+begin_src latex
-    \begin{equation}
-      Y(\omega_1,\omega_2)=Y(X)=
-      \begin{cases}
-	100,& \text{\(X\)が偶数}\\
-	-50,& \text{\(X\)が奇数}
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Y(\omega_1,\omega_2)=Y(X)=
+    \begin{cases}
+      100,& \text{\(X\)が偶数}\\
+      -50,& \text{\(X\)が奇数}
+    \end{cases}
+  \end{equation}
   という \(X\) が変換された確率変数である．
   #+end_quote
 
@@ -574,11 +505,9 @@
   #+begin_quote
   新しく作られた確率変数 \(Y\) の標本空間は，
   変換を順に追って
-  #+begin_src latex
-    \begin{equation}
-      \Omega^{Y}=\phi(X(\Omega))=(\phi\circ X)(\Omega)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \Omega^{Y}=\phi(X(\Omega))=(\phi\circ X)(\Omega)
+  \end{equation}
   で定義される．
   #+end_quote
 
@@ -588,23 +517,19 @@
   \(\Omega^{Y}\) の適当な部分集合 \(C\) に対して，
   \(\Omega^{X}\) で対応する集合を \(B\) ，
   \(\Omega\) で対応する集合を \(A\) とすると
-  #+begin_src latex
-    \begin{align}
-      C&=\phi(B)=\phi(X(A))\\
-      B&=X(A)=\phi^{-1}(C)\\
-      A&=X^{-1}(B)=X^{-1}(\phi^{-1}(C))
-    \end{align}
-  #+end_src
+  \begin{align}
+    C&=\phi(B)=\phi(X(A))\\
+    B&=X(A)=\phi^{-1}(C)\\
+    A&=X^{-1}(B)=X^{-1}(\phi^{-1}(C))
+  \end{align}
   となるので，その確率測度は
-  #+begin_src latex
-    \begin{align}
-      P^{Y}(C)
-      &=P^{X}(B)=P(A)
-      % &=P((\phi\circ X)^{-1}(C))\\
-      =P(X^{-1}(\phi^{-1}(C)))\\
-      &=P\{\omega|\;\phi(X(\omega))\in C\}\quad C\subset\Omega^{Y}
-    \end{align}
-  #+end_src
+  \begin{align}
+    P^{Y}(C)
+    &=P^{X}(B)=P(A)
+    % &=P((\phi\circ X)^{-1}(C))\\
+    =P(X^{-1}(\phi^{-1}(C)))\\
+    &=P\{\omega|\;\phi(X(\omega))\in C\}\quad C\subset\Omega^{Y}
+  \end{align}
   で計算される．
   #+end_quote
 
@@ -621,11 +546,9 @@
   確率変数 \(X\) の *平均値 (期待値)*
   (expectation) 
   は
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[X]=\sum_{\omega\in\Omega}X(\omega)P\{\omega\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[X]=\sum_{\omega\in\Omega}X(\omega)P\{\omega\}
+  \end{equation}
   で定義される．
   #+end_quote
   - \(X(\omega)\) は \(\omega\) の関数であるが，
@@ -641,25 +564,23 @@
   出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
   骰子の目を \(\omega\) で表すことにすれば 
   \(P\{\omega\}=\frac{1}{6}\) なので，
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[X]
-      &=X(1)\cdot P\{1\}
-	+X(2)\cdot P\{2\}
-	+X(3)\cdot P\{3\}\\
-      &\qquad
-	+X(4)\cdot P\{4\}
-	+X(5)\cdot P\{5\}
-	+X(6)\cdot P\{6\}\\
-      &=100\cdot\frac{1}{6}
-	+200\cdot\frac{1}{6}
-	+300\cdot\frac{1}{6}
-	+400\cdot\frac{1}{6}
-	+500\cdot\frac{1}{6}
-	+600\cdot\frac{1}{6}\\
-      &=350
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[X]
+    &=X(1)\cdot P\{1\}
+      +X(2)\cdot P\{2\}
+      +X(3)\cdot P\{3\}\\
+    &\qquad
+      +X(4)\cdot P\{4\}
+      +X(5)\cdot P\{5\}
+      +X(6)\cdot P\{6\}\\
+    &=100\cdot\frac{1}{6}
+      +200\cdot\frac{1}{6}
+      +300\cdot\frac{1}{6}
+      +400\cdot\frac{1}{6}
+      +500\cdot\frac{1}{6}
+      +600\cdot\frac{1}{6}\\
+    &=350
+  \end{align}
   である．
   #+end_quote
 
@@ -670,22 +591,20 @@
   二つの目を \(\omega_1,\omega_2\) で表すことにすれば
   \(P\{(\omega_1,\omega_2)\}=\frac{1}{36}\)
   なので，
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[X]
-      &=X(1,1)\cdot P\{(1,1)\}
-	+X(1,2)\cdot P\{(1,2)\}
-	% +X(1,3)\cdot P\{(1,3)\}
-	+\\
-      &\qquad\dotsb
-      % +X(6,4)\cdot P\{(6,4)\}
-	+X(6,5)\cdot P\{(6,5)\}
-	+X(6,6)\cdot P\{(6,6)\}\\
-      &=2\cdot\frac{1}{36}+3\cdot\frac{2}{36}+4\cdot\frac{3}{36}
-	+\dotsb+11\cdot\frac{2}{36}+12\cdot\frac{1}{36}\\
-      &=7
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[X]
+    &=X(1,1)\cdot P\{(1,1)\}
+      +X(1,2)\cdot P\{(1,2)\}
+      % +X(1,3)\cdot P\{(1,3)\}
+      +\\
+    &\qquad\dotsb
+    % +X(6,4)\cdot P\{(6,4)\}
+      +X(6,5)\cdot P\{(6,5)\}
+      +X(6,6)\cdot P\{(6,6)\}\\
+    &=2\cdot\frac{1}{36}+3\cdot\frac{2}{36}+4\cdot\frac{3}{36}
+      +\dotsb+11\cdot\frac{2}{36}+12\cdot\frac{1}{36}\\
+    &=7
+  \end{align}
   である．
   #+end_quote
 
@@ -693,20 +612,18 @@
 - [[color:green][二回の骰子振りの確率変数 \(Y\)]]
   #+begin_quote
   二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[Y]
-      &=Y(1,1)\cdot P\{(1,1)\}
-        +Y(1,2)\cdot P\{(1,2)\}
-        % +Y(1,3)\cdot P\{(1,3)\}
-        +\\
-      &\qquad\dotsb
-        +Y(6,5)\cdot P\{(6,5)\}
-        +Y(6,6)\cdot P\{(6,6)\}\\
-      &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
-      &=0
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[Y]
+    &=Y(1,1)\cdot P\{(1,1)\}
+      +Y(1,2)\cdot P\{(1,2)\}
+      % +Y(1,3)\cdot P\{(1,3)\}
+      +\\
+    &\qquad\dotsb
+      +Y(6,5)\cdot P\{(6,5)\}
+      +Y(6,6)\cdot P\{(6,6)\}\\
+    &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
+    &=0
+  \end{align}
   である．
   #+end_quote
 	  
@@ -718,13 +635,11 @@
   確率変数 \(X\) の
   *平均値 (期待値)* (expectation) 
   は
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[X]
-      =\int_\Omega X(\omega)P(d\omega)
-      =\int_\Omega X(\omega)f(\omega)d\omega
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[X]
+    =\int_\Omega X(\omega)P(d\omega)
+    =\int_\Omega X(\omega)f(\omega)d\omega
+  \end{equation}
   で定義される．
   #+end_quote
   - 連続分布の場合も
@@ -737,38 +652,32 @@
   #+begin_quote
   ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
   確率変数 \(X\) の平均値は
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[X]
-      =\int_{0}^{1} X(\omega)\mu(d\omega)
-      =1\cdot\mu(\text{有理数})+0\cdot\mu(\text{無理数})=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[X]
+    =\int_{0}^{1} X(\omega)\mu(d\omega)
+    =1\cdot\mu(\text{有理数})+0\cdot\mu(\text{無理数})=0
+  \end{equation}
   または
   # である．
   # これは \(\omega\) の標本空間を用いた計算として示してあるが，
   # \(X\) の確率空間を考えると
   # その標本空間は \(\Omega^{X}=\left\{0,1\right\}\) であり，
   # 確率法則は \(P^{X}(X=0)=1, P^{X}(X=1)=0\) となるので，
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[X]
-      =0\cdot P^{X}(X=0)+1\cdot P^{X}(X=1)
-      =0\cdot1+1\cdot0=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[X]
+    =0\cdot P^{X}(X=0)+1\cdot P^{X}(X=1)
+    =0\cdot1+1\cdot0=0
+  \end{equation}
   で計算される．
   #+end_quote
   # #+reveal: split
   # #+begin_quote
   # 目盛りの負の対数を取る確率変数 \(Y\) の平均値は
-  # #+begin_src latex
   #   \begin{align}
   #     \mathbb{E}[Y]
   #     &=\int_0^1\left(-\log \omega\right)\mu(d\omega)\\
   #     &=\left[-\omega\log\omega+\omega\right]_0^1=1
   #   \end{align}
-  # #+end_src
   # である．
   # #+end_quote
 
@@ -776,15 +685,13 @@
 - 標本空間の制限付平均値
   #+begin_quote
   標本空間を \(A\subset\Omega\) に制限した場合の平均値を
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[X,A]
-      &=\sum_{\omega\in A}X(\omega)P(\omega)\\
-      \mathbb{E}[X,A]
-      &=\int_A X(\omega)P(d\omega)
-	=\int_A X(\omega)f(\omega)d\omega
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[X,A]
+    &=\sum_{\omega\in A}X(\omega)P(\omega)\\
+    \mathbb{E}[X,A]
+    &=\int_A X(\omega)P(d\omega)
+      =\int_A X(\omega)f(\omega)d\omega
+  \end{align}
   と書くことがある．
   #+end_quote
 
@@ -792,12 +699,10 @@
 - 確率変数ベクトル
   #+begin_quote
   \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
-      \in \mathbb{R}^n
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
+    \in \mathbb{R}^n
+  \end{equation}
   #+end_quote
 
 ** 平均値の性質
@@ -833,30 +738,27 @@
 - [[color:green][二回の骰子振りの確率変数]]
   #+begin_quote
   出た目の和 \(X\) の平均値は平均の和の関係を用いると
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[X]
-      &=\mathbb{E}[\omega_1+\omega_2]
-	=\mathbb{E}[\omega_1]+\mathbb{E}[\omega_2]
-	=2\mathbb{E}[\omega_1]\\
-      &=2\left(
-	1\cdot\frac{1}{6}+
-	2\cdot\frac{1}{6}+
-	3\cdot\frac{1}{6}+
-	4\cdot\frac{1}{6}+
-	5\cdot\frac{1}{6}+
-	6\cdot\frac{1}{6}
-	\right)\\
-      &=7
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[X]
+    &=\mathbb{E}[\omega_1+\omega_2]
+      =\mathbb{E}[\omega_1]+\mathbb{E}[\omega_2]
+      =2\mathbb{E}[\omega_1]\\
+    &=2\left(
+      1\cdot\frac{1}{6}+
+      2\cdot\frac{1}{6}+
+      3\cdot\frac{1}{6}+
+      4\cdot\frac{1}{6}+
+      5\cdot\frac{1}{6}+
+      6\cdot\frac{1}{6}
+      \right)\\
+    &=7
+  \end{align}
   としても求まる．
   #+end_quote
   # #+reveal: split
   # - ルーレット回しの確率変数
   #   #+begin_quote
   #   目盛りの負の対数 \(Y\) の平均値は \(Y\) の確率密度を用いて
-  #   #+begin_src latex
   #     \begin{align}
   #       \mathbb{E}[Y]
   #       &=\int_0^\infty y e^{-y}dy\\
@@ -864,7 +766,6 @@
   #         =\left[-e^{-y}\right]_0^\infty\\
   #       &=1
   #     \end{align}
-  #   #+end_src
   #   としてもよい．
   #   #+end_quote
 
@@ -888,26 +789,22 @@
 :END:
 - \(\omega\) の確率空間の確率測度
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[Y]
-      &=\int_0^1\left(-\log \omega\right)\mu(d\omega)\\
-      &=\left[-\omega\log\omega+\omega\right]_0^1=1
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[Y]
+    &=\int_0^1\left(-\log \omega\right)\mu(d\omega)\\
+    &=\left[-\omega\log\omega+\omega\right]_0^1=1
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - \(Y\) の確率空間の確率測度
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[Y]
-      &=\int_0^\infty y e^{-y}dy\\
-      &=\left[-ye^{-y}\right]_0^\infty+\int_0^\infty e^{-y}dy
-	=\left[-e^{-y}\right]_0^\infty=1
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[Y]
+    &=\int_0^\infty y e^{-y}dy\\
+    &=\left[-ye^{-y}\right]_0^\infty+\int_0^\infty e^{-y}dy
+      =\left[-e^{-y}\right]_0^\infty=1
+  \end{align}
   #+end_quote
 
 
@@ -920,11 +817,9 @@
   #+begin_quote
   確率変数 \(X\) の *分散* (variance) 
   は平均値を用いて
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]
+  \end{equation}
   で定義される．
 
   分散の平方根を *標準偏差* (standard deviation) 
@@ -936,51 +831,43 @@
   #+begin_quote
   確率変数 \(X,Y\) の *共分散*  (covariance)
   は
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]
+  \end{equation}
   で定義される．
   #+end_quote
 
 ** 確率変数の確率空間による計算
 - 離散分布に従う場合 :
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathrm{Var}(X)&=\sum_{x\in\Omega^X}(x-\mathbb{E}[X])^2P^X\{x\}\\
-      \mathrm{Cov}(X,Y)&=\sum_{x\in\Omega^X, y\in\Omega^Y}
-			 (x-\mathbb{E}[X])(y-\mathbb{E}[Y])P^{(X,Y)}\{x,y\}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathrm{Var}(X)&=\sum_{x\in\Omega^X}(x-\mathbb{E}[X])^2P^X\{x\}\\
+    \mathrm{Cov}(X,Y)&=\sum_{x\in\Omega^X, y\in\Omega^Y}
+                       (x-\mathbb{E}[X])(y-\mathbb{E}[Y])P^{(X,Y)}\{x,y\}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 連続分布に従う場合 :
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathrm{Var}(X)&=\int_{x\in\Omega^X}(x-\mathbb{E}[X])^2f^X(x)dx\\
-      \mathrm{Cov}(X,Y)&=\int_{x\in\Omega^X, y\in\Omega^Y}
-                         (x-\mathbb{E}[X])(y-\mathbb{E}[Y])f^{(X,Y)}(x,y)dxdy
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathrm{Var}(X)&=\int_{x\in\Omega^X}(x-\mathbb{E}[X])^2f^X(x)dx\\
+    \mathrm{Cov}(X,Y)&=\int_{x\in\Omega^X, y\in\Omega^Y}
+                       (x-\mathbb{E}[X])(y-\mathbb{E}[Y])f^{(X,Y)}(x,y)dxdy
+  \end{align}
   #+end_quote
 
 ** 分散の計算例
 - [[color:green][二回の骰子振りの確率変数 \(X\)]]
   #+begin_quote
   出た目の和 \(X\) の分散は
-  #+begin_src latex
-    \begin{align}
-      &\mathbb{E}[(X-\mathbb{E}[X])^2]\\
-      &=(2-7)^2\cdot\frac{1}{36}+(3-7)^2\cdot\frac{2}{36}%+(4-7)^2\cdot\frac{1}{12}
-	+\dotsb%+(11-7)^2\cdot\frac{1}{18}
-	+(12-7)^2\cdot\frac{1}{36}\\
-      &=\frac{35}{6}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\mathbb{E}[(X-\mathbb{E}[X])^2]\\
+    &=(2-7)^2\cdot\frac{1}{36}+(3-7)^2\cdot\frac{2}{36}%+(4-7)^2\cdot\frac{1}{12}
+      +\dotsb%+(11-7)^2\cdot\frac{1}{18}
+      +(12-7)^2\cdot\frac{1}{36}\\
+    &=\frac{35}{6}
+  \end{align}
   である．
   #+end_quote
 
@@ -988,14 +875,12 @@
 - [[color:green][二回の骰子振りの確率変数 \(Y\)]]
   #+begin_quote
   また二つの目の大小関係を表す \(Y\) の分散は
-  #+begin_src latex
-    \begin{align}
-      &\mathbb{E}[(Y-\mathbb{E}[Y])^2]\\
-      &=(1-0)^2\cdot\frac{5}{12}+(0-0)^2\cdot\frac{1}{6}
-	+(-1-0)^2\cdot\frac{5}{12}\\
-      &=\frac{5}{6}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\mathbb{E}[(Y-\mathbb{E}[Y])^2]\\
+    &=(1-0)^2\cdot\frac{5}{12}+(0-0)^2\cdot\frac{1}{6}
+      +(-1-0)^2\cdot\frac{5}{12}\\
+    &=\frac{5}{6}
+  \end{align}
   である．
   #+end_quote
 
@@ -1003,22 +888,18 @@
 - [[color:green][ルーレット回しの確率変数 \(X\)]]
   #+begin_quote
   有理数・無理数を区別する \(X\) の分散は
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[(X-\mathbb{E}[X])^2]
-      =(1-0)^2\cdot0+(0-0)^2\cdot1=0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[(X-\mathbb{E}[X])^2]
+    =(1-0)^2\cdot0+(0-0)^2\cdot1=0
+  \end{equation}
   である．
   # また負の対数 \(Y\) の分散は
-  # #+begin_src latex
   #   \begin{align}
   #     \mathbb{E}[(Y-\mathbb{E}[Y])^2]
   #     &=\int_0^\infty (y-1)^2 e^{-y}dy\\
   #     &=-\left[\left\{(y-1)^2+2(y-1)+2\right\}e^{-y}\right]_0^\infty\\
   #     &=1
   #   \end{align}
-  # #+end_src
   # である．
   #+end_quote
 
@@ -1044,19 +925,15 @@
   #+begin_quote
   確率変数 \(X\) の *k次モーメント* (積率; k-th moment) 
   は，確率変数の \(k\) 乗の平均
-  #+begin_src latex
-    \begin{equation}
-      m_k(X)=\mathbb{E}[X^k]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    m_k(X)=\mathbb{E}[X^k]
+  \end{equation}
   で定義される．
   分散と同じように平均値を中心として考えた
   *平均値のまわりのk次モーメント* は
-  #+begin_src latex
-    \begin{equation}
-      \mu_k(X)=\mathbb{E}[(X-\mathbb{E}[X])^k]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mu_k(X)=\mathbb{E}[(X-\mathbb{E}[X])^k]
+  \end{equation}
   で定義される．
   #+end_quote
   - /[[color:orange][分散は平均値のまわりの2次モーメントである]]/
@@ -1065,11 +942,9 @@
 - 絶対モーメント
   #+begin_quote
   確率変数の絶対値のk乗のモーメント
-  #+begin_src latex
-    \begin{equation}
-      \tilde{m}_k(X)=\mathbb{E}[|X|^k]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \tilde{m}_k(X)=\mathbb{E}[|X|^k]
+  \end{equation}
   を *k次絶対モーメント*
   と呼ぶことがある．
   #+end_quote
@@ -1095,26 +970,22 @@
   #+begin_quote
   区間 \((-1,1)\) 上の一様分布に従う
   確率変数を \(U\) と書くと
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[(U-\mathbb{E}[U])^2]
-      =\int_{-1}^{1} u^{2}\cdot\frac{1}{2}du
-      =\frac{1}{3}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[(U-\mathbb{E}[U])^2]
+    =\int_{-1}^{1} u^{2}\cdot\frac{1}{2}du
+    =\frac{1}{3}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - ルーレット回しの確率変数 \(Y\)
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[(Y-\mathbb{E}[Y])^2]
-      &=\int_0^\infty (y-1)^2 e^{-y}dy\\
-      &=-\left[\left\{(y-1)^2+2(y-1)+2\right\}e^{-y}\right]_0^\infty\\
-      &=1
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[(Y-\mathbb{E}[Y])^2]
+    &=\int_0^\infty (y-1)^2 e^{-y}dy\\
+    &=-\left[\left\{(y-1)^2+2(y-1)+2\right\}e^{-y}\right]_0^\infty\\
+    &=1
+  \end{align}
   #+end_quote
 
 
@@ -1127,11 +998,9 @@
   #+begin_quote
   *特性関数* (characteristic function) 
   は指数関数を用いて変数変換された確率変数の平均として
-  #+begin_src latex
-    \begin{equation}
-      \phi(z)=\mathbb{E}[e^{izX}]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \phi(z)=\mathbb{E}[e^{izX}]
+  \end{equation}
   で定義される．
   #+end_quote
   - /[[color:orange][特性関数は実数値ではなく複素数値をとることに注意する]]/
@@ -1139,27 +1008,21 @@
 ** 特性関数に関する注意
 - Fourier変換との関係
   #+begin_quote
-  # #+begin_src latex
   #   \begin{equation}
   #     \phi(z)=\int_Re^{izx}P(dx)
   #   \end{equation}
-  # #+end_src
   # であるが，
   1次元の連続分布 \(P\) に対して
   密度関数 \(f\) が存在すれば
-  #+begin_src latex
-    \begin{equation}
-      \phi(z)=\int_{-\infty}^{\infty}e^{izx}f(x)dx
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \phi(z)=\int_{-\infty}^{\infty}e^{izx}f(x)dx
+  \end{equation}
   となり
   確率密度のFourier変換に対応する．
   離散分布では
-  #+begin_src latex
-    \begin{equation}
-      \phi(z)=\sum_{x\in\Omega}P\{x\}e^{izx},
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \phi(z)=\sum_{x\in\Omega}P\{x\}e^{izx},
+  \end{equation}
   により計算される．
   #+end_quote
 
@@ -1199,14 +1062,12 @@
 :END:
 1. 定義に従って計算する
    #+begin_quote
-   #+begin_src latex
-     \begin{align}
-       \phi(z)
-       &=\int_{-1}^{1}e^{izx}\cdot\frac{1}{2}dx\\
-       &=\left[\frac{e^{izx}}{2iz}\right]_{-1}^{1}
-	 =\frac{\sin(z)}{z}
-     \end{align}
-   #+end_src
+   \begin{align}
+     \phi(z)
+     &=\int_{-1}^{1}e^{izx}\cdot\frac{1}{2}dx\\
+     &=\left[\frac{e^{izx}}{2iz}\right]_{-1}^{1}
+       =\frac{\sin(z)}{z}
+   \end{align}
    #+end_quote
 2. 指数の肩の2次式を整理する
 3. 標準正規分布の結果を利用する

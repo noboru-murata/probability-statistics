@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-05-01 18:00:59 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-04-11 11:13:14 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -14,6 +14,7 @@
 
 * COMMENT メモ
 - 校正に関して記述
+
 
 * 前回のおさらい
 - 有限試行の確率空間
@@ -96,27 +97,21 @@
 ** 有理数の可算性 (再考)
 - Bernstein の定理を用いた場合
   - 全ての自然数 \(n\) から有理数の部分集合 \(1/q\) への1対1対応
-    #+begin_src latex
-      \begin{equation}
-        n\mapsto \frac{1}{q}=\frac{1}{n+1}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      n\mapsto \frac{1}{q}=\frac{1}{n+1}
+    \end{equation}
     (有理数としては \(1/q\) の形しか用いない)
   - 全ての有理数 \(p/q\) から自然数 \(n\) の部分集合への1対1対応
-    #+begin_src latex
-      \begin{equation}
-        \frac{p}{q}
-        \mapsto n=2^{p}\times 3^{q}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \frac{p}{q}
+      \mapsto n=2^{p}\times 3^{q}
+    \end{equation}
     (自然数としては2と3の倍数しか用いない)
-    # #+begin_src latex
     # 	 \begin{equation}
     # 	   \frac{p}{q}
     # 	   \mapsto n=\sum_{k=1}^{q-1}(k-1)+p
     # 	   =\frac{(q-1)(q-2)}{2}+p
     # 	 \end{equation}
-    # #+end_src
     
 
 * 演習
@@ -144,14 +139,12 @@
   - 奇数の自然数: \(n\mapsto z=(n-1)/2\) (非負の整数)
   - 偶数の自然数: \(n\mapsto z=-n/2\) (負の整数)
   #+end_quote
-  # #+begin_src latex
   #   \begin{align}
   # 	 \text{奇数の自然数: }n
   # 	 &\mapsto z=(n-1)/2\text{(非負の整数)}\\
   # 	 \text{偶数の自然数: }n
   # 	 &\mapsto z=-n/2\text{(負の整数)}
   #   \end{align}
-  # #+end_src
 - Bernsteinの定理を使った場合も考えてみよ
 # ** 整数の可算性 (続)
 #   :PROPERTIES:
@@ -159,13 +152,10 @@
 #   :END:
 #    - Bernsteinの定理によれば以下のようにしてもよい
 #      - 自然数 \(n\) から整数 \(z\) の部分集合への対応
-#        #+begin_src latex
 # 	 \begin{equation}
 # 	   n\mapsto z=n
 # 	 \end{equation}
-#        #+end_src
 #      - 整数 \(z\) から自然数 \(n\) の部分集合への対応
-#        #+begin_src latex
 # 	 \begin{align}
 # 	   z\mapsto n
 # 	   &=
@@ -175,7 +165,6 @@
 # 	     \end{cases}\\
 # 	   &=(4+\mathrm{sign}(z))^{|z|}
 # 	 \end{align}
-#        #+end_src
 
 ** COMMENT 自然数の組の可算性
 :PROPERTIES:
@@ -251,17 +240,15 @@
   - その3
     #+begin_quote
     自然数との対応付けを行い，番号順に並べる．
-    #+begin_src latex
-      \begin{equation}
-        \begin{array}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
-          1:&0.&d^{1}_{1}&d^{1}_{2}&d^{1}_{3}&d^{1}_{4}&\dotsm\\
-          2:&0.&d^{2}_{1}&d^{2}_{2}&d^{2}_{3}&d^{2}_{4}&\dotsm\\
-          3:&0.&d^{3}_{1}&d^{3}_{2}&d^{3}_{3}&d^{3}_{4}&\dotsm\\
-          4:&0.&d^{4}_{1}&d^{4}_{2}&d^{4}_{3}&d^{4}_{4}&\dotsm\\
-          \vdots&&&\vdots
-        \end{array}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \begin{array}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+        1:&0.&d^{1}_{1}&d^{1}_{2}&d^{1}_{3}&d^{1}_{4}&\dotsm\\
+        2:&0.&d^{2}_{1}&d^{2}_{2}&d^{2}_{3}&d^{2}_{4}&\dotsm\\
+        3:&0.&d^{3}_{1}&d^{3}_{2}&d^{3}_{3}&d^{3}_{4}&\dotsm\\
+        4:&0.&d^{4}_{1}&d^{4}_{2}&d^{4}_{3}&d^{4}_{4}&\dotsm\\
+        \vdots&&&\vdots
+      \end{array}
+    \end{equation}
     ただし，有限桁の小数の場合は \(0\) で埋める．
     #+end_quote
   
@@ -272,14 +259,12 @@
     第n番の数の第n桁目 \(d^{n}_{n}\) とは *異なる数* 
     \(\tilde{d}^{n}_{n}\not=d^{n}_{n}\)
     を選び，これらを並べた次の数を考える．
-    #+begin_src latex
-      \begin{equation}
-        \begin{array}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
-          0.&\tilde{d}^{1}_{1}&\tilde{d}^{2}_{2}&\tilde{d}^{3}_{3}&\tilde{d}^{4}_{4}
-          &\dotsm
-        \end{array}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \begin{array}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+        0.&\tilde{d}^{1}_{1}&\tilde{d}^{2}_{2}&\tilde{d}^{3}_{3}&\tilde{d}^{4}_{4}
+        &\dotsm
+      \end{array}
+    \end{equation}
     #+end_quote
   - その5
     #+begin_quote
@@ -373,18 +358,16 @@
   の3つの条件を満たす集合族を
   *\(\sigma\)-加法族 (\(\sigma\)-algebra)*
   と呼ぶ．
-  #+begin_src latex
-    \begin{align}
-      (\sigma.1)\quad
-      &\Omega\in\mathcal{F}\\
-      (\sigma.2)\quad
-      &A\in\mathcal{F}
-	\Rightarrow A^c\in\mathcal{F}\\
-      (\sigma.3)\quad
-      &A_n\in\mathcal{F},\; (n=1,2,\dotsc)
-	\Rightarrow \bigcup_{n=1}^\infty A_n\in\mathcal{F}
-    \end{align}
-  #+end_src
+  \begin{align}
+    (\sigma.1)\quad
+    &\Omega\in\mathcal{F}\\
+    (\sigma.2)\quad
+    &A\in\mathcal{F}
+      \Rightarrow A^c\in\mathcal{F}\\
+    (\sigma.3)\quad
+    &A_n\in\mathcal{F},\; (n=1,2,\dotsc)
+      \Rightarrow \bigcup_{n=1}^\infty A_n\in\mathcal{F}
+  \end{align}
   #+end_quote
   - (\(\sigma.1\))-(\(\sigma.3\)) は
     定義域 \(\mathcal{F}\) の満たすべき条件でもある
@@ -409,17 +392,15 @@
   また \(P(A)\) を \(A\) の
   *測度*
   という．
-  #+begin_src latex
-    \begin{align}
-      (P.1)\quad
-      &P(A)\ge 0,\; A\in\mathcal{F}\\
-      (P.2)\quad
-      &P\biggl(\sum_{n=1}^\infty A_n\biggr)
-	=\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
-      (P.3)\quad
-      &P(\Omega)=1
-    \end{align}
-  #+end_src
+  \begin{align}
+    (P.1)\quad
+    &P(A)\ge 0,\; A\in\mathcal{F}\\
+    (P.2)\quad
+    &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+      =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+    (P.3)\quad
+    &P(\Omega)=1
+  \end{align}
   #+end_quote
   - (P.2)を 
     *\(\sigma\)-加法性 (\(\sigma\)-additivity)*
@@ -449,20 +430,16 @@
   "区間 \((0,1]\) から無作為に一点抜き出すこと"
   とする．
   このとき標本空間は
-  #+begin_src latex
-    \begin{equation}
-      \Omega=(0,1]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \Omega=(0,1]
+  \end{equation}
   であり無限試行となる．
   確率測度は事象 \(A\) が
   区間 \([a,b]\), \((a,b)\), \([a,b)\) または \((a,b]\)
   といった簡単な集合であれば
-  #+begin_src latex
-    \begin{equation}
-      P(A)=|A|=b-a,\;\text{(\(|A|\)は区間の長さを表す)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=|A|=b-a,\;\text{(\(|A|\)は区間の長さを表す)}
+  \end{equation}
   とすればよい．
   #+end_quote
 
@@ -470,13 +447,11 @@
 - 確率測度 \(P\) の定義域 \(\mathcal{F}\) は
   集合演算で作られる
 - *可算個* の区間を組み合わせてつくられる集合
-  #+begin_src latex
-    \begin{align}
-      \mathcal{F}
-      &=\{\text{可算個の任意の区間の和，差，交，}\\
-      &\qquad\qquad\qquad\text{余集合から作られる集合}\}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathcal{F}
+    &=\{\text{可算個の任意の区間の和，差，交，}\\
+    &\qquad\qquad\qquad\text{余集合から作られる集合}\}
+  \end{align}
 - 集合の測度(確率)は (P.2) の性質より
   排反な区間の長さの和から計算できる
 
@@ -504,16 +479,14 @@
   (一点 \(a\) が抜き出される確率)は \(0\) となる．
 
   例えば \(\{1,1/2,1/3,\dotsc\}\) という可算集合を考えると，
-  #+begin_src latex
-    \begin{equation}
-      P\left\{\frac{1}{n}\right\}\ge\varepsilon>0
-      \Rightarrow 
-      P\left(\left\{1,\frac{1}{2},\frac{1}{3},\dotsc\right\}\right)
-      =\sum_{n=1}^\infty P\left\{\frac{1}{n}\right\}
-      % \ge\sum_{n=1}^\infty\varepsilon 
-      \to\infty
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\left\{\frac{1}{n}\right\}\ge\varepsilon>0
+    \Rightarrow 
+    P\left(\left\{1,\frac{1}{2},\frac{1}{3},\dotsc\right\}\right)
+    =\sum_{n=1}^\infty P\left\{\frac{1}{n}\right\}
+    % \ge\sum_{n=1}^\infty\varepsilon 
+    \to\infty
+  \end{equation}
   となり矛盾が生じる．
   #+end_quote
   # - 可算個の点からなる事象の確率
@@ -526,46 +499,36 @@
 #+reveal: split
 - 抜き出した点が有理数である確率
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{R}_{(0,1]}&=\{\text{区間\((0,1]\)上の実数全体}\}(=\Omega)\\
-      \mathbb{Q}_{(0,1]}&=\{\text{区間\((0,1]\)上の有理数全体}\}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{R}_{(0,1]}&=\{\text{区間\((0,1]\)上の実数全体}\}(=\Omega)\\
+    \mathbb{Q}_{(0,1]}&=\{\text{区間\((0,1]\)上の有理数全体}\}
+  \end{align}
   と書くことにする．
   有理数は *可算* であるからその要素に番号が付けられ，
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{Q}_{(0,1]}=\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{Q}_{(0,1]}=\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}
+  \end{equation}
   と書けるので，(P.2)の性質により計算できる．
-  #+begin_src latex
-    \begin{align}
-      P(\mathbb{Q}_{(0,1]})
-      &=P\left(\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}\right)\\
-      &=P\{q_1\}+P\{q_2\}+P\{q_3\}+\dotsb+P\{q_n\}+\dotsb\\
-      &=0+0+0+\dotsb+0+\dotsb
-        =0
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(\mathbb{Q}_{(0,1]})
+    &=P\left(\{q_1,q_2,q_3,\dotsc,q_n,\dotsc\}\right)\\
+    &=P\{q_1\}+P\{q_2\}+P\{q_3\}+\dotsb+P\{q_n\}+\dotsb\\
+    &=0+0+0+\dotsb+0+\dotsb
+      =0
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 抜き出した点が無理数である確率
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \text{(区間\((0,1]\)上の無理数全体)}=\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \text{(区間\((0,1]\)上の無理数全体)}=\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]}
+  \end{equation}
   を用いて求められる．
-  #+begin_src latex
-    \begin{equation}
-      P(\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]})
-      =P(\mathbb{R}_{(0,1]})-P(\mathbb{Q}_{(0,1]})=1-0=1
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(\mathbb{R}_{(0,1]}-\mathbb{Q}_{(0,1]})
+    =P(\mathbb{R}_{(0,1]})-P(\mathbb{Q}_{(0,1]})=1-0=1
+  \end{equation}
   無理数全体は *可算でない* ため有理数のように成分毎の可算無限和では書けず，
   したがって(P.2)の性質を使って計算することはできない．
   #+end_quote
@@ -577,11 +540,9 @@
   その標本空間は \(\Omega=(0,5]\) となる．
   この試行の確率測度は
   Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
-  #+begin_src latex
-    \begin{equation}
-      P(A)=\frac{\mu(A)}{\mu(\Omega)}=\frac{\mu(A)}{5},\;A\in\mathcal{F}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A)=\frac{\mu(A)}{\mu(\Omega)}=\frac{\mu(A)}{5},\;A\in\mathcal{F}
+  \end{equation}
   とすることによって構成できる．
   #+end_quote
 
@@ -608,11 +569,9 @@
   *"条件 \(\alpha(\omega)\) が確率1で成り立つ"*
   といい，
   以下のように書く．
-  #+begin_src latex
-    \begin{equation}
-      \alpha(\omega)\;\text{a.s.}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \alpha(\omega)\;\text{a.s.}
+  \end{equation}
   #+end_quote
 - 別の表現
   - 事象 \(A\) の余事象 \(A^c\) は零集合

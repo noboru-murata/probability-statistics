@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-05-15 16:33:24 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-04-11 16:21:34 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -14,6 +14,8 @@
 
 * COMMENT メモ
 - 校正に関して記述
+
+
 * 前回のおさらい
 - 確率変数
   - 確率空間上の関数としての確率変数
@@ -27,11 +29,9 @@
   #+begin_quote
   特性関数
   は指数関数を用いて変数変換された確率変数の平均として
-  #+begin_src latex
-    \begin{equation}
-      \phi(s)=\mathbb{E}[e^{isX}]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \phi(s)=\mathbb{E}[e^{isX}]
+  \end{equation}
   で定義される．
   #+end_quote
   - 特性関数は実数値ではなく複素数値をとることに注意
@@ -69,44 +69,38 @@
 - \(X\): 標準正規分布に従う確率変数
 - 定義に従って計算
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{X}(s)
-      &=\mathbb{E}[e^{isX}]\\
-      &=\int_{-\infty}^{\infty}e^{isx}\cdot
-	\frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
-      &=\int_{-\infty}^{\infty}
-	\frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}+isx}dx\\
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{X}(s)
+    &=\mathbb{E}[e^{isX}]\\
+    &=\int_{-\infty}^{\infty}e^{isx}\cdot
+      \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}}dx\\
+    &=\int_{-\infty}^{\infty}
+      \frac{1}{\sqrt{2\pi}}e^{-\frac{x^{2}}{2}+isx}dx\\
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 2次式を整理
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      -\frac{x^{2}}{2}+isx
-      &=-\frac{x^{2}-2isx}{2}\\
-      &=-\frac{x^{2}-2isx+(is)^{2}-(is)^{2}}{2}\\
-      &=-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    -\frac{x^{2}}{2}+isx
+    &=-\frac{x^{2}-2isx}{2}\\
+    &=-\frac{x^{2}-2isx+(is)^{2}-(is)^{2}}{2}\\
+    &=-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 正規分布の密度関数の積分(=1)に帰着
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{X}(s)
-      &=\int_{-\infty}^{\infty}
-	\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}}dx\\
-      &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
-	\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
-      &=e^{-\frac{s^{2}}{2}}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{X}(s)
+    &=\int_{-\infty}^{\infty}
+      \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}-\frac{s^{2}}{2}}dx\\
+    &=e^{-\frac{s^{2}}{2}}\int_{-\infty}^{\infty}
+      \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-is)^{2}}{2}}dx\\
+    &=e^{-\frac{s^{2}}{2}}
+  \end{align}
   #+end_quote
   - 厳密には複素積分の基本的性質 (Cauchy の積分定理) を使う
 
@@ -114,30 +108,26 @@
 - \(Y\): 平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布に従う確率変数
 - 前問と同様に定義に従って計算
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{Y}(s)
-      &=\mathbb{E}[e^{isY}]\\
-      &=\int_{-\infty}^{\infty}e^{isy}\cdot
-	\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}}dy
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{Y}(s)
+    &=\mathbb{E}[e^{isY}]\\
+    &=\int_{-\infty}^{\infty}e^{isy}\cdot
+      \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y-\mu)^{2}}{2\sigma^{2}}}dy
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - \(Y=\sigma X + \mu\) の関係を利用
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{Y}(s)
-      &=\mathbb{E}[e^{isY}]
-	=\mathbb{E}[e^{is(\sigma X + \mu)}]\\
-      &=e^{\mu is}\cdot\mathbb{E}[e^{i(\sigma s) X)}]
-	=e^{\mu is}\cdot\phi_{X}(\sigma s)\\
-      &=e^{\mu is}e^{-\frac{\sigma^{2}s^{2}}{2}}
-	=e^{\mu is-\frac{\sigma^{2}s^{2}}{2}}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{Y}(s)
+    &=\mathbb{E}[e^{isY}]
+      =\mathbb{E}[e^{is(\sigma X + \mu)}]\\
+    &=e^{\mu is}\cdot\mathbb{E}[e^{i(\sigma s) X)}]
+      =e^{\mu is}\cdot\phi_{X}(\sigma s)\\
+    &=e^{\mu is}e^{-\frac{\sigma^{2}s^{2}}{2}}
+      =e^{\mu is-\frac{\sigma^{2}s^{2}}{2}}
+  \end{align}
   #+end_quote
 
 
@@ -154,11 +144,9 @@
   事象 \(A\) のもとにおける事象 \(B\) の
   *条件付確率* (conditional probability) 
   を
-  #+begin_src latex
-    \begin{equation}
-      P(B|A)=P_A(B)=\frac{P(A\cap B)}{P(A)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(B|A)=P_A(B)=\frac{P(A\cap B)}{P(A)}
+  \end{equation}
   で定義する．
   #+end_quote
 
@@ -177,15 +165,13 @@
 - \(P(A)=0\) のときは \(P(B|A)\) は意味がないが，
   適当に一点 \(\omega_0\in A\) を選び
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      P(B|A)=
-      \begin{cases}
-	1,& \omega_0\in B\\
-	0,& \omega_0\not\in B
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(B|A)=
+    \begin{cases}
+      1,& \omega_0\in B\\
+      0,& \omega_0\not\in B
+    \end{cases}
+  \end{equation}
   #+end_quote
   とすることがある
 
@@ -193,12 +179,10 @@
 - [[color:green][骰子を一回振る試行]]
   #+begin_quote
   以下の事象を定義する．
-  #+begin_src latex
-    \begin{align}
-      A&=\{\text{偶数の目が出る}\}\\
-      B&=\{\text{素数の目が出る}\}
-    \end{align}
-  #+end_src
+  \begin{align}
+    A&=\{\text{偶数の目が出る}\}\\
+    B&=\{\text{素数の目が出る}\}
+  \end{align}
   このとき以下の確率は条件付確率で表される．
   - "偶数の目が出たとき，それが素数である" 確率
   - "偶数の目が出たとき，それが素数でない" 確率
@@ -207,32 +191,27 @@
 #+reveal: split
 - [[color:green]["偶数の目が出たとき，それが素数である" 確率]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      P(B|A)
-      &=\frac{P(A\cap B)}{P(A)}\\
-      &=\frac{P(\text{偶数かつ素数の目が出る})}{P(\text{偶数の目が出る})}\\
-      &=\frac{P\{2\}}{P(\{2,4,6\})}
-	=\frac{1/6}{1/2}=\frac{1}{3}
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(B|A)
+    &=\frac{P(A\cap B)}{P(A)}\\
+    &=\frac{P(\text{偶数かつ素数の目が出る})}{P(\text{偶数の目が出る})}\\
+    &=\frac{P\{2\}}{P(\{2,4,6\})}
+      =\frac{1/6}{1/2}=\frac{1}{3}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - [[color:green]["偶数の目が出たとき，それが素数でない" 確率]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      P(B^c|A)
-      &=\frac{P(A\cap B^{c})}{P(A)}\\
-      &=\frac{P(\text{偶数かつ素数でない目が出る})}{P(\text{偶数の目が出る})}\\
-      &=\frac{2/6}{1/2}=\frac{2}{3}
-        =1-P(B|A)
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(B^c|A)
+    &=\frac{P(A\cap B^{c})}{P(A)}\\
+    &=\frac{P(\text{偶数かつ素数でない目が出る})}{P(\text{偶数の目が出る})}\\
+    &=\frac{2/6}{1/2}=\frac{2}{3}
+      =1-P(B|A)
+  \end{align}
   #+end_quote
 
-  # #+begin_src latex
   #   \begin{align}
   #     P(B|A)
   #     &=P(\text{偶数の目が出たとき，それが素数である})\\
@@ -245,25 +224,20 @@
   #     &=\frac{2/6}{1/2}=\frac{2}{3}
   #       =1-P(B|A)
   #   \end{align}
-  # #+end_src
 
 ** 確率変数による条件の表現
 - 確率変数が一つの値を取る場合
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      A&=\{\omega|X(\omega)=x\} \Leftrightarrow
-	 A=X^{-1}(x)\; (x\in\Omega^X) \\
-      B&=\{\omega|Y(\omega)=y\} \Leftrightarrow
-	 B=Y^{-1}(y)\; (y\in\Omega^Y) 
-    \end{align}
-  #+end_src
+  \begin{align}
+    A&=\{\omega|X(\omega)=x\} \Leftrightarrow
+       A=X^{-1}(x)\; (x\in\Omega^X) \\
+    B&=\{\omega|Y(\omega)=y\} \Leftrightarrow
+       B=Y^{-1}(y)\; (y\in\Omega^Y) 
+  \end{align}
   のようにある事象に対応づけられるので，
-  #+begin_src latex
-    \begin{equation}
-      P(Y\!=\!y|X\!=\!x)\quad\text{または}\quad P_{X=x}(Y\!=\!y)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(Y\!=\!y|X\!=\!x)\quad\text{または}\quad P_{X=x}(Y\!=\!y)
+  \end{equation}
   という条件付確率を考えることができる．
   #+end_quote
 
@@ -271,20 +245,16 @@
 - 確率変数がある集合に含まれる場合
   #+begin_quote
   同様に
-  #+begin_src latex
-    \begin{align}
-      A&=\{\omega|X(\omega)\in E\} \Leftrightarrow
-	 A=X^{-1}(E)\; (E\subset\Omega^X) \\
-      B&=\{\omega|Y(\omega)\in F\} \Leftrightarrow
-	 B=Y^{-1}(F)\; (F\subset\Omega^Y)
-    \end{align}
-  #+end_src
+  \begin{align}
+    A&=\{\omega|X(\omega)\in E\} \Leftrightarrow
+       A=X^{-1}(E)\; (E\subset\Omega^X) \\
+    B&=\{\omega|Y(\omega)\in F\} \Leftrightarrow
+       B=Y^{-1}(F)\; (F\subset\Omega^Y)
+  \end{align}
   と事象と対応づけられるので，
-  #+begin_src latex
-    \begin{equation}
-      P(Y\!\in F|X\!\in E)\quad\text{または}\quad P_{X\in E}(Y\in F)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(Y\!\in F|X\!\in E)\quad\text{または}\quad P_{X\in E}(Y\in F)
+  \end{equation}
   のように表した条件付確率を考えることができる．
   #+end_quote
 
@@ -292,14 +262,12 @@
 - 同時確率の表現
   #+begin_quote
   単に変数を並べて
-  #+begin_src latex
-    \begin{align}
-      P(X\!=\!x,Y\!=\!y)
-      &=P(\{\omega|X(\omega)=x\}\cap\{\omega|Y(\omega)=y\})\\
-      P(X\!\in E,Y\!\in F)
-      &=P(\{\omega|X(\omega)\in E\}\cap\{\omega|Y(\omega)\in F\})
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(X\!=\!x,Y\!=\!y)
+    &=P(\{\omega|X(\omega)=x\}\cap\{\omega|Y(\omega)=y\})\\
+    P(X\!\in E,Y\!\in F)
+    &=P(\{\omega|X(\omega)\in E\}\cap\{\omega|Y(\omega)\in F\})
+  \end{align}
   と表すことが多い．
   #+end_quote
 
@@ -308,11 +276,9 @@
   #+begin_quote
   確率変数 \(X\),\(Y\) のいろいろな値に対する
   同時確率や条件付確率をまとめて表現する場合
-  #+begin_src latex
-    \begin{equation}
-      P(X,Y),\quad P(Y|X)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X,Y),\quad P(Y|X)
+  \end{equation}
   といった記述を行うことが多い．
   #+end_quote
 
@@ -342,16 +308,14 @@
 - 定義
   #+begin_quote
   条件付確率分布のもとでの平均値
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[Y|A]
-      &=\sum_{\omega\in A}Y(\omega)P(\omega|A)
-	\quad\text{(離散分布の場合)}\\
-      \mathbb{E}[Y|A]
-      &=\int_{A}Y(\omega)P(d\omega|A)
-	\quad\text{(連続分布の場合)}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[Y|A]
+    &=\sum_{\omega\in A}Y(\omega)P(\omega|A)
+      \quad\text{(離散分布の場合)}\\
+    \mathbb{E}[Y|A]
+    &=\int_{A}Y(\omega)P(d\omega|A)
+      \quad\text{(連続分布の場合)}
+  \end{align}
   を
   *条件付平均値* (conditional expectation) 
   と呼ぶ．
@@ -367,12 +331,10 @@
 - 定理
   #+begin_quote
   条件付確率では次の等式が成り立つ．
-  #+begin_src latex
-    \begin{equation}
-      P(A|B)
-      =\frac{P(A)P(B|A)}{P(B)}.
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A|B)
+    =\frac{P(A)P(B|A)}{P(B)}.
+  \end{equation}
   #+end_quote
   - 前出の定理の4.より導かれる
   - 左辺と右辺で事象 \(A,B\) の役割が異なる
@@ -381,12 +343,10 @@
 - 定理
   #+begin_quote
   \(\Omega=A_1+A_2+\dotsb+A_n\) のとき
-  #+begin_src latex
-    \begin{equation}
-      P(A_i|B)
-      =\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^nP(A_k)P(B|A_k)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(A_i|B)
+    =\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^nP(A_k)P(B|A_k)}
+  \end{equation}
   が成り立つ．
   #+end_quote
 
@@ -409,14 +369,12 @@
   #+begin_quote
   事象 \(B\) と \(A_i\) との関係は
   全事象を利用すると
-  #+begin_src latex
-    \begin{equation}
-      P(B)
-      =P(\Omega\cap B)
-      =P(\sum_{k=1}^nA_k\cap B)
-      =\sum_{k=1}^nP(A_k\cap B)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(B)
+    =P(\Omega\cap B)
+    =P(\sum_{k=1}^nA_k\cap B)
+    =\sum_{k=1}^nP(A_k\cap B)
+  \end{equation}
   と分解できる．
   すなわち
   \(\Omega=A_1+A_2+\dotsb+A_n\) のとき
@@ -439,11 +397,9 @@
   *独立* (independent) 
   であるとは，
   任意の \(x,y\) に対して
-  #+begin_src latex
-    \begin{equation}
-      P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y)
+  \end{equation}
   となることである．
   #+end_quote
 
@@ -451,18 +407,14 @@
 - 条件付確率による意味付け
   #+begin_quote
   条件付確率を用いて同時確率を書き直すと
-  #+begin_src latex
-    \begin{equation}
-      P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y|X\!=\!x)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y|X\!=\!x)
+  \end{equation}
   であるが，
   独立性の定義から
-  #+begin_src latex
-    \begin{equation}
-      P(Y\!=\!y|X\!=\!x)=P(Y\!=\!y)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(Y\!=\!y|X\!=\!x)=P(Y\!=\!y)
+  \end{equation}
   となり，\(Y\) の確率は \(X\) に左右されないことを示す．
   #+end_quote
 
@@ -472,11 +424,9 @@
   任意の事象(集合)
   \(E\subset\Omega^X\),\(F\subset\Omega^Y\)
   に対して
-  #+begin_src latex
-    \begin{equation}
-      P(X\!\in E,Y\!\in F)=P(X\!\in E)P(Y\!\in F)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X\!\in E,Y\!\in F)=P(X\!\in E)P(Y\!\in F)
+  \end{equation}
   が成り立つことである．
   #+end_quote
 
@@ -490,11 +440,9 @@
   を \(g(x),h(y)\) とすると，
   確率変数 \(X,Y\) が互いに独立とは
   任意の \(x,y\) に対して
-  #+begin_src latex
-    \begin{equation}
-      f(x,y)=g(x)h(y)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x,y)=g(x)h(y)
+  \end{equation}
   となることである．
   #+end_quote
 
@@ -503,11 +451,9 @@
   #+begin_quote
   確率変数 \(X,Y\) が互いに独立とは，
   特性関数を用いて
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[e^{isX+itY}]=\mathbb{E}[e^{isX}]\mathbb{E}[e^{itY}]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[e^{isX+itY}]=\mathbb{E}[e^{isX}]\mathbb{E}[e^{itY}]
+  \end{equation}
   が成り立つことと同値である．
   #+end_quote
 
@@ -523,11 +469,9 @@
   - 確率変数\(X_1,X_2,\dotsc,X_n\) が独立 
     \(\Rightarrow\)
     変数変換した確率変数
-    #+begin_src latex
-      \begin{equation}
-	Y_1=\phi_1(X_1),Y_2=\phi_2(X_2),\dotsc,Y_n=\phi_n(X_n)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      Y_1=\phi_1(X_1),Y_2=\phi_2(X_2),\dotsc,Y_n=\phi_n(X_n)
+    \end{equation}
     は独立 (逆が成り立つとは限らないことに注意)
   #+end_quote
 
@@ -536,21 +480,17 @@
   #+begin_quote
   - 確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
     \(\Rightarrow\) 
-    #+begin_src latex
-      \begin{equation}
-	\mathbb{E}[X_1X_2\dotsm X_n]
-	=\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \mathbb{E}[X_1X_2\dotsm X_n]
+      =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+    \end{equation}
     (平均値の乗法性)
   - 確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
     \(\Rightarrow\) 
-    #+begin_src latex
-      \begin{equation}
-	\mathrm{Var}(X_1+X_2+\dotsb+X_n)
-	=\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \mathrm{Var}(X_1+X_2+\dotsb+X_n)
+      =\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+    \end{equation}
     (分散の加法性)
   #+end_quote
   - 平均値の加法性は独立とは無関係に成り立つ
@@ -561,15 +501,13 @@
 - 指示関数
   #+begin_quote
   集合 \(A\) の *指示関数 (定義関数)* を
-  #+begin_src latex
-    \begin{equation}
-      1_A(\omega)=
-      \begin{cases}
-	1,& \omega\in A\\
-	0,& \omega\not\in A
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    1_A(\omega)=
+    \begin{cases}
+      1,& \omega\in A\\
+      0,& \omega\not\in A
+    \end{cases}
+  \end{equation}
   で定義する．
   #+end_quote
   - 指示関数は実数値関数
@@ -595,20 +533,16 @@
   以下の3つは同値である．
   1. 事象 \(A_1,A_2,\dotsc,A_n\) が独立
   2. \(B_i=A_i\) または \(B_i=A_i^c\) としたとき
-     #+begin_src latex
-       \begin{equation}
-	 P(B_1\cap B_2\cap\dotsb\cap B_n)
-	 =P(B_1)P(B_2)\dotsm P(B_n)
-       \end{equation}
-     #+end_src
+     \begin{equation}
+       P(B_1\cap B_2\cap\dotsb\cap B_n)
+       =P(B_1)P(B_2)\dotsm P(B_n)
+     \end{equation}
   3. \(\forall k=2,3,\dotsc,n\), 
      \(1\leq\forall i_1<\forall i_2<\dotsb\forall i_k\leq n\)
-     #+begin_src latex
-       \begin{equation}
-	 P(A_{i_1}\cap A_{i_2}\cap\dotsb\cap A_{i_k})
-	 =P(A_{i_1})P(A_{i_2})\dotsm P(A_{i_k})
-       \end{equation}
-     #+end_src
+     \begin{equation}
+       P(A_{i_1}\cap A_{i_2}\cap\dotsb\cap A_{i_k})
+       =P(A_{i_1})P(A_{i_2})\dotsm P(A_{i_k})
+     \end{equation}
   #+end_quote
 
 
@@ -650,51 +584,43 @@
 :END:
 - 扱う事象を整理する
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
-      B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
-      C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
-    \end{align}
-  #+end_src
+  \begin{align}
+    A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
+    B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
+    C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 前提条件を書き下す
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
-      &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
-      &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
-      &P(B)=0.5&&P(B^{c})=0.5\\
-      &P(C)=0.6&&P(C^{c})=0.4\\
-      &\mathrm{Cov}(X,Y)=0.1
-    \end{align}
-  #+end_src
+  \begin{align}
+    &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
+    &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
+    &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
+    &P(B)=0.5&&P(B^{c})=0.5\\
+    &P(C)=0.6&&P(C^{c})=0.4\\
+    &\mathrm{Cov}(X,Y)=0.1
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 求める確率は以下のとおり
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      &P(B\cap C)\\
-      &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
-      &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
-      &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
-    \end{align}
-  #+end_src
+  \begin{align}
+    &P(B\cap C)\\
+    &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+    &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+    &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
+  \end{align}
   #+end_quote
   - 第1問は共分散の計算を利用すれば求められる
     #+begin_quote
-    #+begin_src latex
-      \begin{align}
-	\mathrm{Cov}(X,Y)
-	&=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
-	&=P(X=1,Y=1)-P(X=1)P(Y=1)
-      \end{align}
-    #+end_src
+    \begin{align}
+      \mathrm{Cov}(X,Y)
+      &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+      &=P(X=1,Y=1)-P(X=1)P(Y=1)
+    \end{align}
     #+end_quote
   - 第1問の結果を利用すると前提条件から 
     \(P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})\)
@@ -707,46 +633,38 @@
 :END:
 - 第1問
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathrm{Var}(X,Y)
-      &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
-      &=P(B\cap C)-P(B)P(C)\\
-      &=P(B\cap C)-0.5\times0.6=0.1\\
-      P(B\cap C)&=0.4
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathrm{Var}(X,Y)
+    &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+    &=P(B\cap C)-P(B)P(C)\\
+    &=P(B\cap C)-0.5\times0.6=0.1\\
+    P(B\cap C)&=0.4
+  \end{align}
   これより
-  #+begin_src latex
-    \begin{align}
-      P(B\cap C^{c})&=P(B)-P(B\cap C)=0.1\\
-      P(B^{c}\cap C)&=P(C)-P(B\cap C)=0.2\\
-      P(B^{c}\cap C^{c})&=0.3
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(B\cap C^{c})&=P(B)-P(B\cap C)=0.1\\
+    P(B^{c}\cap C)&=P(C)-P(B\cap C)=0.2\\
+    P(B^{c}\cap C^{c})&=0.3
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 第2問
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      P(B^{c}\cap C^{c}|A^{c})
-      &=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
-      &=\frac{P(A^{c}|B^{c}\cap C^{c})P(B^{c}\cap C^{c})}{\sum_{\lambda}P(A^{c}|B^{\lambda}\cap C^{\lambda})P(B^{\lambda}\cap C^{\lambda})}\\
-      &=0.6
-    \end{align}
-  #+end_src
+  \begin{align}
+    P(B^{c}\cap C^{c}|A^{c})
+    &=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+    &=\frac{P(A^{c}|B^{c}\cap C^{c})P(B^{c}\cap C^{c})}{\sum_{\lambda}P(A^{c}|B^{\lambda}\cap C^{\lambda})P(B^{\lambda}\cap C^{\lambda})}\\
+    &=0.6
+  \end{align}
   #+end_quote
 - 第3問
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
-      &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)\\
-      &\qquad=0.3
-    \end{align}
-  #+end_src
+  \begin{align}
+    &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+    &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)\\
+    &\qquad=0.3
+  \end{align}
   #+end_quote
 
 
