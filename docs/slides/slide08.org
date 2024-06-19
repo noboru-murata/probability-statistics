@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-06-12 16:05:54 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-06-03 18:56:27 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -14,6 +14,7 @@
 
 * COMMENT メモ
 - 校正に関して記述
+
 
 * 前回のおさらい
 - 確率モデルと推定量
@@ -53,12 +54,10 @@
   \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
   その平均を \(\mu\) とする．
   このとき,  \(X_1,\dotsc,X_n\) の標本平均
-  #+begin_src latex
-    \begin{equation}
-      \bar{X}_n
-      = \frac{1}{n}\sum_{i=1}^nX_i
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \bar{X}_n
+    = \frac{1}{n}\sum_{i=1}^nX_i
+  \end{equation}
   が \(n\to\infty\) のとき \(\mu\) に収束する確率は1である．
   #+end_quote
 
@@ -68,13 +67,11 @@
   \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
   その平均を \(\mu\) ，標準偏差を \(\sigma\) とする．
   このとき，すべての実数 \(a < b\) に対して
-  #+begin_src latex
-    \begin{equation}
-      P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
-      \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
-      (n\to\infty)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
+    \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
+    (n\to\infty)
+  \end{equation}
   が成り立つ．
   #+end_quote
 
@@ -82,22 +79,18 @@
 - 推定量
   #+begin_quote
   未知の母数(パラメタ)を推定する方法．
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
+  \end{equation}
   #+end_quote
 - 推定値
   #+begin_quote
   \(X_{1}=x_{1},X_{2}=x_{2},\dotsc,X_{n}=x_{n}\)
   という観測値が得られたとき，
   推定量に代入して得られる値．
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
+  \end{equation}
   #+end_quote
 
 ** 良い推定量
@@ -107,12 +100,10 @@
   が真の母数
   \(\theta\)
   に一致すること．
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[\hat\theta]
-      =\theta
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[\hat\theta]
+    =\theta
+  \end{equation}
   #+end_quote
   - 観測値に基づく推定値(見本点)が
     真の値のまわりにばらつくと考えればよい
@@ -130,11 +121,9 @@
   良い不偏推定量 \(\hat\theta\) とは
   任意の不偏推定量 \(\hat{\theta}'\) 
   に対して推定値のばらつき(分散)が最も小さいもの
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
+  \end{equation}
   #+end_quote
 ** 対称な不偏推定量
 - 定理
@@ -150,11 +139,9 @@
   不偏推定量
   \(\hat\theta^{*}\)
   で，つねに
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat\theta^{*})\le \mathrm{Var}(\hat\theta)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat\theta^{*})\le \mathrm{Var}(\hat\theta)
+  \end{equation}
   となるものが存在する．
   #+end_quote
   - 観測データ \(X_{1},X_{2},\dotsc,X_{n}\)
@@ -166,11 +153,9 @@
 - 定義
   #+begin_quote
   母数 \(\theta\) を \(X_1,\dotsc,X_n\) の関数
-  #+begin_src latex
-    \begin{equation}
-      \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
+  \end{equation}
   で推定すること．
   #+end_quote
   # \(\hat{\theta}\) を \(\theta\) の推定量と呼ぶ．
@@ -195,11 +180,9 @@
   #+begin_quote
   \(\theta\) の任意の不偏推定量 \(\hat{\theta}'\) 
   に対して推定量の分散が最も小さいもの
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
+  \end{equation}
   が存在すれば，それを
   *一様最小分散不偏推定量*
   という．
@@ -215,16 +198,14 @@
   このとき，緩やかな仮定の下で，
   \(\theta\) の任意の不偏推定量 \(\hat{\theta}\) に対して
   以下の不等式が成り立つ．
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)},
-    \end{equation}
-    \begin{equation}
-      I(\theta)=\int_{-\infty}^\infty
-      \left(\frac{\partial}{\partial\theta}\log f_\theta(x)\right)^2
-      f_\theta(x)dx.
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)},
+  \end{equation}
+  \begin{equation}
+    I(\theta)=\int_{-\infty}^\infty
+    \left(\frac{\partial}{\partial\theta}\log f_\theta(x)\right)^2
+    f_\theta(x)dx.
+  \end{equation}
   #+end_quote
   - [[color:gray][証明は講義ノート参照]]
 
@@ -254,13 +235,11 @@
 - 上記の正規分布の平均
   \(\theta\) に関する Fisher 情報量を求めよ．
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      f_{\theta}(x)
-      =
-      \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f_{\theta}(x)
+    =
+    \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
+  \end{equation}
   #+end_quote
 
 ** COMMENT 解答例
@@ -269,41 +248,37 @@
 :END:
 - 独立性に注意して計算する
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[\bar{X}]
-      &=
-	\mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]
-	=\theta\\
-      \mathrm{Var}(\bar{X})
-      &=
-	\mathrm{Var}\left(\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right)\\
-      &=\frac{1}{n^{2}}\sum_{i=1}^{n}\mathrm{Var}(X_{i})\\
-      &=\frac{1}{n^{2}}\sum_{i=1}^{n}\sigma^{2}
-	=\frac{1}{n}\sigma^{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[\bar{X}]
+    &=
+      \mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]
+      =\theta\\
+    \mathrm{Var}(\bar{X})
+    &=
+      \mathrm{Var}\left(\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right)\\
+    &=\frac{1}{n^{2}}\sum_{i=1}^{n}\mathrm{Var}(X_{i})\\
+    &=\frac{1}{n^{2}}\sum_{i=1}^{n}\sigma^{2}
+      =\frac{1}{n}\sigma^{2}
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 定義通りに計算する
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      I(\theta)
-      &=\int_{-\infty}^\infty
-	\left(\frac{\partial}{\partial\theta}\log f_{\theta}(x)\right)^2
-	f_{\theta}(x)dx\\
-      &=\int_{-\infty}^\infty
-	\left(\frac{x-\theta}{\sigma^2}\right)^{2}
-	\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-      &=\frac{1}{\sigma^4}
-	\int_{-\infty}^\infty
-	(x-\theta)^{2}
-	\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
-      &=\frac{1}{\sigma^4}\mathrm{Var}(X)=\frac{1}{\sigma^2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    I(\theta)
+    &=\int_{-\infty}^\infty
+      \left(\frac{\partial}{\partial\theta}\log f_{\theta}(x)\right)^2
+      f_{\theta}(x)dx\\
+    &=\int_{-\infty}^\infty
+      \left(\frac{x-\theta}{\sigma^2}\right)^{2}
+      \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
+    &=\frac{1}{\sigma^4}
+      \int_{-\infty}^\infty
+      (x-\theta)^{2}
+      \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\theta)^2}{2\sigma^2}}dx\\
+    &=\frac{1}{\sigma^4}\mathrm{Var}(X)=\frac{1}{\sigma^2}
+  \end{align}
   #+end_quote
 
 #+reveal: split
@@ -311,18 +286,16 @@
   - 3行目の積分の中身は分散の計算であることに注意
   - 特性関数を用いると簡単に計算できる
     #+begin_quote
-    #+begin_src latex
-      \begin{align}
-	\phi(s)
-	&=\mathbb{E}[e^{isX}]\\
-	\phi'(s)
-	&=\frac{d}{ds}\mathbb{E}[e^{isX}]=\mathbb{E}[iXe^{isX}]\\
-	\phi''(s)
-	&=\mathbb{E}[-X^{2}e^{isX}]\\
-	\phi''(0)
-	&=\mathbb{E}[-X^{2}]
-      \end{align}
-    #+end_src
+    \begin{align}
+      \phi(s)
+      &=\mathbb{E}[e^{isX}]\\
+      \phi'(s)
+      &=\frac{d}{ds}\mathbb{E}[e^{isX}]=\mathbb{E}[iXe^{isX}]\\
+      \phi''(s)
+      &=\mathbb{E}[-X^{2}e^{isX}]\\
+      \phi''(0)
+      &=\mathbb{E}[-X^{2}]
+    \end{align}
     #+end_quote
   - 正規分布の特性関数を用いて確認せよ
 
@@ -331,15 +304,13 @@
 ** 観測値の生成モデル
 - 加法的雑音モデル
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \begin{array}{c@{}c@{}c@{}c@{}cl}
-	X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
-	\text{(確率変数)}&&\text{(未知母数)}&&
-					       \text{(誤差)}
-      \end{array}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \begin{array}{c@{}c@{}c@{}c@{}cl}
+      X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
+      \text{(確率変数)}&&\text{(未知母数)}&&
+                                             \text{(誤差)}
+    \end{array}
+  \end{equation}
   #+end_quote
 - 誤差の仮定
   #+begin_quote
@@ -361,25 +332,21 @@
   #+begin_quote
   このとき \(X\) は平均 \(\theta\) ，分散 \(\sigma^{2}\) の
   正規分布に従う．
-  #+begin_src latex
-    \begin{equation}
-      f_{\theta}(x)
-      =
-      \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f_{\theta}(x)
+    =
+    \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\theta)^{2}}{2\sigma^{2}}}
+  \end{equation}
   #+end_quote
 
 ** 正規分布モデルの標本平均
 - 平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
   - 平均母数 \(\theta\) に関する Fisher 情報量 :
-    #+begin_src latex
-      \begin{equation}
-	I(\theta)
-	=
-	\frac{1}{\sigma^2}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      I(\theta)
+      =
+      \frac{1}{\sigma^2}
+    \end{equation}
   - Cramér-Rao 下界 : \(1/nI(\theta)=\sigma^2/n\) 
   - 標本平均 \(\bar{X}\) の分散 : \(\sigma^2/n\) (= Cramér-Rao 下界)
 - \(\bar{X}\) は平均の一様最小分散不偏推定量
@@ -413,16 +380,14 @@
 :END:
 - \(\varepsilon\) の分散
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathrm{Var}(\varepsilon)
-      &=\mathbb{E}[\varepsilon^{2}]\\
-      &=\int_{-a}^{a}\varepsilon^{2}\frac{1}{2a}d\varepsilon
-	=\frac{a^{2}}{3}\\
-      \mathrm{Var}(\bar{X})
-      &=\frac{a^{2}}{3n}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathrm{Var}(\varepsilon)
+    &=\mathbb{E}[\varepsilon^{2}]\\
+    &=\int_{-a}^{a}\varepsilon^{2}\frac{1}{2a}d\varepsilon
+      =\frac{a^{2}}{3}\\
+    \mathrm{Var}(\bar{X})
+    &=\frac{a^{2}}{3n}
+  \end{align}
   #+end_quote
 - 密度関数が滑らかでない(微分できない)ので
   Fisher 情報量は定義されない．
@@ -430,13 +395,11 @@
 #+reveal: split
 - この分布における良い推定量(Pitman 推定量)は
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \hat{\theta}(X_{1},X_{2},\dotsc,X_{n})
-      =
-      \frac{\min_{i}X_{i}+\max_{i}X_{i}}{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat{\theta}(X_{1},X_{2},\dotsc,X_{n})
+    =
+    \frac{\min_{i}X_{i}+\max_{i}X_{i}}{2}
+  \end{equation}
   #+end_quote
   となることが知られている(講義ノート参照)．
 
@@ -449,21 +412,17 @@
     区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 " \\
     ("外側にある確率が \(\alpha\) 以下" と言い換えてもよい)
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
+    \end{equation}
     #+end_quote
 - 母数の範囲の推定に書き換え
   - " \(\theta\) が含まれる確率が \(1{-}\alpha\) 以上となるような区間
     \([\hat{\theta}-u,\hat{\theta}-l]\) を推定"
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	P(\hat{\theta}-u\le\theta\le \hat{\theta}-l)\ge 1{-}\alpha
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      P(\hat{\theta}-u\le\theta\le \hat{\theta}-l)\ge 1{-}\alpha
+    \end{equation}
     #+end_quote
     # 
     # % - *区間推定*: 固定した \(\alpha\in(0,1)\) に対し \(l,u\) を観測データから推定
@@ -473,11 +432,9 @@
   #+begin_quote
   未知母数 \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
   以下を満たす確率変数 \(L,U\) を観測データから求めること．
-  #+begin_src latex
-    \begin{equation}
-      P(L\le\theta\le U)\ge 1{-}\alpha
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(L\le\theta\le U)\ge 1{-}\alpha
+  \end{equation}
   #+end_quote
   - 区間 \([L,U]\) : \(1{-}\alpha\) *信頼区間* (\(100(1{-}\alpha)\) % と書くことも多い)
   - \(L\) : \(1{-}\alpha\) *下側信頼限界*
@@ -490,11 +447,9 @@
   - 真の母数が取りうる値の範囲を限定することになるため
 - 最も推定精度の良い \(1{-}\alpha\) 信頼区間 \([L,U]\)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      P(L\le\theta\le U)=1{-}\alpha
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(L\le\theta\le U)=1{-}\alpha
+  \end{equation}
   #+end_quote
   - 信頼区間の幅が狭いほど \(P(L\le\theta\le U)\) は小さくなるため
 - 実行可能である限り
@@ -517,11 +472,9 @@
   正規分布に従うとする．
   このとき \(a,b\) を実数として新しい確率変数 \(Z\) を
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      Z=aX+bY
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Z=aX+bY
+  \end{equation}
   #+end_quote
   で定義するとき，
   \(Z\) の平均と分散を求めよ．
@@ -533,34 +486,30 @@
 :END:
 - 独立性から計算できる
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[Z]
-      &=\mathbb{E}[aX+bY]\\
-      &=a\mu_{1}+b\mu_{2}\\
-      \mathrm{Var}(Z)
-      &=\mathrm{Var}(aX+bY)\\
-      &=\mathrm{Var}(aX)+\mathrm{Var}(bY)\\
-      &=a^{2}\mathrm{Var}(X)+b^{2}\mathrm{Var}(Y)\\
-      &=a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[Z]
+    &=\mathbb{E}[aX+bY]\\
+    &=a\mu_{1}+b\mu_{2}\\
+    \mathrm{Var}(Z)
+    &=\mathrm{Var}(aX+bY)\\
+    &=\mathrm{Var}(aX)+\mathrm{Var}(bY)\\
+    &=a^{2}\mathrm{Var}(X)+b^{2}\mathrm{Var}(Y)\\
+    &=a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2}
+  \end{align}
   #+end_quote
   
 #+reveal: split
 - 特性関数を考えるのがわかりやすい
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{Z}(s)
-      &=\mathbb{E}[e^{isZ}]
-	=\mathbb{E}[e^{is(aX+bY)}]\\
-      &=\mathbb{E}[e^{is(aX)}]\mathbb{E}[e^{is(bY)}]\\
-      &=\phi_{X}(as)\phi_{Y}(bs)\\
-      &=e^{\mu_{1}i(as)-\frac{\sigma_{1}^{2}(as)^{2}}{2}}e^{\mu_{2}i(bs)-\frac{\sigma_{2}^{2}(bs)^{2}}{2}}\\
-      &=e^{(a\mu_{1}+b\mu_{1})is-\frac{(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2})s^{2}}{2}}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{Z}(s)
+    &=\mathbb{E}[e^{isZ}]
+      =\mathbb{E}[e^{is(aX+bY)}]\\
+    &=\mathbb{E}[e^{is(aX)}]\mathbb{E}[e^{is(bY)}]\\
+    &=\phi_{X}(as)\phi_{Y}(bs)\\
+    &=e^{\mu_{1}i(as)-\frac{\sigma_{1}^{2}(as)^{2}}{2}}e^{\mu_{2}i(bs)-\frac{\sigma_{2}^{2}(bs)^{2}}{2}}\\
+    &=e^{(a\mu_{1}+b\mu_{1})is-\frac{(a^{2}\sigma_{1}^{2}+b^{2}\sigma_{2}^{2})s^{2}}{2}}
+  \end{align}
   #+end_quote
   これは
   平均 \(a\mu_{1}+b\mu_{1}\) ，
@@ -580,11 +529,9 @@
   分散 \(\sigma_i^2\) の正規分布に従うとする．
 
   このとき \(a_0,a_1,\dots,a_k\) を \((k+1)\) 個の0でない実数とすると，
-  #+begin_src latex
-    \begin{equation}
-      a_0+\sum_{i=1}^ka_iZ_i
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    a_0+\sum_{i=1}^ka_iZ_i
+  \end{equation}
   は
   平均 \(a_0+\sum_{i=1}^ka_i\mu_i\) ，
   分散 \(\sum_{i=1}^ka_i^2\sigma_i^2\) の正規分布に従う．
@@ -595,11 +542,9 @@
   #+begin_quote
   \(k=n\), \(\mu_i=\mu\), \(\sigma_i^2=\sigma^2\), \(a_0=0\),
   \(a_i=1/n\;(i=1,\dots,n)\)
-  #+begin_src latex
-    \begin{equation}
-      \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i \quad\text{(標本平均)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i \quad\text{(標本平均)}
+  \end{equation}
   は平均 \(\mu\) , 分散 \(\sigma^2/n\) の正規分布に従う．
   #+end_quote
 
@@ -608,11 +553,9 @@
     #+begin_quote
     \(k=1\) , \(\mu_1=\mu\) , \(\sigma_1^2=\sigma^2/n\) ,
     \(a_0=-\sqrt{n}\mu/\sigma\) , \(a_1=\sqrt{n}/\sigma\)
-    #+begin_src latex
-      \begin{equation}
-	Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+    \end{equation}
     は標準正規分布に従う．
     #+end_quote
 
@@ -621,49 +564,39 @@
   #+begin_quote
   \(z_{1{-}\alpha/2}\) を標準正規分布の
   \(1{-}\alpha/2\) 分位点とすれば
-  #+begin_src latex
-    \begin{equation}
-      P\Bigl(-z_{1{-}\alpha/2}\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
-      \le z_{1{-}\alpha/2}\Bigr)=1{-}\alpha
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\Bigl(-z_{1{-}\alpha/2}\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+    \le z_{1{-}\alpha/2}\Bigr)=1{-}\alpha
+  \end{equation}
   #+end_quote
   - 確率密度 \(f\) の \(\alpha\) *分位点* \(z_{\alpha}\)  (\(0 < \alpha < 1\))
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	\int_{-\infty}^{z_{\alpha}}f(x)dx=\alpha
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \int_{-\infty}^{z_{\alpha}}f(x)dx=\alpha
+    \end{equation}
     #+end_quote
   - 標準正規分布の分位点の性質 (確率密度の対称性より)
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	z_{\alpha}=-z_{1-\alpha}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      z_{\alpha}=-z_{1-\alpha}
+    \end{equation}
     #+end_quote
 
 ** 平均の区間推定 (分散既知)
 - 信頼区間の構成
   #+begin_quote
   \(\mu\) について解くと
-  #+begin_src latex
-    \begin{equation}
-      P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\le\mu
-        \le\bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right)=1{-}\alpha
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\le\mu
+      \le\bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right)=1{-}\alpha
+  \end{equation}
   となるので，
   \(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
   以下で構成される．
-  #+begin_src latex
-    \begin{equation}
-      \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
-        \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
+      \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
+  \end{equation}
   #+end_quote
 
 ** 標本平均と不偏分散の性質
@@ -675,11 +608,9 @@
     \(Y\) を自由度 \(k\) の \(\chi^2\) 分布に従う確率変数とし，
     \(Z,Y\) は独立であるとする．
     このとき確率変数
-    #+begin_src latex
-      \begin{equation}
-	\frac{Z}{\sqrt{Y/k}}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \frac{Z}{\sqrt{Y/k}}
+    \end{equation}
     は自由度 \(k\) の \(t\) 分布に従う
 
 #+reveal: split
@@ -688,11 +619,9 @@
   \(X_1,X_2,\dots,X_n\) は独立同分布な確率変数列で，
   平均 \(\mu\) ，分散 \(\sigma^2\) の正規分布に従うとする．
   不偏分散を
-  #+begin_src latex
-    \begin{equation}
-      s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+  \end{equation}
   とすると， \(\bar{X}\) と \(s^2\) は独立であり，
   確率変数 \((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う．
   #+end_quote
@@ -703,16 +632,14 @@
   前の命題と \(\sqrt{n}(\bar{X}-\mu)/\sigma\) が標準正規分布に従うこ
   とから，
   確率変数
-  #+begin_src latex
-    \begin{equation}
-      T=
-      \frac{\sqrt{n}(\bar{X}-\mu)}{s}
-      =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
-      {\sqrt{(n{-}1)s^2/\sigma^2\big/(n{-}1)}}
-      % =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
-      % {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=
+    \frac{\sqrt{n}(\bar{X}-\mu)}{s}
+    =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
+    {\sqrt{(n{-}1)s^2/\sigma^2\big/(n{-}1)}}
+    % =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
+    % {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}
+  \end{equation}
   は自由度 \(n{-}1\) の \(t\) 分布に従う．
   #+end_quote
 
@@ -721,21 +648,17 @@
   #+begin_quote
   \(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
   \(1{-}\alpha/2\) 分位点とすれば
-  #+begin_src latex
-    \begin{equation}
-      P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
-        \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
+      \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
+  \end{equation}
   となるので，
   分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) 信頼区間は
   以下で構成される．
-  #+begin_src latex
-    \begin{equation}
-      \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
-        \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
+      \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
+  \end{equation}
   #+end_quote
 
 

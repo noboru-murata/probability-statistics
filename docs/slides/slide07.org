@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-06-05 18:26:03 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-06-03 18:55:13 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -15,11 +15,11 @@
 * COMMENT メモ
 - 最初の演習は第6講で済ませる方が良い
 
-* 前回のおさらい
+
+* COMMENT 前回のおさらい
 - 独立変数の和の性質
   - 大数の法則とその条件
   - 中心極限定理とその条件
-
 
 * COMMENT 演習
 :PROPERTIES:
@@ -34,11 +34,9 @@
   n回投げたときに得られた結果を
   \(X_1,X_2,\dotsc,X_n\) と書く．
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Y_{n}=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{\sqrt{n}}
+  \end{equation}
   #+end_quote
   とするとき，以下の問に答えよ．
   - \(Y_{n}\) の平均と分散を求めよ．
@@ -51,66 +49,54 @@
 :END:
 - 題意より
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      P(X=1)=\frac{1}{2},\quad
-      P(X=-1)=\frac{1}{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X=1)=\frac{1}{2},\quad
+    P(X=-1)=\frac{1}{2}
+  \end{equation}
   #+end_quote
   #      \(X_1,X_2,\dotsc,X_n\) は独立として計算
 - \(X\) の平均と分散を利用すればよい
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[X]=0,\quad
-      \mathrm{Var}(X)=\mathbb{E}[X^2]=1
-    \end{equation}
-  #+end_src
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[Y_{n}]=0,\quad
-      \mathrm{Var}(Y_{n})
-      =\frac{1}{n}\cdot n\mathrm{Var}(X)=1
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[X]=0,\quad
+    \mathrm{Var}(X)=\mathbb{E}[X^2]=1
+  \end{equation}
+  \begin{equation}
+    \mathbb{E}[Y_{n}]=0,\quad
+    \mathrm{Var}(Y_{n})
+    =\frac{1}{n}\cdot n\mathrm{Var}(X)=1
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 特性関数も同様
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \phi_{n}(s)
-      &=\mathbb{E}[e^{isY_{n}}]\\
-      &=(\mathbb{E}[e^{isX/\sqrt{n}}])^{n}
-	=\left(\frac{e^{is/\sqrt{n}}+e^{-is/\sqrt{n}}}{2}\right)^{n}\\
-      &=\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
-    \end{align}
-  #+end_src
+  \begin{align}
+    \phi_{n}(s)
+    &=\mathbb{E}[e^{isY_{n}}]\\
+    &=(\mathbb{E}[e^{isX/\sqrt{n}}])^{n}
+      =\left(\frac{e^{is/\sqrt{n}}+e^{-is/\sqrt{n}}}{2}\right)^{n}\\
+    &=\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 余弦関数の Taylor 展開は以下となる
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \cos(x)=1-\frac{x^2}{2}+\frac{x^4}{24}+\dotsb
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \cos(x)=1-\frac{x^2}{2}+\frac{x^4}{24}+\dotsb
+  \end{equation}
   #+end_quote
   - 定義通り計算してもよいし，
     指数関数の展開と Euler の式を用いてもよい
 - 標準正規分布の特性関数となる
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \lim_{n\to\infty}\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
-      &=\lim_{n\to\infty}\left(1-\frac{s^{2}}{2n}
-	+\dotsb\right)^{n}\\
-      &=e^{-\frac{s^{2}}{2}}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \lim_{n\to\infty}\cos^{n}\left(\frac{s}{\sqrt{n}}\right)
+    &=\lim_{n\to\infty}\left(1-\frac{s^{2}}{2n}
+      +\dotsb\right)^{n}\\
+    &=e^{-\frac{s^{2}}{2}}
+  \end{align}
   #+end_quote
 
 
@@ -135,11 +121,9 @@
 - 確率分布 \(P\) (または単に分布)
   - 区間 \([a,b]\) \((a\leq b)\) に \(X\) が含まれる確率
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	P(a\leq X\leq b)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      P(a\leq X\leq b)
+    \end{equation}
     #+end_quote
   - 「確率変数 \(X\) は確率分布 \(P\) に従う」という
   - 現象の理解のためには実現値より確率分布にこそ興味がある
@@ -155,11 +139,9 @@
   という事象が起きる確率を
   *同時分布*
   という．
-  #+begin_src latex
-    \begin{equation}
-      P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+  \end{equation}
   #+end_quote
 
 ** 独立性
@@ -169,12 +151,10 @@
   \(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が *独立* であるとは，
   \(a_i\leq b_i\) \((i=1,\dots,n)\) なる
   任意の実数 \(a_{1},b_{1},\dots,a_n,b_n\) に対して
-  #+begin_src latex
-    \begin{multline}
-      P(a_{1}\leq X_{1}\leq b_{1},a_{2}\leq X_{2}\leq b_{2},\dots,a_n\leq X_n\leq b_n)\\
-      =P(a_{1}\leq X_{1}\leq b_{1})P(a_{2}\leq X_{2}\leq b_{2})\cdots P(a_n\leq X_n\leq b_n)
-    \end{multline}
-  #+end_src
+  \begin{multline}
+    P(a_{1}\leq X_{1}\leq b_{1},a_{2}\leq X_{2}\leq b_{2},\dots,a_n\leq X_n\leq b_n)\\
+    =P(a_{1}\leq X_{1}\leq b_{1})P(a_{2}\leq X_{2}\leq b_{2})\cdots P(a_n\leq X_n\leq b_n)
+  \end{multline}
   が成り立つことをいう．
   #+end_quote
 
@@ -184,11 +164,9 @@
   #+begin_quote
   \(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が *同分布* であるとは，
   \(a\leq b\) なる任意の実数 \(a,b\) に対して
-  #+begin_src latex
-    \begin{equation}
-      P(a\leq X_{1}\leq b)=P(a\leq X_{2}\leq b)=\cdots=P(a\leq X_n\leq b)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P(a\leq X_{1}\leq b)=P(a\leq X_{2}\leq b)=\cdots=P(a\leq X_n\leq b)
+  \end{equation}
   が成り立つことをいう．
   #+end_quote
 
@@ -258,12 +236,10 @@
   \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
   その平均を \(\mu\) とする．
   このとき,  \(X_1,\dotsc,X_n\) の標本平均
-  #+begin_src latex
-    \begin{equation}
-      \bar{X}_n
-      = \frac{1}{n}\sum_{i=1}^nX_i
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \bar{X}_n
+    = \frac{1}{n}\sum_{i=1}^nX_i
+  \end{equation}
   が \(n\to\infty\) のとき \(\mu\) に収束する確率は1である．
   #+end_quote
 
@@ -276,11 +252,9 @@
 - 誤差の評価の定量化
   - 推定誤差がある区間 \([\alpha,\beta]\) に入る確率で定量的に評価可能
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	P(\alpha\leq \bar{X}_n-\mu\leq \beta)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      P(\alpha\leq \bar{X}_n-\mu\leq \beta)
+    \end{equation}
     #+end_quote
   - 上式の正確な計算は一般には困難
 - サンプル数が大きい場合の定量的な評価の近似方法を述べたのが *中心極限定理*
@@ -294,13 +268,11 @@
   標準偏差を \(\sigma\) とする．
   このとき
   すべての実数 \(a < b\) に対して
-  #+begin_src latex
-    \begin{equation}
-      P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
-      \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
-      (n\to\infty)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
+    \to\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{x^2}{2}}dx\quad
+    (n\to\infty)
+  \end{equation}
   が成り立つ．
   #+end_quote
 
@@ -310,11 +282,9 @@
 - 観測データを確率変数の実現値と考えてモデル化
 - 観測データは独立同分布な確率変数列
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      X_1,X_2,\dots,X_n
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_1,X_2,\dots,X_n
+  \end{equation}
   #+end_quote
 - \(X_i\) の従う共通の法則 \(\mathcal{P}\) を想定
   - \(\mathcal{P}\) として全ての分布を考察対象とすることは困難
@@ -331,11 +301,9 @@
   *推定量* (estimator)
   と呼び，
   通常未知母数に \(\hat\cdot\) を付けて表す．
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta=\hat\theta(X_{1},X_{2},\dotsc,X_{n})
+  \end{equation}
   #+end_quote
   - 推定量は
     \(n\) 個の確率変数
@@ -353,11 +321,9 @@
   \(X_{1}=x_{1},X_{2}=x_{2},\dotsc,X_{n}=x_{n}\)
   という観測値が得られたとき，
   これらの確率変数の実現値を上の推定量に代入して得られる
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta=\hat\theta(x_{1},x_{2},\dotsc,x_{n})
+  \end{equation}
   を
   *推定値* (estimate)
   と呼び，
@@ -374,15 +340,13 @@
   同じ条件の元で繰り返し測定した実験データを考える．
   データには測定毎に誤差が生じるが，
   この偶然に変動するばらつきを確率的なものとして捉えることによって
-  #+begin_src latex
-    \begin{equation}
-      \begin{array}{c@{}c@{}c@{}c@{}cl}
-	X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
-	\text{(確率変数)}&&\text{(未知母数)}&&
-					       \text{(誤差)}
-      \end{array}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \begin{array}{c@{}c@{}c@{}c@{}cl}
+      X_{i}&=&\theta&+&\varepsilon_{i},&i=1,\dotsc,n\\
+      \text{(確率変数)}&&\text{(未知母数)}&&
+                                             \text{(誤差)}
+    \end{array}
+  \end{equation}
   という確率モデルを設定することができる．
   #+end_quote
 - 母数推定
@@ -432,12 +396,10 @@
 ** 推定量の例
 - [[color:green][推定量 : 例1]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \hat\theta
-      &=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\\
-    \end{align}
-  #+end_src
+  \begin{align}
+    \hat\theta
+    &=\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\\
+  \end{align}
   #+end_quote
   - 確率変数の算術平均で
     *標本平均* (sample mean)
@@ -450,12 +412,10 @@
 #+reveal: split
 - [[color:green][推定量 : 例2]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \hat\theta
-      &=\text{(\(X_{1},X_{2},\dotsc,X_{n}\)の中央の値)}\\
-    \end{align}
-  #+end_src
+  \begin{align}
+    \hat\theta
+    &=\text{(\(X_{1},X_{2},\dotsc,X_{n}\)の中央の値)}\\
+  \end{align}
   #+end_quote
   - *中央値* (median) と呼ばれる
   - 誤差が正の側と負の側に均等に出るのであれば
@@ -465,13 +425,11 @@
 #+reveal: split
 - [[color:green][推定量 : 例3]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \hat\theta
-      &=\frac{1}{n-2m}\sum_{i=m+1}^{n-m}X_{(i)}\\
-      &(\text{\(\{X_{(i)}\}\) は \(\{X_{i}\}\) を小さい順に並べ換えたもの})
-    \end{align}
-  #+end_src
+  \begin{align}
+    \hat\theta
+    &=\frac{1}{n-2m}\sum_{i=m+1}^{n-m}X_{(i)}\\
+    &(\text{\(\{X_{(i)}\}\) は \(\{X_{i}\}\) を小さい順に並べ換えたもの})
+  \end{align}
   #+end_quote
   - *トリム平均* (trimmed mean)
     と呼ばれる
@@ -485,22 +443,18 @@
 #+reveal: split
 - [[color:green][推定量 : 例4]]
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \hat\theta
-      &=c_{1}X_{1}+c_{2}X_{2}+\dotsb+c_{n}X_{n},\quad \sum_{i=1}^nc_{i}=1\\
-    \end{align}
-  #+end_src
+  \begin{align}
+    \hat\theta
+    &=c_{1}X_{1}+c_{2}X_{2}+\dotsb+c_{n}X_{n},\quad \sum_{i=1}^nc_{i}=1\\
+  \end{align}
   #+end_quote
   - 各観測の重みを変えて平均を取った加重平均
 - [[color:green][推定量 : 例5]]
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta
-      =X_{n}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta
+    =X_{n}
+  \end{equation}
   #+end_quote
   - 最後のデータのみ使った推定量
 
@@ -525,12 +479,10 @@
   そこから得られた観測値に基づく推定量の平均値が真の母数
   \(\theta\)
   に一致すること
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[\hat\theta]
-      =\theta
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[\hat\theta]
+    =\theta
+  \end{equation}
   である．
   #+end_quote
 
@@ -547,11 +499,9 @@
   が平均の不偏推定量になることを確かめよ．
 - 標本分散
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n}
+  \end{equation}
   #+end_quote
   が分散の不偏推定量とならないことを確かめよ．
 
@@ -561,15 +511,13 @@
 :END:
 - 標本平均
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[\hat\theta]
-      &=\mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]\\
-      &=\frac{\mathbb{E}[X_{1}]+\mathbb{E}[X_{2}]+\dotsb+\mathbb{E}[X_{n}]}{n}\\
-      &=\frac{\theta+\theta+\dotsb+\theta}{n}\\
-      &=\theta
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[\hat\theta]
+    &=\mathbb{E}\left[\frac{X_{1}+X_{2}+\dotsb+X_{n}}{n}\right]\\
+    &=\frac{\mathbb{E}[X_{1}]+\mathbb{E}[X_{2}]+\dotsb+\mathbb{E}[X_{n}]}{n}\\
+    &=\frac{\theta+\theta+\dotsb+\theta}{n}\\
+    &=\theta
+  \end{align}
   となり，
   平均値の不偏な推定量になっていることがわかる．
   他も同様に計算できる．
@@ -581,15 +529,13 @@
   標本分散の分母である
   観測値と標本平均の差の2乗和の平均を計算すると
   以下のようになる．
-  #+begin_src latex
-    \begin{align}
-      &\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\bar{X})^{2}\right]\\
-      &=\mathbb{E}\left[\sum_{i=1}^n\{X_{i}-\theta-(\bar{X}-\theta)\}^{2}\right]\\
-      &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}
-	-2\sum_{i=1}^n(X_{i}-\theta)(\bar{X}-\theta)
-	+\sum_{i=1}^n(\bar{X}-\theta)^{2}\right]
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\bar{X})^{2}\right]\\
+    &=\mathbb{E}\left[\sum_{i=1}^n\{X_{i}-\theta-(\bar{X}-\theta)\}^{2}\right]\\
+    &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}
+      -2\sum_{i=1}^n(X_{i}-\theta)(\bar{X}-\theta)
+      +\sum_{i=1}^n(\bar{X}-\theta)^{2}\right]
+  \end{align}
   #+end_quote
 
 #+reveal: split
@@ -598,14 +544,12 @@
   ここで
   \(\sum_{i=1}^n(X_{i}-\theta)=n(\bar{X}-\theta)\)
   を用いると
-  #+begin_src latex
-    \begin{align}
-      &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}-n(\bar{X}-\theta)^{2}\right]\\
-      &=\sum_{i=1}^n\mathrm{Var}(X_{i})-n\mathrm{Var}(\bar{X})\\
-      &=n\sigma^{2}-\sigma^{2}\\
-      &=(n-1)\sigma^{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &=\mathbb{E}\left[\sum_{i=1}^n(X_{i}-\theta)^{2}-n(\bar{X}-\theta)^{2}\right]\\
+    &=\sum_{i=1}^n\mathrm{Var}(X_{i})-n\mathrm{Var}(\bar{X})\\
+    &=n\sigma^{2}-\sigma^{2}\\
+    &=(n-1)\sigma^{2}
+  \end{align}
   #+end_quote
 
 #+reveal: split
@@ -623,11 +567,9 @@
 - 不偏分散
   #+begin_quote
   分散の不偏推定量は
-  #+begin_src latex
-    \begin{equation}
-      \hat\sigma^{2}=\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n-1}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\sigma^{2}=\frac{\sum_{i=1}^n(X_{i}-\bar{X})^{2}}{n-1}
+  \end{equation}
   で与えられる．
   #+end_quote
 
@@ -645,11 +587,9 @@
   #+begin_quote
   \(\theta\) の任意の不偏推定量 \(\hat{\theta}'\) 
   に対して推定値のばらつき(分散)が最も小さいものが良い．
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
+  \end{equation}
   #+end_quote
 
 ** 不偏推定量の平均
@@ -662,45 +602,37 @@
   であるとする．
   このとき
   これらの不偏推定量の単純な平均を
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta^{*}=\frac{1}{k}\sum_{i=1}^k\hat\theta_{i}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta^{*}=\frac{1}{k}\sum_{i=1}^k\hat\theta_{i}
+  \end{equation}
   とおけば
   以下が成り立つ．
-  #+begin_src latex
-    \begin{align}
-      \mathbb{E}[\hat\theta^{*}]&=\theta 
-      &&\text{(不偏性が保存される)}\\
-      \mathrm{Var}(\hat\theta^{*})&\leq\sigma^{2} 
-      &&\text{(分散が小さくなる可能性がある)}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \mathbb{E}[\hat\theta^{*}]&=\theta 
+    &&\text{(不偏性が保存される)}\\
+    \mathrm{Var}(\hat\theta^{*})&\leq\sigma^{2} 
+    &&\text{(分散が小さくなる可能性がある)}
+  \end{align}
   #+end_quote
   # すなわち
-  # #+begin_src latex
   #   \begin{equation}
   #     \mathrm{Var}(\hat\theta_{1})=\dotsb=\mathrm{Var}(\hat\theta_{k})=\sigma^{2}
   #   \end{equation}
-  # #+end_src
   # である．
 
 ** 証明
 - 平均値の線形性から不偏性は明らか
 - 平方和の展開は以下のとおり
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      &\sum_{i}(\hat\theta_{i}-\theta)^{2}\\
-      &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*}+\hat\theta^{*}-\theta)^{2}\\
-      &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
-	+2\sum_{i}(\hat\theta_{i}-\hat\theta^{*})(\hat\theta^{*}-\theta)
-	+\sum_{i}(\hat\theta^{*}-\theta)^{2}\\
-      &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
-	+k(\hat\theta^{*}-\theta)^{2}
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\sum_{i}(\hat\theta_{i}-\theta)^{2}\\
+    &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*}+\hat\theta^{*}-\theta)^{2}\\
+    &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
+      +2\sum_{i}(\hat\theta_{i}-\hat\theta^{*})(\hat\theta^{*}-\theta)
+      +\sum_{i}(\hat\theta^{*}-\theta)^{2}\\
+    &=\sum_{i}(\hat\theta_{i}-\hat\theta^{*})^{2}
+      +k(\hat\theta^{*}-\theta)^{2}
+  \end{align}
   途中
   \(\hat\theta^{*}=\frac{1}{k}\sum_{i=1}^k\hat\theta_{i}\)
   より
@@ -711,30 +643,26 @@
 #+reveal: split
 - 両辺の平均を考える
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \sum_{i}\mathbb{E}[(\hat\theta_{i}-\theta)^{2}]
-      &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
-	+k\mathbb{E}[(\hat\theta^{*}-\theta)^{2}]\\
-      \sum_{i}\mathrm{Var}(\hat\theta_{i})
-      &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
-	+k\mathrm{Var}(\hat\theta^{*})\\
-      k\sigma^{2}
-      &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
-	+k\mathrm{Var}(\hat\theta^{*})
-    \end{align}
-  #+end_src
+  \begin{align}
+    \sum_{i}\mathbb{E}[(\hat\theta_{i}-\theta)^{2}]
+    &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
+      +k\mathbb{E}[(\hat\theta^{*}-\theta)^{2}]\\
+    \sum_{i}\mathrm{Var}(\hat\theta_{i})
+    &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
+      +k\mathrm{Var}(\hat\theta^{*})\\
+    k\sigma^{2}
+    &=\sum_{i}\mathbb{E}[(\hat\theta_{i}-\hat\theta^{*})^{2}]
+      +k\mathrm{Var}(\hat\theta^{*})
+  \end{align}
   #+end_quote
 
 #+reveal: split
 - 以下の不等式が成立する
   #+begin_quote
   右辺の第1項は0または正でなので
-  #+begin_src latex
-    \begin{equation}
-      \sigma^{2}\ge \mathrm{Var}(\hat\theta^{*})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \sigma^{2}\ge \mathrm{Var}(\hat\theta^{*})
+  \end{equation}
   となり，分散が小さくなることがわかる．
   #+end_quote
 
@@ -752,11 +680,9 @@
   不偏推定量
   \(\hat\theta^{*}\)
   で，つねに
-  #+begin_src latex
-    \begin{equation}
-      \mathrm{Var}(\hat\theta^{*})\le \mathrm{Var}(\hat\theta)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathrm{Var}(\hat\theta^{*})\le \mathrm{Var}(\hat\theta)
+  \end{equation}
   となるものが存在する．
   #+end_quote
 
@@ -778,12 +704,10 @@
   を
   \(X_{1},X_{2},\dotsc,X_{n}\)
   について対称化，すなわち
-  #+begin_src latex
-    \begin{equation}
-      \hat\theta^{*}=\frac{1}{n!}\sum
-      \hat\theta(\{\text{\(X_{1},X_{2},\dotsc,X_{n}\)のあらゆる並べ替え}\})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \hat\theta^{*}=\frac{1}{n!}\sum
+    \hat\theta(\{\text{\(X_{1},X_{2},\dotsc,X_{n}\)のあらゆる並べ替え}\})
+  \end{equation}
   を考え，前定理を使えばよい．
   #+end_quote
 

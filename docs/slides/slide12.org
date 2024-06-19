@@ -3,10 +3,10 @@
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
-# Time-stamp: <2023-07-10 18:19:26 mura>
-:REVEAL:
-#+INCLUDE: "./reveal.js/org/mycourse.org"
 #+STARTUP: hidestars content indent
+# Time-stamp: <2024-06-19 16:43:22 mura>
+:REVEAL:
+#+SETUPFILE: "./reveal.js/org/mycourse.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -15,6 +15,7 @@
 * COMMENT メモ
 - 校正に関して記述
 - 前回のおさらいに問題を入れた方が良さそう
+
 
 * 前回のおさらい
 - 統計的仮説検定
@@ -71,12 +72,10 @@
   #+end_quote
 - *\(p\) 値 (有意確率)*
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \text{(\(p\) 値)}
-      =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \text{(\(p\) 値)}
+    =\min\{\alpha\in(0,1)|\text{\(T\) が\(R_{\alpha}\)に含まれる}\}
+  \end{equation}
   #+end_quote
   - 検定統計量 \(T\) が棄却域 \(R_{\alpha}\) に含まれる有意水準 \(\alpha\) の最小値
 - 有意水準と \(p\) 値の関係
@@ -88,107 +87,87 @@
 - 問題
   #+begin_quote
   確率変数列の平均値が \(\mu\) と等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_1,X_2,\dotsc,X_n 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_1,X_2,\dotsc,X_n 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      X_i=\theta+\varepsilon_{i},
-      \quad i=1,\dotsc,n
-      \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_i=\theta+\varepsilon_{i},
+    \quad i=1,\dotsc,n
+    \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+  \end{equation}
   を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
-  #+begin_src latex
-    \begin{equation}
-      H_{0}: \theta=\mu
-      \quad\text{vs}\quad
-      H_{1}: \theta\not=\mu
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_{0}: \theta=\mu
+    \quad\text{vs}\quad
+    H_{1}: \theta\not=\mu
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+  \end{equation}
   #+end_quote
   - 帰無分布は標準正規分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}
-      =
-      \left(-\infty,-z_{1{-}\alpha/2}\right)
-      \cup
-      \left(z_{1{-}\alpha/2},\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}
+    =
+    \left(-\infty,-z_{1{-}\alpha/2}\right)
+    \cup
+    \left(z_{1{-}\alpha/2},\infty\right)
+  \end{equation}
   #+end_quote
 ** 正規分布を用いた平均値の差の検定
 - 問題
   #+begin_quote
   2つの確率変数列の平均値が等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_1,X_2,\dotsc,X_n, \qquad
-      Y_1,Y_2,\dotsc,Y_m 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_1,X_2,\dotsc,X_n, \qquad
+    Y_1,Y_2,\dotsc,Y_m 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      X_i&=\theta_{1}+\varepsilon_{1i},
-           \quad i=1,\dotsc,n
-           \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
-      Y_j&=\theta_{2}+\varepsilon_{2j},
-           \quad j=1,\dotsc,m
-           \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
-    \end{align}
-  #+end_src
+  \begin{align}
+    X_i&=\theta_{1}+\varepsilon_{1i},
+         \quad i=1,\dotsc,n
+         \qquad \varepsilon_{1i}\sim\mathcal{N}(0,\sigma^{2})\\
+    Y_j&=\theta_{2}+\varepsilon_{2j},
+         \quad j=1,\dotsc,m
+         \qquad \varepsilon_{2j}\sim\mathcal{N}(0,\sigma^{2})
+  \end{align}
   を観測値の確率モデル (\(\sigma^{2}\) は既知) とするとき
-  #+begin_src latex
-    \begin{equation}
-      H_{0}: \theta_{1}=\theta_{2}
-      \quad\text{vs}\quad
-      H_{1}: \theta_{1}\not=\theta_{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_{0}: \theta_{1}=\theta_{2}
+    \quad\text{vs}\quad
+    H_{1}: \theta_{1}\not=\theta_{2}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=\sqrt{\frac{nm}{n+m}}\frac{\bar{X}-\bar{Y}}{\sigma}
+  \end{equation}
   #+end_quote
   - 帰無分布は標準正規分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}
-      =
-      \left(-\infty,-z_{1{-}\alpha/2}\right)
-      \cup
-      \left(z_{1{-}\alpha/2},\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}
+    =
+    \left(-\infty,-z_{1{-}\alpha/2}\right)
+    \cup
+    \left(z_{1{-}\alpha/2},\infty\right)
+  \end{equation}
   #+end_quote
 ** 両側検定と片側検定
 - 対立仮説によって棄却域の形は変わりうる
@@ -198,21 +177,17 @@
   - 両側検定:
     #+begin_quote
     棄却域がある定数 \(a < b\) によって
-    #+begin_src latex
-      \begin{equation}
-	(-\infty,a)\cup(b,\infty)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      (-\infty,a)\cup(b,\infty)
+    \end{equation}
     #+end_quote
   - 片側検定
     #+begin_quote
     棄却域がある定数 \(a\) によって
-    #+begin_src latex
-      \begin{align}
-	&(a,\infty)&&\text{(右片側検定)}\\
-	&(-\infty,a)&&\text{(左片側検定)}
-      \end{align}
-    #+end_src
+    \begin{align}
+      &(a,\infty)&&\text{(右片側検定)}\\
+      &(-\infty,a)&&\text{(左片側検定)}
+    \end{align}
     #+end_quote
     # \((-\infty,a)\cup(b,\infty)\)
     # \((a,\infty)\) (右片側検定)
@@ -240,48 +215,38 @@
 - 問題
   #+begin_quote
   確率変数列の平均値が \(\mu_{0}\) と等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_{1},X_{2},\dotsc,X_{n} 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{1},X_{2},\dotsc,X_{n} 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      X_{i}=\mu+\varepsilon_{i},
-      \quad i=1,\dotsc,n
-      \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{i}=\mu+\varepsilon_{i},
+    \quad i=1,\dotsc,n
+    \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+  \end{equation}
   を観測値の確率モデル (\(\sigma^{2}\) は *未知*) とするとき
-  #+begin_src latex
-    \begin{equation}
-      H_{0}: \mu=\mu_{0}
-      \quad\text{vs}\quad
-      H_{1}: \mu\neq\mu_{0}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_{0}: \mu=\mu_{0}
+    \quad\text{vs}\quad
+    H_{1}: \mu\neq\mu_{0}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 平均と分散の推定量
   - 標本平均
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+    \end{equation}
     #+end_quote
   - 不偏分散
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      s^{2}=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^{2}
+    \end{equation}
     #+end_quote
 
 #+reveal: split
@@ -289,225 +254,183 @@
   - 標本平均と不偏分散は互いに独立
   - 標本平均 (標準正規分布)
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	\frac{\bar{X}-\mu_{0}}{\sigma/\sqrt{n}}
-	\sim \mathcal{N}(0,1)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \frac{\bar{X}-\mu_{0}}{\sigma/\sqrt{n}}
+      \sim \mathcal{N}(0,1)
+    \end{equation}
     #+end_quote
   - 不偏分散 (\(\chi^{2}\) 分布)
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-	\frac{(n{-}1)s^{2}}{\sigma^{2}}
-	\sim \chi^{2}(n{-}1)
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \frac{(n{-}1)s^{2}}{\sigma^{2}}
+      \sim \chi^{2}(n{-}1)
+    \end{equation}
     #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T=\frac{\sqrt{n}(\bar{X}-\mu_0)}{s}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=\frac{\sqrt{n}(\bar{X}-\mu_0)}{s}
+  \end{equation}
   #+end_quote
   - 帰無分布は自由度 \(n{-}1\) の \(t\) 分布
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-        \text{(\(t\) 分布)}
-        =
-        \frac{\text{(標準正規分布)}}
-        {\sqrt{(\chi^{2}\text{分布})/\text{(自由度)}}}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \text{(\(t\) 分布)}
+      =
+      \frac{\text{(標準正規分布)}}
+      {\sqrt{(\chi^{2}\text{分布})/\text{(自由度)}}}
+    \end{equation}
     #+end_quote
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}=
-      \left(-\infty,-t_{1{-}\alpha/2}(n{-}1)\right)
-      \cup\left(t_{1{-}\alpha/2}(n{-}1),\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}=
+    \left(-\infty,-t_{1{-}\alpha/2}(n{-}1)\right)
+    \cup\left(t_{1{-}\alpha/2}(n{-}1),\infty\right)
+  \end{equation}
   #+end_quote
 
 ** 平均値の差の検定
 - 問題
   #+begin_quote
   2つの確率変数列の平均値が等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_{1},X_{2},\dotsc,X_{m}, \qquad
-      Y_{1},Y_{2},\dotsc,Y_{n} 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{1},X_{2},\dotsc,X_{m}, \qquad
+    Y_{1},Y_{2},\dotsc,Y_{n} 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      X_i&=\mu_{1}+\varepsilon_{1i},
-           \quad i=1,\dotsc,m
-      && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
-      Y_j&=\mu_{2}+\varepsilon_{2j},
-           \quad j=1,\dotsc,n
-      && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
-    \end{align}
-  #+end_src
+  \begin{align}
+    X_i&=\mu_{1}+\varepsilon_{1i},
+         \quad i=1,\dotsc,m
+    && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
+    Y_j&=\mu_{2}+\varepsilon_{2j},
+         \quad j=1,\dotsc,n
+    && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
+  \end{align}
   を観測値の確率モデル (\(\sigma_{i}^{2}\) は *未知*) とするとき
-  #+begin_src latex
-    \begin{equation}
-      H_{0}: \mu_{1}=\mu_{2}
-      \quad\text{vs}\quad
-      H_{1}: \mu_{1}\neq\mu_{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_{0}: \mu_{1}=\mu_{2}
+    \quad\text{vs}\quad
+    H_{1}: \mu_{1}\neq\mu_{2}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_{1}^{2}/m+s_{2}^{2}/n}}
-      \quad
-      \text{(\(s_{1}^{2},s_{2}^{2}\)は\(X,Y\)の不偏分散)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=\frac{\bar{X}-\bar{Y}}{\sqrt{s_{1}^{2}/m+s_{2}^{2}/n}}
+    \quad
+    \text{(\(s_{1}^{2},s_{2}^{2}\)は\(X,Y\)の不偏分散)}
+  \end{equation}
   #+end_quote
   - 帰無分布は近似的に自由度 \(\hat{\nu}\) の \(t\) 分布 (*Welchの近似*)
     #+begin_quote
-    #+begin_src latex
-      \begin{equation}
-        \hat{\nu}
-        =\frac{(s_{1}^{2}/m+s_{2}^{2}/n)^{2}}
-        {(s_{1}^{2}/m)^{2}/(m{-}1)+(s_{2}^{2}/n)^{2}/(n{-}1)}
-      \end{equation}
-    #+end_src
+    \begin{equation}
+      \hat{\nu}
+      =\frac{(s_{1}^{2}/m+s_{2}^{2}/n)^{2}}
+      {(s_{1}^{2}/m)^{2}/(m{-}1)+(s_{2}^{2}/n)^{2}/(n{-}1)}
+    \end{equation}
     #+end_quote
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}=
-      \left(-\infty,-t_{1{-}\alpha/2}(\hat{\nu})\right)
-      \cup\left(t_{1{-}\alpha/2}(\hat{\nu}),\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}=
+    \left(-\infty,-t_{1{-}\alpha/2}(\hat{\nu})\right)
+    \cup\left(t_{1{-}\alpha/2}(\hat{\nu}),\infty\right)
+  \end{equation}
   #+end_quote
 
 ** 分散の検定
 - 問題
   #+begin_quote
   確率変数列の分散が \(\sigma_0^{2}\) と等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_{1},X_{2},\dotsc,X_{n} 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{1},X_{2},\dotsc,X_{n} 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      X_{i}=\mu+\varepsilon_{i},
-      \quad i=1,\dotsc,n
-      \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{i}=\mu+\varepsilon_{i},
+    \quad i=1,\dotsc,n
+    \qquad \varepsilon_{i}\sim\mathcal{N}(0,\sigma^{2})
+  \end{equation}
   を観測値の確率モデルとするとき
-  #+begin_src latex
-    \begin{equation}
-      H_0:\sigma^{2}=\sigma_0^{2}
-      \quad\text{vs}\quad
-      H_{1}:\sigma^{2}\neq\sigma_0^{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_0:\sigma^{2}=\sigma_0^{2}
+    \quad\text{vs}\quad
+    H_{1}:\sigma^{2}\neq\sigma_0^{2}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
-      \quad
-      \text{(\(s^{2}\)は\(X\)の不偏分散)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \chi^{2}=\frac{(n{-}1)s^{2}}{\sigma_0^{2}}
+    \quad
+    \text{(\(s^{2}\)は\(X\)の不偏分散)}
+  \end{equation}
   #+end_quote
   - 帰無分布は自由度 \(n{-}1\) の \(\chi^{2}\) 分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}=
-      \left(0,\chi^{2}_{\alpha/2}(n{-}1)\right)
-      \cup\left(\chi^{2}_{1{-}\alpha/2}(n{-}1),\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}=
+    \left(0,\chi^{2}_{\alpha/2}(n{-}1)\right)
+    \cup\left(\chi^{2}_{1{-}\alpha/2}(n{-}1),\infty\right)
+  \end{equation}
   #+end_quote
 
 ** 分散の比の検定
 - 問題
   #+begin_quote
   2つの確率変数列の分散が等しいか検定せよ．
-  #+begin_src latex
-    \begin{equation}
-      X_{1},X_{2},\dotsc,X_{m}, \qquad
-      Y_{1},Y_{2},\dotsc,Y_{n} 
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X_{1},X_{2},\dotsc,X_{m}, \qquad
+    Y_{1},Y_{2},\dotsc,Y_{n} 
+  \end{equation}
   #+end_quote
 - 検定問題
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      X_i&=\mu_{1}+\varepsilon_{1i},
-           \quad i=1,\dotsc,m
-      && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
-      Y_j&=\mu_{2}+\varepsilon_{2j},
-           \quad j=1,\dotsc,n
-      && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
-    \end{align}
-  #+end_src
+  \begin{align}
+    X_i&=\mu_{1}+\varepsilon_{1i},
+         \quad i=1,\dotsc,m
+    && \varepsilon_{1i}\sim\mathcal{N}(0,\sigma_{1}^{2})\\
+    Y_j&=\mu_{2}+\varepsilon_{2j},
+         \quad j=1,\dotsc,n
+    && \varepsilon_{2j}\sim\mathcal{N}(0,\sigma_{2}^{2})
+  \end{align}
   を観測値の確率モデルとするとき
-  #+begin_src latex
-    \begin{equation}
-      H_0:\sigma_{1}^{2}=\sigma_{2}^{2}
-      \quad\text{vs}\quad
-      H_{1}:\sigma_{1}^{2}\neq\sigma_{2}^{2}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_0:\sigma_{1}^{2}=\sigma_{2}^{2}
+    \quad\text{vs}\quad
+    H_{1}:\sigma_{1}^{2}\neq\sigma_{2}^{2}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      F=\frac{s_{1}^{2}}{s_{2}^{2}}
-      \quad
-      \text{(\(s_{1}^{2},s_{2}^{2}\)は\(X,Y\)の不偏分散)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    F=\frac{s_{1}^{2}}{s_{2}^{2}}
+    \quad
+    \text{(\(s_{1}^{2},s_{2}^{2}\)は\(X,Y\)の不偏分散)}
+  \end{equation}
   #+end_quote
   - 帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\) 分布
 - 棄却域 (両側検定の場合)
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}=
-      \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
-      \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}=
+    \left(0,F_{\alpha/2}(m{-}1,n{-}1)\right)
+    \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
+  \end{equation}
   #+end_quote
 
 
@@ -538,27 +461,23 @@
 :END:
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T=\frac{\bar{X}-\bar{Y}}{\sqrt{\sigma_{1}^{2}/n+\sigma_{2}^{2}/m}}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T=\frac{\bar{X}-\bar{Y}}{\sqrt{\sigma_{1}^{2}/n+\sigma_{2}^{2}/m}}
+  \end{equation}
   #+end_quote
 - 棄却域 (有意水準 \(\alpha=0.05\) の両側検定)
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      R_{\alpha}
-      &=
-	\left(-\infty,-z_{0.975}\right)
-	\cup
-	\left(z_{0.975},\infty\right)\\
-      &=
-	\left(-\infty,-1.96\right)
-	\cup
-	\left(1.96,\infty\right)
-    \end{align}
-  #+end_src
+  \begin{align}
+    R_{\alpha}
+    &=
+      \left(-\infty,-z_{0.975}\right)
+      \cup
+      \left(z_{0.975},\infty\right)\\
+    &=
+      \left(-\infty,-1.96\right)
+      \cup
+      \left(1.96,\infty\right)
+  \end{align}
   #+end_quote
 
 #+reveal: split
@@ -569,13 +488,11 @@
   #+end_quote
 - 検定統計量の計算 
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      T
-      =\frac{7400-8200}{\sqrt{2500^{2}/80+2800^{2}/100}}
-      =-2.022
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    T
+    =\frac{7400-8200}{\sqrt{2500^{2}/80+2800^{2}/100}}
+    =-2.022
+  \end{equation}
   #+end_quote
 - 検定の結果
   #+begin_quote
@@ -614,18 +531,16 @@
     Cramer-Rao 下界に一致する
   - Fisher 情報量 (\(f\) : 確率質量関数または確率密度関数)
     #+begin_quote
-    #+begin_src latex
     \begin{align}
       I(\theta_0)
       &=\mathbb{E}_{\theta_0}
-	\left[
+      \left[
         -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta_0)
-	\right]
+        \right]
       \\
       &=\mathbb{E}_{\theta_0}\left[\left(
-	\frac{\partial}{\partial\theta}\log f(X;\theta_0)\right)^{2}\right]
+        \frac{\partial}{\partial\theta}\log f(X;\theta_0)\right)^{2}\right]
     \end{align}
-    #+end_src
     #+end_quote
 
 ** 最尤推定量の検定
@@ -633,11 +548,9 @@
   #+begin_quote
   \(\theta_0\) を既知の定数として，
   母数 \(\theta\) が真の値 \(\theta_0\) であるか否かを検定する
-  #+begin_src latex
-    \begin{equation}
-      H_0:\theta=\theta_0\quad\text{vs}\quad H_{1}:\theta\neq\theta_0
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    H_0:\theta=\theta_0\quad\text{vs}\quad H_{1}:\theta\neq\theta_0
+  \end{equation}
   #+end_quote
   - 上記は両側検定
   - 片側検定も同様に考えることができる
@@ -647,25 +560,21 @@
   #+begin_quote
   観測データ数 \(n\) が十分大きいとき，
   1次元母数 \(\theta\) を含む連続分布の最尤推定量 \(\hat\theta\) は
-  #+begin_src latex
-    \begin{equation}
-      \mathbb{E}[\hat\theta]=\theta_{0},\quad
-      \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \mathbb{E}[\hat\theta]=\theta_{0},\quad
+    \mathrm{Var}(\hat\theta)=\frac{1}{nI(\theta_{0})}
+  \end{equation}
   の正規分布で近似できる．
   #+end_quote
 
 ** @@latex:@@\(Z\) 検定 (正規分布による検定)
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      Z
-      =
-      \sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Z
+    =
+    \sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+  \end{equation}
   #+end_quote
   - 帰無分布は標準正規分布
   - Fisher 情報量は真の値 \(\theta_{0}\) で計算すればよい
@@ -677,13 +586,11 @@
   #+end_quote
 - 棄却域
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      R_{\alpha}=
-      \left(-\infty,-z_{1{-}\alpha/2}\right)
-      \cup\left(z_{1{-}\alpha/2},\infty\right)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    R_{\alpha}=
+    \left(-\infty,-z_{1{-}\alpha/2}\right)
+    \cup\left(z_{1{-}\alpha/2},\infty\right)
+  \end{equation}
   #+end_quote
 
 ** 例題 (McNemar検定)
@@ -746,15 +653,13 @@
   - どちらかが正解 : 認識すべき文字 (比較すべき)
 - 以下の確率変数を考える
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      X=
-      \begin{cases}
-	1, &\text{A社のみ正解}\\
-	0, &\text{B社のみ正解}
-      \end{cases}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    X=
+    \begin{cases}
+      1, &\text{A社のみ正解}\\
+      0, &\text{B社のみ正解}
+    \end{cases}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
@@ -762,45 +667,37 @@
   #+begin_quote
   A社のみ正解の確率を \(\theta\) とし，
   確率変数 \(X\) の確率質量関数を以下で定義する
-  #+begin_src latex
-    \begin{equation}
-      f(x;\theta)=\theta^{x}(1-\theta)^{1-x}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    f(x;\theta)=\theta^{x}(1-\theta)^{1-x}
+  \end{equation}
   #+end_quote
 - Fisher 情報量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      I(\theta)
-      =\mathbb{E}
-      \left[
-	-\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
-      \right]
-      =\frac{1}{\theta(1-\theta)}
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    I(\theta)
+    =\mathbb{E}
+    \left[
+      -\frac{\partial^{2}}{\partial\theta^{2}}\log f(X;\theta)
+    \right]
+    =\frac{1}{\theta(1-\theta)}
+  \end{equation}
   #+end_quote
 
 #+reveal: split
 - 対数尤度
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      \ell(\theta)
-      =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    \ell(\theta)
+    =n\bar{X}\log\theta+n(1-\bar{X})\log(1-\theta)         
+  \end{equation}
   #+end_quote
 - 最尤推定量
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      \ell'(\hat\theta)
-      &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
-      \hat\theta&=\bar{X}
-    \end{align}
-  #+end_src
+  \begin{align}
+    \ell'(\hat\theta)
+    &=\frac{n\bar{X}}{\hat\theta}-\frac{n(1-\bar{X})}{1-\hat\theta}=0\\
+    \hat\theta&=\bar{X}
+  \end{align}
   #+end_quote
 
 #+reveal: split
@@ -808,43 +705,35 @@
   #+begin_quote
   - 帰無仮説 : A社とB社の性能に違いはない (\(\theta_{0}=0.5\))
   - 対立仮説 : A社の方がB社より性能が良い
-  #+begin_src latex
     \begin{equation}
       H_0:\theta=\theta_{0}\quad\text{vs}\quad H_{1}:\theta>\theta_{0}
     \end{equation}
-  #+end_src
   #+end_quote
 - 検定統計量
   #+begin_quote
-  #+begin_src latex
-    \begin{equation}
-      Z
-      =
-      \sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Z
+    =
+    \sqrt{nI(\theta_{0})}(\hat{\theta}-\theta_{0})
+  \end{equation}
   #+end_quote
   - 帰無分布は標準正規分布
 
 #+reveal: split
 - 有意水準と棄却域(両側・片側)に応じて以下の分位点を用いれば良い
   #+begin_quote
-  #+begin_src latex
-    \begin{align}
-      &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
-      &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
-      &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
-    \end{align}
-  #+end_src
+  \begin{align}
+    &\alpha=0.10 && z_{0.95}=1.64 && z_{0.90}=1.28 \\
+    &\alpha=0.05 && z_{0.975}=1.96 && z_{0.95}=1.64 \\
+    &\alpha=0.01 && z_{0.995}=2.58 && z_{0.99}=2.33
+  \end{align}
   #+end_quote
 - 検定統計量の計算
   #+begin_quote
   題意より
-  #+begin_src latex
-    \begin{equation}
-      Z=\sqrt{400/0.5^{2}}(220/400-0.5)
-    \end{equation}
-  #+end_src
+  \begin{equation}
+    Z=\sqrt{400/0.5^{2}}(220/400-0.5)
+  \end{equation}
   #+end_quote
 
 
