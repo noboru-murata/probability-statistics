@@ -11,22 +11,21 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
-
-<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
-
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
 
-<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
-<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide" data-state="no-toc-progress">
+<section id="sec-title-slide">
 <!-- This is an HTML template for the title slide. -->
 <!-- Embed logos as necessary. -->
 <!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
@@ -46,8 +45,8 @@
 
 </section>
 <section>
-<section id="slide-org9ed89f3">
-<h2 id="org9ed89f3">前回のおさらい</h2>
+<section id="slide-org5936947">
+<h2 id="org5936947">前回のおさらい</h2>
 <ul>
 <li>最尤法の考え方</li>
 <li>最尤推定量の性質
@@ -64,10 +63,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org829c7dc">
-<h3 id="org829c7dc">統計的推測の考え方</h3>
+<section id="slide-orgce8451e">
+<h3 id="orgce8451e">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_{1},X_{2},\dotsc,X_{n}\) に対する考察が重要</li>
@@ -82,10 +80,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb3c438a">
-<h3 id="orgb3c438a">点推定</h3>
+<section id="slide-orge60c07c">
+<h3 id="orge60c07c">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -108,10 +105,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1a40654">
-<h3 id="org1a40654">区間推定</h3>
+<section id="slide-org764865b">
+<h3 id="org764865b">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -139,10 +135,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfbc88fb">
-<h3 id="orgfbc88fb">尤度関数</h3>
+<section id="slide-org3e1c26d">
+<h3 id="org3e1c26d">尤度関数</h3>
 <ul>
 <li><p>
 定義
@@ -173,10 +168,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org90f34a9">
-<h3 id="org90f34a9">最尤法</h3>
+<section id="slide-orgbc5a37c">
+<h3 id="orgbc5a37c">最尤法</h3>
 <ul>
 <li><p>
 最尤法
@@ -218,10 +212,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org758e46f">
-<h3 id="org758e46f">最尤推定量の区間推定</h3>
+<section id="slide-orga0ec10a">
+<h3 id="orga0ec10a">最尤推定量の区間推定</h3>
 <ul>
 <li><p>
 定理 (最尤推定量の漸近正規性)
@@ -245,7 +238,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -270,17 +262,16 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org5ddf1ab">
-<h2 id="org5ddf1ab">検定とは</h2>
-<div class="outline-text-2" id="text-org5ddf1ab">
+<section id="slide-org89acfa8">
+<h2 id="org89acfa8">検定とは</h2>
+<div class="outline-text-2" id="text-org89acfa8">
 </div>
 </section>
-<section id="slide-orga02361d">
-<h3 id="orga02361d">統計的仮説検定</h3>
+<section id="slide-org954126f">
+<h3 id="org954126f">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -297,10 +288,9 @@
 母集団の分布に対して何らかの <b>仮説</b> を考えるところ</li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org647ebea">
-<h3 id="org647ebea">検定の基本的手続き</h3>
+<section id="slide-orge81e71e">
+<h3 id="orge81e71e">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
 <li>仮説のもとで <b>検定統計量</b> が従う標本分布を調べる</li>
@@ -310,10 +300,9 @@
 得られるかどうかを判断する</li>
 
 </ol>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org93e8e6f">
-<h3 id="org93e8e6f">検定における仮説</h3>
+<section id="slide-org3dffec3">
+<h3 id="org3dffec3">検定における仮説</h3>
 <ul>
 <li><p>
 <b>帰無仮説</b>
@@ -340,10 +329,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org908b646">
-<h3 id="org908b646">帰無仮説と対立仮説</h3>
+<section id="slide-org23b5274">
+<h3 id="org23b5274">帰無仮説と対立仮説</h3>
 <ul>
 <li><span style="color:green;">薬の治験の例</span> (単純な比較)
 <ul>
@@ -359,10 +347,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd8c16d1">
-<h3 id="orgd8c16d1">検定の用語</h3>
+<section id="slide-org8e80b6f">
+<h3 id="org8e80b6f">検定の用語</h3>
 <ul>
 <li><p>
 <b>帰無分布</b>
@@ -394,10 +381,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org08ad48e">
-<h3 id="org08ad48e">検定の設計指針</h3>
+<section id="slide-org156e8a4">
+<h3 id="org156e8a4">検定の設計指針</h3>
 <ul>
 <li>検定統計量 \(T\) に対して棄却域 \(R\) を設計
 <ul>
@@ -437,10 +423,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org593febe">
-<h3 id="org593febe">棄却域の決め方</h3>
+<section id="slide-org54226cc">
+<h3 id="org54226cc">棄却域の決め方</h3>
 <ul>
 <li><p>
 検定を構成する場合の一般的な戦略
@@ -470,31 +455,29 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
-<div class="leftcol" id="orgc501ab7">
+<div class="leftcol" id="org408ce60">
 
-<div id="org620b027" class="figure">
+<div id="orgb41f1cb" class="figure">
 <p><img src="figs/level_small.png" alt="level_small.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>有意水準が小さい場合</p>
 </div>
 
 </div>
-<div class="rightcol" id="org1de8bfa">
+<div class="rightcol" id="orgaa25696">
 
-<div id="orgdce85fa" class="figure">
+<div id="orgf44c50e" class="figure">
 <p><img src="figs/level_large.png" alt="level_large.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>有意水準が大きい場合</p>
 </div>
 
 </div>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org165dd6b">
-<h3 id="org165dd6b">両側検定と片側検定</h3>
+<section id="slide-orgb87837c">
+<h3 id="orgb87837c">両側検定と片側検定</h3>
 <ul>
 <li>棄却域の形による分類
 <ul>
@@ -527,7 +510,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -540,10 +522,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgab95268">
-<h3 id="orgab95268">\(p\) 値 (有意確率)</h3>
+<section id="slide-org2c66c68">
+<h3 id="org2c66c68">\(p\) 値 (有意確率)</h3>
 <ul>
 <li><p>
 帰無分布における検定統計量の評価
@@ -568,10 +549,9 @@
 <li>\(p\) 値が有意水準未満のときに帰無仮説を棄却する</li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdc1c1ca">
-<h3 id="orgdc1c1ca">検定に関する注意</h3>
+<section id="slide-org367a551">
+<h3 id="org367a551">検定に関する注意</h3>
 <ul>
 <li><p>
 帰無仮説の受容の意味
@@ -596,17 +576,16 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org1987f92">
-<h2 id="org1987f92">正規分布を用いた検定</h2>
-<div class="outline-text-2" id="text-org1987f92">
+<section id="slide-org3244cf4">
+<h2 id="org3244cf4">正規分布を用いた検定</h2>
+<div class="outline-text-2" id="text-org3244cf4">
 </div>
 </section>
-<section id="slide-org5d01e97">
-<h3 id="org5d01e97">例題</h3>
+<section id="slide-orgfe7f3f9">
+<h3 id="orgfe7f3f9">例題</h3>
 <ul>
 <li><p>
 <span style="color:green;">平均値の検定</span>
@@ -622,7 +601,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -661,7 +639,6 @@ A県とB県で生産されたの林檎の甘さの違いを調べるために，
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -731,10 +708,9 @@ A社とB社の開発した2つの文字認識機械がある．
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org866a5f7">
-<h3 id="org866a5f7">平均値の差の検定</h3>
+<section id="slide-org6e2564a">
+<h3 id="org6e2564a">平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -773,7 +749,6 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -813,7 +788,6 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -846,7 +820,6 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -882,7 +855,6 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -916,7 +888,6 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -951,27 +922,25 @@ A社とB社の開発した2つの文字認識機械がある．
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
-<div class="leftcol" id="orgf1d6782">
+<div class="leftcol" id="org8bc1d86">
 
-<div id="orgd0b6916" class="figure">
+<div id="orgffb86f3" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol" id="org80025c4">
+<div class="rightcol" id="org331bb89">
 
-<div id="org7131326" class="figure">
+<div id="org9048573" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 </div>
 
 </div>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -1003,16 +972,14 @@ A社とB社の開発した2つの文字認識機械がある．
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org33082ec" data-background="#fef4f4">
-<h2 id="org33082ec">演習</h2>
-<div class="slide-footer"><br></div>
+<section id="slide-orgfc40b95" data-background="#fef4f4">
+<h2 id="orgfc40b95">演習</h2>
 </section>
-<section id="slide-org46fb936" data-background="#fef4f4">
-<h3 id="org46fb936">練習問題</h3>
+<section id="slide-orge76ace0" data-background="#fef4f4">
+<h3 id="orge76ace0">練習問題</h3>
 <ul>
 <li><p>
 平均値の検定の問題を考えてみよ．
@@ -1034,10 +1001,9 @@ A社とB社の開発した2つの文字認識機械がある．
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaeedc0b" data-background="#fef4f4">
-<h3 id="orgaeedc0b">練習問題</h3>
+<section id="slide-org89529d0" data-background="#fef4f4">
+<h3 id="org89529d0">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -1066,12 +1032,11 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgb005137">
-<h2 id="orgb005137">今回のまとめ</h2>
+<section id="slide-orgeb75291">
+<h2 id="orgeb75291">今回のまとめ</h2>
 <ul>
 <li>統計的仮説検定
 <ul>
@@ -1090,14 +1055,16 @@ Y県とF県で生産されたの桃の甘さの違いを調べるために，
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </div>
 </div>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
@@ -1118,16 +1085,15 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
+spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
-{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+]
 
 });
 </script>

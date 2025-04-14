@@ -11,22 +11,21 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
-
-<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
-
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
 
-<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
-<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide" data-state="no-toc-progress">
+<section id="sec-title-slide">
 <!-- This is an HTML template for the title slide. -->
 <!-- Embed logos as necessary. -->
 <!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
@@ -46,8 +45,8 @@
 
 </section>
 <section>
-<section id="slide-org89b1dba">
-<h2 id="org89b1dba">前回のおさらい</h2>
+<section id="slide-org7c4d423">
+<h2 id="org7c4d423">前回のおさらい</h2>
 <ul>
 <li>平均の点推定
 <ul>
@@ -64,10 +63,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5544d34">
-<h3 id="org5544d34">統計的推測の考え方</h3>
+<section id="slide-org4432c9b">
+<h3 id="org4432c9b">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -82,10 +80,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org40f2016">
-<h3 id="org40f2016">点推定</h3>
+<section id="slide-orgeee365a">
+<h3 id="orgeee365a">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -108,10 +105,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org72c2b46">
-<h3 id="org72c2b46">Cramer-Raoの不等式</h3>
+<section id="slide-orgc8901cb">
+<h3 id="orgc8901cb">Cramer-Raoの不等式</h3>
 <ul>
 <li><p>
 定理
@@ -142,10 +138,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd0452fe">
-<h3 id="orgd0452fe">一様最小分散不偏推定量</h3>
+<section id="slide-org883de3e">
+<h3 id="org883de3e">一様最小分散不偏推定量</h3>
 <ul>
 <li><p>
 定理 (Cramer-Raoの不等式の系)
@@ -159,10 +154,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga8f6cb0">
-<h3 id="orga8f6cb0">推定誤差</h3>
+<section id="slide-orgfd7de36">
+<h3 id="orgfd7de36">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量評価には推定誤差の評価が重要
@@ -185,10 +179,9 @@
 <li>この確率の厳密あるいは近似的な評価を利用</li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1452f79">
-<h3 id="org1452f79">区間推定</h3>
+<section id="slide-org70df553">
+<h3 id="org70df553">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -216,10 +209,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6b3bba1">
-<h3 id="org6b3bba1">加法的正規雑音モデル</h3>
+<section id="slide-orga1c028b">
+<h3 id="orga1c028b">加法的正規雑音モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -257,10 +249,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org98aeff6">
-<h3 id="org98aeff6">標本平均</h3>
+<section id="slide-org238f5d5">
+<h3 id="org238f5d5">標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
@@ -281,10 +272,9 @@
 <li>\(\bar{X}\) は平均の一様最小分散不偏推定量</li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1345705">
-<h3 id="org1345705">平均の区間推定 (分散既知)</h3>
+<section id="slide-org25a43ce">
+<h3 id="org25a43ce">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -316,10 +306,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org51c5cc9">
-<h3 id="org51c5cc9">平均の区間推定 (分散未知)</h3>
+<section id="slide-org9a10732">
+<h3 id="org9a10732">平均の区間推定 (分散未知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -351,17 +340,16 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgefe4bc5">
-<h2 id="orgefe4bc5">最尤法</h2>
-<div class="outline-text-2" id="text-orgefe4bc5">
+<section id="slide-orgea83ed3">
+<h2 id="orgea83ed3">最尤法</h2>
+<div class="outline-text-2" id="text-orgea83ed3">
 </div>
 </section>
-<section id="slide-orgc8ad151">
-<h3 id="orgc8ad151">離散分布の場合</h3>
+<section id="slide-org7c8f3e6">
+<h3 id="org7c8f3e6">離散分布の場合</h3>
 <ul>
 <li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
 <ul>
@@ -388,10 +376,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8b68e98">
-<h3 id="org8b68e98">尤度関数</h3>
+<section id="slide-orgc743740">
+<h3 id="orgc743740">尤度関数</h3>
 <ul>
 <li><p>
 定義
@@ -425,10 +412,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf148c31">
-<h3 id="orgf148c31">連続分布の場合</h3>
+<section id="slide-orga4dcfcd">
+<h3 id="orga4dcfcd">連続分布の場合</h3>
 <ul>
 <li>確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
 <li><p>
@@ -454,10 +440,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8d0b8ab">
-<h3 id="org8d0b8ab">最尤法</h3>
+<section id="slide-org2a93cff">
+<h3 id="org2a93cff">最尤法</h3>
 <ul>
 <li><p>
 最尤法
@@ -499,10 +484,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8568bb1">
-<h3 id="org8568bb1">最尤推定量の計算</h3>
+<section id="slide-org0f516f6">
+<h3 id="org0f516f6">最尤推定量の計算</h3>
 <ul>
 <li><p>
 <b>対数尤度関数</b> :
@@ -526,16 +510,14 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgbae6df5" data-background="#fef4f4">
-<h2 id="orgbae6df5">演習</h2>
-<div class="slide-footer"><br></div>
+<section id="slide-org54b5084" data-background="#fef4f4">
+<h2 id="org54b5084">演習</h2>
 </section>
-<section id="slide-org8b99af6" data-background="#fef4f4">
-<h3 id="org8b99af6">練習問題</h3>
+<section id="slide-org1ee33ef" data-background="#fef4f4">
+<h3 id="org1ee33ef">練習問題</h3>
 <ul>
 <li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
 母数 \(\lambda\) の最尤推定量を求めよ．
@@ -574,17 +556,16 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org3fbe85b">
-<h2 id="org3fbe85b">最尤推定量の性質</h2>
-<div class="outline-text-2" id="text-org3fbe85b">
+<section id="slide-orge3ff4c6">
+<h2 id="orge3ff4c6">最尤推定量の性質</h2>
+<div class="outline-text-2" id="text-orge3ff4c6">
 </div>
 </section>
-<section id="slide-org6e355a1">
-<h3 id="org6e355a1">一致性</h3>
+<section id="slide-orgdcfb5ef">
+<h3 id="orgdcfb5ef">一致性</h3>
 <ul>
 <li><p>
 定理
@@ -616,10 +597,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgee28166">
-<h3 id="orgee28166">証明の概略</h3>
+<section id="slide-orgd98345d">
+<h3 id="orgd98345d">証明の概略</h3>
 <ul>
 <li><p>
 対数尤度の大数の法則
@@ -641,7 +621,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -678,7 +657,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -707,10 +685,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfb9a1d2">
-<h3 id="orgfb9a1d2">漸近正規性</h3>
+<section id="slide-org92b1143">
+<h3 id="org92b1143">漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -736,10 +713,9 @@ Cramer-Rao 下界に一致する</li>
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3b38c5b">
-<h3 id="org3b38c5b">証明の概略</h3>
+<section id="slide-orgae30cd0">
+<h3 id="orgae30cd0">証明の概略</h3>
 <ul>
 <li><p>
 真の母数の性質
@@ -775,7 +751,6 @@ Fisher 情報量 (以下が等しいことは講義資料を参照)
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -807,7 +782,6 @@ Fisher 情報量 (以下が等しいことは講義資料を参照)
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -838,7 +812,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -862,7 +835,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -891,7 +863,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -927,7 +898,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -962,17 +932,16 @@ Taylor 展開による近似
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orga1bc3c8">
-<h2 id="orga1bc3c8">漸近正規性にもとづく区間推定</h2>
-<div class="outline-text-2" id="text-orga1bc3c8">
+<section id="slide-orgc5d169e">
+<h2 id="orgc5d169e">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-orgc5d169e">
 </div>
 </section>
-<section id="slide-org40b72ec">
-<h3 id="org40b72ec">推定量の漸近正規性</h3>
+<section id="slide-org65a0558">
+<h3 id="org65a0558">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 <b>漸近正規性</b>
@@ -991,10 +960,9 @@ Taylor 展開による近似
 <li>正規分布を用いて近似的に信頼区間を構成可能</li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5c8b9f3">
-<h3 id="org5c8b9f3">漸近正規性にもとづく区間推定</h3>
+<section id="slide-org1bccb15">
+<h3 id="org1bccb15">漸近正規性にもとづく区間推定</h3>
 <ul>
 <li><p>
 推定量の分布
@@ -1033,10 +1001,9 @@ Taylor 展開による近似
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org90f4304">
-<h3 id="org90f4304">標本平均の区間推定</h3>
+<section id="slide-org373ca22">
+<h3 id="org373ca22">標本平均の区間推定</h3>
 <ul>
 <li><p>
 定理 (標本平均の漸近正規性)
@@ -1069,7 +1036,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -1107,7 +1073,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -1132,10 +1097,9 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org84537a8">
-<h3 id="org84537a8">最尤推定量の区間推定</h3>
+<section id="slide-org7639a34">
+<h3 id="org7639a34">最尤推定量の区間推定</h3>
 <ul>
 <li><p>
 定理 (最尤推定量の漸近正規性)
@@ -1159,7 +1123,6 @@ Taylor 展開による近似
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -1184,16 +1147,14 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgafc3480" data-background="#fef4f4">
-<h2 id="orgafc3480">演習</h2>
-<div class="slide-footer"><br></div>
+<section id="slide-orga567af3" data-background="#fef4f4">
+<h2 id="orga567af3">演習</h2>
 </section>
-<section id="slide-org7aaf28c" data-background="#fef4f4">
-<h3 id="org7aaf28c">練習問題</h3>
+<section id="slide-org90a9410" data-background="#fef4f4">
+<h3 id="org90a9410">練習問題</h3>
 <ul>
 <li>選挙の投票率を調べるために，
 400人にアンケートを実施した結果，
@@ -1223,12 +1184,11 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgfaef7e4">
-<h2 id="orgfaef7e4">今回のまとめ</h2>
+<section id="slide-orgcc0683c">
+<h2 id="orgcc0683c">今回のまとめ</h2>
 <ul>
 <li>最尤法の考え方</li>
 <li>最尤推定量の性質
@@ -1245,14 +1205,16 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </div>
 </div>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
@@ -1273,16 +1235,15 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
+spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
-{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+]
 
 });
 </script>

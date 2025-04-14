@@ -11,22 +11,21 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
-
-<link rel="stylesheet" href="./reveal.js/dist/theme/toc-style.css"/>
-
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
 
-<link rel="stylesheet" href="./reveal.js/dist/theme/mycourse.css"/>
-<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide" data-state="no-toc-progress">
+<section id="sec-title-slide">
 <!-- This is an HTML template for the title slide. -->
 <!-- Embed logos as necessary. -->
 <!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
@@ -46,13 +45,13 @@
 
 </section>
 <section>
-<section id="slide-orgcd9d9e5">
-<h2 id="orgcd9d9e5">統計的推測</h2>
-<div class="outline-text-2" id="text-orgcd9d9e5">
+<section id="slide-orgeb25fe5">
+<h2 id="orgeb25fe5">統計的推測</h2>
+<div class="outline-text-2" id="text-orgeb25fe5">
 </div>
 </section>
-<section id="slide-org8d6ca2e">
-<h3 id="org8d6ca2e">統計的推測の考え方</h3>
+<section id="slide-org70a1ebe">
+<h3 id="org70a1ebe">統計的推測の考え方</h3>
 <ul>
 <li><p>
 <b>確率</b>
@@ -74,10 +73,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcba91bd">
-<h3 id="orgcba91bd">確率変数と確率分布</h3>
+<section id="slide-org68776a8">
+<h3 id="org68776a8">確率変数と確率分布</h3>
 <ul>
 <li>確率変数 \(X\) 
 <ul>
@@ -104,10 +102,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org66c26c4">
-<h3 id="org66c26c4">同時分布</h3>
+<section id="slide-orgdf9006a">
+<h3 id="orgdf9006a">同時分布</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -132,10 +129,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbc5f5de">
-<h3 id="orgbc5f5de">独立性</h3>
+<section id="slide-orgd22f946">
+<h3 id="orgd22f946">独立性</h3>
 <ul>
 <li>無関係にサンプリングされた観測データの性質</li>
 <li><p>
@@ -160,10 +156,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf871d15">
-<h3 id="orgf871d15">同分布性</h3>
+<section id="slide-orga234468">
+<h3 id="orga234468">同分布性</h3>
 <ul>
 <li>同一の法則に従って生成された観測データの性質</li>
 <li><p>
@@ -186,10 +181,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga99b0b3">
-<h3 id="orga99b0b3">独立同分布性</h3>
+<section id="slide-orga403437">
+<h3 id="orga403437">独立同分布性</h3>
 <ul>
 <li>一般に分析対象のデータには
 <b>独立性</b> と <b>同分布性</b> 
@@ -212,17 +206,16 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgca62346">
-<h2 id="orgca62346">極限定理</h2>
-<div class="outline-text-2" id="text-orgca62346">
+<section id="slide-org96f32de">
+<h2 id="org96f32de">極限定理</h2>
+<div class="outline-text-2" id="text-org96f32de">
 </div>
 </section>
-<section id="slide-org774afc2">
-<h3 id="org774afc2">極限定理</h3>
+<section id="slide-org541a17c">
+<h3 id="org541a17c">極限定理</h3>
 <ul>
 <li>大数の法則，
 中心極限定理など</li>
@@ -235,10 +228,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9c12063">
-<h3 id="org9c12063">無限列の独立性と同分布性</h3>
+<section id="slide-orgf6e6f08">
+<h3 id="orgf6e6f08">無限列の独立性と同分布性</h3>
 <ul>
 <li>無限列に対しては任意の部分列について考える</li>
 <li><p>
@@ -273,10 +265,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcddf160">
-<h3 id="orgcddf160">大数の法則の概要</h3>
+<section id="slide-org0b31913">
+<h3 id="org0b31913">大数の法則の概要</h3>
 <ul>
 <li><p>
 直感的な意味
@@ -298,10 +289,9 @@
 <li>この法則を数学的に定式化した定理が <b>大数の法則</b></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org22de940">
-<h3 id="org22de940">大数の法則</h3>
+<section id="slide-org55f3bad">
+<h3 id="org55f3bad">大数の法則</h3>
 <ul>
 <li><p>
 定理
@@ -325,10 +315,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org261c2cc">
-<h3 id="org261c2cc">中心極限定理の概要</h3>
+<section id="slide-orgdc8602d">
+<h3 id="orgdc8602d">中心極限定理の概要</h3>
 <ul>
 <li><p>
 大数の法則の主張
@@ -359,10 +348,9 @@
 <li>サンプル数が大きい場合の定量的な評価の近似方法を述べたのが <b>中心極限定理</b></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge218ebc">
-<h3 id="orge218ebc">中心極限定理</h3>
+<section id="slide-org13afd76">
+<h3 id="org13afd76">中心極限定理</h3>
 <ul>
 <li><p>
 定理 (いろいろな表現がある)
@@ -389,17 +377,16 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org3e759eb">
-<h2 id="org3e759eb">推定量と推定値</h2>
-<div class="outline-text-2" id="text-org3e759eb">
+<section id="slide-orge01a8aa">
+<h2 id="orge01a8aa">推定量と推定値</h2>
+<div class="outline-text-2" id="text-orge01a8aa">
 </div>
 </section>
-<section id="slide-orgebb3ff2">
-<h3 id="orgebb3ff2">推定の標準的な枠組</h3>
+<section id="slide-orga222c8c">
+<h3 id="orga222c8c">推定の標準的な枠組</h3>
 <ul>
 <li>観測データを確率変数の実現値と考えてモデル化</li>
 <li><p>
@@ -431,10 +418,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfe1fbdf">
-<h3 id="orgfe1fbdf">推定量</h3>
+<section id="slide-orgb3fc43f">
+<h3 id="orgb3fc43f">推定量</h3>
 <ul>
 <li><p>
 定義
@@ -466,10 +452,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf45067a">
-<h3 id="orgf45067a">推定値</h3>
+<section id="slide-org082ddb7">
+<h3 id="org082ddb7">推定値</h3>
 <ul>
 <li><p>
 定義
@@ -501,17 +486,16 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgbc69680">
-<h2 id="orgbc69680">確率モデルと推定量</h2>
-<div class="outline-text-2" id="text-orgbc69680">
+<section id="slide-org565a2c0">
+<h2 id="org565a2c0">確率モデルと推定量</h2>
+<div class="outline-text-2" id="text-org565a2c0">
 </div>
 </section>
-<section id="slide-orgb8e3af9">
-<h3 id="orgb8e3af9">観測値の生成モデル</h3>
+<section id="slide-org5d37a00">
+<h3 id="org5d37a00">観測値の生成モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル (最も単純な例)
@@ -548,10 +532,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd4f08cd">
-<h3 id="orgd4f08cd">誤差の性質の仮定</h3>
+<section id="slide-orgaa02722">
+<h3 id="orgaa02722">誤差の性質の仮定</h3>
 <ul>
 <li><p>
 仮定0
@@ -569,7 +552,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -603,7 +585,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -635,10 +616,9 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf554ec0">
-<h3 id="orgf554ec0">推定量の例</h3>
+<section id="slide-orgf152bd9">
+<h3 id="orgf152bd9">推定量の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">推定量 : 例1</span>
@@ -665,7 +645,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -691,7 +670,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -722,7 +700,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -760,16 +737,14 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org6904239">
-<h2 id="org6904239">推定量の良さ</h2>
-<div class="slide-footer"><br></div>
+<section id="slide-org4331daa">
+<h2 id="org4331daa">推定量の良さ</h2>
 </section>
-<section id="slide-org8a91436">
-<h3 id="org8a91436">不偏性</h3>
+<section id="slide-orgcbee0df">
+<h3 id="orgcbee0df">不偏性</h3>
 <ul>
 <li><p>
 定義
@@ -800,16 +775,14 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org669a701" data-background="#fef4f4">
-<h2 id="org669a701">演習</h2>
-<div class="slide-footer"><br></div>
+<section id="slide-org51923c8" data-background="#fef4f4">
+<h2 id="org51923c8">演習</h2>
 </section>
-<section id="slide-orgae6ee71" data-background="#fef4f4">
-<h3 id="orgae6ee71">練習問題</h3>
+<section id="slide-org5b130a7" data-background="#fef4f4">
+<h3 id="org5b130a7">練習問題</h3>
 <ul>
 <li>標本平均，荷重平均，最後のデータのみ使った推定量
 が平均の不偏推定量になることを確かめよ．</li>
@@ -829,17 +802,16 @@
 </p></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orga6d786f">
-<h2 id="orga6d786f">不偏推定量の良さ</h2>
-<div class="outline-text-2" id="text-orga6d786f">
+<section id="slide-orge843c11">
+<h2 id="orge843c11">不偏推定量の良さ</h2>
+<div class="outline-text-2" id="text-orge843c11">
 </div>
 </section>
-<section id="slide-orgc4f17dd">
-<h3 id="orgc4f17dd">推定量の分散</h3>
+<section id="slide-org284426b">
+<h3 id="org284426b">推定量の分散</h3>
 <ul>
 <li><p>
 一般に不偏推定量も複数存在
@@ -872,10 +844,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge571097">
-<h3 id="orge571097">不偏推定量の平均</h3>
+<section id="slide-org054576b">
+<h3 id="org054576b">不偏推定量の平均</h3>
 <ul>
 <li><p>
 定理
@@ -912,10 +883,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfcdfc26">
-<h3 id="orgfcdfc26">証明</h3>
+<section id="slide-org44a7e80">
+<h3 id="org44a7e80">証明</h3>
 <ul>
 <li>平均値の線形性から不偏性は明らか</li>
 <li><p>
@@ -945,7 +915,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -971,7 +940,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -994,10 +962,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-org890e4e2">
-<h3 id="org890e4e2">対称な推定量</h3>
+<section id="slide-orga1dcd48">
+<h3 id="orga1dcd48">対称な推定量</h3>
 <ul>
 <li><p>
 定理
@@ -1029,7 +996,6 @@
 
 </ul>
 
-<div class="slide-footer"><br></div>
 </section>
 <section>
 <ul>
@@ -1048,10 +1014,9 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgccfc9b7">
-<h3 id="orgccfc9b7">証明</h3>
+<section id="slide-org71e2ac6">
+<h3 id="org71e2ac6">証明</h3>
 <ul>
 <li><p>
 証明
@@ -1076,12 +1041,11 @@
 </blockquote></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org91feaf4">
-<h2 id="org91feaf4">今回のまとめ</h2>
+<section id="slide-org5a01e0f">
+<h2 id="org5a01e0f">今回のまとめ</h2>
 <ul>
 <li>確率モデルと推定量
 <ul>
@@ -1098,14 +1062,16 @@
 </ul></li>
 
 </ul>
-<div class="slide-footer"><br></div>
 </div>
 </div>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
@@ -1126,16 +1092,15 @@ overview: true,
 
 transition: 'fade',
 transitionSpeed: 'default',
-spotlight: { size: 90, initialPresentationMode: false }, chalkboard: { toggleChalkboardButton: { left: '80px' }, toggleNotesButton: { left: '130px'}}, keyboard: { 69: function() { RevealChalkboard.toggleNotesCanvas() }, 87: function() { RevealChalkboard.toggleChalkboard() }, 67: function() { RevealChalkboard.clear() }, 82: function() { RevealChalkboard.reset() }, 68: function() { RevealChalkboard.download() }, 88: function() { RevealChalkboard.colorNext() }, 89: function() { RevealChalkboard.colorPrev() }, 84: function() { RevealSpotlight.toggleSpotlight() }, 81: function() { RevealSpotlight.togglePresentationMode()}},
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
+spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/menu/menu.js'},
-{ src: './reveal.js/plugin/chalkboard/chalkboard.js'},
-{ src: './reveal.js/plugin/spotlight/spotlight.js'}]
+]
 
 });
 </script>
