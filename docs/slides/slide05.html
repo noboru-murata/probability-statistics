@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第5講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-org237d004">
-<h2 id="org237d004">前回のおさらい</h2>
+<section id="slide-orgc3454aa">
+<h2 id="orgc3454aa">前回のおさらい</h2>
 <ul>
 <li>確率変数
 <ul>
@@ -60,8 +87,8 @@
 
 </ul>
 </section>
-<section id="slide-orga782543">
-<h3 id="orga782543">特性関数</h3>
+<section id="slide-org1c86b55">
+<h3 id="org1c86b55">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -88,8 +115,8 @@
 
 </ul>
 </section>
-<section id="slide-org5685536">
-<h3 id="org5685536">特性関数の性質</h3>
+<section id="slide-org47aab3d">
+<h3 id="org47aab3d">特性関数の性質</h3>
 <ul>
 <li><p>
 逆変換の存在
@@ -117,11 +144,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgdf50520" data-background="#fef4f4">
-<h2 id="orgdf50520">演習</h2>
+<section id="slide-org8f6c76e" data-background="#fef4f4">
+<h2 id="org8f6c76e">演習</h2>
 </section>
-<section id="slide-orgfb6020a" data-background="#fef4f4">
-<h3 id="orgfb6020a">練習問題</h3>
+<section id="slide-orgdb67ac2" data-background="#fef4f4">
+<h3 id="orgdb67ac2">練習問題</h3>
 <ul>
 <li>以下の確率測度の特性関数を求めよ．
 <ol>
@@ -134,11 +161,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orga5892ef">
-<h2 id="orga5892ef">条件付確率</h2>
+<section id="slide-org1597593">
+<h2 id="org1597593">条件付確率</h2>
 </section>
-<section id="slide-org7142b95">
-<h3 id="org7142b95">条件付確率</h3>
+<section id="slide-org687a54e">
+<h3 id="org687a54e">条件付確率</h3>
 <ul>
 <li><p>
 定義
@@ -164,8 +191,8 @@
 
 </ul>
 </section>
-<section id="slide-org5faa352">
-<h3 id="org5faa352">同時確率と条件付確率</h3>
+<section id="slide-org91a8432">
+<h3 id="org91a8432">同時確率と条件付確率</h3>
 <ul>
 <li><p>
 <b>同時確率</b> \(P(A\cap B)\)
@@ -186,8 +213,8 @@
 
 </ul>
 </section>
-<section id="slide-org88c2f08">
-<h3 id="org88c2f08">条件付確率に関する注意</h3>
+<section id="slide-org5600131">
+<h3 id="org5600131">条件付確率に関する注意</h3>
 <ul>
 <li>事象 \(A\) は空でない \(A\not=\emptyset\) とする</li>
 <li><p>
@@ -212,8 +239,8 @@
 
 </ul>
 </section>
-<section id="slide-org861a2fd">
-<h3 id="org861a2fd">条件付確率の例</h3>
+<section id="slide-org80344da">
+<h3 id="org80344da">条件付確率の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子を一回振る試行</span>
@@ -283,8 +310,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf0384d5">
-<h3 id="orgf0384d5">確率変数による条件の表現</h3>
+<section id="slide-org6148cfa">
+<h3 id="org6148cfa">確率変数による条件の表現</h3>
 <ul>
 <li><p>
 確率変数が一つの値を取る場合
@@ -400,8 +427,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf4f7fec">
-<h3 id="orgf4f7fec">条件付確率の性質</h3>
+<section id="slide-orgb693641">
+<h3 id="orgb693641">条件付確率の性質</h3>
 <ul>
 <li><p>
 定理
@@ -414,7 +441,7 @@
 <li>\(\Big.P(A\cap B)=P(A)P(B|A)\)</li>
 <li>\(\Big.P(A|A)=1\)</li>
 <li>\(\Big.P(A_1\cap A_2\cap\dotsb\cap A_n)
-     =P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})\)</li>
+      =P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})\)</li>
 <li>\(\Big.P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)</li>
 
 </ol>
@@ -426,8 +453,8 @@
 
 </ul>
 </section>
-<section id="slide-org71bfa14">
-<h3 id="org71bfa14">条件付確率分布</h3>
+<section id="slide-orgb4a283e">
+<h3 id="orgb4a283e">条件付確率分布</h3>
 <ul>
 <li><p>
 定義
@@ -444,8 +471,8 @@
 
 </ul>
 </section>
-<section id="slide-org08f523b">
-<h3 id="org08f523b">条件付平均値</h3>
+<section id="slide-orgaa673de">
+<h3 id="orgaa673de">条件付平均値</h3>
 <ul>
 <li><p>
 定義
@@ -476,11 +503,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgf712f02">
-<h2 id="orgf712f02">Bayesの定理</h2>
+<section id="slide-org764996d">
+<h2 id="org764996d">Bayesの定理</h2>
 </section>
-<section id="slide-org98a8d06">
-<h3 id="org98a8d06">Bayesの定理 (基本形)</h3>
+<section id="slide-org2227688">
+<h3 id="org2227688">Bayesの定理 (基本形)</h3>
 <ul>
 <li><p>
 定理
@@ -505,8 +532,8 @@
 
 </ul>
 </section>
-<section id="slide-org094a4c1">
-<h3 id="org094a4c1">Bayesの定理 (一般形)</h3>
+<section id="slide-orgcf8af5f">
+<h3 id="orgcf8af5f">Bayesの定理 (一般形)</h3>
 <ul>
 <li><p>
 定理
@@ -531,11 +558,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org1f20e0f" data-background="#fef4f4">
-<h2 id="org1f20e0f">演習</h2>
+<section id="slide-org8fbfbf7" data-background="#fef4f4">
+<h2 id="org8fbfbf7">演習</h2>
 </section>
-<section id="slide-orgf680ca2" data-background="#fef4f4">
-<h3 id="orgf680ca2">練習問題</h3>
+<section id="slide-org72e3fbf" data-background="#fef4f4">
+<h3 id="org72e3fbf">練習問題</h3>
 <ul>
 <li>Bayes の定理(一般形)を証明せよ．</li>
 
@@ -543,11 +570,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb4c42fc">
-<h2 id="orgb4c42fc">独立性</h2>
+<section id="slide-org7cd238c">
+<h2 id="org7cd238c">独立性</h2>
 </section>
-<section id="slide-org84da566">
-<h3 id="org84da566">確率変数の独立性</h3>
+<section id="slide-org5be327d">
+<h3 id="org5be327d">確率変数の独立性</h3>
 <ul>
 <li><p>
 定義 (有限試行の場合)
@@ -684,8 +711,8 @@
 
 </ul>
 </section>
-<section id="slide-org4882353">
-<h3 id="org4882353">独立性の性質</h3>
+<section id="slide-orgdeb5980">
+<h3 id="orgdeb5980">独立性の性質</h3>
 <ul>
 <li><p>
 定理
@@ -768,8 +795,8 @@
 
 </ul>
 </section>
-<section id="slide-orgd228daa">
-<h3 id="orgd228daa">事象の独立性</h3>
+<section id="slide-orgd5095ed">
+<h3 id="orgd5095ed">事象の独立性</h3>
 <ul>
 <li><p>
 指示関数
@@ -825,8 +852,8 @@
 
 </ul>
 </section>
-<section id="slide-orgeb96216">
-<h3 id="orgeb96216">事象の独立性の同値条件</h3>
+<section id="slide-org0dbc33b">
+<h3 id="org0dbc33b">事象の独立性の同値条件</h3>
 <ul>
 <li><p>
 定理
@@ -866,11 +893,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgd4633d5" data-background="#fef4f4">
-<h2 id="orgd4633d5">演習</h2>
+<section id="slide-orgd386c0f" data-background="#fef4f4">
+<h2 id="orgd386c0f">演習</h2>
 </section>
-<section id="slide-orga1e14a2" data-background="#fef4f4">
-<h3 id="orga1e14a2">練習問題</h3>
+<section id="slide-org92daf92" data-background="#fef4f4">
+<h3 id="org92daf92">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -912,10 +939,91 @@ B,Cの一方のみ評価が上がった確率はいくつか？</li>
 
 </ul>
 </section>
+<section id="slide-orgaf901a5" data-background="#fef4f4">
+<h3 id="orgaf901a5">ヒント</h3>
+<ul>
+<li><p>
+扱う事象を整理する
+</p>
+<blockquote>
+<div>
+\begin{align}
+  A&=\{\text{Aの売上が上がる}\}&&&A^{c}&=\{\text{Aの売上が下がる}\}\\
+  B&=\{\text{Bの評価が上がる}\}&&&B^{c}&=\{\text{Bの評価が下がる}\}\\
+  C&=\{\text{Cの評価が上がる}\}&&&C^{c}&=\{\text{Cの評価が下がる}\}\\
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+前提条件を書き下す
+</p>
+<blockquote>
+<div>
+\begin{align}
+  &P(A|B\cap C)=0.9&&P(A^{c}|B\cap C)=0.1\\
+  &P(A|B\cap C^{c})=P(A|B^{c}\cap C)=0.6&&P(A^{c}|\cdot)=0.4\\
+  &P(A|B^{c}\cap C^{c})=0.2&&P(A^{c}|B^{c}\cap C^{c})=0.8\\
+  &P(B)=0.5&&P(B^{c})=0.5\\
+  &P(C)=0.6&&P(C^{c})=0.4\\
+  &\mathrm{Cov}(X,Y)=0.1
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+求める確率は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  &P(B\cap C)\\
+  &P(B^{c}\cap C^{c}|A^{c})=P(A^{c}\cap B^{c}\cap C^{c})/P(A^{c})\\
+  &P(B\cap C^{c}|A)+P(B^{c}\cap C|A)\\
+  &\qquad=P(A\cap B\cap C^{c})/P(A)+P(A\cap B^{c}\cap C)/P(A)
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li><p>
+第1問は共分散の計算を利用すれば求められる
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathrm{Cov}(X,Y)
+  &=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\\
+  &=P(X=1,Y=1)-P(X=1)P(Y=1)
+\end{align}
+
+</div>
+</blockquote></li>
+<li>第1問の結果を利用すると前提条件から 
+\(P(B\cap C^{c}), P(B^{c}\cap C), P(B^{c}\cap C^{c})\)
+も求められる</li>
+<li>第2,3問は必要な確率を整理して Bayes の定理を用いればよい</li>
+
+</ul></li>
+
+</ul>
+</section>
 </section>
 <section>
-<section id="slide-orgdd7e4a8">
-<h2 id="orgdd7e4a8">今回のまとめ</h2>
+<section id="slide-org310de5c">
+<h2 id="org310de5c">今回のまとめ</h2>
 <ul>
 <li>条件付確率と独立性
 <ul>
@@ -927,15 +1035,19 @@ B,Cの一方のみ評価が上がった確率はいくつか？</li>
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -944,30 +1056,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

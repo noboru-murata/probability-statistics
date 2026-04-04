@@ -4,9 +4,9 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2025-04-14 09:56:36 mura>
+# Time-stamp: <2026-04-04 13:45:06 mura>
 :REVEAL:
-#+SETUPFILE: "./reveal.js/local/mycourse.org"
+#+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
 # <m C-i でlatex block (math env用)
 # C-c '
@@ -19,13 +19,13 @@
 
 * 前回のおさらい
 - 一般の確率空間
-  - 有限集合と無限集合
-  - 集合の濃度 (無限集合は更に分類される)
-    - 可算集合: 自然数，整数，有理数
-    - 連続集合: 無理数，実数
-  - 一般の確率測度と \(\sigma\)-加法性の関係
-  - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
-  - "ほとんど確実に成り立つ"
+   - 有限集合と無限集合
+   - 集合の濃度 (無限集合は更に分類される)
+      - 可算集合: 自然数，整数，有理数
+      - 連続集合: 無理数，実数
+   - 一般の確率測度と \(\sigma\)-加法性の関係
+   - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
+   - "ほとんど確実に成り立つ"
 
 
 * 確率測度と確率密度
@@ -34,30 +34,30 @@
 
 ** 歪んだ目盛りのルーレットの例
 - 問題
-  #+begin_quote
-  起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
-  \begin{equation}
-    x=l^{2}
-  \end{equation}
-  として周長1のルーレットを作る．
+   #+begin_quote
+   起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
+   \begin{equation}
+     x=l^{2}
+   \end{equation}
+   として周長1のルーレットを作る．
 
-  事象として同じ長さの区間
-  \([0.1,0.2]\), \([0.8,0.9]\)
-  を考えたとき，
-  その確率
-  \begin{equation}
-    P([0.1,0.2]),\quad P([0.8,0.9])
-  \end{equation}
-  の大小関係はどのような関係になるか?
-  #+end_quote
+   事象として同じ長さの区間
+   \([0.1,0.2]\), \([0.8,0.9]\)
+   を考えたとき，
+   その確率
+   \begin{equation}
+     P([0.1,0.2]),\quad P([0.8,0.9])
+   \end{equation}
+   の大小関係はどのような関係になるか?
+   #+end_quote
 
 #+reveal: split
 - 解答
-  #+begin_quote
-  \begin{equation}
-    P([0.1,0.2]) > P([0.8,0.9])
-  \end{equation}
-  #+end_quote
+   #+begin_quote
+   \begin{equation}
+     P([0.1,0.2]) > P([0.8,0.9])
+   \end{equation}
+   #+end_quote
 
 #+begin_src R :file figs/roulette.png :exports results :results graphics
   par(mar=rep(0,4),family="HiraginoSans-W4")
@@ -95,18 +95,18 @@
 
 ** 一様でない抜き出しの例
 - 問題
-  #+begin_quote
-  "\(\Omega=[0,1]\) の点を異なる確率で抜き出す"
-  という試行において，
-  区間 \([0,0.5)\) から点が抜き出される事象と，
-  区間 \([0.5,1]\) から点が抜き出される事象を比較すると，
-  前者より後者が3倍起こりやすい状況を考える．
+   #+begin_quote
+   "\(\Omega=[0,1]\) の点を異なる確率で抜き出す"
+   という試行において，
+   区間 \([0,0.5)\) から点が抜き出される事象と，
+   区間 \([0.5,1]\) から点が抜き出される事象を比較すると，
+   前者より後者が3倍起こりやすい状況を考える．
 
-  このとき確率測度をどのように定義すれば良いか?
-  #+end_quote
+   このとき確率測度をどのように定義すれば良いか?
+   #+end_quote
 
 #+reveal: split
-   - 解答
+- 解答
 #+begin_leftcol  
 #+begin_src R :file figs/density.png :exports results :results graphics
   par(family="HiraginoSans-W4")
@@ -146,78 +146,78 @@
 
 #+reveal: split
 - 確率の偏りの確認
-  #+begin_quote
-  例えば区間 \([0.1,0.2]\) と \([0.8,0.9]\) を比べてみる
-  \begin{align}
-    P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
-                  =\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
-    P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
-                  =\left[1.5\omega\right]_{0.8}^{0.9}=0.15
-  \end{align}
-  #+end_quote
+   #+begin_quote
+   例えば区間 \([0.1,0.2]\) と \([0.8,0.9]\) を比べてみる
+   \begin{align}
+     P([0.1,0.2])&=\int_{0.1}^{0.2}f(\omega)d\omega
+                   =\left[0.5\omega\right]_{0.1}^{0.2}=0.05\\
+     P([0.8,0.9])&=\int_{0.8}^{0.9}f(\omega)d\omega
+                   =\left[1.5\omega\right]_{0.8}^{0.9}=0.15
+   \end{align}
+   #+end_quote
 
 ** 確率測度の条件 (再掲)
 - 以下の3つの条件が成立する
-  #+begin_quote
-  \begin{align}
-    (P.1)\quad
-    &P(A)\ge 0,\; A\in\mathcal{F}\\
-    (P.2)\quad
-    &P\biggl(\sum_{n=1}^\infty A_n\biggr)
-      =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
-    (P.3)\quad
-    &P(\Omega)=1
-  \end{align}
-  #+end_quote
+   #+begin_quote
+   \begin{align}
+     (P.1)\quad
+     &P(A)\ge 0,\; A\in\mathcal{F}\\
+     (P.2)\quad
+     &P\biggl(\sum_{n=1}^\infty A_n\biggr)
+       =\sum_{n=1}^\infty P(A_n),\; A_n\in\mathcal{F}\\
+     (P.3)\quad
+     &P(\Omega)=1
+   \end{align}
+   #+end_quote
 
 ** 積分による表現の正当性
 - (P.1) \(f(x)\) の正値性から明らか
 - (P.2) 積分区間を分割しても積分値が変わらないという積分の性質から明らか
 - (P.3) 区間 \([0,1]\) 上の積分
-  #+begin_quote
-  \begin{equation}
-    P([0,1])=\int_{0}^{1}f(\omega)d\omega
-    =0.5\times0.5+0.5\times1.5=1
-  \end{equation}
-  #+end_quote
-  より全確率が \(1\) となっている
+   #+begin_quote
+   \begin{equation}
+     P([0,1])=\int_{0}^{1}f(\omega)d\omega
+     =0.5\times0.5+0.5\times1.5=1
+   \end{equation}
+   #+end_quote
+   より全確率が \(1\) となっている
 
 ** 確率密度
 - 定義
-  #+begin_quote
-  確率測度がある関数の積分
-  \begin{equation}
-    P(A)=\int_{A}f(\omega)d\omega
-  \end{equation}
-  で書かれているとき，
-  その被積分関数を 
-  *確率密度(関数)* (probability density function)
-  という．
+   #+begin_quote
+   確率測度がある関数の積分
+   \begin{equation}
+     P(A)=\int_{A}f(\omega)d\omega
+   \end{equation}
+   で書かれているとき，
+   その被積分関数を 
+   *確率密度(関数)* (probability density function)
+   という．
 
-  また確率密度を持つ確率測度を
-  *絶対連続* (absolutely continuous)
-  な分布と呼ぶ．
-  #+end_quote
-  - 標本空間上で積分が定義できる場合であることに注意
+   また確率密度を持つ確率測度を
+   *絶対連続* (absolutely continuous)
+   な分布と呼ぶ．
+   #+end_quote
+   - 標本空間上で積分が定義できる場合であることに注意
 
 ** 確率密度の例
 - 歪んだ目盛りのルーレット
-  #+begin_quote
-  歪んだ目盛をもつルーレットの確率密度は，
-  任意の \(a,b\;(0 < a < b\le1)\) に対して
-  \begin{equation}
-    P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
-  \end{equation}
-  となる
-  以下の関数 \(f\) である．
-  \begin{equation}
-    f(\omega)=
-    \begin{cases}
-      \frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
-      0,&(\text{それ以外})
-    \end{cases}
-  \end{equation}
-  #+end_quote
+   #+begin_quote
+   歪んだ目盛をもつルーレットの確率密度は，
+   任意の \(a,b\;(0 < a < b\le1)\) に対して
+   \begin{equation}
+     P([a,b]) = \int_{a}^{b}f(\omega)d\omega = \sqrt{b}-\sqrt{a}
+   \end{equation}
+   となる
+   以下の関数 \(f\) である．
+   \begin{equation}
+     f(\omega)=
+     \begin{cases}
+       \frac{1}{2\sqrt{\omega}},&(0<\omega\le1)\\
+       0,&(\text{それ以外})
+     \end{cases}
+   \end{equation}
+   #+end_quote
 
 
 * 演習
@@ -229,27 +229,27 @@
 :reveal_background: #fef4f4
 :END:
 - 起点 \(0\) から周に沿った長さ \(l\) の位置に対して，
-  以下のような歪んだ目盛り \(x\) を付けた
-  周長1のルーレットの確率密度を求めよ．
-  1. \(x=\sqrt{l}\)
-  2. \(x=-\log(l)\)
-  3. \(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)
+   以下のような歪んだ目盛り \(x\) を付けた
+   周長1のルーレットの確率密度を求めよ．
+   1. \(x=\sqrt{l}\)
+   2. \(x=-\log(l)\)
+   3. \(x=\sin^{-1}(l)\;(0 < x\le\pi/2)\)
 
 ** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
 - 歪んでいないルーレットと対応づければ良い．
-  #+begin_quote
-  \begin{align}
-    P(a < x < b)
-    &=P(a < g(l) < b)\\
-    &=P(g^{-1}(a) < l < g^{-1}(b))\\
-    &=g^{-1}(b)-g^{-1}(a)\\
-    &=\int_{a}^{b}f(\omega)d\omega
-  \end{align}
-  #+end_quote
-  (\(g\) が単調増加の場合，減少する場合は符号に注意)
+   #+begin_quote
+   \begin{align}
+     P(a < x < b)
+     &=P(a < g(l) < b)\\
+     &=P(g^{-1}(a) < l < g^{-1}(b))\\
+     &=g^{-1}(b)-g^{-1}(a)\\
+     &=\int_{a}^{b}f(\omega)d\omega
+   \end{align}
+   #+end_quote
+   (\(g\) が単調増加の場合，減少する場合は符号に注意)
 
 
 * 異なる2つの積分
@@ -268,13 +268,13 @@
   y <- f(x)
   par(mai=c(0.1,0.1,0.1,0.1))
   plot(x, y, type="n", ann=F, axes=F)
-  
+
   d<-0.25
   abline(h=0)
   abline(v=seq(0+d,5-d,by=d), col=gray(0.7))
   lines(x, y, lty="solid", lwd=3)
   axis(1,at=c(0,5),labels=F)
-  
+
   tmpa<-seq(0,d,by=e)
   tmpb<-seq(0,5-d,by=d)
   tmp<-t(matrix(tmpa,length(tmpa),length(tmpb)))
@@ -282,10 +282,10 @@
   xdup<-as.vector(t(tmp))
   ymin<-rep(apply(f(tmp),1,min),each=length(tmpa))
   ymax<-rep(apply(f(tmp),1,max),each=length(tmpa))
-  
+
   lines(xdup,ymin, col="blue", lty="solid", lwd=4)
   lines(xdup,ymax, col="red", lty="solid", lwd=4)
-  
+
   xoff<-0.5
   yoff<-4
   idx<-3
@@ -295,7 +295,7 @@
        expression(min(f(x),x %in% I[i]) %*% d[i]),cex=2,pos=4)
   arrows(xpos+xoff,ypos-yoff,xpos+0.5*d,ypos/2)
   rect(xpos-0.5*d,0,xpos+0.5*d,ypos,col="blue",density=20)
-  
+
   xpos<-d*(length(tmpb)-(idx+0.5))
   ypos<-ymax[min(which(xdup>=xpos))]
   text(xpos-xoff,ypos+yoff,
@@ -349,45 +349,45 @@
 #+begin_src R :file figs/lebesgue.png :exports results :results graphics
   par(family="HiraginoSans-W4")
   col<-"purple"
-  
+
   e <- 0.01
   x <- seq(0,5,by=e)
   f <- function(x){(x-1)*(x-2)*(x-4)+8}
   y <- f(x)
   par(mai=c(0.1,0.1,0.1,0.1))
   plot(x, y, type="n", ann=F, axes=F)
-  
+
   d<-1
   abline(h=seq(0,20,by=d), col=gray(0.7))
   abline(h=0)
   lines(x, y, lty="solid", lwd=4)
   axis(1,at=c(0,5),labels=F)
-  
+
   ymin<-floor(y/d)*d
   lines(x,ymin, col=col, lty="solid", lwd=4)
-  
+
   ypos<-d*7
   tmp<-which(ymin==ypos)
   idx<-c(min(tmp),tmp[which(diff(tmp)>1)+1])
   jdx<-c(tmp[which(diff(tmp)>1)],max(tmp))
-  
+
   for (i in 1:length(idx)) {
-      rect(x[idx[i]],0,x[jdx[i]],ypos,col=col,density=20)
+    rect(x[idx[i]],0,x[jdx[i]],ypos,col=col,density=20)
   }
-  
+
   abline(h=c(ypos,ypos+d), col=gray(0.5))
-  
+
   xpos<-mean(x[c(idx,jdx)])
   xoff<-0
   yoff<-6
-  
+
   text(0,ypos,expression(alpha[i]),cex=2,pos=4)
   text(0,ypos+d,expression(alpha[i+1]),cex=2,pos=4)
   text(xpos+xoff,ypos+yoff,
        expression(alpha[i] %*% E[i]),cex=2,pos=3)
-  
+
   for (i in 1:length(idx)) {
-      arrows(xpos+xoff,ypos+yoff,mean(x[c(idx[i],jdx[i])]),ypos)
+    arrows(xpos+xoff,ypos+yoff,mean(x[c(idx[i],jdx[i])]),ypos)
   }
 #+end_src
 #+NAME: fig:lebesgue
@@ -431,92 +431,92 @@
 
 ** 表記に関する注意
 - Lebesgue 積分特有の記法
-  #+begin_quote
-  2つの積分を明示的に区別するために，
-  Lebesgue 積分を
-  \begin{equation}
-    \int_K f(x)\mu(dx),
-    \quad\text{(\(\mu\)は Lebesgue 測度)}
-  \end{equation}
-  と書くことがある．
-  #+end_quote
-  - この講義での以降の積分は，
-    特に断わらないかぎり
-    Lebesgue 積分を考える
+   #+begin_quote
+   2つの積分を明示的に区別するために，
+   Lebesgue 積分を
+   \begin{equation}
+     \int_K f(x)\mu(dx),
+     \quad\text{(\(\mu\)は Lebesgue 測度)}
+   \end{equation}
+   と書くことがある．
+   #+end_quote
+   - この講義での以降の積分は，
+      特に断わらないかぎり
+      Lebesgue 積分を考える
 
 ** 2つの積分の違い
 - 特異な例
-  #+begin_quote
-  \([0,1]\) 上で次のような関数
-  \begin{equation}
-    f(x)=
-    \begin{cases}
-      1, & \text{\(x\)が有理数}\\
-      0, & \text{\(x\)が無理数}
-    \end{cases}
-    \label{eq:dirichlet_fn}
-  \end{equation}
-  を考える．
-  #+end_quote
-  - この関数は Dirichlet の関数と呼ばれ
-    \begin{equation}
-      f(x)=
-      \lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
-    \end{equation}
-    と書けることが知られている
+   #+begin_quote
+   \([0,1]\) 上で次のような関数
+   \begin{equation}
+     f(x)=
+     \begin{cases}
+       1, & \text{\(x\)が有理数}\\
+       0, & \text{\(x\)が無理数}
+     \end{cases}
+     \label{eq:dirichlet_fn}
+   \end{equation}
+   を考える．
+   #+end_quote
+   - この関数は Dirichlet の関数と呼ばれ
+      \begin{equation}
+        f(x)=
+        \lim_{n\to\infty}\lim_{k\to\infty}\cos^{2k}(n!\pi x)
+      \end{equation}
+      と書けることが知られている
 
 #+reveal: split
 - Riemann 積分の場合
-  #+begin_quote
-  どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
-  \begin{equation}
-    \min_{x\in I_i}f(x)=0,\quad
-    \max_{x\in I_i}f(x)=1
-  \end{equation}
-  \begin{align}
-    s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
-    S_n&=\sum_{i=0}^{n}1\times d_{i}=1
-  \end{align}
-  であり，
-  \(n\) をいくら大きくしても極限は一致しない．
-  したがってこの関数の Riemann 積分は存在しない．
-  #+end_quote
+   #+begin_quote
+   どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
+   \begin{equation}
+     \min_{x\in I_i}f(x)=0,\quad
+     \max_{x\in I_i}f(x)=1
+   \end{equation}
+   \begin{align}
+     s_n&=\sum_{i=0}^{n}0\times d_{i}=0\\
+     S_n&=\sum_{i=0}^{n}1\times d_{i}=1
+   \end{align}
+   であり，
+   \(n\) をいくら大きくしても極限は一致しない．
+   したがってこの関数の Riemann 積分は存在しない．
+   #+end_quote
 
 #+reveal: split
 - Lebesgue 積分の場合
-  #+begin_quote
-  適当な値域の分割において
-  \begin{equation}
-    \alpha_{i}\le 0<\alpha_{i+1},\quad
-    \alpha_{j}\le 1<\alpha_{j+1}
-  \end{equation}
-  となるのであれば，Lebesgue 測度の性質より
-  \begin{equation}
-    \int f_{n}(x)dx 
-    = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
-    % = \alpha_{i}\cdot1+\alpha_{j}\cdot0
-    =\alpha_{i}
-  \end{equation}
-  となるが，
-  \(n\to\infty\) のとき 
-  \(\alpha_{i}\to0,\;\alpha_{j}\to1\) となるので
-  \begin{equation}
-    \int f(x)dx 
-    = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
-    = 0
-  \end{equation}
-  となり Lebesgue 積分可能である．
-  #+end_quote
+   #+begin_quote
+   適当な値域の分割において
+   \begin{equation}
+     \alpha_{i}\le 0<\alpha_{i+1},\quad
+     \alpha_{j}\le 1<\alpha_{j+1}
+   \end{equation}
+   となるのであれば，Lebesgue 測度の性質より
+   \begin{equation}
+     \int f_{n}(x)dx 
+     = \alpha_{i}\times\mu(\text{無理数})+\alpha_{j}\times\mu(\text{有理数})
+     % = \alpha_{i}\cdot1+\alpha_{j}\cdot0
+     =\alpha_{i}
+   \end{equation}
+   となるが，
+   \(n\to\infty\) のとき 
+   \(\alpha_{i}\to0,\;\alpha_{j}\to1\) となるので
+   \begin{equation}
+     \int f(x)dx 
+     = 0\times\mu(\text{無理数})+1\times\mu(\text{有理数})
+     = 0
+   \end{equation}
+   となり Lebesgue 積分可能である．
+   #+end_quote
 
 ** 積分の一致する条件
 - 定理
-  #+begin_quote
-  有界閉区間 \(K\) で \(f\) が連続なら，
-  \(K\) 上の \(f\) の Lebesgue 積分の値は Riemann 積分の値と一致する．
-  #+end_quote
-  - 応用上重要な問題に現れる
-    「あまり特殊でない関数」では
-    ほとんど一致すると考えてよい
+   #+begin_quote
+   有界閉区間 \(K\) で \(f\) が連続なら，
+   \(K\) 上の \(f\) の Lebesgue 積分の値は Riemann 積分の値と一致する．
+   #+end_quote
+   - 応用上重要な問題に現れる
+      「あまり特殊でない関数」では
+      ほとんど一致すると考えてよい
 
 
 * 演習
@@ -528,52 +528,52 @@
 :reveal_background: #fef4f4
 :END:
 - 以下の関数が
-  \(\mathbb{R}\)
-  上の確率密度関数となるように \(a\) の値を定めよ．
-  1.
-     #+begin_quote
-     \begin{equation}
-       f(x)=
-       \begin{cases}
-         0& (x < 0)\\
-         \exp(ax) & (x\geq0)
-       \end{cases}
-     \end{equation}
-     #+end_quote
-  2.
-     #+begin_quote
-     \begin{equation}
-       g(x)=
-       \begin{cases}
-         0& (|x|>1)\\
-         a \cos(\pi x/2) & (|x|\leq1)
-       \end{cases}
-     \end{equation}
-     #+end_quote
+   \(\mathbb{R}\)
+   上の確率密度関数となるように \(a\) の値を定めよ．
+   1.
+      #+begin_quote
+      \begin{equation}
+        f(x)=
+        \begin{cases}
+          0& (x < 0)\\
+          \exp(ax) & (x\geq0)
+        \end{cases}
+      \end{equation}
+      #+end_quote
+   2.
+      #+begin_quote
+      \begin{equation}
+        g(x)=
+        \begin{cases}
+          0& (|x|>1)\\
+          a \cos(\pi x/2) & (|x|\leq1)
+        \end{cases}
+      \end{equation}
+      #+end_quote
      
 ** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
 - 標本空間で関数が正値で，積分が1となればよい．
-  1. 
-     #+begin_quote
-     \begin{equation}
-       \int_{0}^{\infty}\exp(ax)dx
-       =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
-       =\frac{-1}{a}
-       =1
-     \end{equation}
-     #+end_quote
-  2.
-     #+begin_quote
-     \begin{equation}
-       \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
-       =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
-       =a\frac{4}{\pi}
-       =1
-     \end{equation}
-     #+end_quote
+   1. 
+      #+begin_quote
+      \begin{equation}
+        \int_{0}^{\infty}\exp(ax)dx
+        =\left[\frac{\exp(ax)}{a}\right]_{0}^{\infty}
+        =\frac{-1}{a}
+        =1
+      \end{equation}
+      #+end_quote
+   2.
+      #+begin_quote
+      \begin{equation}
+        \int_{-1}^{1}a \cos\left(\frac{\pi x}{2}\right) dx
+        =\left[a\frac{2}{\pi}\sin\left(\frac{\pi x}{2}\right)\right]_{-1}^{1}
+        =a\frac{4}{\pi}
+        =1
+      \end{equation}
+      #+end_quote
      
 
 * 確率密度関数の例
@@ -626,12 +626,12 @@
 - 標本空間: 区間 \([a,b]\)
 - 母数: 区間の端点 \(a,b\)
 - 密度関数:
-  \begin{equation}
-    \frac{1}{b-a}
-    \quad(b\le x\le a)
-  \end{equation}
+   \begin{equation}
+     \frac{1}{b-a}
+     \quad(b\le x\le a)
+   \end{equation}
 - 備考: ルーレット回しの
-  確率密度関数に相当する．
+   確率密度関数に相当する．
 #+end_quote
 #+end_rightcol  
 
@@ -653,14 +653,14 @@
 #+begin_quote
 - 標本空間: \((-\infty,\infty)\)
 - 母数: 位置 (location) \(\mu\) ， 
-  尺度 (scale) \(\sigma\)
+   尺度 (scale) \(\sigma\)
 - 密度関数:
-  \begin{equation}
-    f(x)=
-    \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
-  \end{equation}
+   \begin{equation}
+     f(x)=
+     \frac{1}{\pi\sigma}\left(1+\frac{(x-\mu)^{2}}{\sigma^{2}}\right)^{-1}
+   \end{equation}
 - 備考: 裾の重い分布の典型として用いられる．
-  正規分布の比から導かれる．
+   正規分布の比から導かれる．
 #+end_quote
 #+end_rightcol  
 
@@ -689,13 +689,13 @@
 - 標本空間: \([0,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
-  \begin{multline}
-    f(x)=
-    \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
-    \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
-  \end{multline}
+   \begin{multline}
+     f(x)=
+     \frac{1}{2^{\nu/2}\Gamma(\frac{\nu}{2})}x^{\nu/2-1}e^{-x/2}\\
+     \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt
+   \end{multline}
 - 備考: \(\nu\) 個の標準正規分布の2乗和の分布で，
-  検定に利用される．
+   検定に利用される．
 #+end_quote
 #+end_rightcol  
 
@@ -718,15 +718,15 @@
 - 標本空間: \((-\infty,\infty)\)
 - 母数: 自由度 \(\nu\)
 - 密度関数:
-  \begin{equation}
-    f(x)=
-    \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
-    {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
-    \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
-  \end{equation}
+   \begin{equation}
+     f(x)=
+     \frac{\Gamma\left(\frac{\nu+1}{2}\right)}
+     {\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}
+     \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
+   \end{equation}
 - 備考: 標準正規分布と
-  自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
-  検定に利用される．
+   自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
+   検定に利用される．
 #+end_quote
 #+end_rightcol  
 
@@ -750,13 +750,13 @@
 - 標本空間: \([0,\infty)\)
 - 母数: 比率 (rate) \(\lambda>0\)
 - 密度関数:
-  \begin{equation}
-    f(x)=
-    \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
-  \end{equation}
+   \begin{equation}
+     f(x)=
+     \frac{1}{\lambda}e^{-\frac{x}{\lambda}}
+   \end{equation}
 - 備考:
-  タクシーなどの待ち時間のモデル
-  として利用される．
+   タクシーなどの待ち時間のモデル
+   として利用される．
 #+end_quote
 #+end_rightcol  
 
@@ -764,42 +764,42 @@
 * 確率密度がない分布
 ** 確率密度が定義されない例 (その1)
 - \(\delta\) 分布
-  #+begin_quote
-  確率測度を
-  \begin{equation}
-    P(A)=\delta_a(A)=
-    \begin{cases}
-      1, & a\in A\\
-      0, & a\not\in A
-    \end{cases}
-  \end{equation}
-  で定義する．
-  これは
-  \begin{align}
-    &(\text{\(a\)が抜き出される確率})=1\\
-    &(\text{\(\Omega-{a}\)の点が抜き出される確率})=0
-  \end{align}
-  であるから，\(\Omega\) から1点抜き出すと
-  それは *ほとんど確実に* \(a\) であるような
-  抜き出しを考えていることになる．
-  #+end_quote
+   #+begin_quote
+   確率測度を
+   \begin{equation}
+     P(A)=\delta_a(A)=
+     \begin{cases}
+       1, & a\in A\\
+       0, & a\not\in A
+     \end{cases}
+   \end{equation}
+   で定義する．
+   これは
+   \begin{align}
+     &(\text{\(a\)が抜き出される確率})=1\\
+     &(\text{\(\Omega-{a}\)の点が抜き出される確率})=0
+   \end{align}
+   であるから，\(\Omega\) から1点抜き出すと
+   それは *ほとんど確実に* \(a\) であるような
+   抜き出しを考えていることになる．
+   #+end_quote
 
 ** 確率密度が定義されない例 (その2)
 - 有理数の抜き出し
-  #+begin_quote
-  有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
-  これを \(q_{1},q_{2},\dotsc\) で表す．
-  \begin{equation}
-    P(A)=\sum_{i:q_i\in A}2^{-i}
-  \end{equation}
-  という確率測度を考える．
-  例えば
-  \begin{equation}
-    P(\mathbb{Q}_{[0,1]})=1,\quad
-    P(\Omega-\mathbb{Q}_{[0,1]})=0
-  \end{equation}
-  である．
-  #+end_quote
+   #+begin_quote
+   有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
+   これを \(q_{1},q_{2},\dotsc\) で表す．
+   \begin{equation}
+     P(A)=\sum_{i:q_i\in A}2^{-i}
+   \end{equation}
+   という確率測度を考える．
+   例えば
+   \begin{equation}
+     P(\mathbb{Q}_{[0,1]})=1,\quad
+     P(\Omega-\mathbb{Q}_{[0,1]})=0
+   \end{equation}
+   である．
+   #+end_quote
 
 #+reveal: split
 #+begin_quote
@@ -834,66 +834,64 @@
 :reveal_background: #fef4f4
 :END:
 - 正規分布の確率密度関数
-  #+begin_quote
-  \begin{equation}
-    f(x)
-    =
-    \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
-  \end{equation}
-  #+end_quote
-  が
-  \((-\infty,\infty)\)
-  で積分すると1となることを確かめよ.
+   #+begin_quote
+   \begin{equation}
+     f(x)
+     =
+     \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+   \end{equation}
+   #+end_quote
+   が
+   \((-\infty,\infty)\)
+   で積分すると1となることを確かめよ.
 - 次の関数が確率密度となるように \(a\) を定めよ．
-  #+begin_quote
-  \begin{equation}
-      h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
-    \end{equation}
-  #+end_quote
+   #+begin_quote
+   \begin{equation}
+       h(x)=a\exp(-4x^{2})\quad(-\infty < x < \infty)
+     \end{equation}
+   #+end_quote
   
 ** COMMENT ヒント
 :PROPERTIES:
 :reveal_background: #fef4f4
 :END:
 - 2つの正規分布の積を考えて，
-  重積分を極座標に変換すればよい．
-  簡単のため変数変換した
-  #+begin_quote
-  \begin{equation}
-    g(x)=e^{-x^{2}}
-  \end{equation}
-  #+end_quote
-  を考えると
-  以下のように計算できる．
-  #+begin_quote
-  \begin{align}
-    \int_{-\infty}^{\infty}
-    \int_{-\infty}^{\infty}
-    g(x)g(y)dxdy
-    &=
-      \int_{-\infty}^{\infty}
-      \int_{-\infty}^{\infty}
-      e^{-x^{2}-y^{2}}dxdy\\
-    &=
-      \int_{0}^{2\pi}
-      \int_{0}^{\infty}
-      e^{-r^{2}}rdrd\theta
-  \end{align}
-  #+end_quote
+   重積分を極座標に変換すればよい．
+   簡単のため変数変換した
+   #+begin_quote
+   \begin{equation}
+     g(x)=e^{-x^{2}}
+   \end{equation}
+   #+end_quote
+   を考えると
+   以下のように計算できる．
+   #+begin_quote
+   \begin{align}
+     \int_{-\infty}^{\infty}
+     \int_{-\infty}^{\infty}
+     g(x)g(y)dxdy
+     &=
+       \int_{-\infty}^{\infty}
+       \int_{-\infty}^{\infty}
+       e^{-x^{2}-y^{2}}dxdy\\
+     &=
+       \int_{0}^{2\pi}
+       \int_{0}^{\infty}
+       e^{-r^{2}}rdrd\theta
+   \end{align}
+   #+end_quote
   
 
 * 今回のまとめ
 - 確率密度
-  - 確率密度の積分による確率測度の表現
-  - 確率密度の満たすべき条件
-  - Riemann 積分と Lebesgue 積分
-  - いろいろな確率分布
+   - 確率密度の積分による確率測度の表現
+   - 確率密度の満たすべき条件
+   - Riemann 積分と Lebesgue 積分
+   - いろいろな確率分布
 
 
-* Footnotes
+* Footnotes                                                          :ignore:
 * COMMENT ローカル変数
 # Local Variables:
 # org-latex-listings: minted
 # End:
-      
-  

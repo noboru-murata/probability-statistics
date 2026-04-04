@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>条件付確率と独立性</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">条件付確率と独立性</h1>
+</div>
+<div class="talk-subtitle">
+    <p>確率・統計 - 第5講</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  </p>
+</div>
+
+</section>
+<section>
+<section id="slide-org237d004">
+<h2 id="org237d004">前回のおさらい</h2>
+<ul>
+<li>確率変数
+<ul>
+<li>確率空間上の関数としての確率変数</li>
+<li>確率変数の確率空間</li>
+<li>複数の確率変数の同時確率(結合確率)</li>
+<li>確率変数の平均，分散，モーメント</li>
+<li><b>確率変数の特性関数</b></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orga782543">
+<h3 id="orga782543">特性関数</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+特性関数
+は指数関数を用いて変数変換された確率変数の平均として
+</p>
+<div>
+\begin{equation}
+  \phi(s)=\mathbb{E}[e^{isX}]
+\end{equation}
+
+</div>
+<p>
+で定義される．
+</p>
+</blockquote>
+<ul>
+<li>特性関数は実数値ではなく複素数値をとることに注意</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org5685536">
+<h3 id="org5685536">特性関数の性質</h3>
+<ul>
+<li><p>
+逆変換の存在
+</p>
+<blockquote>
+<p>
+特性関数と確率測度(確率密度)は一対一に対応している
+</p>
+
+<p>
+(Levy-Havilandの反転公式)
+</p>
+</blockquote></li>
+<li><p>
+分布の同一性
+</p>
+<blockquote>
+<p>
+2つの分布の特性関数が同じであれば，
+2つの分布が同じであることが言える．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgdf50520" data-background="#fef4f4">
+<h2 id="orgdf50520">演習</h2>
+</section>
+<section id="slide-orgfb6020a" data-background="#fef4f4">
+<h3 id="orgfb6020a">練習問題</h3>
+<ul>
+<li>以下の確率測度の特性関数を求めよ．
+<ol>
+<li>標準正規分布</li>
+<li>平均 \(\mu\) 分散 \(\sigma^{2}\) の正規分布</li>
+
+</ol></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga5892ef">
+<h2 id="orga5892ef">条件付確率</h2>
+</section>
+<section id="slide-org7142b95">
+<h3 id="org7142b95">条件付確率</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+確率空間 \((\Omega,\mathcal{F},P)\) において
+2つの事象 \(A,B\subset\Omega\) を考える．
+事象 \(A\) のもとにおける事象 \(B\) の
+<b>条件付確率</b> (conditional probability) 
+を
+</p>
+<div>
+\begin{equation}
+  P(B|A)=P_A(B)=\frac{P(A\cap B)}{P(A)}
+\end{equation}
+
+</div>
+<p>
+で定義する．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-org5faa352">
+<h3 id="org5faa352">同時確率と条件付確率</h3>
+<ul>
+<li><p>
+<b>同時確率</b> \(P(A\cap B)\)
+</p>
+<blockquote>
+<p>
+&ldquo;事象 \(A\) と事象 \(B\) が同時に起きている&rdquo; 確率
+</p>
+</blockquote></li>
+<li><p>
+<b>条件付確率</b> \(P(B|A)\)
+</p>
+<blockquote>
+<p>
+&ldquo;事象 \(A\) が起きたときに事象 \(B\) が起きている&rdquo; 確率
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-org88c2f08">
+<h3 id="org88c2f08">条件付確率に関する注意</h3>
+<ul>
+<li>事象 \(A\) は空でない \(A\not=\emptyset\) とする</li>
+<li><p>
+\(P(A)=0\) のときは \(P(B|A)\) は意味がないが，
+適当に一点 \(\omega_0\in A\) を選び
+</p>
+<blockquote>
+<div>
+\begin{equation}
+  P(B|A)=
+  \begin{cases}
+    1,& \omega_0\in B\\
+    0,& \omega_0\not\in B
+  \end{cases}
+\end{equation}
+
+</div>
+</blockquote>
+<p>
+とすることがある
+</p></li>
+
+</ul>
+</section>
+<section id="slide-org861a2fd">
+<h3 id="org861a2fd">条件付確率の例</h3>
+<ul>
+<li><p>
+<span style="color:green;">骰子を一回振る試行</span>
+</p>
+<blockquote>
+<p>
+以下の事象を定義する．
+</p>
+<div>
+\begin{align}
+  A&=\{\text{偶数の目が出る}\}\\
+  B&=\{\text{素数の目が出る}\}
+\end{align}
+
+</div>
+<p>
+このとき以下の確率は条件付確率で表される．
+</p>
+<ul>
+<li>&ldquo;偶数の目が出たとき，それが素数である&rdquo; 確率</li>
+<li>&ldquo;偶数の目が出たとき，それが素数でない&rdquo; 確率</li>
+
+</ul>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">&ldquo;偶数の目が出たとき，それが素数である&rdquo; 確率</span>
+</p>
+<blockquote>
+<div>
+\begin{align}
+  P(B|A)
+  &=\frac{P(A\cap B)}{P(A)}\\
+  &=\frac{P(\text{偶数かつ素数の目が出る})}{P(\text{偶数の目が出る})}\\
+  &=\frac{P\{2\}}{P(\{2,4,6\})}
+    =\frac{1/6}{1/2}=\frac{1}{3}
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+<span style="color:green;">&ldquo;偶数の目が出たとき，それが素数でない&rdquo; 確率</span>
+</p>
+<blockquote>
+<div>
+\begin{align}
+  P(B^c|A)
+  &=\frac{P(A\cap B^{c})}{P(A)}\\
+  &=\frac{P(\text{偶数かつ素数でない目が出る})}{P(\text{偶数の目が出る})}\\
+  &=\frac{2/6}{1/2}=\frac{2}{3}
+    =1-P(B|A)
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-orgf0384d5">
+<h3 id="orgf0384d5">確率変数による条件の表現</h3>
+<ul>
+<li><p>
+確率変数が一つの値を取る場合
+</p>
+<blockquote>
+<div>
+\begin{align}
+  A&=\{\omega|X(\omega)=x\} \Leftrightarrow
+     A=X^{-1}(x)\; (x\in\Omega^X) \\
+  B&=\{\omega|Y(\omega)=y\} \Leftrightarrow
+     B=Y^{-1}(y)\; (y\in\Omega^Y) 
+\end{align}
+
+</div>
+<p>
+のようにある事象に対応づけられるので，
+</p>
+<div>
+\begin{equation}
+  P(Y\!=\!y|X\!=\!x)\quad\text{または}\quad P_{X=x}(Y\!=\!y)
+\end{equation}
+
+</div>
+<p>
+という条件付確率を考えることができる．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+確率変数がある集合に含まれる場合
+</p>
+<blockquote>
+<p>
+同様に
+</p>
+<div>
+\begin{align}
+  A&=\{\omega|X(\omega)\in E\} \Leftrightarrow
+     A=X^{-1}(E)\; (E\subset\Omega^X) \\
+  B&=\{\omega|Y(\omega)\in F\} \Leftrightarrow
+     B=Y^{-1}(F)\; (F\subset\Omega^Y)
+\end{align}
+
+</div>
+<p>
+と事象と対応づけられるので，
+</p>
+<div>
+\begin{equation}
+  P(Y\!\in F|X\!\in E)\quad\text{または}\quad P_{X\in E}(Y\in F)
+\end{equation}
+
+</div>
+<p>
+のように表した条件付確率を考えることができる．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+同時確率の表現
+</p>
+<blockquote>
+<p>
+単に変数を並べて
+</p>
+<div>
+\begin{align}
+  P(X\!=\!x,Y\!=\!y)
+  &=P(\{\omega|X(\omega)=x\}\cap\{\omega|Y(\omega)=y\})\\
+  P(X\!\in E,Y\!\in F)
+  &=P(\{\omega|X(\omega)\in E\}\cap\{\omega|Y(\omega)\in F\})
+\end{align}
+
+</div>
+<p>
+と表すことが多い．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+確率法則(確率分布)の表現
+</p>
+<blockquote>
+<p>
+確率変数 \(X\),\(Y\) のいろいろな値に対する
+同時確率や条件付確率をまとめて表現する場合
+</p>
+<div>
+\begin{equation}
+  P(X,Y),\quad P(Y|X)
+\end{equation}
+
+</div>
+<p>
+といった記述を行うことが多い．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-orgf4f7fec">
+<h3 id="orgf4f7fec">条件付確率の性質</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+条件付確率には次の性質がある．
+</p>
+<ol>
+<li>\(\Big.P(A\cap B)=P(A)P(B|A)\)</li>
+<li>\(\Big.P(A|A)=1\)</li>
+<li>\(\Big.P(A_1\cap A_2\cap\dotsb\cap A_n)
+     =P(A_1)P(A_2|A_1)\dotsm P(A_n|A_1\cap A_2\cap\dotsb\cap A_{n-1})\)</li>
+<li>\(\Big.P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)</li>
+
+</ol>
+</blockquote>
+<ul>
+<li>証明は定義から明らか</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org71bfa14">
+<h3 id="org71bfa14">条件付確率分布</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+定理の2. より
+\(P(\cdot|A)\) は \(A\) を標本空間とする確率法則になっている．
+これを \(A\) のもとにおける
+<b>条件付確率分布</b> (conditional probability distribution) 
+という．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-org08f523b">
+<h3 id="org08f523b">条件付平均値</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+条件付確率分布のもとでの平均値
+</p>
+<div>
+\begin{align}
+  \mathbb{E}[Y|A]
+  &=\sum_{\omega\in A}Y(\omega)P(\omega|A)
+    \quad\text{(離散分布の場合)}\\
+  \mathbb{E}[Y|A]
+  &=\int_{A}Y(\omega)P(d\omega|A)
+    \quad\text{(連続分布の場合)}
+\end{align}
+
+</div>
+<p>
+を
+<b>条件付平均値</b> (conditional expectation) 
+と呼ぶ．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf712f02">
+<h2 id="orgf712f02">Bayesの定理</h2>
+</section>
+<section id="slide-org98a8d06">
+<h3 id="org98a8d06">Bayesの定理 (基本形)</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+条件付確率では次の等式が成り立つ．
+</p>
+<div>
+\begin{equation}
+  P(A|B)
+  =\frac{P(A)P(B|A)}{P(B)}.
+\end{equation}
+
+</div>
+</blockquote>
+<ul>
+<li>前出の定理の4.より導かれる</li>
+<li>左辺と右辺で事象 \(A,B\) の役割が異なる</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org094a4c1">
+<h3 id="org094a4c1">Bayesの定理 (一般形)</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+\(\Omega=A_1+A_2+\dotsb+A_n\) のとき
+</p>
+<div>
+\begin{equation}
+  P(A_i|B)
+  =\frac{P(A_i)P(B|A_i)}{\sum_{k=1}^nP(A_k)P(B|A_k)}
+\end{equation}
+
+</div>
+<p>
+が成り立つ．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org1f20e0f" data-background="#fef4f4">
+<h2 id="org1f20e0f">演習</h2>
+</section>
+<section id="slide-orgf680ca2" data-background="#fef4f4">
+<h3 id="orgf680ca2">練習問題</h3>
+<ul>
+<li>Bayes の定理(一般形)を証明せよ．</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgb4c42fc">
+<h2 id="orgb4c42fc">独立性</h2>
+</section>
+<section id="slide-org84da566">
+<h3 id="org84da566">確率変数の独立性</h3>
+<ul>
+<li><p>
+定義 (有限試行の場合)
+</p>
+<blockquote>
+<p>
+二つの確率変数
+\(X,Y\) が互いに
+<b>独立</b> (independent) 
+であるとは，
+任意の \(x,y\) に対して
+</p>
+<div>
+\begin{equation}
+  P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y)
+\end{equation}
+
+</div>
+<p>
+となることである．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+条件付確率による意味付け
+</p>
+<blockquote>
+<p>
+条件付確率を用いて同時確率を書き直すと
+</p>
+<div>
+\begin{equation}
+  P(X\!=\!x,Y\!=\!y)=P(X\!=\!x)P(Y\!=\!y|X\!=\!x)
+\end{equation}
+
+</div>
+<p>
+であるが，
+独立性の定義から
+</p>
+<div>
+\begin{equation}
+  P(Y\!=\!y|X\!=\!x)=P(Y\!=\!y)
+\end{equation}
+
+</div>
+<p>
+となり，\(Y\) の確率は \(X\) に左右されないことを示す．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+定義 (無限試行の場合)
+</p>
+<blockquote>
+<p>
+任意の事象(集合)
+\(E\subset\Omega^X\),\(F\subset\Omega^Y\)
+に対して
+</p>
+<div>
+\begin{equation}
+  P(X\!\in E,Y\!\in F)=P(X\!\in E)P(Y\!\in F)
+\end{equation}
+
+</div>
+<p>
+が成り立つことである．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+定義 (確率密度を持つ場合)
+</p>
+<blockquote>
+<p>
+\(X,Y\) の同時確率分布の密度関数
+(<b>同時確率密度</b>; joint probability density) 
+を \(f(x,y)\) ，\(X,Y\) のそれぞれの確率分布の密度関数
+(<b>周辺確率密度</b>; marginal probability density) 
+を \(g(x),h(y)\) とすると，
+確率変数 \(X,Y\) が互いに独立とは
+任意の \(x,y\) に対して
+</p>
+<div>
+\begin{equation}
+  f(x,y)=g(x)h(y)
+\end{equation}
+
+</div>
+<p>
+となることである．
+</p>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+特性関数による表現 (Kacの定理)
+</p>
+<blockquote>
+<p>
+確率変数 \(X,Y\) が互いに独立とは，
+特性関数を用いて
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[e^{isX+itY}]=\mathbb{E}[e^{isX}]\mathbb{E}[e^{itY}]
+\end{equation}
+
+</div>
+<p>
+が成り立つことと同値である．
+</p>
+</blockquote></li>
+
+</ul>
+</section>
+<section id="slide-org4882353">
+<h3 id="org4882353">独立性の性質</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+独立性に関しては以下の性質が成り立つ．
+</p>
+<ul>
+<li>確率変数 \(X,Y\) が独立 
+\(\Leftrightarrow\) 
+\(\Big.P(Y|X)=P(Y)\ \text{a.s.}\) <br />
+(周辺分布 \(P(Y)\) と
+条件付分布 \(P(Y|X)\) が確率1で等しい)</li>
+<li><p>
+確率変数\(X_1,X_2,\dotsc,X_n\) が独立 
+\(\Rightarrow\)
+変数変換した確率変数
+</p>
+<div>
+\begin{equation}
+  Y_1=\phi_1(X_1),Y_2=\phi_2(X_2),\dotsc,Y_n=\phi_n(X_n)
+\end{equation}
+
+</div>
+<p>
+は独立 (逆が成り立つとは限らないことに注意)
+</p></li>
+
+</ul>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+(定理のつづき)
+</p>
+<blockquote>
+<ul>
+<li><p>
+確率変数 \(X_1,X_2,\dotsc,X_n\) が独立
+\(\Rightarrow\) 
+</p>
+<div>
+\begin{equation}
+  \mathbb{E}[X_1X_2\dotsm X_n]
+  =\mathbb{E}[X_1]\mathbb{E}[X_2]\dotsm\mathbb{E}[X_n]
+\end{equation}
+
+</div>
+<p>
+(平均値の乗法性)
+</p></li>
+<li><p>
+確率変数 \(X_1,X_2,\dotsc,X_n\) の任意の2変数が独立
+\(\Rightarrow\) 
+</p>
+<div>
+\begin{equation}
+  \mathrm{Var}(X_1+X_2+\dotsb+X_n)
+  =\mathrm{Var}(X_1)+\mathrm{Var}(X_2)+\dotsb+\mathrm{Var}(X_n)
+\end{equation}
+
+</div>
+<p>
+(分散の加法性)
+</p></li>
+
+</ul>
+</blockquote>
+<ul>
+<li>平均値の加法性は独立とは無関係に成り立つ</li>
+<li>平均値の乗法性は独立性の定義から明らか</li>
+<li>分散の加法性は展開して平均値の乗法性を用いれば明らか</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orgd228daa">
+<h3 id="orgd228daa">事象の独立性</h3>
+<ul>
+<li><p>
+指示関数
+</p>
+<blockquote>
+<p>
+集合 \(A\) の <b>指示関数 (定義関数)</b> を
+</p>
+<div>
+\begin{equation}
+  1_A(\omega)=
+  \begin{cases}
+    1,& \omega\in A\\
+    0,& \omega\not\in A
+  \end{cases}
+\end{equation}
+
+</div>
+<p>
+で定義する．
+</p>
+</blockquote>
+<ul>
+<li>指示関数は実数値関数</li>
+<li>\(Y=1_A(\omega)\) 確率変数 <br />
+(標本点 \(\omega\) が事象 \(A\) に含まれたかどうかを表す)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+事象 \(A_1,A_2,\dotsc,A_n\) の
+それぞれの指示関数で定義される確率変数
+\(Y_1,Y_2,\dotsc,Y_n\)
+が互いに独立である場合，
+事象
+\(A_1,A_2,\dotsc,A_n\)
+は独立であるという．
+</p>
+</blockquote>
+<ul>
+<li>確率変数の独立性の定義に帰着することに注意</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orgeb96216">
+<h3 id="orgeb96216">事象の独立性の同値条件</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
+<p>
+以下の3つは同値である．
+</p>
+<ol>
+<li>事象 \(A_1,A_2,\dotsc,A_n\) が独立</li>
+<li><p>
+\(B_i=A_i\) または \(B_i=A_i^c\) としたとき
+</p>
+<div>
+\begin{equation}
+  P(B_1\cap B_2\cap\dotsb\cap B_n)
+  =P(B_1)P(B_2)\dotsm P(B_n)
+\end{equation}
+
+</div></li>
+<li><p>
+\(\forall k=2,3,\dotsc,n\), 
+\(1\leq\forall i_1<\forall i_2<\dotsb\forall i_k\leq n\)
+</p>
+<div>
+\begin{equation}
+  P(A_{i_1}\cap A_{i_2}\cap\dotsb\cap A_{i_k})
+  =P(A_{i_1})P(A_{i_2})\dotsm P(A_{i_k})
+\end{equation}
+
+</div></li>
+
+</ol>
+</blockquote></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgd4633d5" data-background="#fef4f4">
+<h2 id="orgd4633d5">演習</h2>
+</section>
+<section id="slide-orga1e14a2" data-background="#fef4f4">
+<h3 id="orga1e14a2">練習問題</h3>
+<ul>
+<li><p>
+以下の問に答えよ．
+</p>
+<blockquote>
+<p>
+高田馬場のラーメン屋Aの売上は，
+前の週の口コミサイトBとCにおける評価に強く影響される．
+詳しく調べた結果以下のことが判った．
+</p>
+<ul>
+<li>売上，および評価は上がるか下がるかの二通りしかない</li>
+<li>B,C共に評価が上がったときに売上が上がる確率は \(0.9\) である</li>
+<li>B,Cの一方のみ評価が上がったときに売上が上がる確率は \(0.6\) である</li>
+<li>B,C共に評価が下がったときに売上が下がる確率は \(0.8\) である</li>
+<li>Bの評価が上がる確率は \(0.5\) である</li>
+<li>Cの評価が上がる確率は \(0.6\) である</li>
+<li>Bの評価が上がるとき \(X=1\), 下がるとき \(X=0\), 
+Cの評価が上がるとき \(Y=1\), 下がるとき \(Y=0\) となる
+確率変数 \(X,Y\) を考えると，\(X,Y\) の共分散は \(0.1\) である</li>
+
+</ul>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li>このとき以下の確率を求めよ．
+<ul>
+<li>B,C共に評価が上がる確率はいくつか？</li>
+<li>Aの売上が下がったとき，
+B,C共に評価が下がった確率はいくつか？</li>
+<li>Aの売上が上がったとき，
+B,Cの一方のみ評価が上がった確率はいくつか？</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgdd7e4a8">
+<h2 id="orgdd7e4a8">今回のまとめ</h2>
+<ul>
+<li>条件付確率と独立性
+<ul>
+<li>同時確率，周辺確率，条件付確率</li>
+<li>条件付確率分布，条件付確率密度，条件付平均値</li>
+<li>条件付確率とBeyesの定理</li>
+<li>確率変数と事象の独立性</li>
+
+</ul></li>
+
+</ul>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/dist/theme/hidelinks.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: false,
+overview: true,
+
+transition: 'fade',
+transitionSpeed: 'default',
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
+spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>

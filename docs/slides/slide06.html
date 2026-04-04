@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第6講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-org1d4dcda">
-<h2 id="org1d4dcda">前回のおさらい</h2>
+<section id="slide-org28a116e">
+<h2 id="org28a116e">前回のおさらい</h2>
 <ul>
 <li>条件付確率と独立性
 <ul>
@@ -59,8 +86,8 @@
 
 </ul>
 </section>
-<section id="slide-org9913410">
-<h3 id="org9913410">特性関数</h3>
+<section id="slide-orgb577a20">
+<h3 id="orgb577a20">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -87,8 +114,8 @@
 
 </ul>
 </section>
-<section id="slide-org0593389">
-<h3 id="org0593389">特性関数の性質</h3>
+<section id="slide-org2029630">
+<h3 id="org2029630">特性関数の性質</h3>
 <ul>
 <li><p>
 逆変換の存在
@@ -114,8 +141,8 @@
 
 </ul>
 </section>
-<section id="slide-orgef95080">
-<h3 id="orgef95080">標準正規分布の特性関数</h3>
+<section id="slide-org731fa69">
+<h3 id="org731fa69">標準正規分布の特性関数</h3>
 <ul>
 <li><p>
 \(X\) を標準正規分布に従う確率変数とする
@@ -137,8 +164,8 @@
 
 </ul>
 </section>
-<section id="slide-org9dd0ef8">
-<h3 id="org9dd0ef8">独立性の重要な性質</h3>
+<section id="slide-org6edb13d">
+<h3 id="org6edb13d">独立性の重要な性質</h3>
 <ul>
 <li><p>
 平均値の乗法性
@@ -177,11 +204,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org6e5decb">
-<h2 id="org6e5decb">大数の法則</h2>
+<section id="slide-org17073d7">
+<h2 id="org17073d7">大数の法則</h2>
 </section>
-<section id="slide-org7df58b2">
-<h3 id="org7df58b2">記号の準備</h3>
+<section id="slide-org089b515">
+<h3 id="org089b515">記号の準備</h3>
 <ul>
 <li><p>
 確率変数列
@@ -232,8 +259,8 @@
 
 </ul>
 </section>
-<section id="slide-orgc238f2b">
-<h3 id="orgc238f2b">大数の法則</h3>
+<section id="slide-orgb96193c">
+<h3 id="orgb96193c">大数の法則</h3>
 <ul>
 <li><p>
 定理
@@ -271,8 +298,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf097ce9">
-<h3 id="orgf097ce9">Čebyšëv の不等式</h3>
+<section id="slide-org11a8fb9">
+<h3 id="org11a8fb9">Čebyšëv の不等式</h3>
 <ul>
 <li><p>
 定理
@@ -329,8 +356,8 @@
 
 </ul>
 </section>
-<section id="slide-orgd3234e4">
-<h3 id="orgd3234e4">大数の法則の略証</h3>
+<section id="slide-org71ff3d5">
+<h3 id="org71ff3d5">大数の法則の略証</h3>
 <ul>
 <li><p>
 step 1
@@ -425,8 +452,8 @@ step 4
 
 </ul>
 </section>
-<section id="slide-org5c62b02">
-<h3 id="org5c62b02">Kolmogorov の大数の強法則</h3>
+<section id="slide-orgce2d4ac">
+<h3 id="orgce2d4ac">Kolmogorov の大数の強法則</h3>
 <ul>
 <li><p>
 定理
@@ -471,8 +498,8 @@ step 4
 
 </ul>
 </section>
-<section id="slide-orgfc1e25c">
-<h3 id="orgfc1e25c">同分布の場合の大数の強法則</h3>
+<section id="slide-orgcc4fbc6">
+<h3 id="orgcc4fbc6">同分布の場合の大数の強法則</h3>
 <ul>
 <li><p>
 定理
@@ -527,11 +554,11 @@ step 4
 </section>
 </section>
 <section>
-<section id="slide-orgaff201b" data-background="#fef4f4">
-<h2 id="orgaff201b">演習</h2>
+<section id="slide-org792fe7a" data-background="#fef4f4">
+<h2 id="org792fe7a">演習</h2>
 </section>
-<section id="slide-org8b33e1b" data-background="#fef4f4">
-<h3 id="org8b33e1b">練習問題</h3>
+<section id="slide-orgab3d6a4" data-background="#fef4f4">
+<h3 id="orgab3d6a4">練習問題</h3>
 <ul>
 <li>確率変数 \(X\) は平均50，標準偏差10の分布に従うとする．
 このとき以下の確率を Čebyšëv の不等式を用いて評価せよ．
@@ -546,11 +573,11 @@ step 4
 </section>
 </section>
 <section>
-<section id="slide-org4a29fb3">
-<h2 id="org4a29fb3">中心極限定理</h2>
+<section id="slide-org76731d8">
+<h2 id="org76731d8">中心極限定理</h2>
 </section>
-<section id="slide-org3ed5ade">
-<h3 id="org3ed5ade">Lindeberg の中心極限定理</h3>
+<section id="slide-org9a9bc6f">
+<h3 id="org9a9bc6f">Lindeberg の中心極限定理</h3>
 <ul>
 <li><p>
 定理
@@ -590,8 +617,8 @@ step 4
 
 </ul>
 </section>
-<section id="slide-org6d6dd15">
-<h3 id="org6d6dd15">同分布の場合の中心極限定理</h3>
+<section id="slide-orgbf22a47">
+<h3 id="orgbf22a47">同分布の場合の中心極限定理</h3>
 <ul>
 <li><p>
 定理
@@ -766,11 +793,11 @@ Lindeberg の条件は満たされる．
 </section>
 </section>
 <section>
-<section id="slide-orge9618f2" data-background="#fef4f4">
-<h2 id="orge9618f2">演習</h2>
+<section id="slide-org3bf43ef" data-background="#fef4f4">
+<h2 id="org3bf43ef">演習</h2>
 </section>
-<section id="slide-orgb4caef7" data-background="#fef4f4">
-<h3 id="orgb4caef7">練習問題</h3>
+<section id="slide-org41ffec5" data-background="#fef4f4">
+<h3 id="org41ffec5">練習問題</h3>
 <ul>
 <li><p>
 以下の関数を \(x=0\) のまわりで Taylor 展開せよ．
@@ -805,8 +832,8 @@ Lindeberg の条件は満たされる．
 
 </ul>
 </section>
-<section id="slide-orgc5da71f" data-background="#fef4f4">
-<h3 id="orgc5da71f">練習問題</h3>
+<section id="slide-org6fa7e5e" data-background="#fef4f4">
+<h3 id="org6fa7e5e">練習問題</h3>
 <ul>
 <li><p>
 以下の極限を求めよ
@@ -824,13 +851,13 @@ Lindeberg の条件は満たされる．
 </section>
 </section>
 <section>
-<section id="slide-orgb952519">
-<h2 id="orgb952519">定理の略証</h2>
-<div class="outline-text-2" id="text-orgb952519">
+<section id="slide-orged13647">
+<h2 id="orged13647">定理の略証</h2>
+<div class="outline-text-2" id="text-orged13647">
 </div>
 </section>
-<section id="slide-org350249a">
-<h3 id="org350249a">証明の考え方</h3>
+<section id="slide-org3ae7246">
+<h3 id="org3ae7246">証明の考え方</h3>
 <ul>
 <li><p>
 以下では同分布の場合の定理を考える
@@ -1025,11 +1052,11 @@ step 5
 </section>
 </section>
 <section>
-<section id="slide-org5747d4f" data-background="#fef4f4">
-<h2 id="org5747d4f">演習</h2>
+<section id="slide-orgae55a42" data-background="#fef4f4">
+<h2 id="orgae55a42">演習</h2>
 </section>
-<section id="slide-org45da169" data-background="#fef4f4">
-<h3 id="org45da169">練習問題</h3>
+<section id="slide-org5a825ff" data-background="#fef4f4">
+<h3 id="org5a825ff">練習問題</h3>
 <ul>
 <li><p>
 偏りのないコインを投げたとき表なら1，
@@ -1057,10 +1084,90 @@ n回投げたときに得られた結果を
 
 </ul>
 </section>
+<section id="slide-org313087b" data-background="#fef4f4">
+<h3 id="org313087b">ヒント</h3>
+<ul>
+<li><p>
+\(X\)の性質は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[X]
+  &=\frac{1}{2}\times(1)+\frac{1}{2}\times(-1)=0\\
+  \mathrm{Var}(X)
+  &=\mathbb{E}[X^{2}]
+    =\frac{1}{2}\times(1)^{2}+\frac{1}{2}\times(-1)^{2}=1\\
+  \phi_{X}(s)
+  &=\mathbb{E}[e^{isX}]
+    =\frac{1}{2}\times e^{is}+\frac{1}{2}\times e^{-is}
+    =\cos(s)\\
+\end{align}
+
+</div>
+</blockquote></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(Y\)と\(X\)の関係は以下のとおり
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \mathbb{E}[Y_{n}]
+  &=\frac{1}{\sqrt{n}}\sum_{k=1}^{n}\mathbb{E}[X_{k}]\\
+  \mathrm{Var}(Y_{n})
+  &=\frac{1}{\sqrt{n}^{2}}\sum_{k=1}^{n}\mathrm{Var}(X_{k})\\
+  \phi_{Y_{n}}(s)
+  &=\prod_{k=1}^{n}\phi_{X}(s/\sqrt{n})
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>特性関数の展開については注意せよ</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+\(\cos(z)\)の Taylor 展開
+</p>
+<blockquote>
+<div>
+\begin{align}
+  \cos(z)
+  &=\frac{e^{iz}+e^{-iz}}{2}\\
+  &=\frac{1}{2}
+    \left(1+\frac{1}{1!}(iz)+\frac{1}{2!}(iz)^2+\frac{1}{3!}(iz)^3+\dotsb\right)\\
+  &\qquad+\frac{1}{2}
+    \left(1+\frac{1}{1!}(-iz)+\frac{1}{2!}(-iz)^2+\frac{1}{3!}(-iz)^3+\dotsb\right)\\
+  &=1-\frac{1}{2!}z^2+\frac{1}{4!}z^4+\dotsb
+\end{align}
+
+</div>
+</blockquote>
+<ul>
+<li>上記は練習問題の解を利用したもの</li>
+<li>定義に従って計算しても同じ展開が得られる</li>
+<li>これを用いて中心極限定理の証明と同様な議論をすればよい</li>
+
+</ul></li>
+
+</ul>
+</section>
 </section>
 <section>
-<section id="slide-orgc1f6376">
-<h2 id="orgc1f6376">今回のまとめ</h2>
+<section id="slide-org7dddb4f">
+<h2 id="org7dddb4f">今回のまとめ</h2>
 <ul>
 <li>独立変数の和の性質
 <ul>
@@ -1070,15 +1177,19 @@ n回投げたときに得られた結果を
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1087,30 +1198,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

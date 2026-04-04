@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第3講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-org70a7f90">
-<h2 id="org70a7f90">前回のおさらい</h2>
+<section id="slide-org40b57b5">
+<h2 id="org40b57b5">前回のおさらい</h2>
 <ul>
 <li>一般の確率空間
 <ul>
@@ -67,11 +94,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgfa1f1e8">
-<h2 id="orgfa1f1e8">確率測度と確率密度</h2>
+<section id="slide-org40c0582">
+<h2 id="org40c0582">確率測度と確率密度</h2>
 </section>
-<section id="slide-org1cdd252">
-<h3 id="org1cdd252">歪んだ目盛りのルーレットの例</h3>
+<section id="slide-org70eb9f9">
+<h3 id="org70eb9f9">歪んだ目盛りのルーレットの例</h3>
 <ul>
 <li><p>
 問題
@@ -127,7 +154,7 @@
 </ul>
 
 
-<div id="org73c0850" class="figure">
+<div id="org81f7856" class="figure">
 <p><img src="figs/roulette.png" alt="roulette.png" height="100%" />
 </p>
 </div>
@@ -160,8 +187,8 @@
 
 </ul>
 </section>
-<section id="slide-orgd23d996">
-<h3 id="orgd23d996">一様でない抜き出しの例</h3>
+<section id="slide-orgebeddd9">
+<h3 id="orgebeddd9">一様でない抜き出しの例</h3>
 <ul>
 <li><p>
 問題
@@ -188,15 +215,15 @@
 <li>解答</li>
 
 </ul>
-<div class="leftcol" id="org29c782f">
+<div class="leftcol" id="org01d43df">
 
-<div id="orga1c9dac" class="figure">
+<div id="org92de2fe" class="figure">
 <p><img src="figs/density.png" alt="density.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol" id="orgaf2d5c0">
+<div class="rightcol" id="org8ae6feb">
 <blockquote>
 <div>
 \begin{equation}
@@ -248,8 +275,8 @@
 
 </ul>
 </section>
-<section id="slide-org80585ba">
-<h3 id="org80585ba">確率測度の条件 (再掲)</h3>
+<section id="slide-orge3c99f9">
+<h3 id="orge3c99f9">確率測度の条件 (再掲)</h3>
 <ul>
 <li><p>
 以下の3つの条件が成立する
@@ -271,8 +298,8 @@
 
 </ul>
 </section>
-<section id="slide-orgde3e2d5">
-<h3 id="orgde3e2d5">積分による表現の正当性</h3>
+<section id="slide-org959747d">
+<h3 id="org959747d">積分による表現の正当性</h3>
 <ul>
 <li>(P.1) \(f(x)\) の正値性から明らか</li>
 <li>(P.2) 積分区間を分割しても積分値が変わらないという積分の性質から明らか</li>
@@ -294,8 +321,8 @@
 
 </ul>
 </section>
-<section id="slide-orgc2a0214">
-<h3 id="orgc2a0214">確率密度</h3>
+<section id="slide-org8562e44">
+<h3 id="org8562e44">確率密度</h3>
 <ul>
 <li><p>
 定義
@@ -330,8 +357,8 @@
 
 </ul>
 </section>
-<section id="slide-org27681bd">
-<h3 id="org27681bd">確率密度の例</h3>
+<section id="slide-orga7608ef">
+<h3 id="orga7608ef">確率密度の例</h3>
 <ul>
 <li><p>
 歪んだ目盛りのルーレット
@@ -367,11 +394,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org37478cf" data-background="#fef4f4">
-<h2 id="org37478cf">演習</h2>
+<section id="slide-org287ced9" data-background="#fef4f4">
+<h2 id="org287ced9">演習</h2>
 </section>
-<section id="slide-org17ce208" data-background="#fef4f4">
-<h3 id="org17ce208">練習問題</h3>
+<section id="slide-org2e58440" data-background="#fef4f4">
+<h3 id="org2e58440">練習問題</h3>
 <ul>
 <li>起点 \(0\) から周に沿った長さ \(l\) の位置に対して，
 以下のような歪んだ目盛り \(x\) を付けた
@@ -387,34 +414,34 @@
 </section>
 </section>
 <section>
-<section id="slide-org28b816b">
-<h2 id="org28b816b">異なる2つの積分</h2>
-<div class="outline-text-2" id="text-org28b816b">
+<section id="slide-org58ae481">
+<h2 id="org58ae481">異なる2つの積分</h2>
+<div class="outline-text-2" id="text-org58ae481">
 </div>
 </section>
-<section id="slide-orgcecec2f">
-<h3 id="orgcecec2f">積分の考え方</h3>
+<section id="slide-org98651d8">
+<h3 id="org98651d8">積分の考え方</h3>
 <ul>
 <li>Riemann 積分 (区分求積法に基づく)</li>
 <li>Lebesgue 積分 (確率測度に基づく)</li>
 
 </ul>
 </section>
-<section id="slide-org64bf2ad">
-<h3 id="org64bf2ad">Riemann 積分</h3>
-<div class="leftcol" id="org3319fb9">
+<section id="slide-org0cb5a69">
+<h3 id="org0cb5a69">Riemann 積分</h3>
+<div class="leftcol" id="org67d188f">
 <ul>
 <li>定義</li>
 
 </ul>
 
-<div id="org20fc6e4" class="figure">
+<div id="orgabca3d3" class="figure">
 <p><img src="figs/riemann.png" alt="riemann.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol" id="org527a9ca">
+<div class="rightcol" id="orgd00958f">
 <blockquote>
 <p>
 有界な積分領域 \(K\) を \(n\) 個の区間 
@@ -471,21 +498,21 @@
 
 </ul>
 </section>
-<section id="slide-orgfd84e01">
-<h3 id="orgfd84e01">Lebesgue 積分</h3>
-<div class="leftcol" id="org6c179b2">
+<section id="slide-org9da4e1d">
+<h3 id="org9da4e1d">Lebesgue 積分</h3>
+<div class="leftcol" id="orge790d6c">
 <ul>
 <li>定義</li>
 
 </ul>
 
-<div id="orga063407" class="figure">
+<div id="org2b867a7" class="figure">
 <p><img src="figs/lebesgue.png" alt="lebesgue.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol" id="orgc16dc26">
+<div class="rightcol" id="orgf599a14">
 <blockquote>
 <p>
 区間 \(K\) 上で定義された
@@ -538,8 +565,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf283764">
-<h3 id="orgf283764">表記に関する注意</h3>
+<section id="slide-orgaa714eb">
+<h3 id="orgaa714eb">表記に関する注意</h3>
 <ul>
 <li><p>
 Lebesgue 積分特有の記法
@@ -569,8 +596,8 @@ Lebesgue 積分を考える</li>
 
 </ul>
 </section>
-<section id="slide-orgc432809">
-<h3 id="orgc432809">2つの積分の違い</h3>
+<section id="slide-orgdbaa751">
+<h3 id="orgdbaa751">2つの積分の違い</h3>
 <ul>
 <li><p>
 特異な例
@@ -695,8 +722,8 @@ Lebesgue 積分の場合
 
 </ul>
 </section>
-<section id="slide-org19cc895">
-<h3 id="org19cc895">積分の一致する条件</h3>
+<section id="slide-org26d6d2b">
+<h3 id="org26d6d2b">積分の一致する条件</h3>
 <ul>
 <li><p>
 定理
@@ -718,11 +745,11 @@ Lebesgue 積分の場合
 </section>
 </section>
 <section>
-<section id="slide-orgcc603d7" data-background="#fef4f4">
-<h2 id="orgcc603d7">演習</h2>
+<section id="slide-orgc5ab29d" data-background="#fef4f4">
+<h2 id="orgc5ab29d">演習</h2>
 </section>
-<section id="slide-org50d26d7" data-background="#fef4f4">
-<h3 id="org50d26d7">練習問題</h3>
+<section id="slide-orgef3b920" data-background="#fef4f4">
+<h3 id="orgef3b920">練習問題</h3>
 <ul>
 <li>以下の関数が
 \(\mathbb{R}\)
@@ -759,23 +786,23 @@ Lebesgue 積分の場合
 </section>
 </section>
 <section>
-<section id="slide-org60dc4cc">
-<h2 id="org60dc4cc">確率密度関数の例</h2>
-<div class="outline-text-2" id="text-org60dc4cc">
+<section id="slide-org8bac46a">
+<h2 id="org8bac46a">確率密度関数の例</h2>
+<div class="outline-text-2" id="text-org8bac46a">
 </div>
 </section>
-<section id="slide-org34d4dc9">
-<h3 id="org34d4dc9">正規分布 (normal/Gaussian distribution)</h3>
-<div class="leftcol" id="org48e0c8e">
+<section id="slide-orge8193ee">
+<h3 id="orge8193ee">正規分布 (normal/Gaussian distribution)</h3>
+<div class="leftcol" id="org9e20c59">
 
-<div id="orge6b4777" class="figure">
+<div id="orged49e69" class="figure">
 <p><img src="figs/pdf_norm.png" alt="pdf_norm.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>正規分布 (平均\(0\),分散\(1\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="orga884386">
+<div class="rightcol" id="orgbffc6c8">
 <blockquote>
 <ul>
 <li>標本空間: \((-\infty,\infty)\)</li>
@@ -799,18 +826,18 @@ Lebesgue 積分の場合
 
 </div>
 </section>
-<section id="slide-org2c772fb">
-<h3 id="org2c772fb">一様分布 (uniform distribution)</h3>
-<div class="leftcol" id="orgf409a8f">
+<section id="slide-org9fd4125">
+<h3 id="org9fd4125">一様分布 (uniform distribution)</h3>
+<div class="leftcol" id="orga488714">
 
-<div id="orgcf5aeac" class="figure">
+<div id="orgfb25ebb" class="figure">
 <p><img src="figs/pdf_unif.png" alt="pdf_unif.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>一様分布 (区間\([0,1]\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="org0d8ff00">
+<div class="rightcol" id="org604cd53">
 <blockquote>
 <ul>
 <li>標本空間: 区間 \([a,b]\)</li>
@@ -833,18 +860,18 @@ Lebesgue 積分の場合
 
 </div>
 </section>
-<section id="slide-org0bb55f1">
-<h3 id="org0bb55f1">Cauchy分布 (Cauchy distribution)</h3>
-<div class="leftcol" id="org14db6c7">
+<section id="slide-org259b926">
+<h3 id="org259b926">Cauchy分布 (Cauchy distribution)</h3>
+<div class="leftcol" id="org671a07c">
 
-<div id="orgfe33355" class="figure">
+<div id="org535de15" class="figure">
 <p><img src="figs/pdf_cauchy.png" alt="pdf_cauchy.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Cauchy分布 (位置\(0\),尺度\(1\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="org932532d">
+<div class="rightcol" id="orgf0a57a2">
 <blockquote>
 <ul>
 <li>標本空間: \((-\infty,\infty)\)</li>
@@ -868,18 +895,18 @@ Lebesgue 積分の場合
 
 </div>
 </section>
-<section id="slide-orgdba2bb7">
-<h3 id="orgdba2bb7">\(\chi^{2}\)-分布 (\(\chi^{2}\)-distribution)</h3>
-<div class="leftcol" id="org28b9076">
+<section id="slide-org9fabeda">
+<h3 id="org9fabeda">\(\chi^{2}\)-分布 (\(\chi^{2}\)-distribution)</h3>
+<div class="leftcol" id="orgfd7e22e">
 
-<div id="org99cc476" class="figure">
+<div id="org175a242" class="figure">
 <p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 4: </span>\(\chi^{2}\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="org3a0b024">
+<div class="rightcol" id="orgd185468">
 <blockquote>
 <ul>
 <li>標本空間: \([0,\infty)\)</li>
@@ -903,18 +930,18 @@ Lebesgue 積分の場合
 
 </div>
 </section>
-<section id="slide-orgaa86f81">
-<h3 id="orgaa86f81">\(t\)-分布 (Student&rsquo;s \(t\)-distribution)</h3>
-<div class="leftcol" id="org51448e2">
+<section id="slide-orga3aa5ac">
+<h3 id="orga3aa5ac">\(t\)-分布 (Student&rsquo;s \(t\)-distribution)</h3>
+<div class="leftcol" id="orgf4fb56f">
 
-<div id="orga6ec0f7" class="figure">
+<div id="org565f0d4" class="figure">
 <p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 5: </span>\(t\)-分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="orgf958d15">
+<div class="rightcol" id="orgc3e82e6">
 <blockquote>
 <ul>
 <li>標本空間: \((-\infty,\infty)\)</li>
@@ -940,18 +967,18 @@ Lebesgue 積分の場合
 
 </div>
 </section>
-<section id="slide-orgc29b5c8">
-<h3 id="orgc29b5c8">指数分布 (exponential distribution)</h3>
-<div class="leftcol" id="orgd2a3ef0">
+<section id="slide-orgbc01120">
+<h3 id="orgbc01120">指数分布 (exponential distribution)</h3>
+<div class="leftcol" id="org159383b">
 
-<div id="orgac4912e" class="figure">
+<div id="org7811cde" class="figure">
 <p><img src="figs/pdf_exp.png" alt="pdf_exp.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 6: </span>指数分布(比率\(1\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="orgf39c261">
+<div class="rightcol" id="org8d7f6e3">
 <blockquote>
 <ul>
 <li>標本空間: \([0,\infty)\)</li>
@@ -977,13 +1004,13 @@ Lebesgue 積分の場合
 </section>
 </section>
 <section>
-<section id="slide-org16d33e1">
-<h2 id="org16d33e1">確率密度がない分布</h2>
-<div class="outline-text-2" id="text-org16d33e1">
+<section id="slide-org03f940c">
+<h2 id="org03f940c">確率密度がない分布</h2>
+<div class="outline-text-2" id="text-org03f940c">
 </div>
 </section>
-<section id="slide-org9027538">
-<h3 id="org9027538">確率密度が定義されない例 (その1)</h3>
+<section id="slide-orgbd827a1">
+<h3 id="orgbd827a1">確率密度が定義されない例 (その1)</h3>
 <ul>
 <li><p>
 \(\delta\) 分布
@@ -1022,8 +1049,8 @@ Lebesgue 積分の場合
 
 </ul>
 </section>
-<section id="slide-org9b1f3b5">
-<h3 id="org9b1f3b5">確率密度が定義されない例 (その2)</h3>
+<section id="slide-orgec9f678">
+<h3 id="orgec9f678">確率密度が定義されない例 (その2)</h3>
 <ul>
 <li><p>
 有理数の抜き出し
@@ -1100,11 +1127,11 @@ Lebesgue 積分の場合
 </section>
 </section>
 <section>
-<section id="slide-orgfbcfdfd" data-background="#fef4f4">
-<h2 id="orgfbcfdfd">演習</h2>
+<section id="slide-org2d4f71b" data-background="#fef4f4">
+<h2 id="org2d4f71b">演習</h2>
 </section>
-<section id="slide-orgcf03520" data-background="#fef4f4">
-<h3 id="orgcf03520">練習問題</h3>
+<section id="slide-org753b71e" data-background="#fef4f4">
+<h3 id="org753b71e">練習問題</h3>
 <ul>
 <li><p>
 正規分布の確率密度関数
@@ -1140,8 +1167,8 @@ Lebesgue 積分の場合
 </section>
 </section>
 <section>
-<section id="slide-org8e0d0ce">
-<h2 id="org8e0d0ce">今回のまとめ</h2>
+<section id="slide-org24ae26e">
+<h2 id="org24ae26e">今回のまとめ</h2>
 <ul>
 <li>確率密度
 <ul>
@@ -1153,15 +1180,19 @@ Lebesgue 積分の場合
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1170,30 +1201,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

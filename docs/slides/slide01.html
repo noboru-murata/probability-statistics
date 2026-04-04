@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第1講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,11 +72,11 @@
 
 </section>
 <section>
-<section id="slide-orgb374480">
-<h2 id="orgb374480">試行と標本空間</h2>
+<section id="slide-orga8b2939">
+<h2 id="orga8b2939">試行と標本空間</h2>
 </section>
-<section id="slide-org2bf0bc5">
-<h3 id="org2bf0bc5">試行と標本点</h3>
+<section id="slide-org1705fb3">
+<h3 id="org1705fb3">試行と標本点</h3>
 <dl>
 <dt>試行 (trial)</dt><dd>不確定性のある現象を調べるための
 <b>実験</b></dd>
@@ -60,8 +87,8 @@
 
 </dl>
 </section>
-<section id="slide-orgfe5cfee">
-<h3 id="orgfe5cfee">試行の例</h3>
+<section id="slide-orgfaee0fb">
+<h3 id="orgfaee0fb">試行の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子(サイコロ)振り</span>
@@ -94,8 +121,8 @@
 
 </ul>
 </section>
-<section id="slide-org7e34a02">
-<h3 id="org7e34a02">標本空間と標本点</h3>
+<section id="slide-orgb9144a9">
+<h3 id="orgb9144a9">標本空間と標本点</h3>
 <dl>
 <dt>標本空間 (sample space)</dt><dd>観測される全ての標本点を集めた集合<br />
 <b>見本空間</b>
@@ -108,8 +135,8 @@
 
 </dl>
 </section>
-<section id="slide-orgbe3a24c">
-<h3 id="orgbe3a24c">標本空間の例</h3>
+<section id="slide-orgc522df3">
+<h3 id="orgc522df3">標本空間の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -135,8 +162,8 @@
 
 </ul>
 </section>
-<section id="slide-org3f24a56">
-<h3 id="org3f24a56">標本空間による試行の分類</h3>
+<section id="slide-org3d2b19a">
+<h3 id="org3d2b19a">標本空間による試行の分類</h3>
 <dl>
 <dt>有限試行</dt><dd>標本空間が有限集合(要素数が
 <b>有限個</b>
@@ -147,8 +174,8 @@
 
 </dl>
 </section>
-<section id="slide-orgf9170aa">
-<h3 id="orgf9170aa">試行の分類の例</h3>
+<section id="slide-orgc92bfa0">
+<h3 id="orgc92bfa0">試行の分類の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -179,7 +206,7 @@
 <p>
 標本点としていくらでも長い系列，例えば
 \(\Omega=\{\langle 1\rangle,\langle 2,1\rangle,\langle 3,1\rangle,
-  \dotsc,\langle 4,2,5,6,1\rangle,\dotsc\}\) 
+   \dotsc,\langle 4,2,5,6,1\rangle,\dotsc\}\) 
 が存在するので，
 その要素の数は無限となる．
 </p>
@@ -193,11 +220,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgfb68d67" data-background="#fef4f4">
-<h2 id="orgfb68d67">演習</h2>
+<section id="slide-org5c3b34a" data-background="#fef4f4">
+<h2 id="org5c3b34a">演習</h2>
 </section>
-<section id="slide-org0ba7d11" data-background="#fef4f4">
-<h3 id="org0ba7d11">練習問題</h3>
+<section id="slide-orgb3ab918" data-background="#fef4f4">
+<h3 id="orgb3ab918">練習問題</h3>
 <ul>
 <li>&ldquo;コインを10回投げる&rdquo; 試行を考える．
 <ul>
@@ -222,11 +249,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org5fa32cf">
-<h2 id="org5fa32cf">事象とその表現</h2>
+<section id="slide-org01385b5">
+<h2 id="org01385b5">事象とその表現</h2>
 </section>
-<section id="slide-org946f14b">
-<h3 id="org946f14b">事象</h3>
+<section id="slide-org9b7d0a1">
+<h3 id="org9b7d0a1">事象</h3>
 <dl>
 <dt>事象 (event)</dt><dd><p>
 標本点の集合，すなわち標本空間の部分集合
@@ -243,8 +270,8 @@
 
 </dl>
 </section>
-<section id="slide-orgc0de382">
-<h3 id="orgc0de382">事象の例</h3>
+<section id="slide-org8f802c7">
+<h3 id="org8f802c7">事象の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -285,8 +312,8 @@
 
 </ul>
 </section>
-<section id="slide-org8162e22">
-<h3 id="org8162e22">事象の演算 (集合の演算)</h3>
+<section id="slide-orgc8630f0">
+<h3 id="orgc8630f0">事象の演算 (集合の演算)</h3>
 <dl>
 <dt>和事象 (sum event)</dt><dd><blockquote>
 <p>
@@ -329,6 +356,12 @@
 \(A\cap B=\emptyset\) (互いに素; disjoint) 
 </p>
 </blockquote></dd>
+
+</dl>
+
+</section>
+<section>
+<dl>
 <dt>直和 (direct sum, disjoint union)</dt><dd><blockquote>
 <p>
 \(A\) と \(B\) が排反のとき \(A\cup B\) を \(A+B\) と書く
@@ -342,8 +375,8 @@
 
 </dl>
 </section>
-<section id="slide-orge684213">
-<h3 id="orge684213">事象の演算の例</h3>
+<section id="slide-org2e71132">
+<h3 id="org2e71132">事象の演算の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -375,8 +408,8 @@
 
 </ul>
 </section>
-<section id="slide-org0b4a444">
-<h3 id="org0b4a444">条件による事象の表現</h3>
+<section id="slide-org8435c50">
+<h3 id="org8435c50">条件による事象の表現</h3>
 <ul>
 <li><p>
 事象は標本点 \(\omega\) に関する
@@ -396,8 +429,8 @@
 
 </ul>
 </section>
-<section id="slide-org45f0d6a">
-<h3 id="org45f0d6a">条件による事象の例</h3>
+<section id="slide-org7647800">
+<h3 id="org7647800">条件による事象の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -432,8 +465,8 @@
 
 </ul>
 </section>
-<section id="slide-org5c9254f">
-<h3 id="org5c9254f">条件による事象の演算</h3>
+<section id="slide-org90ef1b2">
+<h3 id="org90ef1b2">条件による事象の演算</h3>
 <dl>
 <dt>和事象 (\(\alpha\) または \(\beta\)) : \(\alpha\vee\beta\)</dt><dd><blockquote>
 <div>
@@ -465,8 +498,8 @@
 
 </dl>
 </section>
-<section id="slide-orgfede060">
-<h3 id="orgfede060">条件による事象の演算の例</h3>
+<section id="slide-org9bf1e0b">
+<h3 id="org9bf1e0b">条件による事象の演算の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -497,11 +530,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org0fbe5e2" data-background="#fef4f4">
-<h2 id="org0fbe5e2">演習</h2>
+<section id="slide-org902c800" data-background="#fef4f4">
+<h2 id="org902c800">演習</h2>
 </section>
-<section id="slide-org52e4fcc" data-background="#fef4f4">
-<h3 id="org52e4fcc">練習問題</h3>
+<section id="slide-org59e377e" data-background="#fef4f4">
+<h3 id="org59e377e">練習問題</h3>
 <ul>
 <li>和事象，交事象，差事象，余事象，排反事象，固有差，直和を
 ベン図 (Venn diagram) を描いて説明せよ．</li>
@@ -509,8 +542,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf83a0cb" data-background="#fef4f4">
-<h3 id="orgf83a0cb">ド・モルガンの法則</h3>
+<section id="slide-org94c245a" data-background="#fef4f4">
+<h3 id="org94c245a">ド・モルガンの法則</h3>
 <ul>
 <li><p>
 一般には以下の2つの等式で表される関係を指す．
@@ -534,11 +567,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org4e95d45">
-<h2 id="org4e95d45">有限試行の確率空間</h2>
+<section id="slide-org06c4e47">
+<h2 id="org06c4e47">有限試行の確率空間</h2>
 </section>
-<section id="slide-org48bdbe5">
-<h3 id="org48bdbe5">有限試行の確率測度</h3>
+<section id="slide-orgc40385c">
+<h3 id="orgc40385c">有限試行の確率測度</h3>
 <ul>
 <li><p>
 定義
@@ -577,8 +610,8 @@
 
 </ul>
 </section>
-<section id="slide-org2db0a2f">
-<h3 id="org2db0a2f">確率測度の条件の意味</h3>
+<section id="slide-org3fca36b">
+<h3 id="org3fca36b">確率測度の条件の意味</h3>
 <dl>
 <dt>(P.1)</dt><dd>ある事象の起こる確率は \(0\) または正の値を取る</dd>
 <dt>(P.2)</dt><dd>排反な事象の和の確率はそれぞれの事象の確率の和となる</dd>
@@ -587,8 +620,8 @@
 
 </dl>
 </section>
-<section id="slide-org296362e">
-<h3 id="org296362e">確率測度の例</h3>
+<section id="slide-org9957ca5">
+<h3 id="org9957ca5">確率測度の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -614,8 +647,8 @@
 
 </ul>
 </section>
-<section id="slide-org76ccd9f">
-<h3 id="org76ccd9f">確率空間</h3>
+<section id="slide-orgd972ed2">
+<h3 id="orgd972ed2">確率空間</h3>
 <ul>
 <li><p>
 定義
@@ -644,8 +677,8 @@
 
 </ul>
 </section>
-<section id="slide-org5a25a7d">
-<h3 id="org5a25a7d">確率測度の演算</h3>
+<section id="slide-org14fe29a">
+<h3 id="org14fe29a">確率測度の演算</h3>
 <ul>
 <li><p>
 事象の演算に関しては以下の関係が成り立つ．
@@ -670,8 +703,8 @@
 
 </ul>
 </section>
-<section id="slide-orgffe49d1">
-<h3 id="orgffe49d1">確率測度の演算の例</h3>
+<section id="slide-orgb5ff60a">
+<h3 id="orgb5ff60a">確率測度の演算の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振り</span>
@@ -700,11 +733,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org0fc653d" data-background="#fef4f4">
-<h2 id="org0fc653d">演習</h2>
+<section id="slide-org1cc5c74" data-background="#fef4f4">
+<h2 id="org1cc5c74">演習</h2>
 </section>
-<section id="slide-org25c7404" data-background="#fef4f4">
-<h3 id="org25c7404">練習問題</h3>
+<section id="slide-org2cedd81" data-background="#fef4f4">
+<h3 id="org2cedd81">練習問題</h3>
 <ul>
 <li><p>
 確率測度の定義にもとづいて以下を証明せよ．
@@ -726,11 +759,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org88ee0eb">
-<h2 id="org88ee0eb">試行が有限でない場合の問題点</h2>
+<section id="slide-org9615e0b">
+<h2 id="org9615e0b">試行が有限でない場合の問題点</h2>
 </section>
-<section id="slide-org74909de">
-<h3 id="org74909de">無限試行の例</h3>
+<section id="slide-orgb52e846">
+<h3 id="orgb52e846">無限試行の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">&ldquo;1が出るまで骰子を振り続ける&rdquo; 試行</span>
@@ -787,8 +820,8 @@
 
 </ul>
 </section>
-<section id="slide-org71f5ab5">
-<h3 id="org71f5ab5">無限試行の例</h3>
+<section id="slide-org56d11f4">
+<h3 id="org56d11f4">無限試行の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">ルーレット回し</span>
@@ -911,8 +944,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgca583b7">
-<h2 id="orgca583b7">今回のまとめ</h2>
+<section id="slide-org2900b9a">
+<h2 id="org2900b9a">今回のまとめ</h2>
 <ul>
 <li>有限試行の確率空間
 <ul>
@@ -925,15 +958,19 @@
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -942,30 +979,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

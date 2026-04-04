@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第4講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-org37bc5d5">
-<h2 id="org37bc5d5">前回のおさらい</h2>
+<section id="slide-org1d3cf94">
+<h2 id="org1d3cf94">前回のおさらい</h2>
 <ul>
 <li>確率密度
 <ul>
@@ -61,11 +88,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orge932df8">
-<h2 id="orge932df8">1次元の確率変数</h2>
+<section id="slide-org7b24554">
+<h2 id="org7b24554">1次元の確率変数</h2>
 </section>
-<section id="slide-org507cfd8">
-<h3 id="org507cfd8">確率変数の定義</h3>
+<section id="slide-org42587db">
+<h3 id="org42587db">確率変数の定義</h3>
 <ul>
 <li><p>
 定義
@@ -99,8 +126,8 @@
 
 </ul>
 </section>
-<section id="slide-orgfc84904">
-<h3 id="orgfc84904">確率変数の例</h3>
+<section id="slide-org451eb21">
+<h3 id="org451eb21">確率変数の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振りの確率変数</span>
@@ -261,11 +288,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orge647b39">
-<h2 id="orge647b39">確率変数の確率空間</h2>
+<section id="slide-org73bb65f">
+<h2 id="org73bb65f">確率変数の確率空間</h2>
 </section>
-<section id="slide-org694c97b">
-<h3 id="org694c97b">確率変数の標本空間</h3>
+<section id="slide-orgec4ffe7">
+<h3 id="orgec4ffe7">確率変数の標本空間</h3>
 <ul>
 <li><p>
 定義
@@ -291,8 +318,8 @@
 
 </ul>
 </section>
-<section id="slide-org74f60a5">
-<h3 id="org74f60a5">確率変数の確率法則</h3>
+<section id="slide-orgec63db0">
+<h3 id="orgec63db0">確率変数の確率法則</h3>
 <ul>
 <li><p>
 標本点の写像
@@ -444,8 +471,8 @@
 
 </ul>
 </section>
-<section id="slide-orgb7fcd51">
-<h3 id="orgb7fcd51">確率変数の確率空間の例</h3>
+<section id="slide-org593fd5a">
+<h3 id="org593fd5a">確率変数の確率空間の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
@@ -546,11 +573,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org89fea42" data-background="#fef4f4">
-<h2 id="org89fea42">演習</h2>
+<section id="slide-org74d3f85" data-background="#fef4f4">
+<h2 id="org74d3f85">演習</h2>
 </section>
-<section id="slide-org7723516" data-background="#fef4f4">
-<h3 id="org7723516">練習問題</h3>
+<section id="slide-orga6f5318" data-background="#fef4f4">
+<h3 id="orga6f5318">練習問題</h3>
 <ul>
 <li><p>
 ルーレット回しの確率変数 \(Y\)
@@ -577,13 +604,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgab9d4dd">
-<h2 id="orgab9d4dd">多次元の確率変数</h2>
-<div class="outline-text-2" id="text-orgab9d4dd">
+<section id="slide-org3b106bf">
+<h2 id="org3b106bf">多次元の確率変数</h2>
+<div class="outline-text-2" id="text-org3b106bf">
 </div>
 </section>
-<section id="slide-org41e0831">
-<h3 id="org41e0831">多次元の確率変数</h3>
+<section id="slide-orgb9727b3">
+<h3 id="orgb9727b3">多次元の確率変数</h3>
 <ul>
 <li><p>
 同じ確率空間の上の複数の確率変数をまとめて
@@ -643,8 +670,8 @@
 
 </ul>
 </section>
-<section id="slide-org527d31a">
-<h3 id="org527d31a">多次元確率変数の用語</h3>
+<section id="slide-org993b278">
+<h3 id="org993b278">多次元確率変数の用語</h3>
 <ul>
 <li>\(X_1(\omega),\dotsc,,X_n(\omega)\) : 
 \(\boldsymbol{X}(\omega)\) の <b>成分変数</b></li>
@@ -660,13 +687,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgbaca942">
-<h2 id="orgbaca942">確率変数の変換</h2>
-<div class="outline-text-2" id="text-orgbaca942">
+<section id="slide-orgb1c2242">
+<h2 id="orgb1c2242">確率変数の変換</h2>
+<div class="outline-text-2" id="text-orgb1c2242">
 </div>
 </section>
-<section id="slide-org40deda8">
-<h3 id="org40deda8">確率変数の変換</h3>
+<section id="slide-org3772e1f">
+<h3 id="org3772e1f">確率変数の変換</h3>
 <ul>
 <li><p>
 変換
@@ -700,8 +727,8 @@
 
 </ul>
 </section>
-<section id="slide-org9f22780">
-<h3 id="org9f22780">確率変数の変換の例</h3>
+<section id="slide-orgf46c22d">
+<h3 id="orgf46c22d">確率変数の変換の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">二回の骰子振りの確率変数の変換</span>
@@ -741,8 +768,8 @@
 
 </ul>
 </section>
-<section id="slide-org55ace4a">
-<h3 id="org55ace4a">変換後の確率空間</h3>
+<section id="slide-org01a8d34">
+<h3 id="org01a8d34">変換後の確率空間</h3>
 <ul>
 <li><p>
 標本空間
@@ -807,11 +834,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org372fb0d">
-<h2 id="org372fb0d">確率変数の平均値</h2>
+<section id="slide-orgcc434bd">
+<h2 id="orgcc434bd">確率変数の平均値</h2>
 </section>
-<section id="slide-org714431f">
-<h3 id="org714431f">離散分布の平均値</h3>
+<section id="slide-org58c3f02">
+<h3 id="org58c3f02">離散分布の平均値</h3>
 <ul>
 <li><p>
 定義
@@ -846,8 +873,8 @@
 
 </ul>
 </section>
-<section id="slide-org1db2d8f">
-<h3 id="org1db2d8f">平均値の例</h3>
+<section id="slide-orgf9abf13">
+<h3 id="orgf9abf13">平均値の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">骰子振りの確率変数</span>
@@ -954,8 +981,8 @@
 
 </ul>
 </section>
-<section id="slide-org3bd47f2">
-<h3 id="org3bd47f2">連続分布の平均値</h3>
+<section id="slide-org26c937e">
+<h3 id="org26c937e">連続分布の平均値</h3>
 <ul>
 <li><p>
 定義
@@ -990,8 +1017,8 @@
 
 </ul>
 </section>
-<section id="slide-orgacfdd20">
-<h3 id="orgacfdd20">平均値の例</h3>
+<section id="slide-orgfc8bd5f">
+<h3 id="orgfc8bd5f">平均値の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">ルーレット回しの確率変数</span>
@@ -1028,8 +1055,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf427bb2">
-<h3 id="orgf427bb2">平均に関する注意</h3>
+<section id="slide-orgdcf7f48">
+<h3 id="orgdcf7f48">平均に関する注意</h3>
 <ul>
 <li><p>
 標本空間の制限付平均値
@@ -1076,8 +1103,8 @@
 
 </ul>
 </section>
-<section id="slide-orgbb9eafe">
-<h3 id="orgbb9eafe">平均値の性質</h3>
+<section id="slide-org0a4ca20">
+<h3 id="org0a4ca20">平均値の性質</h3>
 <ul>
 <li><p>
 定理
@@ -1127,8 +1154,8 @@
 
 </ul>
 </section>
-<section id="slide-org9a82f54">
-<h3 id="org9a82f54">平均値の計算の例</h3>
+<section id="slide-org76f5100">
+<h3 id="org76f5100">平均値の計算の例</h3>
 <ul>
 <li><p>
 <span style="color:green;">二回の骰子振りの確率変数</span>
@@ -1164,11 +1191,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org9c27d62" data-background="#fef4f4">
-<h2 id="org9c27d62">演習</h2>
+<section id="slide-org0bd0b11" data-background="#fef4f4">
+<h2 id="org0bd0b11">演習</h2>
 </section>
-<section id="slide-orgec5d63a" data-background="#fef4f4">
-<h3 id="orgec5d63a">練習問題</h3>
+<section id="slide-org37de014" data-background="#fef4f4">
+<h3 id="org37de014">練習問題</h3>
 <ul>
 <li>ルーレット回しの確率変数 \(Y\) の平均値を
 以下の2通りの確率測度を用いて求めよ
@@ -1182,11 +1209,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org50cf4e4">
-<h2 id="org50cf4e4">確率変数の分散</h2>
+<section id="slide-org8a5cc07">
+<h2 id="org8a5cc07">確率変数の分散</h2>
 </section>
-<section id="slide-org30e18a4">
-<h3 id="org30e18a4">分散</h3>
+<section id="slide-org9d02d60">
+<h3 id="org9d02d60">分散</h3>
 <ul>
 <li><p>
 定義
@@ -1214,8 +1241,8 @@
 
 </ul>
 </section>
-<section id="slide-org1f63840">
-<h3 id="org1f63840">共分散</h3>
+<section id="slide-org0507d78">
+<h3 id="org0507d78">共分散</h3>
 <ul>
 <li><p>
 定義
@@ -1238,8 +1265,8 @@
 
 </ul>
 </section>
-<section id="slide-orgc44248c">
-<h3 id="orgc44248c">確率変数の確率空間による計算</h3>
+<section id="slide-orgf05fc07">
+<h3 id="orgf05fc07">確率変数の確率空間による計算</h3>
 <ul>
 <li><p>
 離散分布に従う場合 :
@@ -1276,8 +1303,8 @@
 
 </ul>
 </section>
-<section id="slide-org1abdaa5">
-<h3 id="org1abdaa5">分散の計算例</h3>
+<section id="slide-orgab469bd">
+<h3 id="orgab469bd">分散の計算例</h3>
 <ul>
 <li><p>
 <span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
@@ -1353,8 +1380,8 @@
 
 </ul>
 </section>
-<section id="slide-orgea41cbc">
-<h3 id="orgea41cbc">分散・共分散の性質</h3>
+<section id="slide-org6f60c6c">
+<h3 id="org6f60c6c">分散・共分散の性質</h3>
 <ul>
 <li><p>
 定理
@@ -1384,8 +1411,8 @@
 
 </ul>
 </section>
-<section id="slide-org764a5a0">
-<h3 id="org764a5a0">モーメント</h3>
+<section id="slide-orgd0b4fba">
+<h3 id="orgd0b4fba">モーメント</h3>
 <ul>
 <li><p>
 定義
@@ -1449,11 +1476,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org5e391a5" data-background="#fef4f4">
-<h2 id="org5e391a5">演習</h2>
+<section id="slide-org3d1c906" data-background="#fef4f4">
+<h2 id="org3d1c906">演習</h2>
 </section>
-<section id="slide-org11ab77b" data-background="#fef4f4">
-<h3 id="org11ab77b">練習問題</h3>
+<section id="slide-org120fabd" data-background="#fef4f4">
+<h3 id="org120fabd">練習問題</h3>
 <ul>
 <li>以下の確率変数の分散を求めよ．
 <ol>
@@ -1466,11 +1493,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org5da5df9">
-<h2 id="org5da5df9">特性関数</h2>
+<section id="slide-org63ef457">
+<h2 id="org63ef457">特性関数</h2>
 </section>
-<section id="slide-orgafd49ea">
-<h3 id="orgafd49ea">特性関数</h3>
+<section id="slide-org8419c1d">
+<h3 id="org8419c1d">特性関数</h3>
 <ul>
 <li><p>
 定義
@@ -1497,8 +1524,8 @@
 
 </ul>
 </section>
-<section id="slide-org3fade5d">
-<h3 id="org3fade5d">特性関数に関する注意</h3>
+<section id="slide-orgc03781e">
+<h3 id="orgc03781e">特性関数に関する注意</h3>
 <ul>
 <li><p>
 Fourier変換との関係
@@ -1562,11 +1589,11 @@ Fourier変換には逆Fourier変換が存在して
 </section>
 </section>
 <section>
-<section id="slide-org4606a70" data-background="#fef4f4">
-<h2 id="org4606a70">演習</h2>
+<section id="slide-orgbac84ae" data-background="#fef4f4">
+<h2 id="orgbac84ae">演習</h2>
 </section>
-<section id="slide-org5eb9976" data-background="#fef4f4">
-<h3 id="org5eb9976">練習問題</h3>
+<section id="slide-org360c544" data-background="#fef4f4">
+<h3 id="org360c544">練習問題</h3>
 <ul>
 <li>以下の確率測度の特性関数を求めよ．
 <ol>
@@ -1580,8 +1607,8 @@ Fourier変換には逆Fourier変換が存在して
 </section>
 </section>
 <section>
-<section id="slide-org9bfa100">
-<h2 id="org9bfa100">今回のまとめ</h2>
+<section id="slide-org516b80f">
+<h2 id="org516b80f">今回のまとめ</h2>
 <ul>
 <li>確率変数
 <ul>
@@ -1594,15 +1621,19 @@ Fourier変換には逆Fourier変換が存在して
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1611,30 +1642,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

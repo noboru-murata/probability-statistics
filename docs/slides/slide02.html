@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第2講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-orgd2acc0d">
-<h2 id="orgd2acc0d">前回のおさらい</h2>
+<section id="slide-org9ca8d0b">
+<h2 id="org9ca8d0b">前回のおさらい</h2>
 <ul>
 <li>有限試行の確率空間
 <ul>
@@ -62,11 +89,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org0519323">
-<h2 id="org0519323">有理数の可算性</h2>
+<section id="slide-orgd76e533">
+<h2 id="orgd76e533">有理数の可算性</h2>
 </section>
-<section id="slide-org613663b">
-<h3 id="org613663b">可算集合</h3>
+<section id="slide-org3132e48">
+<h3 id="org3132e48">可算集合</h3>
 <ul>
 <li><p>
 定義
@@ -86,8 +113,8 @@
 
 </ul>
 </section>
-<section id="slide-org879d7bf">
-<h3 id="org879d7bf">有理数の可算性</h3>
+<section id="slide-orgf845537">
+<h3 id="orgf845537">有理数の可算性</h3>
 <ul>
 <li><p>
 区間 \((0,1)\) に含まれる全ての有理数は可算
@@ -197,8 +224,8 @@
 
 </ul>
 </section>
-<section id="slide-orgbe57174">
-<h3 id="orgbe57174">Bernsteinの定理</h3>
+<section id="slide-orga227534">
+<h3 id="orga227534">Bernsteinの定理</h3>
 <ul>
 <li>1対1の対応が存在することを示す代わりに，
 \(A\)と\(B\)の部分集合，
@@ -209,14 +236,14 @@
 </ul>
 
 
-<div id="org23f7216" class="figure">
+<div id="orgdf4eb87" class="figure">
 <p><img src="figs/bernstein.png" alt="bernstein.png" height="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Bernsteinの定理</p>
 </div>
 </section>
-<section id="slide-orgb713e31">
-<h3 id="orgb713e31">有理数の可算性 (再考)</h3>
+<section id="slide-org17d3755">
+<h3 id="org17d3755">有理数の可算性 (再考)</h3>
 <ul>
 <li>Bernstein の定理を用いた場合
 <ul>
@@ -252,11 +279,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org0484dec" data-background="#fef4f4">
-<h2 id="org0484dec">演習</h2>
+<section id="slide-org62bb06a" data-background="#fef4f4">
+<h2 id="org62bb06a">演習</h2>
 </section>
-<section id="slide-org8408eb1" data-background="#fef4f4">
-<h3 id="org8408eb1">練習問題</h3>
+<section id="slide-orgdab5dac" data-background="#fef4f4">
+<h3 id="orgdab5dac">練習問題</h3>
 <ul>
 <li>整数が可算であることを示せ．</li>
 <li>自然数の組 \((m,n)\) が可算であるかどうか論じよ．</li>
@@ -264,13 +291,256 @@
 
 </ul>
 </section>
+<section id="slide-org9e25897" data-background="#fef4f4">
+<h3 id="org9e25897">整数の可算性</h3>
+<ul>
+<li><p>
+示すべきこと
+</p>
+<blockquote>
+<p>
+自然数と整数の間に1対1の対応づけがある．
+</p>
+</blockquote></li>
+<li><p>
+構成例
+</p>
+<blockquote>
+<ul>
+<li>奇数の自然数: \(n\mapsto z=(n-1)/2\) (非負の整数)</li>
+<li>偶数の自然数: \(n\mapsto z=-n/2\) (負の整数)</li>
+
+</ul>
+</blockquote></li>
+<li>Bernsteinの定理を使った場合も考えてみよ</li>
+
+</ul>
+</section>
+<section id="slide-org1f410c2" data-background="#fef4f4">
+<h3 id="org1f410c2">自然数の組の可算性</h3>
+<ul>
+<li><p>
+以下の表に番号を振ることを考えればよい
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">(m,n)</th>
+<th scope="col" class="org-left">1</th>
+<th scope="col" class="org-left">2</th>
+<th scope="col" class="org-left">3</th>
+<th scope="col" class="org-left">4</th>
+<th scope="col" class="org-left">5</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">(1,1)</td>
+<td class="org-left">(1,2)</td>
+<td class="org-left">(1,3)</td>
+<td class="org-left">(1,4)</td>
+<td class="org-left">(1,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">(2,1)</td>
+<td class="org-left">(2,2)</td>
+<td class="org-left">(2,3)</td>
+<td class="org-left">(2,4)</td>
+<td class="org-left">(2,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">(3,1)</td>
+<td class="org-left">(3,2)</td>
+<td class="org-left">(3,3)</td>
+<td class="org-left">(3,4)</td>
+<td class="org-left">(3,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">(4,1)</td>
+<td class="org-left">(4,2)</td>
+<td class="org-left">(4,3)</td>
+<td class="org-left">(4,4)</td>
+<td class="org-left">(4,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">(5,1)</td>
+<td class="org-left">(5,2)</td>
+<td class="org-left">(5,3)</td>
+<td class="org-left">(5,4)</td>
+<td class="org-left">(5,5)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+</ul>
+
+</section>
+<section data-background="#fef4f4">
+<ul>
+<li><p>
+例えば斜めに振っていく
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">(m,n)</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-right">5</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">7</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-right">12</td>
+<td class="org-right">17</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">6</td>
+<td class="org-right">9</td>
+<td class="org-right">13</td>
+<td class="org-right">18</td>
+<td class="org-right">24</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">10</td>
+<td class="org-right">14</td>
+<td class="org-right">19</td>
+<td class="org-right">25</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">15</td>
+<td class="org-right">20</td>
+<td class="org-right">26</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+<li>規則(数式)は考えてみよ</li>
+
+</ul>
+</section>
+<section id="slide-orgc97a06a" data-background="#fef4f4">
+<h3 id="orgc97a06a">1以上の有理数の可算性</h3>
+<ul>
+<li>1以上の有理数は
+(自然数，区間 \([0,1)\) の有理数) 
+と分解して考えることができる</li>
+<li>区間 \([0,1)\) の有理数は番号付けできる
+(区間 \((0,1)\) に0を加えただけ)ので，
+(自然数，自然数) に対応づけられる</li>
+<li>前問の結果を用いれば明らか</li>
+
+</ul>
+</section>
 </section>
 <section>
-<section id="slide-orge185351">
-<h2 id="orge185351">無理数の非可算性</h2>
+<section id="slide-org3205a5e">
+<h2 id="org3205a5e">無理数の非可算性</h2>
 </section>
-<section id="slide-org5b45ab1">
-<h3 id="org5b45ab1">非可算集合</h3>
+<section id="slide-org3274698">
+<h3 id="org3274698">非可算集合</h3>
 <ul>
 <li><p>
 定義
@@ -291,8 +561,8 @@
 
 </ul>
 </section>
-<section id="slide-org0c58df3">
-<h3 id="org0c58df3">Cantorの対角線論法</h3>
+<section id="slide-org765b1f2">
+<h3 id="org765b1f2">Cantorの対角線論法</h3>
 <ul>
 <li>無理数の非可算性の証明 (背理法)</li>
 <li>証明の概要 (詳しくは講義資料)
@@ -428,8 +698,8 @@
 
 </ul>
 </section>
-<section id="slide-org47cb85b">
-<h3 id="org47cb85b">集合の分類</h3>
+<section id="slide-orga896cca">
+<h3 id="orga896cca">集合の分類</h3>
 <ul>
 <li>無限集合を更に分類(可算と非可算)する必要がある</li>
 <li><b>集合の濃度</b>
@@ -449,11 +719,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org5216497" data-background="#fef4f4">
-<h2 id="org5216497">演習</h2>
+<section id="slide-org3160587" data-background="#fef4f4">
+<h2 id="org3160587">演習</h2>
 </section>
-<section id="slide-orgabc254c" data-background="#fef4f4">
-<h3 id="orgabc254c">練習問題</h3>
+<section id="slide-org1f52ec4" data-background="#fef4f4">
+<h3 id="org1f52ec4">練習問題</h3>
 <ul>
 <li>以下の集合の濃度を答えなさい．
 <ul>
@@ -470,11 +740,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org8dc9f84">
-<h2 id="org8dc9f84">一般の確率測度</h2>
+<section id="slide-orgf83e92d">
+<h2 id="orgf83e92d">一般の確率測度</h2>
 </section>
-<section id="slide-org4902647">
-<h3 id="org4902647">可測集合</h3>
+<section id="slide-org23c0daa">
+<h3 id="org23c0daa">可測集合</h3>
 <dl>
 <dt>可測集合 (measurable set)</dt><dd>確率測度 \(P\) で確率の値を測ることができる集合<br />
 (標本点の集合の中で事象として考えてよいもの)</dd>
@@ -483,8 +753,8 @@
 
 </dl>
 </section>
-<section id="slide-org5e39df3">
-<h3 id="org5e39df3">集合族</h3>
+<section id="slide-orgf1006fc">
+<h3 id="orgf1006fc">集合族</h3>
 <ul>
 <li>確率測度 \(P\) で確率の値を測ることができる
 対象全体 (関数 \(P\) の <b>定義域</b>) を
@@ -496,8 +766,8 @@
 
 </ul>
 </section>
-<section id="slide-org9eb121a">
-<h3 id="org9eb121a">\(\sigma\)-加法族</h3>
+<section id="slide-org55ec4ea">
+<h3 id="org55ec4ea">\(\sigma\)-加法族</h3>
 <ul>
 <li><p>
 定義
@@ -531,8 +801,8 @@
 
 </ul>
 </section>
-<section id="slide-org0c27563">
-<h3 id="org0c27563">条件の意味</h3>
+<section id="slide-org63d7f7a">
+<h3 id="org63d7f7a">条件の意味</h3>
 <dl>
 <dt>(\(\sigma.1\))</dt><dd>標本空間(全事象)は可測である( \(P\) で測ることができる)</dd>
 <dt>(\(\sigma.2\))</dt><dd>ある事象が可測なら，その余事象も可測である</dd>
@@ -540,8 +810,8 @@
 
 </dl>
 </section>
-<section id="slide-org5cc6bcc">
-<h3 id="org5cc6bcc">確率測度</h3>
+<section id="slide-org137b23c">
+<h3 id="org137b23c">確率測度</h3>
 <ul>
 <li><p>
 定義
@@ -580,8 +850,8 @@
 
 </ul>
 </section>
-<section id="slide-orgb81a299">
-<h3 id="orgb81a299">確率空間</h3>
+<section id="slide-orgf77180c">
+<h3 id="orgf77180c">確率空間</h3>
 <ul>
 <li><p>
 定義
@@ -602,11 +872,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org38495c6">
-<h2 id="org38495c6">Lebesgue 測度</h2>
+<section id="slide-org2d46b55">
+<h2 id="org2d46b55">Lebesgue 測度</h2>
 </section>
-<section id="slide-org6b06afc">
-<h3 id="org6b06afc">ルーレット回しの確率測度</h3>
+<section id="slide-org4d492bd">
+<h3 id="org4d492bd">ルーレット回しの確率測度</h3>
 <ul>
 <li><p>
 区間 \((0,1]\) からの無作為抽出 
@@ -643,8 +913,8 @@
 
 </ul>
 </section>
-<section id="slide-org4a8829a">
-<h3 id="org4a8829a">確率測度の定義域</h3>
+<section id="slide-org248ee61">
+<h3 id="org248ee61">確率測度の定義域</h3>
 <ul>
 <li>確率測度 \(P\) の定義域 \(\mathcal{F}\) は
 集合演算で作られる</li>
@@ -664,8 +934,8 @@
 
 </ul>
 </section>
-<section id="slide-org93691d0">
-<h3 id="org93691d0">Lebesgue 測度</h3>
+<section id="slide-org7770a62">
+<h3 id="org7770a62">Lebesgue 測度</h3>
 <ul>
 <li><p>
 定義
@@ -691,8 +961,8 @@
 
 </ul>
 </section>
-<section id="slide-org94d1984">
-<h3 id="org94d1984">Lebesgue 測度の計算</h3>
+<section id="slide-orgba90ac6">
+<h3 id="orgba90ac6">Lebesgue 測度の計算</h3>
 <ul>
 <li><p>
 一点が抜き出される確率
@@ -823,8 +1093,8 @@ Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
 
 </ul>
 </section>
-<section id="slide-orge5e10d9">
-<h3 id="orge5e10d9">零集合</h3>
+<section id="slide-org452e173">
+<h3 id="org452e173">零集合</h3>
 <ul>
 <li><p>
 定義
@@ -846,8 +1116,8 @@ Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
 
 </ul>
 </section>
-<section id="slide-org9d6fbe5">
-<h3 id="org9d6fbe5">&ldquo;ほとんど確実&rdquo;</h3>
+<section id="slide-org1d8d889">
+<h3 id="org1d8d889">&ldquo;ほとんど確実&rdquo;</h3>
 <ul>
 <li><p>
 確率での特殊な言い回し
@@ -881,26 +1151,26 @@ Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
 </section>
 </section>
 <section>
-<section id="slide-org5fcc4e7" data-background="#fef4f4">
-<h2 id="org5fcc4e7">演習</h2>
+<section id="slide-org1badde6" data-background="#fef4f4">
+<h2 id="org1badde6">演習</h2>
 </section>
-<section id="slide-orgfbf20ca" data-background="#fef4f4">
-<h3 id="orgfbf20ca">練習問題</h3>
+<section id="slide-org3ba48b4" data-background="#fef4f4">
+<h3 id="org3ba48b4">練習問題</h3>
 <ul>
 <li>Buffonの針 (Buffon&rsquo;s needle) の問題を考えよ</li>
 
 </ul>
 
-<div class="leftcol" id="org7b7a31c">
+<div class="leftcol" id="orge7d1a10">
 
-<div id="org4a438c2" class="figure">
+<div id="orgb8471ac" class="figure">
 <p><img src="figs/buffon.png" alt="buffon.png" width="100%" /> 
 </p>
 <p><span class="figure-number">Figure 2: </span>Buffonの針</p>
 </div>
 
 </div>
-<div class="rightcol" id="org66f6020">
+<div class="rightcol" id="org8544bdf">
 <blockquote>
 <p>
 2次元平面上に等間隔 \(d\) で平行線が引いてある．
@@ -913,8 +1183,8 @@ Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
 </section>
 </section>
 <section>
-<section id="slide-orgf2a97db">
-<h2 id="orgf2a97db">今回のまとめ</h2>
+<section id="slide-org5ecdb55">
+<h2 id="org5ecdb55">今回のまとめ</h2>
 <ul>
 <li>一般の確率空間
 <ul>
@@ -932,15 +1202,19 @@ Lebesgue 測度 \(\mu\) を定数倍(正規化)し，
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -949,30 +1223,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第11講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-orgcea7316">
-<h2 id="orgcea7316">前回のおさらい</h2>
+<section id="slide-orgdb3ebd3">
+<h2 id="orgdb3ebd3">前回のおさらい</h2>
 <ul>
 <li>統計的仮説検定
 <ul>
@@ -66,8 +93,8 @@
 
 </ul>
 </section>
-<section id="slide-org85498f6">
-<h3 id="org85498f6">統計的仮説検定</h3>
+<section id="slide-orgb4e741b">
+<h3 id="orgb4e741b">統計的仮説検定</h3>
 <ul>
 <li>ある現象・母集団に対して仮定された仮説の真偽を
 データに基づいて統計的に検証する方法</li>
@@ -76,8 +103,8 @@
 
 </ul>
 </section>
-<section id="slide-org1f73e3c">
-<h3 id="org1f73e3c">検定における仮説</h3>
+<section id="slide-org30a0c8f">
+<h3 id="org30a0c8f">検定における仮説</h3>
 <ul>
 <li><p>
 <b>帰無仮説</b> \(H_{0}\)
@@ -98,8 +125,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf404fe4">
-<h3 id="orgf404fe4">検定の基本的手続き</h3>
+<section id="slide-orgc53afda">
+<h3 id="orgc53afda">検定の基本的手続き</h3>
 <ol>
 <li>仮説を立てる</li>
 <li>仮説のもとで <b>検定統計量</b> が従う <b>帰無分布</b> を調べる</li>
@@ -115,8 +142,8 @@
 
 </ol>
 </section>
-<section id="slide-orgc3247ab">
-<h3 id="orgc3247ab">検定の用語</h3>
+<section id="slide-orgaacc556">
+<h3 id="orgaacc556">検定の用語</h3>
 <ul>
 <li>仮説の判定
 <ul>
@@ -141,18 +168,18 @@
 
 </section>
 <section>
-<div class="leftcol" id="org3a242fe">
+<div class="leftcol" id="org1171878">
 
-<div id="org2e53e6c" class="figure">
+<div id="orgbcb282d" class="figure">
 <p><img src="figs/level_small.png" alt="level_small.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>有意水準が小さい場合</p>
 </div>
 
 </div>
-<div class="rightcol" id="org64cecc9">
+<div class="rightcol" id="org468acad">
 
-<div id="orgfcd7246" class="figure">
+<div id="org6d7c8c1" class="figure">
 <p><img src="figs/level_large.png" alt="level_large.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>有意水準が大きい場合</p>
@@ -160,8 +187,8 @@
 
 </div>
 </section>
-<section id="slide-org42b4b86">
-<h3 id="org42b4b86">有意水準と\(p\) 値</h3>
+<section id="slide-org4c482ed">
+<h3 id="org4c482ed">有意水準と\(p\) 値</h3>
 <ul>
 <li><p>
 <b>有意水準</b>
@@ -198,8 +225,8 @@
 
 </ul>
 </section>
-<section id="slide-orge67bbeb">
-<h3 id="orge67bbeb">正規分布を用いた平均値の検定</h3>
+<section id="slide-orgba2b887">
+<h3 id="orgba2b887">正規分布を用いた平均値の検定</h3>
 <ul>
 <li><p>
 問題
@@ -278,8 +305,8 @@
 
 </ul>
 </section>
-<section id="slide-orga167766">
-<h3 id="orga167766">正規分布を用いた平均値の差の検定</h3>
+<section id="slide-org48552c6">
+<h3 id="org48552c6">正規分布を用いた平均値の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -362,8 +389,8 @@
 
 </ul>
 </section>
-<section id="slide-orgcf72cc8">
-<h3 id="orgcf72cc8">両側検定と片側検定</h3>
+<section id="slide-org22a08c1">
+<h3 id="org22a08c1">両側検定と片側検定</h3>
 <ul>
 <li>対立仮説によって棄却域の形は変わりうる
 <ul>
@@ -409,17 +436,17 @@
 
 </section>
 <section>
-<div class="leftcol" id="org37e3e15">
+<div class="leftcol" id="orgefd9ac0">
 
-<div id="org88f2fbb" class="figure">
+<div id="org5ce80cb" class="figure">
 <p><img src="figs/cr_one.png" alt="cr_one.png" width="100%" />
 </p>
 </div>
 
 </div>
-<div class="rightcol" id="orgc548c7b">
+<div class="rightcol" id="orgbe653f3">
 
-<div id="org21f74ee" class="figure">
+<div id="orgd47b61b" class="figure">
 <p><img src="figs/cr_two.png" alt="cr_two.png" width="100%" />
 </p>
 </div>
@@ -428,11 +455,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgcc4eb2b" data-background="#fef4f4">
-<h2 id="orgcc4eb2b">演習</h2>
+<section id="slide-orgcada209" data-background="#fef4f4">
+<h2 id="orgcada209">演習</h2>
 </section>
-<section id="slide-org7d7298b" data-background="#fef4f4">
-<h3 id="org7d7298b">練習問題</h3>
+<section id="slide-orgaab16e9" data-background="#fef4f4">
+<h3 id="orgaab16e9">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -459,8 +486,8 @@
 
 </ul>
 </section>
-<section id="slide-org375045a" data-background="#fef4f4">
-<h3 id="org375045a">練習問題</h3>
+<section id="slide-orgec0abd6" data-background="#fef4f4">
+<h3 id="orgec0abd6">練習問題</h3>
 <ul>
 <li>前問において\(p\) 値を計算する方法を考えよ．</li>
 
@@ -468,13 +495,13 @@
 </section>
 </section>
 <section>
-<section id="slide-org16fc292">
-<h2 id="org16fc292">平均に関する検定</h2>
-<div class="outline-text-2" id="text-org16fc292">
+<section id="slide-org4a0221b">
+<h2 id="org4a0221b">平均に関する検定</h2>
+<div class="outline-text-2" id="text-org4a0221b">
 </div>
 </section>
-<section id="slide-org0ee0484">
-<h3 id="org0ee0484">観測値の仮定</h3>
+<section id="slide-org0807651">
+<h3 id="org0807651">観測値の仮定</h3>
 <ul>
 <li><p>
 確率モデル
@@ -498,8 +525,8 @@
 
 </ul>
 </section>
-<section id="slide-org6ec0326">
-<h3 id="org6ec0326">平均の検定</h3>
+<section id="slide-orgef45aaf">
+<h3 id="orgef45aaf">平均の検定</h3>
 <ul>
 <li><p>
 問題
@@ -519,8 +546,8 @@
 
 </ul>
 </section>
-<section id="slide-orga59a5fb">
-<h3 id="orga59a5fb">考え方</h3>
+<section id="slide-org8e052c8">
+<h3 id="org8e052c8">考え方</h3>
 <ul>
 <li>平均と分散の推定量の性質
 <ul>
@@ -552,18 +579,18 @@
 
 </ul>
 </section>
-<section id="slide-org66e676f">
-<h3 id="org66e676f">\(\chi^{2}\) 分布</h3>
-<div class="leftcol" id="org6428732">
+<section id="slide-orgf631813">
+<h3 id="orgf631813">\(\chi^{2}\) 分布</h3>
+<div class="leftcol" id="org9af37d7">
 
-<div id="orgfe47bb3" class="figure">
+<div id="org682f17d" class="figure">
 <p><img src="figs/pdf_chisq.png" alt="pdf_chisq.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 3: </span>\(\chi^{2}\) 分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="orgae11259">
+<div class="rightcol" id="org30d1c2c">
 <blockquote>
 <ul>
 <li>見本空間 : \([0,\infty)\)</li>
@@ -589,18 +616,18 @@
 
 </div>
 </section>
-<section id="slide-orgf4b94ce">
-<h3 id="orgf4b94ce">\(t\) 分布</h3>
-<div class="leftcol" id="org9500c45">
+<section id="slide-org5c9cfcc">
+<h3 id="org5c9cfcc">\(t\) 分布</h3>
+<div class="leftcol" id="orge0f904b">
 
-<div id="org61d16b3" class="figure">
+<div id="orgfeec3d4" class="figure">
 <p><img src="figs/pdf_t.png" alt="pdf_t.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 4: </span>\(t\) 分布 (自由度\(3\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="orgaeb6f29">
+<div class="rightcol" id="org903cb97">
 <blockquote>
 <ul>
 <li>見本空間 : \((-\infty,\infty)\)</li>
@@ -631,8 +658,8 @@
 
 </div>
 </section>
-<section id="slide-orgb05a434">
-<h3 id="orgb05a434">Student の \(t\) 検定</h3>
+<section id="slide-orga8d41e9">
+<h3 id="orga8d41e9">Student の \(t\) 検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -689,8 +716,8 @@
 
 </ul>
 </section>
-<section id="slide-org4f20882">
-<h3 id="org4f20882">平均の差の検定</h3>
+<section id="slide-orgaec668b">
+<h3 id="orgaec668b">平均の差の検定</h3>
 <ul>
 <li><p>
 問題
@@ -715,8 +742,8 @@
 
 </ul>
 </section>
-<section id="slide-org5c99287">
-<h3 id="org5c99287">考え方</h3>
+<section id="slide-orgb44779c">
+<h3 id="orgb44779c">考え方</h3>
 <ul>
 <li>標本平均と不偏分散の性質
 <ul>
@@ -742,8 +769,8 @@
 
 </ul>
 </section>
-<section id="slide-orgcf3a954">
-<h3 id="orgcf3a954">Welch の \(t\) 検定</h3>
+<section id="slide-orgb385d43">
+<h3 id="orgb385d43">Welch の \(t\) 検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -807,11 +834,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org1400602" data-background="#fef4f4">
-<h2 id="org1400602">演習</h2>
+<section id="slide-orge619d4d" data-background="#fef4f4">
+<h2 id="orge619d4d">演習</h2>
 </section>
-<section id="slide-org3b9b688" data-background="#fef4f4">
-<h3 id="org3b9b688">練習問題</h3>
+<section id="slide-org22de045" data-background="#fef4f4">
+<h3 id="org22de045">練習問題</h3>
 <ul>
 <li>Welch の \(t\) 検定において
 \(p\) 値はどのように計算すればよいか述べよ．</li>
@@ -820,13 +847,13 @@
 </section>
 </section>
 <section>
-<section id="slide-org7d94c44">
-<h2 id="org7d94c44">分散に関する検定</h2>
-<div class="outline-text-2" id="text-org7d94c44">
+<section id="slide-org469b536">
+<h2 id="org469b536">分散に関する検定</h2>
+<div class="outline-text-2" id="text-org469b536">
 </div>
 </section>
-<section id="slide-org1748260">
-<h3 id="org1748260">分散の検定</h3>
+<section id="slide-orgaacf212">
+<h3 id="orgaacf212">分散の検定</h3>
 <ul>
 <li><p>
 問題
@@ -846,8 +873,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf345f21">
-<h3 id="orgf345f21">考え方</h3>
+<section id="slide-org2674eb0">
+<h3 id="org2674eb0">考え方</h3>
 <ul>
 <li>分散の推定量の性質
 <ul>
@@ -867,8 +894,8 @@
 
 </ul>
 </section>
-<section id="slide-org4bfead7">
-<h3 id="org4bfead7">\(\chi^{2}\) 検定</h3>
+<section id="slide-org9843d8f">
+<h3 id="org9843d8f">\(\chi^{2}\) 検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -919,8 +946,8 @@
 
 </ul>
 </section>
-<section id="slide-orga6b5b7b">
-<h3 id="orga6b5b7b">分散の比の検定</h3>
+<section id="slide-org1410fca">
+<h3 id="org1410fca">分散の比の検定</h3>
 <ul>
 <li><p>
 問題
@@ -939,8 +966,8 @@
 
 </ul>
 </section>
-<section id="slide-org8ed0309">
-<h3 id="org8ed0309">考え方</h3>
+<section id="slide-orgc425a11">
+<h3 id="orgc425a11">考え方</h3>
 <ul>
 <li>不偏分散の性質
 <ul>
@@ -966,18 +993,18 @@
 
 </ul>
 </section>
-<section id="slide-org0ff0960">
-<h3 id="org0ff0960">\(F\) 分布</h3>
-<div class="leftcol" id="org802012b">
+<section id="slide-org7593887">
+<h3 id="org7593887">\(F\) 分布</h3>
+<div class="leftcol" id="org8cf314e">
 
-<div id="org81c5bdb" class="figure">
+<div id="org36f9238" class="figure">
 <p><img src="figs/pdf_f.png" alt="pdf_f.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 5: </span>\(F\) 分布 (自由度\(5,10\))</p>
 </div>
 
 </div>
-<div class="rightcol" id="org602949a">
+<div class="rightcol" id="orgb1be518">
 <blockquote>
 <ul>
 <li>見本空間 : \([0,\infty)\)</li>
@@ -1008,8 +1035,8 @@
 
 </div>
 </section>
-<section id="slide-orge253491">
-<h3 id="orge253491">\(F\) 検定</h3>
+<section id="slide-org6ef1007">
+<h3 id="org6ef1007">\(F\) 検定</h3>
 <ul>
 <li><p>
 検定統計量
@@ -1071,11 +1098,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgdfef1db" data-background="#fef4f4">
-<h2 id="orgdfef1db">演習</h2>
+<section id="slide-org04fa725" data-background="#fef4f4">
+<h2 id="org04fa725">演習</h2>
 </section>
-<section id="slide-orga041e7f" data-background="#fef4f4">
-<h3 id="orga041e7f">練習問題</h3>
+<section id="slide-org851c526" data-background="#fef4f4">
+<h3 id="org851c526">練習問題</h3>
 <ul>
 <li><p>
 以下の問に答えよ．
@@ -1108,8 +1135,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org4d68bd2">
-<h2 id="org4d68bd2">今回のまとめ</h2>
+<section id="slide-org1c915fe">
+<h2 id="org1c915fe">今回のまとめ</h2>
 <ul>
 <li>分散未知の正規分布を用いた検定
 <ul>
@@ -1121,15 +1148,19 @@
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1138,30 +1169,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>

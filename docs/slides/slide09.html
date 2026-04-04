@@ -13,13 +13,40 @@
 
 <link rel="stylesheet" href="./reveal.js/dist/theme/fonts/source-sans-pro/source-sans-pro.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/menu.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/font-awesome/css/all.css"/>
 
-<link rel="stylesheet" href="./reveal.js/plugin/menu/font-awesome/css/fontawesome.css"/>
+<link rel="stylesheet" href="./reveal.js/local/lecture.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/menu.css"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
-
-<link rel="stylesheet" href="./reveal.js/local/mycourse.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
@@ -36,7 +63,7 @@
     <p>確率・統計 - 第9講</p>
 </div>
 <div class="keyboard-usage">
-    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+    <p></p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
@@ -45,8 +72,8 @@
 
 </section>
 <section>
-<section id="slide-org7c4d423">
-<h2 id="org7c4d423">前回のおさらい</h2>
+<section id="slide-org5df370e">
+<h2 id="org5df370e">前回のおさらい</h2>
 <ul>
 <li>平均の点推定
 <ul>
@@ -64,8 +91,8 @@
 
 </ul>
 </section>
-<section id="slide-org4432c9b">
-<h3 id="org4432c9b">統計的推測の考え方</h3>
+<section id="slide-org338a2a8">
+<h3 id="org338a2a8">統計的推測の考え方</h3>
 <ul>
 <li>観測データは確率変数の集合</li>
 <li>確率変数列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
@@ -81,8 +108,8 @@
 
 </ul>
 </section>
-<section id="slide-orgeee365a">
-<h3 id="orgeee365a">点推定</h3>
+<section id="slide-org83d2b91">
+<h3 id="org83d2b91">点推定</h3>
 <ul>
 <li><p>
 定義
@@ -106,8 +133,8 @@
 
 </ul>
 </section>
-<section id="slide-orgc8901cb">
-<h3 id="orgc8901cb">Cramer-Raoの不等式</h3>
+<section id="slide-org526b693">
+<h3 id="org526b693">Cramer-Raoの不等式</h3>
 <ul>
 <li><p>
 定理
@@ -139,8 +166,8 @@
 
 </ul>
 </section>
-<section id="slide-org883de3e">
-<h3 id="org883de3e">一様最小分散不偏推定量</h3>
+<section id="slide-org55f5290">
+<h3 id="org55f5290">一様最小分散不偏推定量</h3>
 <ul>
 <li><p>
 定理 (Cramer-Raoの不等式の系)
@@ -155,8 +182,8 @@
 
 </ul>
 </section>
-<section id="slide-orgfd7de36">
-<h3 id="orgfd7de36">推定誤差</h3>
+<section id="slide-org9410dcb">
+<h3 id="org9410dcb">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量評価には推定誤差の評価が重要
@@ -180,8 +207,8 @@
 
 </ul>
 </section>
-<section id="slide-org70df553">
-<h3 id="org70df553">区間推定</h3>
+<section id="slide-org95ec971">
+<h3 id="org95ec971">区間推定</h3>
 <ul>
 <li><p>
 定義
@@ -210,8 +237,8 @@
 
 </ul>
 </section>
-<section id="slide-orga1c028b">
-<h3 id="orga1c028b">加法的正規雑音モデル</h3>
+<section id="slide-org89198c0">
+<h3 id="org89198c0">加法的正規雑音モデル</h3>
 <ul>
 <li><p>
 加法的雑音モデル
@@ -250,8 +277,8 @@
 
 </ul>
 </section>
-<section id="slide-org238f5d5">
-<h3 id="org238f5d5">標本平均</h3>
+<section id="slide-orga4d8abd">
+<h3 id="orga4d8abd">標本平均</h3>
 <ul>
 <li>平均 \(\theta\) , 分散 \(\sigma^2\) の正規分布
 <ul>
@@ -273,8 +300,8 @@
 
 </ul>
 </section>
-<section id="slide-org25a43ce">
-<h3 id="org25a43ce">平均の区間推定 (分散既知)</h3>
+<section id="slide-org6080189">
+<h3 id="org6080189">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -307,8 +334,8 @@
 
 </ul>
 </section>
-<section id="slide-org9a10732">
-<h3 id="org9a10732">平均の区間推定 (分散未知)</h3>
+<section id="slide-org7187bc0">
+<h3 id="org7187bc0">平均の区間推定 (分散未知)</h3>
 <ul>
 <li><p>
 信頼区間の構成
@@ -343,13 +370,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgea83ed3">
-<h2 id="orgea83ed3">最尤法</h2>
-<div class="outline-text-2" id="text-orgea83ed3">
+<section id="slide-orgab09c53">
+<h2 id="orgab09c53">最尤法</h2>
+<div class="outline-text-2" id="text-orgab09c53">
 </div>
 </section>
-<section id="slide-org7c8f3e6">
-<h3 id="org7c8f3e6">離散分布の場合</h3>
+<section id="slide-orgec1a49b">
+<h3 id="orgec1a49b">離散分布の場合</h3>
 <ul>
 <li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
 <ul>
@@ -377,8 +404,8 @@
 
 </ul>
 </section>
-<section id="slide-orgc743740">
-<h3 id="orgc743740">尤度関数</h3>
+<section id="slide-org56f6d7d">
+<h3 id="org56f6d7d">尤度関数</h3>
 <ul>
 <li><p>
 定義
@@ -413,8 +440,8 @@
 
 </ul>
 </section>
-<section id="slide-orga4dcfcd">
-<h3 id="orga4dcfcd">連続分布の場合</h3>
+<section id="slide-orgc03e922">
+<h3 id="orgc03e922">連続分布の場合</h3>
 <ul>
 <li>確率密度関数 \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
 <li><p>
@@ -441,8 +468,8 @@
 
 </ul>
 </section>
-<section id="slide-org2a93cff">
-<h3 id="org2a93cff">最尤法</h3>
+<section id="slide-orgad35d9d">
+<h3 id="orgad35d9d">最尤法</h3>
 <ul>
 <li><p>
 最尤法
@@ -485,8 +512,8 @@
 
 </ul>
 </section>
-<section id="slide-org0f516f6">
-<h3 id="org0f516f6">最尤推定量の計算</h3>
+<section id="slide-orgf766ec4">
+<h3 id="orgf766ec4">最尤推定量の計算</h3>
 <ul>
 <li><p>
 <b>対数尤度関数</b> :
@@ -513,11 +540,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org54b5084" data-background="#fef4f4">
-<h2 id="org54b5084">演習</h2>
+<section id="slide-org4417bce" data-background="#fef4f4">
+<h2 id="org4417bce">演習</h2>
 </section>
-<section id="slide-org1ee33ef" data-background="#fef4f4">
-<h3 id="org1ee33ef">練習問題</h3>
+<section id="slide-org912ce32" data-background="#fef4f4">
+<h3 id="org912ce32">練習問題</h3>
 <ul>
 <li>観測データ \(X_{1},X_{2},\dotsc,X_{n}\) が以下の分布に従うとき
 母数 \(\lambda\) の最尤推定量を求めよ．
@@ -559,13 +586,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orge3ff4c6">
-<h2 id="orge3ff4c6">最尤推定量の性質</h2>
-<div class="outline-text-2" id="text-orge3ff4c6">
+<section id="slide-orga45683f">
+<h2 id="orga45683f">最尤推定量の性質</h2>
+<div class="outline-text-2" id="text-orga45683f">
 </div>
 </section>
-<section id="slide-orgdcfb5ef">
-<h3 id="orgdcfb5ef">一致性</h3>
+<section id="slide-orga02a11f">
+<h3 id="orga02a11f">一致性</h3>
 <ul>
 <li><p>
 定理
@@ -598,8 +625,8 @@
 
 </ul>
 </section>
-<section id="slide-orgd98345d">
-<h3 id="orgd98345d">証明の概略</h3>
+<section id="slide-org3136918">
+<h3 id="org3136918">証明の概略</h3>
 <ul>
 <li><p>
 対数尤度の大数の法則
@@ -686,8 +713,8 @@
 
 </ul>
 </section>
-<section id="slide-org92b1143">
-<h3 id="org92b1143">漸近正規性</h3>
+<section id="slide-org3ef9ac3">
+<h3 id="org3ef9ac3">漸近正規性</h3>
 <ul>
 <li><p>
 定理
@@ -714,8 +741,8 @@ Cramer-Rao 下界に一致する</li>
 
 </ul>
 </section>
-<section id="slide-orgae30cd0">
-<h3 id="orgae30cd0">証明の概略</h3>
+<section id="slide-org83dc01c">
+<h3 id="org83dc01c">証明の概略</h3>
 <ul>
 <li><p>
 真の母数の性質
@@ -935,13 +962,13 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-orgc5d169e">
-<h2 id="orgc5d169e">漸近正規性にもとづく区間推定</h2>
-<div class="outline-text-2" id="text-orgc5d169e">
+<section id="slide-org07003dd">
+<h2 id="org07003dd">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-org07003dd">
 </div>
 </section>
-<section id="slide-org65a0558">
-<h3 id="org65a0558">推定量の漸近正規性</h3>
+<section id="slide-org99bd542">
+<h3 id="org99bd542">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 <b>漸近正規性</b>
@@ -961,8 +988,8 @@ Taylor 展開による近似
 
 </ul>
 </section>
-<section id="slide-org1bccb15">
-<h3 id="org1bccb15">漸近正規性にもとづく区間推定</h3>
+<section id="slide-org742343f">
+<h3 id="org742343f">漸近正規性にもとづく区間推定</h3>
 <ul>
 <li><p>
 推定量の分布
@@ -1002,8 +1029,8 @@ Taylor 展開による近似
 
 </ul>
 </section>
-<section id="slide-org373ca22">
-<h3 id="org373ca22">標本平均の区間推定</h3>
+<section id="slide-org79fe884">
+<h3 id="org79fe884">標本平均の区間推定</h3>
 <ul>
 <li><p>
 定理 (標本平均の漸近正規性)
@@ -1098,8 +1125,8 @@ Taylor 展開による近似
 
 </ul>
 </section>
-<section id="slide-org7639a34">
-<h3 id="org7639a34">最尤推定量の区間推定</h3>
+<section id="slide-orgaded7a7">
+<h3 id="orgaded7a7">最尤推定量の区間推定</h3>
 <ul>
 <li><p>
 定理 (最尤推定量の漸近正規性)
@@ -1150,11 +1177,11 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-orga567af3" data-background="#fef4f4">
-<h2 id="orga567af3">演習</h2>
+<section id="slide-orgf20a1d6" data-background="#fef4f4">
+<h2 id="orgf20a1d6">演習</h2>
 </section>
-<section id="slide-org90a9410" data-background="#fef4f4">
-<h3 id="org90a9410">練習問題</h3>
+<section id="slide-org9db0828" data-background="#fef4f4">
+<h3 id="org9db0828">練習問題</h3>
 <ul>
 <li>選挙の投票率を調べるために，
 400人にアンケートを実施した結果，
@@ -1187,8 +1214,8 @@ Taylor 展開による近似
 </section>
 </section>
 <section>
-<section id="slide-orgcc0683c">
-<h2 id="orgcc0683c">今回のまとめ</h2>
+<section id="slide-orgc133a0a">
+<h2 id="orgc133a0a">今回のまとめ</h2>
 <ul>
 <li>最尤法の考え方</li>
 <li>最尤推定量の性質
@@ -1205,15 +1232,19 @@ Taylor 展開による近似
 </ul></li>
 
 </ul>
+</section>
+</section>
 </div>
 </div>
+<p> Created by Noboru Murata | Licensed under CC BY-NC 4.0 </p>
 <script src="./reveal.js/dist/reveal.js"></script>
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
-<script src="./reveal.js/plugin/menu/menu.js"></script>
-<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
+<script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
+<script src="./reveal.js/plugin/spotlight/spotlight.js"></script>
 <script src="./reveal.js/dist/theme/hidelinks.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1222,30 +1253,44 @@ Reveal.initialize({
 
 controls: true,
 progress: true,
-history: true,
+history: false,
 center: true,
 slideNumber: 'c',
-rollingLinks: false,
+rollingLinks: true,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 overview: true,
+width: 1050,
+height: 700,
+margin: 0.10,
+minScale: 0.75,
+maxScale: 1.25,
 
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-spotlight: { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealSpotlight, RevealChalkboard ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
 ]
 
 });
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>
