@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
 <link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
 <style>
 /* Position computations of klipse get confused by reveal.js's scaling.
@@ -72,11 +73,11 @@
 
 </section>
 <section>
-<section id="slide-org9eeb836">
-<h2 id="org9eeb836">試行と標本空間</h2>
+<section id="slide-org0ba9e3e">
+<h2 id="org0ba9e3e">試行と標本空間</h2>
 </section>
-<section id="slide-org31b4688">
-<h3 id="org31b4688">試行と標本点</h3>
+<section id="slide-orgeec0832">
+<h3 id="orgeec0832">試行と標本点</h3>
 <dl>
 <dt>試行 (trial)</dt><dd>不確定性のある現象を調べるための
 <b>実験</b></dd>
@@ -87,13 +88,13 @@
 
 </dl>
 </section>
-<section id="slide-orgb8229f8">
-<h3 id="orgb8229f8">試行の例</h3>
+<section id="slide-orgf7489a0">
+<h3 id="orgf7489a0">試行の例</h3>
 <ul>
 <li><p>
 骰子(サイコロ)振り
 </p>
-<div class="callout-tip" id="org51acb9f">
+<blockquote class="callout-tip">
 <p>
 &ldquo;骰子を振って，どの目が出易いか調べる&rdquo;
 という実験を考える．
@@ -102,12 +103,11 @@
 &ldquo;1, 2, 3, 4, 5, 6の目&rdquo;
 が標本点となる．
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="orgbc5932b">
+<blockquote class="callout-tip">
 <p>
 周長1mの円盤を中心で回るように用意し，円周上に0から1の目盛りを付ける．
 また円周の外側の適当な位置に印を付ける．
@@ -118,13 +118,12 @@
 &ldquo;\((0,1]\) の間のいずれかの値&rdquo;
 が標本点となる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-org33d8fb9">
-<h3 id="org33d8fb9">標本空間と標本点</h3>
+<section id="slide-orgc70ce0d">
+<h3 id="orgc70ce0d">標本空間と標本点</h3>
 <dl>
 <dt>標本空間 (sample space)</dt><dd>観測される全ての標本点を集めた集合<br />
 <b>見本空間</b>
@@ -137,13 +136,13 @@
 
 </dl>
 </section>
-<section id="slide-org68ff9dd">
-<h3 id="org68ff9dd">標本空間の例</h3>
+<section id="slide-org7e6557e">
+<h3 id="org7e6557e">標本空間の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org57c81b6">
+<blockquote class="callout-tip">
 <p>
 試行 \(T=\) &ldquo;骰子を振る&rdquo; の標本空間は
 \(\Omega=\{1,2,3,4,5,6\}\) であり，
@@ -151,23 +150,21 @@
 &ldquo;\(\omega=2\) が観測された&rdquo;
 という.
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="org7b39a84">
+<blockquote class="callout-tip">
 <p>
 試行 \(T=\) &ldquo;ルーレットを回す&rdquo; の標本空間は 
 \(\Omega=(0,1]\) である．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-org20436b7">
-<h3 id="org20436b7">標本空間による試行の分類</h3>
+<section id="slide-orgbe2aa6b">
+<h3 id="orgbe2aa6b">標本空間による試行の分類</h3>
 <dl>
 <dt>有限試行</dt><dd>標本空間が有限集合(要素数が
 <b>有限個</b>
@@ -178,31 +175,29 @@
 
 </dl>
 </section>
-<section id="slide-org9eca2d7">
-<h3 id="org9eca2d7">試行の分類の例</h3>
+<section id="slide-org725aa2a">
+<h3 id="org725aa2a">試行の分類の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org41e5bf8">
+<blockquote class="callout-tip">
 <p>
 標本点は6つなので有限試行である．
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="org344c2d4">
+<blockquote class="callout-tip">
 <p>
 標本点の数は数え切れないので無限試行である．
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 &ldquo;1が出るまで骰子を振り続ける&rdquo; 試行
 </p>
-<div class="callout-tip" id="org0cec0b2">
+<blockquote class="callout-tip">
 <p>
 出た目の数の列，例えば
 \(\langle 4,2,5,6,1\rangle\) 
@@ -220,18 +215,17 @@
 <p>
 したがってこの試行は無限試行である．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org36726d0" data-background="#fef4f4">
-<h2 id="org36726d0">演習</h2>
+<section id="slide-orga05b935" data-background="#fef4f4">
+<h2 id="orga05b935">演習</h2>
 </section>
-<section id="slide-org0561128" data-background="#fef4f4">
-<h3 id="org0561128">練習問題</h3>
+<section id="slide-org0b2953e" data-background="#fef4f4">
+<h3 id="org0b2953e">練習問題</h3>
 <ul>
 <li>&ldquo;コインを10回投げる&rdquo; 試行を考える．
 <ul>
@@ -256,11 +250,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org209ae75">
-<h2 id="org209ae75">事象とその表現</h2>
+<section id="slide-orga57623e">
+<h2 id="orga57623e">事象とその表現</h2>
 </section>
-<section id="slide-org5cb2e0a">
-<h3 id="org5cb2e0a">事象</h3>
+<section id="slide-orgf22bc46">
+<h3 id="orgf22bc46">事象</h3>
 <dl>
 <dt>事象 (event)</dt><dd><p>
 標本点の集合，すなわち標本空間の部分集合
@@ -277,13 +271,13 @@
 
 </dl>
 </section>
-<section id="slide-org80d8ffd">
-<h3 id="org80d8ffd">事象の例</h3>
+<section id="slide-org808175b">
+<h3 id="org808175b">事象の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org1f1b3a6">
+<blockquote class="callout-tip">
 <p>
 事象 \(A\) として &ldquo;偶数の目&rdquo; \(A=\{2,4,6\}\) を考える．
 </p>
@@ -296,12 +290,11 @@
 &ldquo;事象 \(A\) は起こらなかった&rdquo; 
 ことになる．
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="orgde47679">
+<blockquote class="callout-tip">
 <p>
 事象 \(A\) を区間 \((0,0.5]\) とする．
 </p>
@@ -316,13 +309,12 @@
 &ldquo;事象 \(A\) は起こらなかった&rdquo; 
 ことになる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-org53d2a46">
-<h3 id="org53d2a46">事象の演算 (集合の演算)</h3>
+<section id="slide-orga687ec3">
+<h3 id="orga687ec3">事象の演算 (集合の演算)</h3>
 <dl>
 <dt>和事象 (sum event)</dt><dd><blockquote>
 <p>
@@ -384,13 +376,13 @@
 
 </dl>
 </section>
-<section id="slide-org5ab336d">
-<h3 id="org5ab336d">事象の演算の例</h3>
+<section id="slide-org5706074">
+<h3 id="org5706074">事象の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org59f0cb3">
+<blockquote class="callout-tip">
 <p>
 3つの事象
 </p>
@@ -413,13 +405,12 @@
 <p>
 のようになる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-orgdc766aa">
-<h3 id="orgdc766aa">条件による事象の表現</h3>
+<section id="slide-org8f1bcf6">
+<h3 id="org8f1bcf6">条件による事象の表現</h3>
 <ul>
 <li><p>
 事象は標本点 \(\omega\) に関する
@@ -439,13 +430,13 @@
 
 </ul>
 </section>
-<section id="slide-org05e28ad">
-<h3 id="org05e28ad">条件による事象の例</h3>
+<section id="slide-org11d079e">
+<h3 id="org11d079e">条件による事象の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="orgbb96f68">
+<blockquote class="callout-tip">
 <p>
 &ldquo;偶数の目&rdquo; という事象 \(A\):
 </p>
@@ -457,12 +448,11 @@
 \end{equation}
 
 </div>
-
-</div></li>
+</blockquote></li>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="org1d568ec">
+<blockquote class="callout-tip">
 <p>
 &ldquo;区間 \((0,0.5]\) の値&rdquo; という事象 \(A\):
 </p>
@@ -472,13 +462,12 @@
 \end{equation}
 
 </div>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-org9fa3d32">
-<h3 id="org9fa3d32">条件による事象の演算</h3>
+<section id="slide-orgf827dbd">
+<h3 id="orgf827dbd">条件による事象の演算</h3>
 <dl>
 <dt>和事象 (\(\alpha\) または \(\beta\)) : \(\alpha\vee\beta\)</dt><dd><blockquote>
 <div>
@@ -510,13 +499,13 @@
 
 </dl>
 </section>
-<section id="slide-orga676938">
-<h3 id="orga676938">条件による事象の演算の例</h3>
+<section id="slide-org6bfc0b5">
+<h3 id="org6bfc0b5">条件による事象の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org8b95796">
+<blockquote class="callout-tip">
 <p>
 それぞれの事象を条件で書くと
 </p>
@@ -536,18 +525,17 @@
 <p>
 となる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org47278c8" data-background="#fef4f4">
-<h2 id="org47278c8">演習</h2>
+<section id="slide-orgfccb03c" data-background="#fef4f4">
+<h2 id="orgfccb03c">演習</h2>
 </section>
-<section id="slide-orgb74b1fb" data-background="#fef4f4">
-<h3 id="orgb74b1fb">練習問題</h3>
+<section id="slide-org961140b" data-background="#fef4f4">
+<h3 id="org961140b">練習問題</h3>
 <ul>
 <li>和事象，交事象，差事象，余事象，排反事象，固有差，直和を
 ベン図 (Venn diagram) を描いて説明せよ．</li>
@@ -555,8 +543,8 @@
 
 </ul>
 </section>
-<section id="slide-org21df413" data-background="#fef4f4">
-<h3 id="org21df413">ド・モルガンの法則</h3>
+<section id="slide-orgb6b6438" data-background="#fef4f4">
+<h3 id="orgb6b6438">ド・モルガンの法則</h3>
 <ul>
 <li><p>
 一般には以下の2つの等式で表される関係を指す．
@@ -580,16 +568,16 @@
 </section>
 </section>
 <section>
-<section id="slide-orgbb0963b">
-<h2 id="orgbb0963b">有限試行の確率空間</h2>
+<section id="slide-org1ef5a9a">
+<h2 id="org1ef5a9a">有限試行の確率空間</h2>
 </section>
-<section id="slide-orgb4934e6">
-<h3 id="orgb4934e6">有限試行の確率測度</h3>
+<section id="slide-orgbee7d8b">
+<h3 id="orgbee7d8b">有限試行の確率測度</h3>
 <ul>
 <li><p>
 定義
 </p>
-<div class="callout-important" id="orga177f43">
+<blockquote class="callout-important">
 <p>
 標本空間 \(\Omega\) と任意の事象 \(A,B\subset\Omega\) に対して
 以下の性質をもつ
@@ -611,8 +599,7 @@
 \end{align}
 
 </div>
-
-</div>
+</blockquote>
 <ul>
 <li>確率測度は
 <b>確率分布 (probability distribution)</b>
@@ -624,8 +611,8 @@
 
 </ul>
 </section>
-<section id="slide-org91fdb59">
-<h3 id="org91fdb59">確率測度の条件の意味</h3>
+<section id="slide-org4d34846">
+<h3 id="org4d34846">確率測度の条件の意味</h3>
 <dl>
 <dt>(P.1)</dt><dd>ある事象の起こる確率は \(0\) または正の値を取る</dd>
 <dt>(P.2)</dt><dd>排反な事象の和の確率はそれぞれの事象の確率の和となる</dd>
@@ -634,13 +621,13 @@
 
 </dl>
 </section>
-<section id="slide-orga99945c">
-<h3 id="orga99945c">確率測度の例</h3>
+<section id="slide-org85b614c">
+<h3 id="org85b614c">確率測度の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org095f2d8">
+<blockquote class="callout-tip">
 <p>
 &ldquo;いかさまのない骰子を1回振る&rdquo; 試行 \(T\) の確率測度 \(P\) は
 </p>
@@ -657,18 +644,17 @@
 のように，
 事象を入れるとその事象の起こる確率を返してくれる関数 \(P\) である．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-orgd253464">
-<h3 id="orgd253464">確率空間</h3>
+<section id="slide-org12aa3a5">
+<h3 id="org12aa3a5">確率空間</h3>
 <ul>
 <li><p>
 定義
 </p>
-<div class="callout-important" id="org3c12b67">
+<blockquote class="callout-important">
 <p>
 標本空間 \(\Omega\) と
 事象の集合(集合族) \(\mathcal{F}\) と
@@ -676,8 +662,7 @@
 <b>確率空間 (probability space)</b> 
 と呼ぶ．
 </p>
-
-</div></li>
+</blockquote></li>
 <li><p>
 試行 \(T\) が定まると
 </p>
@@ -693,8 +678,8 @@
 
 </ul>
 </section>
-<section id="slide-org0461393">
-<h3 id="org0461393">確率測度の演算</h3>
+<section id="slide-org1d2811d">
+<h3 id="org1d2811d">確率測度の演算</h3>
 <ul>
 <li><p>
 事象の演算に関しては以下の関係が成り立つ．
@@ -719,13 +704,13 @@
 
 </ul>
 </section>
-<section id="slide-org3071ca9">
-<h3 id="org3071ca9">確率測度の演算の例</h3>
+<section id="slide-org943de11">
+<h3 id="org943de11">確率測度の演算の例</h3>
 <ul>
 <li><p>
 骰子振り
 </p>
-<div class="callout-tip" id="org2f639a7">
+<blockquote class="callout-tip">
 <p>
 &ldquo;いかさまのない骰子を1回振る&rdquo; 試行 \(T\) において
 素数の目が出る確率は
@@ -743,18 +728,17 @@
 <p>
 となる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-orgfa22bd8" data-background="#fef4f4">
-<h2 id="orgfa22bd8">演習</h2>
+<section id="slide-orgf2ad654" data-background="#fef4f4">
+<h2 id="orgf2ad654">演習</h2>
 </section>
-<section id="slide-org21aff56" data-background="#fef4f4">
-<h3 id="org21aff56">練習問題</h3>
+<section id="slide-org8e12c8a" data-background="#fef4f4">
+<h3 id="org8e12c8a">練習問題</h3>
 <ul>
 <li><p>
 確率測度の定義にもとづいて以下を証明せよ．
@@ -774,54 +758,18 @@
 
 </ul>
 </section>
-<section id="slide-org53c49e8" data-background="#fef4f4">
-<h3 id="org53c49e8">解答例</h3>
-<ul>
-<li><p>
-確率測度の3つの性質を用いる．1つめは
-</p>
-<div>
-\begin{equation}
-  P(A)+P(A^c)=P(A+A^c)=P(\Omega)=1
-\end{equation}
-
-</div>
-<p>
-より
-</p>
-<div>
-\begin{equation}
-  P(A^c)=1-P(A)
-\end{equation}
-
-</div>
-<p>
-となる．また2つめについては
-</p>
-<div>
-\begin{equation}
-  (A\cup B) = (A-A\cap B) + (B-A\cap B) + (A\cap B)
-\end{equation}
-
-</div>
-<p>
-を用いればよい．
-</p></li>
-
-</ul>
-</section>
 </section>
 <section>
-<section id="slide-orgd03363f">
-<h2 id="orgd03363f">試行が有限でない場合の問題</h2>
+<section id="slide-org0762a3b">
+<h2 id="org0762a3b">試行が有限でない場合の問題</h2>
 </section>
-<section id="slide-orge147165">
-<h3 id="orge147165">無限試行の例</h3>
+<section id="slide-orgf05dc88">
+<h3 id="orgf05dc88">無限試行の例</h3>
 <ul>
 <li><p>
 &ldquo;1が出るまで骰子を振り続ける&rdquo; 試行
 </p>
-<div class="callout-tip" id="org2f2deea">
+<blockquote class="callout-tip">
 <p>
 標本点 
 \(\langle 6,5,4,3,2,1\rangle\) 
@@ -839,8 +787,7 @@
 <p>
 となる．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 
@@ -850,7 +797,7 @@
 <li><p>
 事象の確率も同様
 </p>
-<div class="callout-tip" id="org2e6eb83">
+<blockquote class="callout-tip">
 <p>
 また，ちょうど6回で1が出て終わる標本点
 \(\langle *,*,*,*,*,1\rangle\)
@@ -870,24 +817,22 @@
 <p>
 である．
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 </section>
-<section id="slide-org1892fc6">
-<h3 id="org1892fc6">無限試行の例</h3>
+<section id="slide-org2b0ba3d">
+<h3 id="org2b0ba3d">無限試行の例</h3>
 <ul>
 <li><p>
 ルーレット回し
 </p>
-<div class="callout-tip" id="org07ee221">
+<blockquote class="callout-tip">
 <p>
 &ldquo;ルーレット回し&rdquo; の試行で，
 ちょうど \(0.5\) の値が出る確率はいくつか？
 </p>
-
-</div></li>
+</blockquote></li>
 
 </ul>
 
@@ -897,7 +842,7 @@
 <li><p>
 任意の事象を考える
 </p>
-<div class="callout-caution" id="org203b18f">
+<div class="callout-caution" id="org5e9753f">
 <p>
 事象 \(A\) を要素数が無限個の適当な数の集合として，
 これを \(A=\{a,b,c,\dotsc\}\) と書く．
@@ -924,7 +869,7 @@
 <li><p>
 確率の和を考える
 </p>
-<div class="callout-caution" id="org3fdf4be">
+<div class="callout-caution" id="org956a489">
 <p>
 仮に各要素の出現確率が同じ \(\epsilon>0\) という値である場合
 </p>
@@ -973,7 +918,7 @@
 <li><p>
 全確率を考える
 </p>
-<div class="callout-caution" id="orgbdd68da">
+<div class="callout-caution" id="orgc03866f">
 <p>
 任意の標本点についてその確率が \(0\) なら，
 いくら足しても
@@ -1003,8 +948,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org06d28b5">
-<h2 id="org06d28b5">今回のまとめ</h2>
+<section id="slide-org250d823">
+<h2 id="org250d823">今回のまとめ</h2>
 <ul>
 <li>有限試行の確率空間
 <ul>
@@ -1026,6 +971,7 @@
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
 <script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
 <script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
@@ -1060,7 +1006,7 @@ showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : fal
 'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 90: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [
