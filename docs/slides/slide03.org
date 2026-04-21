@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-04 13:45:06 mura>
+# Time-stamp: <2026-04-21 10:29:35 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -34,6 +34,8 @@
 
 ** 歪んだ目盛りのルーレットの例
 - 問題
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    起点 \(0\) から周に沿った長さ \(l\) の位置の目盛りの値を
    \begin{equation}
@@ -83,18 +85,20 @@
 
 #+reveal: split
 - 考え方
-  #+begin_quote
-  これまで扱ってきた単純なルーレットに対応づけて考えればよい．
-  - 歪んだ目盛りの指す区間: \([a,b]\)
-  - これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)
-  したがって確率測度は以下で計算される．
-  \begin{equation}
-    P([a,b]) = \sqrt{b}-\sqrt{a}
-  \end{equation}
-  #+end_quote
+   #+begin_quote
+   これまで扱ってきた単純なルーレットに対応づけて考えればよい．
+   - 歪んだ目盛りの指す区間: \([a,b]\)
+   - これまでのルーレットでの区間: \([\sqrt{a},\sqrt{b}]\)
+   したがって確率測度は以下で計算される．
+   \begin{equation}
+     P([a,b]) = \sqrt{b}-\sqrt{a}
+   \end{equation}
+   #+end_quote
 
 ** 一様でない抜き出しの例
 - 問題
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    "\(\Omega=[0,1]\) の点を異なる確率で抜き出す"
    という試行において，
@@ -158,6 +162,8 @@
 
 ** 確率測度の条件 (再掲)
 - 以下の3つの条件が成立する
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    \begin{align}
      (P.1)\quad
@@ -184,6 +190,8 @@
 
 ** 確率密度
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率測度がある関数の積分
    \begin{equation}
@@ -202,6 +210,8 @@
 
 ** 確率密度の例
 - 歪んだ目盛りのルーレット
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    歪んだ目盛をもつルーレットの確率密度は，
    任意の \(a,b\;(0 < a < b\le1)\) に対して
@@ -258,8 +268,24 @@
 - Lebesgue 積分 (確率測度に基づく)
 
 ** Riemann 積分
-#+begin_leftcol
 - 定義
+#+begin_leftcol
+#+attr_html: :class callout-important
+#+attr_latex: :environment callout-important
+#+begin_quote
+有界な積分領域 \(K\) を \(n\) 個の区間 
+\(I_i\) (幅は \(d_i\)) に分割する．
+各区間における関数 \(f(x)\) の最小値と最大値を用いて
+有限和 \(s_n\),\(S_n\) を次のように定義する．
+\begin{align}
+  s_n
+  &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
+  S_n
+  &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
+\end{align}
+#+end_quote
+#+end_leftcol
+#+begin_rightcol
 #+begin_src R :file figs/riemann.png :exports results :results graphics
   par(family="HiraginoSans-W4")
   e <- 0.01
@@ -307,24 +333,12 @@
 #+ATTR_HTML: :width 100%
 #+ATTR_LATEX: :width 0.6\linewidth
 [[file:figs/riemann.png]]
-#+end_leftcol
-#+begin_rightcol
-#+begin_quote
-有界な積分領域 \(K\) を \(n\) 個の区間 
-\(I_i\) (幅は \(d_i\)) に分割する．
-各区間における関数 \(f(x)\) の最小値と最大値を用いて
-有限和 \(s_n\),\(S_n\) を次のように定義する．
-\begin{align}
-  s_n
-  &=\sum_{i=1}^n\min_{x\in I_i}f(x)\times d_i\\
-  S_n
-  &=\sum_{i=1}^n\max_{x\in I_i}f(x)\times d_i
-\end{align}
-#+end_quote
 #+end_rightcol
 
 #+reveal: split
 - 定義(つづき)
+  #+attr_html: :class callout-important
+  #+attr_latex: :environment callout-important
   #+begin_quote
   各区間の大小関係から
   \begin{equation}
@@ -344,8 +358,22 @@
   #+end_quote
 
 ** Lebesgue 積分
-#+begin_leftcol
 - 定義
+#+begin_leftcol
+#+attr_html: :class callout-important
+#+attr_latex: :environment callout-important
+#+begin_quote
+区間 \(K\) 上で定義された
+関数 \(f(x)\) の値域を \(n\) 個の区間に分割する．
+区間の端点を \(\alpha_i\) とし，
+\(f(x)\) が区間 \([\alpha_i,\alpha_{i+1})\) で値を取る
+\(x\) の領域を
+\(E_i\subset K\) で表し，
+\(E_i\) 上で値が \(\alpha_i\) となる
+階段関数 \(f_n(x)\) (単関数)を考える．
+#+end_quote
+#+end_leftcol
+#+begin_rightcol
 #+begin_src R :file figs/lebesgue.png :exports results :results graphics
   par(family="HiraginoSans-W4")
   col<-"purple"
@@ -394,22 +422,12 @@
 #+ATTR_HTML: :width 100%
 #+ATTR_LATEX: :width 0.6\linewidth
 [[file:figs/lebesgue.png]]
-#+end_leftcol
-#+begin_rightcol
-#+begin_quote
-区間 \(K\) 上で定義された
-関数 \(f(x)\) の値域を \(n\) 個の区間に分割する．
-区間の端点を \(\alpha_i\) とし，
-\(f(x)\) が区間 \([\alpha_i,\alpha_{i+1})\) で値を取る
-\(x\) の領域を
-\(E_i\subset K\) で表し，
-\(E_i\) 上で値が \(\alpha_i\) となる
-階段関数 \(f_n(x)\) (単関数)を考える．
-#+end_quote
 #+end_rightcol
 
 #+reveal: split
 - 定義(つづき)
+  #+attr_html: :class callout-important
+  #+attr_latex: :environment callout-important
   #+begin_quote
   このとき \(\mu\) を Lebesgue 測度とし，
   単関数 \(f_n(x)\) の *Lebesgue 積分* を
@@ -446,6 +464,8 @@
 
 ** 2つの積分の違い
 - 特異な例
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    \([0,1]\) 上で次のような関数
    \begin{equation}
@@ -467,6 +487,8 @@
 
 #+reveal: split
 - Riemann 積分の場合
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    どんな短い区間 \(I_i\) にも有理数と無理数は混在するので
    \begin{equation}
@@ -484,6 +506,8 @@
 
 #+reveal: split
 - Lebesgue 積分の場合
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    適当な値域の分割において
    \begin{equation}
@@ -510,6 +534,8 @@
 
 ** 積分の一致する条件
 - 定理
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    有界閉区間 \(K\) で \(f\) が連続なら，
    \(K\) 上の \(f\) の Lebesgue 積分の値は Riemann 積分の値と一致する．
@@ -725,8 +751,8 @@
      \left(1+\frac{x^{2}}{\nu}\right)^{-\frac{1}{2}(\nu+1)}
    \end{equation}
 - 備考: 標準正規分布と
-   自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
-   検定に利用される．
+  自由度 \(\nu\) の \(\chi^{2}\)-分布の比の分布で，
+  検定に利用される．
 #+end_quote
 #+end_rightcol  
 
@@ -764,6 +790,8 @@
 * 確率密度がない分布
 ** 確率密度が定義されない例 (その1)
 - \(\delta\) 分布
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    確率測度を
    \begin{equation}
@@ -786,6 +814,8 @@
 
 ** 確率密度が定義されない例 (その2)
 - 有理数の抜き出し
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    有理数 \(\mathbb{Q}_{[0,1]}\) 全体に番号をふり，
    これを \(q_{1},q_{2},\dotsc\) で表す．
@@ -802,6 +832,8 @@
    #+end_quote
 
 #+reveal: split
+#+attr_html: :class callout-tip
+#+attr_latex: :environment callout-tip
 #+begin_quote
 この確率測度においては確率密度を考えることができない．
 なぜなら1点 \(q_i\) の起こる確率は
