@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-21 11:02:18 mura>
+# Time-stamp: <2026-04-21 11:08:46 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -563,8 +563,8 @@
 
 #+reveal: split
 - 異なる区間の場合
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    "区間 \((0,5]\) から無作為に一点抜き出す"試行を考えたとき，
    その標本空間は \(\Omega=(0,5]\) となる．

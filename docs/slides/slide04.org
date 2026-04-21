@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-21 11:01:07 mura>
+# Time-stamp: <2026-04-21 11:10:46 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -446,8 +446,8 @@
 ** 多次元の確率変数
 - 同じ確率空間の上の複数の確率変数をまとめて
    ベクトルと見ることができる
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    例 : 2次元の値を取る関数
    \begin{equation}
@@ -466,8 +466,8 @@
 
 #+reveal: split
 - 標本空間や確率測度も自然に考えることができる
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    \begin{equation}
      \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
@@ -735,8 +735,8 @@
 
 ** 平均に関する注意
 - 標本空間の制限付平均値
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    標本空間を \(A\subset\Omega\) に制限した場合の平均値を
    \begin{align}
@@ -751,8 +751,8 @@
 
 #+reveal: split
 - 確率変数ベクトル
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
    \begin{equation}
@@ -1087,8 +1087,8 @@
 
 ** 特性関数に関する注意
 - Fourier変換との関係
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    #   \begin{equation}
    #     \phi(z)=\int_Re^{izx}P(dx)
@@ -1110,8 +1110,8 @@
 
 #+reveal: split
 - 逆変換の存在
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    Fourier変換には逆Fourier変換が存在して
    もとの関数を再構成できるように，
@@ -1119,8 +1119,8 @@
    (*Levy-Havilandの反転公式*)．
    #+end_quote
 - 分布の同一性
-   #+attr_html: :class callout-warning
-   #+attr_latex: :environment callout-warning
+   #+attr_html: :class callout-note
+   #+attr_latex: :environment callout-note
    #+begin_quote
    2つの分布の特性関数が同じであれば，
    2つの分布が同じであることが言える．
