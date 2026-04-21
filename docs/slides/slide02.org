@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-21 08:37:09 mura>
+# Time-stamp: <2026-04-21 10:28:30 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -686,7 +686,7 @@
    - Lebesgue 測度と Borel 集合族 (応用上重要な概念)
    - "ほとんど確実に成り立つ"
 
-** 注意
+** COMMENT 注意
 - 確認テスト (Moodleの講義2の中)
    - 確率空間に関する基本問題
    - 期間と時間制限に注意
