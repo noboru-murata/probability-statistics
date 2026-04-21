@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="./reveal.js/plugin/reveal-menu/quarto-menu.css"/>
 
 <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
 <link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
 <style>
 /* Position computations of klipse get confused by reveal.js's scaling.
@@ -72,8 +73,8 @@
 
 </section>
 <section>
-<section id="slide-org1d3cf94">
-<h2 id="org1d3cf94">前回のおさらい</h2>
+<section id="slide-orgea2b773">
+<h2 id="orgea2b773">前回のおさらい</h2>
 <ul>
 <li>確率密度
 <ul>
@@ -88,16 +89,16 @@
 </section>
 </section>
 <section>
-<section id="slide-org7b24554">
-<h2 id="org7b24554">1次元の確率変数</h2>
+<section id="slide-org58b3ca1">
+<h2 id="org58b3ca1">1次元の確率変数</h2>
 </section>
-<section id="slide-org42587db">
-<h3 id="org42587db">確率変数の定義</h3>
+<section id="slide-orgca671e1">
+<h3 id="orgca671e1">確率変数の定義</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 ある試行 \(T\) の確率空間を
 \((\Omega,\mathcal{F},P)\) とする．
@@ -126,13 +127,13 @@
 
 </ul>
 </section>
-<section id="slide-org451eb21">
-<h3 id="org451eb21">確率変数の例</h3>
+<section id="slide-org09cede8">
+<h3 id="org09cede8">確率変数の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">骰子振りの確率変数</span>
+骰子振りの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
 </p>
@@ -157,9 +158,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数</span>
+二回の骰子振りの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 骰子を二回振ったときの出た目の和を考える．
 このときの標本空間は
@@ -205,9 +206,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">ルーレット回しの確率変数</span>
+ルーレット回しの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 &ldquo;ルーレット回し&rdquo;の試行において，
 ルーレットの目盛り \(\omega\) が有理数なら1点，
@@ -248,9 +249,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">骰子振り</span>
+骰子振り
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 &ldquo;1が出るまで骰子を振り続ける&rdquo;試行で得られる標本点を \(\omega\) とする．
 このとき，系列 \(\omega\) の長さ
@@ -272,9 +273,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">工場の製品</span>
+工場の製品
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 ある工場で生産されるエンジンの抜き取り検査をして，
 最大出力と燃費を測定したとする．
@@ -288,16 +289,16 @@
 </section>
 </section>
 <section>
-<section id="slide-org73bb65f">
-<h2 id="org73bb65f">確率変数の確率空間</h2>
+<section id="slide-org0e513ae">
+<h2 id="org0e513ae">確率変数の確率空間</h2>
 </section>
-<section id="slide-orgec4ffe7">
-<h3 id="orgec4ffe7">確率変数の標本空間</h3>
+<section id="slide-org962bf2b">
+<h3 id="org962bf2b">確率変数の標本空間</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率変数 \(X(\omega)\) は
 \(\omega\) が従う確率法則によってばらつく確率的な量であるため，
@@ -318,13 +319,13 @@
 
 </ul>
 </section>
-<section id="slide-orgec63db0">
-<h3 id="orgec63db0">確率変数の確率法則</h3>
+<section id="slide-org29fadb1">
+<h3 id="org29fadb1">確率変数の確率法則</h3>
 <ul>
 <li><p>
 標本点の写像
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 標本空間 \(\Omega^X\) の任意の部分集合 \(B\) に対して
 &ldquo;\(X\) の値が \(B\) に入る&rdquo; (\(X\in B\)) という事象を定義する．
@@ -358,7 +359,7 @@
 <li><p>
 事象の写像
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 \(X\) を \(\Omega\) の部分集合から
 \(\mathbb{R}\) の部分集合へ対応させる関数
@@ -391,7 +392,7 @@
 <li><p>
 確率測度の変換
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 \(X\) の値が \(B\) に入る確率は
 </p>
@@ -434,7 +435,7 @@
 <li><p>
 確率測度の条件の確認
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 事象の写像の基本的な性質
 </p>
@@ -471,13 +472,13 @@
 
 </ul>
 </section>
-<section id="slide-org593fd5a">
-<h3 id="org593fd5a">確率変数の確率空間の例</h3>
+<section id="slide-org6a084a9">
+<h3 id="org6a084a9">確率変数の確率空間の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+二回の骰子振りの確率変数 \(X\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 標本空間，および確率測度は以下のとおり．
 </p>
@@ -512,9 +513,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+二回の骰子振りの確率変数 \(Y\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 標本空間，および確率測度は以下のとおり．
 </p>
@@ -547,9 +548,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">ルーレット回しの確率変数 \(X\)</span>
+ルーレット回しの確率変数 \(X\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 標本空間，および確率測度は以下のとおり．
 </p>
@@ -573,11 +574,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org74d3f85" data-background="#fef4f4">
-<h2 id="org74d3f85">演習</h2>
+<section id="slide-org7a9050b" data-background="#fef4f4">
+<h2 id="org7a9050b">演習</h2>
 </section>
-<section id="slide-orga6f5318" data-background="#fef4f4">
-<h3 id="orga6f5318">練習問題</h3>
+<section id="slide-org11447e8" data-background="#fef4f4">
+<h3 id="org11447e8">練習問題</h3>
 <ul>
 <li><p>
 ルーレット回しの確率変数 \(Y\)
@@ -604,19 +605,19 @@
 </section>
 </section>
 <section>
-<section id="slide-org3b106bf">
-<h2 id="org3b106bf">多次元の確率変数</h2>
-<div class="outline-text-2" id="text-org3b106bf">
+<section id="slide-org7e0c6e4">
+<h2 id="org7e0c6e4">多次元の確率変数</h2>
+<div class="outline-text-2" id="text-org7e0c6e4">
 </div>
 </section>
-<section id="slide-orgb9727b3">
-<h3 id="orgb9727b3">多次元の確率変数</h3>
+<section id="slide-orge748d7f">
+<h3 id="orge748d7f">多次元の確率変数</h3>
 <ul>
 <li><p>
 同じ確率空間の上の複数の確率変数をまとめて
 ベクトルと見ることができる
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 例 : 2次元の値を取る関数
 </p>
@@ -651,7 +652,7 @@
 <li><p>
 標本空間や確率測度も自然に考えることができる
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <div>
 \begin{equation}
   \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
@@ -670,8 +671,8 @@
 
 </ul>
 </section>
-<section id="slide-org993b278">
-<h3 id="org993b278">多次元確率変数の用語</h3>
+<section id="slide-orgee91ea7">
+<h3 id="orgee91ea7">多次元確率変数の用語</h3>
 <ul>
 <li>\(X_1(\omega),\dotsc,,X_n(\omega)\) : 
 \(\boldsymbol{X}(\omega)\) の <b>成分変数</b></li>
@@ -687,18 +688,18 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb1c2242">
-<h2 id="orgb1c2242">確率変数の変換</h2>
-<div class="outline-text-2" id="text-orgb1c2242">
+<section id="slide-org52acf63">
+<h2 id="org52acf63">確率変数の変換</h2>
+<div class="outline-text-2" id="text-org52acf63">
 </div>
 </section>
-<section id="slide-org3772e1f">
-<h3 id="org3772e1f">確率変数の変換</h3>
+<section id="slide-orgf70dbdc">
+<h3 id="orgf70dbdc">確率変数の変換</h3>
 <ul>
 <li><p>
 変換
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 実数値関数
 </p>
@@ -727,13 +728,13 @@
 
 </ul>
 </section>
-<section id="slide-orgf46c22d">
-<h3 id="orgf46c22d">確率変数の変換の例</h3>
+<section id="slide-orgc3d9cf7">
+<h3 id="orgc3d9cf7">確率変数の変換の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数の変換</span>
+二回の骰子振りの確率変数の変換
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 骰子を二回振ったときの出た目の和を考え，
 和が偶数なら100円貰え，
@@ -768,13 +769,13 @@
 
 </ul>
 </section>
-<section id="slide-org01a8d34">
-<h3 id="org01a8d34">変換後の確率空間</h3>
+<section id="slide-org39a017e">
+<h3 id="org39a017e">変換後の確率空間</h3>
 <ul>
 <li><p>
 標本空間
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 新しく作られた確率変数 \(Y\) の標本空間は，
 変換を順に追って
@@ -798,7 +799,7 @@
 <li><p>
 確率測度
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 \(\Omega^{Y}\) の適当な部分集合 \(C\) に対して，
 \(\Omega^{X}\) で対応する集合を \(B\) ，
@@ -834,16 +835,16 @@
 </section>
 </section>
 <section>
-<section id="slide-orgcc434bd">
-<h2 id="orgcc434bd">確率変数の平均値</h2>
+<section id="slide-orgf29910d">
+<h2 id="orgf29910d">確率変数の平均値</h2>
 </section>
-<section id="slide-org58c3f02">
-<h3 id="org58c3f02">離散分布の平均値</h3>
+<section id="slide-org912e38d">
+<h3 id="org912e38d">離散分布の平均値</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 標本空間が可算の場合，
 その確率空間上で定義された
@@ -873,13 +874,13 @@
 
 </ul>
 </section>
-<section id="slide-orgf9abf13">
-<h3 id="orgf9abf13">平均値の例</h3>
+<section id="slide-org8d0b97e">
+<h3 id="org8d0b97e">平均値の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">骰子振りの確率変数</span>
+骰子振りの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
 骰子の目を \(\omega\) で表すことにすれば 
@@ -916,9 +917,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+二回の骰子振りの確率変数 \(X\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 出た目の和 \(X\) の平均値は，
 二つの目を \(\omega_1,\omega_2\) で表すことにすれば
@@ -953,9 +954,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+二回の骰子振りの確率変数 \(Y\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
 </p>
@@ -981,13 +982,13 @@
 
 </ul>
 </section>
-<section id="slide-org26c937e">
-<h3 id="org26c937e">連続分布の平均値</h3>
+<section id="slide-orga9f829d">
+<h3 id="orga9f829d">連続分布の平均値</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率測度 \(P\) に確率密度 \(f\) がある場合，
 その確率空間上で定義された
@@ -1017,13 +1018,13 @@
 
 </ul>
 </section>
-<section id="slide-orgfc8bd5f">
-<h3 id="orgfc8bd5f">平均値の例</h3>
+<section id="slide-orgd2fdc13">
+<h3 id="orgd2fdc13">平均値の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">ルーレット回しの確率変数</span>
+ルーレット回しの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
 確率変数 \(X\) の平均値は
@@ -1055,13 +1056,13 @@
 
 </ul>
 </section>
-<section id="slide-orgdcf7f48">
-<h3 id="orgdcf7f48">平均に関する注意</h3>
+<section id="slide-org25d5a03">
+<h3 id="org25d5a03">平均に関する注意</h3>
 <ul>
 <li><p>
 標本空間の制限付平均値
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 標本空間を \(A\subset\Omega\) に制限した場合の平均値を
 </p>
@@ -1088,7 +1089,7 @@
 <li><p>
 確率変数ベクトル
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
 </p>
@@ -1103,13 +1104,13 @@
 
 </ul>
 </section>
-<section id="slide-org0a4ca20">
-<h3 id="org0a4ca20">平均値の性質</h3>
+<section id="slide-org300a8f3">
+<h3 id="org300a8f3">平均値の性質</h3>
 <ul>
 <li><p>
 定理
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 平均値には以下のような性質がある．
 </p>
@@ -1132,7 +1133,7 @@
 <li><p>
 定理
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 \(X\) の確率分布が考えられ，
 \(X\) の確率分布が \(P^X\) 
@@ -1154,13 +1155,13 @@
 
 </ul>
 </section>
-<section id="slide-org76f5100">
-<h3 id="org76f5100">平均値の計算の例</h3>
+<section id="slide-org4a552ac">
+<h3 id="org4a552ac">平均値の計算の例</h3>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数</span>
+二回の骰子振りの確率変数
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 出た目の和 \(X\) の平均値は平均の和の関係を用いると
 </p>
@@ -1191,11 +1192,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org0bd0b11" data-background="#fef4f4">
-<h2 id="org0bd0b11">演習</h2>
+<section id="slide-orgf060432" data-background="#fef4f4">
+<h2 id="orgf060432">演習</h2>
 </section>
-<section id="slide-org37de014" data-background="#fef4f4">
-<h3 id="org37de014">練習問題</h3>
+<section id="slide-org8648ee0" data-background="#fef4f4">
+<h3 id="org8648ee0">練習問題</h3>
 <ul>
 <li>ルーレット回しの確率変数 \(Y\) の平均値を
 以下の2通りの確率測度を用いて求めよ
@@ -1209,16 +1210,16 @@
 </section>
 </section>
 <section>
-<section id="slide-org8a5cc07">
-<h2 id="org8a5cc07">確率変数の分散</h2>
+<section id="slide-org10554c5">
+<h2 id="org10554c5">確率変数の分散</h2>
 </section>
-<section id="slide-org9d02d60">
-<h3 id="org9d02d60">分散</h3>
+<section id="slide-orgef7797b">
+<h3 id="orgef7797b">分散</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率変数 \(X\) の <b>分散</b> (variance) 
 は平均値を用いて
@@ -1241,13 +1242,13 @@
 
 </ul>
 </section>
-<section id="slide-org0507d78">
-<h3 id="org0507d78">共分散</h3>
+<section id="slide-orga25a9f4">
+<h3 id="orga25a9f4">共分散</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率変数 \(X,Y\) の <b>共分散</b>  (covariance)
 は
@@ -1265,8 +1266,8 @@
 
 </ul>
 </section>
-<section id="slide-orgf05fc07">
-<h3 id="orgf05fc07">確率変数の確率空間による計算</h3>
+<section id="slide-org149a1cb">
+<h3 id="org149a1cb">確率変数の確率空間による計算</h3>
 <ul>
 <li><p>
 離散分布に従う場合 :
@@ -1303,13 +1304,13 @@
 
 </ul>
 </section>
-<section id="slide-orgab469bd">
-<h3 id="orgab469bd">分散の計算例</h3>
+<section id="slide-orgdfcb9d1">
+<h3 id="orgdfcb9d1">分散の計算例</h3>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(X\)</span>
+二回の骰子振りの確率変数 \(X\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 出た目の和 \(X\) の分散は
 </p>
@@ -1334,9 +1335,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">二回の骰子振りの確率変数 \(Y\)</span>
+二回の骰子振りの確率変数 \(Y\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 また二つの目の大小関係を表す \(Y\) の分散は
 </p>
@@ -1360,9 +1361,9 @@
 <section>
 <ul>
 <li><p>
-<span style="color:green;">ルーレット回しの確率変数 \(X\)</span>
+ルーレット回しの確率変数 \(X\)
 </p>
-<blockquote>
+<blockquote class="callout-tip">
 <p>
 有理数・無理数を区別する \(X\) の分散は
 </p>
@@ -1380,13 +1381,13 @@
 
 </ul>
 </section>
-<section id="slide-org6f60c6c">
-<h3 id="org6f60c6c">分散・共分散の性質</h3>
+<section id="slide-org8fd5464">
+<h3 id="org8fd5464">分散・共分散の性質</h3>
 <ul>
 <li><p>
 定理
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 分散・共分散には以下の性質がある．
 </p>
@@ -1411,13 +1412,13 @@
 
 </ul>
 </section>
-<section id="slide-orgd0b4fba">
-<h3 id="orgd0b4fba">モーメント</h3>
+<section id="slide-org40e70f9">
+<h3 id="org40e70f9">モーメント</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率変数 \(X\) の <b>k次モーメント</b> (積率; k-th moment) 
 は，確率変数の \(k\) 乗の平均
@@ -1456,7 +1457,7 @@
 <li><p>
 絶対モーメント
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 確率変数の絶対値のk乗のモーメント
 </p>
@@ -1476,11 +1477,11 @@
 </section>
 </section>
 <section>
-<section id="slide-org3d1c906" data-background="#fef4f4">
-<h2 id="org3d1c906">演習</h2>
+<section id="slide-orgdc2a928" data-background="#fef4f4">
+<h2 id="orgdc2a928">演習</h2>
 </section>
-<section id="slide-org120fabd" data-background="#fef4f4">
-<h3 id="org120fabd">練習問題</h3>
+<section id="slide-orge0a565f" data-background="#fef4f4">
+<h3 id="orge0a565f">練習問題</h3>
 <ul>
 <li>以下の確率変数の分散を求めよ．
 <ol>
@@ -1493,16 +1494,16 @@
 </section>
 </section>
 <section>
-<section id="slide-org63ef457">
-<h2 id="org63ef457">特性関数</h2>
+<section id="slide-orgb2d6b99">
+<h2 id="orgb2d6b99">特性関数</h2>
 </section>
-<section id="slide-org8419c1d">
-<h3 id="org8419c1d">特性関数</h3>
+<section id="slide-org465fc58">
+<h3 id="org465fc58">特性関数</h3>
 <ul>
 <li><p>
 定義
 </p>
-<blockquote>
+<blockquote class="callout-important">
 <p>
 <b>特性関数</b> (characteristic function) 
 は指数関数を用いて変数変換された確率変数の平均として
@@ -1524,13 +1525,13 @@
 
 </ul>
 </section>
-<section id="slide-orgc03781e">
-<h3 id="orgc03781e">特性関数に関する注意</h3>
+<section id="slide-org2f56a9e">
+<h3 id="org2f56a9e">特性関数に関する注意</h3>
 <ul>
 <li><p>
 Fourier変換との関係
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 1次元の連続分布 \(P\) に対して
 密度関数 \(f\) が存在すれば
@@ -1565,7 +1566,7 @@ Fourier変換との関係
 <li><p>
 逆変換の存在
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 Fourier変換には逆Fourier変換が存在して
 もとの関数を再構成できるように，
@@ -1576,7 +1577,7 @@ Fourier変換には逆Fourier変換が存在して
 <li><p>
 分布の同一性
 </p>
-<blockquote>
+<blockquote class="callout-warning">
 <p>
 2つの分布の特性関数が同じであれば，
 2つの分布が同じであることが言える．
@@ -1589,11 +1590,11 @@ Fourier変換には逆Fourier変換が存在して
 </section>
 </section>
 <section>
-<section id="slide-orgbac84ae" data-background="#fef4f4">
-<h2 id="orgbac84ae">演習</h2>
+<section id="slide-orgeaa1548" data-background="#fef4f4">
+<h2 id="orgeaa1548">演習</h2>
 </section>
-<section id="slide-org360c544" data-background="#fef4f4">
-<h3 id="org360c544">練習問題</h3>
+<section id="slide-org999925e" data-background="#fef4f4">
+<h3 id="org999925e">練習問題</h3>
 <ul>
 <li>以下の確率測度の特性関数を求めよ．
 <ol>
@@ -1607,8 +1608,8 @@ Fourier変換には逆Fourier変換が存在して
 </section>
 </section>
 <section>
-<section id="slide-org516b80f">
-<h2 id="org516b80f">今回のまとめ</h2>
+<section id="slide-orgb1195c4">
+<h2 id="orgb1195c4">今回のまとめ</h2>
 <ul>
 <li>確率変数
 <ul>
@@ -1630,6 +1631,7 @@ Fourier変換には逆Fourier変換が存在して
 <script src="./reveal.js/plugin/notes/notes.js"></script>
 <script src="./reveal.js/plugin/search/search.js"></script>
 <script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
 <script src="./reveal.js/plugin/reveal-menu/menu.js"></script>
 <script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
 <script src="./reveal.js/plugin/pdf-export/pdfexport.js"></script>
@@ -1661,10 +1663,10 @@ maxScale: 1.25,
 transition: 'fade',
 transitionSpeed: 'default',
 showNotes: window.location.search.match( /print-pdf/gi ) ? 'separate-page' : false,
-'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 87: function() { RevealSpotlight.togglePresentationMode();}, },
+'controlsAuto': true, 'previewLinksAuto': true, 'pdfSeparateFragments': false, 'autoAnimateEasing': "ease", 'autoAnimateDuration': 1, 'autoAnimateUnmatched': true, 'jumpToSlide': true, 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true}, 'chalkboard': {"buttons":false}, 'smaller': false, 'spotlight': { size: 80, initialPresentationMode: false, }, keyboard: { 81: function() { RevealSpotlight.toggleSpotlight()}, 90: function() { RevealSpotlight.togglePresentationMode();}, },
 
 // Plugins with reveal.js 4.x
-plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
+plugins: [ RevealNotes, RevealSearch, RevealZoom, RevealHighlight, RevealMenu, RevealChalkboard, PdfExport, RevealSpotlight ],
 
 // Optional libraries used to extend reveal.js
 dependencies: [

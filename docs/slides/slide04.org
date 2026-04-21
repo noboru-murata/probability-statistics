@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE:
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-04 13:47:46 mura>
+# Time-stamp: <2026-04-21 11:01:07 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -31,6 +31,8 @@
 
 ** 確率変数の定義
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    ある試行 \(T\) の確率空間を
    \((\Omega,\mathcal{F},P)\) とする．
@@ -66,7 +68,9 @@
    # #+end_quote
 
 ** 確率変数の例
-- [[color:green][骰子振りの確率変数]]
+- 骰子振りの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    骰子を振ると(出た目 \(\times 100\) )円の賞金が貰えるとする．
 
@@ -78,7 +82,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][二回の骰子振りの確率変数]]
+- 二回の骰子振りの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    骰子を二回振ったときの出た目の和を考える．
    このときの標本空間は
@@ -105,50 +111,56 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][ルーレット回しの確率変数]]
-  #+begin_quote
-  "ルーレット回し"の試行において，
-  ルーレットの目盛り \(\omega\) が有理数なら1点，
-  無理数なら0点の得点が得られるとする．
-  このとき点数
-  \begin{equation}
-    X(\omega)=
-    \begin{cases}
-      1, & \text{\(\omega\)が有理数}\\
-      0, & \text{\(\omega\)が無理数}
-    \end{cases}
-  \end{equation}
-  は \(\Omega=(0,1]\) 上の確率変数である．
-  同様に出た目盛りが0にどれだけ近いかに応じて
-  点数がもらえるとする．
-  この点数を
-  \begin{equation}
-    Y(\omega)=\log\frac{1}{\omega}
-  \end{equation}
-  で定めれば，
-  \(Y\) も \(\Omega=(0,1]\) 上の確率変数である．
-  #+end_quote
+- ルーレット回しの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
+   #+begin_quote
+   "ルーレット回し"の試行において，
+   ルーレットの目盛り \(\omega\) が有理数なら1点，
+   無理数なら0点の得点が得られるとする．
+   このとき点数
+   \begin{equation}
+     X(\omega)=
+     \begin{cases}
+       1, & \text{\(\omega\)が有理数}\\
+       0, & \text{\(\omega\)が無理数}
+     \end{cases}
+   \end{equation}
+   は \(\Omega=(0,1]\) 上の確率変数である．
+   同様に出た目盛りが0にどれだけ近いかに応じて
+   点数がもらえるとする．
+   この点数を
+   \begin{equation}
+     Y(\omega)=\log\frac{1}{\omega}
+   \end{equation}
+   で定めれば，
+   \(Y\) も \(\Omega=(0,1]\) 上の確率変数である．
+   #+end_quote
 
 #+reveal: split
-- [[color:green][骰子振り]]
-  #+begin_quote
-  "1が出るまで骰子を振り続ける"試行で得られる標本点を \(\omega\) とする．
-  このとき，系列 \(\omega\) の長さ
-  \begin{equation}
-    X(\omega)=\text{系列\(\omega\)の長さ}
-  \end{equation}
-  は自然数 \(\mathbb{N}\) の値を取る確率変数と考えることができる．
-  #+end_quote
+- 骰子振り
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
+   #+begin_quote
+   "1が出るまで骰子を振り続ける"試行で得られる標本点を \(\omega\) とする．
+   このとき，系列 \(\omega\) の長さ
+   \begin{equation}
+     X(\omega)=\text{系列\(\omega\)の長さ}
+   \end{equation}
+   は自然数 \(\mathbb{N}\) の値を取る確率変数と考えることができる．
+   #+end_quote
 
 #+reveal: split
-- [[color:green][工場の製品]]
-  #+begin_quote
-  ある工場で生産されるエンジンの抜き取り検査をして，
-  最大出力と燃費を測定したとする．
-  この場合は標本点 \(\omega\) は生産されるエンジンの個体を表し，
-  最大出力 \(X(\omega)\) と燃費 \(Y(\omega)\) は個体 \(\omega\) ごとに異なる
-  確率変数であると考えることができる．
-  #+end_quote
+- 工場の製品
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
+   #+begin_quote
+   ある工場で生産されるエンジンの抜き取り検査をして，
+   最大出力と燃費を測定したとする．
+   この場合は標本点 \(\omega\) は生産されるエンジンの個体を表し，
+   最大出力 \(X(\omega)\) と燃費 \(Y(\omega)\) は個体 \(\omega\) ごとに異なる
+   確率変数であると考えることができる．
+   #+end_quote
 
 
 * 確率変数の確率空間
@@ -158,6 +170,8 @@
 
 ** 確率変数の標本空間
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率変数 \(X(\omega)\) は
    \(\omega\) が従う確率法則によってばらつく確率的な量であるため，
@@ -174,6 +188,8 @@
 
 ** 確率変数の確率法則
 - 標本点の写像
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    標本空間 \(\Omega^X\) の任意の部分集合 \(B\) に対して
    "\(X\) の値が \(B\) に入る" (\(X\in B\)) という事象を定義する．
@@ -192,6 +208,8 @@
 
 #+reveal: split
 - 事象の写像
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    \(X\) を \(\Omega\) の部分集合から
    \(\mathbb{R}\) の部分集合へ対応させる関数
@@ -207,6 +225,8 @@
 
 #+reveal: split
 - 確率測度の変換
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    \(X\) の値が \(B\) に入る確率は
    \begin{equation}
@@ -230,33 +250,37 @@
 
 #+reveal: split
 - 確率測度の条件の確認
-  #+begin_quote
-  事象の写像の基本的な性質
-  \begin{align}
-    &X^{-1}(B_1+B_2)=X^{-1}(B_1)+X^{-1}(B_2)\\
-    &X^{-1}(\Omega^X)=\Omega
-  \end{align}
-  より
-  \(P^X\) が条件を満たしていることが確認できる．
-  \begin{align}
-    P^{X}(B)
-    &=P(X^{-1}(B))\ge0
-    &&\text{(正値性)}\\
-    P^{X}(B_{1}+B_{2})
-    &=P(X^{-1}(B_{1}+B_{2}))\\
-    &=P(X^{-1}(B_{1})+X^{-1}(B_{2}))\\
-    &=P(X^{-1}(B_{1}))+P(X^{-1}(B_{2}))\\
-    &=P^{X}(B_{1})+P^{X}(B_{2})
-    &&\text{(加法性)}\\
-    P^{X}(\Omega^{X})
-    &=P(X^{-1}(\Omega^{X}))
-      =P(\Omega)=1
-    &&\text{(全確率)}
-  \end{align}
-  #+end_quote
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
+   #+begin_quote
+   事象の写像の基本的な性質
+   \begin{align}
+     &X^{-1}(B_1+B_2)=X^{-1}(B_1)+X^{-1}(B_2)\\
+     &X^{-1}(\Omega^X)=\Omega
+   \end{align}
+   より
+   \(P^X\) が条件を満たしていることが確認できる．
+   \begin{align}
+     P^{X}(B)
+     &=P(X^{-1}(B))\ge0
+     &&\text{(正値性)}\\
+     P^{X}(B_{1}+B_{2})
+     &=P(X^{-1}(B_{1}+B_{2}))\\
+     &=P(X^{-1}(B_{1})+X^{-1}(B_{2}))\\
+     &=P(X^{-1}(B_{1}))+P(X^{-1}(B_{2}))\\
+     &=P^{X}(B_{1})+P^{X}(B_{2})
+     &&\text{(加法性)}\\
+     P^{X}(\Omega^{X})
+     &=P(X^{-1}(\Omega^{X}))
+       =P(\Omega)=1
+     &&\text{(全確率)}
+   \end{align}
+   #+end_quote
 
 ** 確率変数の確率空間の例
-- [[color:green][二回の骰子振りの確率変数 \(X\)]]
+- 二回の骰子振りの確率変数 \(X\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    標本空間，および確率測度は以下のとおり．
    \begin{equation}
@@ -279,7 +303,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
+- 二回の骰子振りの確率変数 \(Y\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    標本空間，および確率測度は以下のとおり．
    \begin{equation}
@@ -300,7 +326,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][ルーレット回しの確率変数 \(X\)]]
+- ルーレット回しの確率変数 \(X\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    標本空間，および確率測度は以下のとおり．
    \begin{equation}
@@ -418,6 +446,8 @@
 ** 多次元の確率変数
 - 同じ確率空間の上の複数の確率変数をまとめて
    ベクトルと見ることができる
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    例 : 2次元の値を取る関数
    \begin{equation}
@@ -436,6 +466,8 @@
 
 #+reveal: split
 - 標本空間や確率測度も自然に考えることができる
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    \begin{equation}
      \Omega^{\boldsymbol{X}}=\boldsymbol{X}(\Omega)
@@ -462,6 +494,8 @@
 * 確率変数の変換
 ** 確率変数の変換
 - 変換
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    実数値関数
    \begin{align}
@@ -478,7 +512,9 @@
    #+end_quote
 
 ** 確率変数の変換の例
-- [[color:green][二回の骰子振りの確率変数の変換]]
+- 二回の骰子振りの確率変数の変換
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    骰子を二回振ったときの出た目の和を考え，
    和が偶数なら100円貰え，
@@ -502,6 +538,8 @@
 
 ** 変換後の確率空間
 - 標本空間
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    新しく作られた確率変数 \(Y\) の標本空間は，
    変換を順に追って
@@ -513,6 +551,8 @@
 
 #+reveal: split
 - 確率測度
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    \(\Omega^{Y}\) の適当な部分集合 \(C\) に対して，
    \(\Omega^{X}\) で対応する集合を \(B\) ，
@@ -540,6 +580,8 @@
 
 ** 離散分布の平均値
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    標本空間が可算の場合，
    その確率空間上で定義された
@@ -559,7 +601,9 @@
       作用素と考えることができる
 
 ** 平均値の例
-- [[color:green][骰子振りの確率変数]]
+- 骰子振りの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    出た目の100倍の値である賞金 \(X\) の平均値(期待値)は，
    骰子の目を \(\omega\) で表すことにすれば 
@@ -585,7 +629,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][二回の骰子振りの確率変数 \(X\)]]
+- 二回の骰子振りの確率変数 \(X\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    出た目の和 \(X\) の平均値は，
    二つの目を \(\omega_1,\omega_2\) で表すことにすれば
@@ -609,26 +655,30 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
-  #+begin_quote
-  二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
-  \begin{align}
-    \mathbb{E}[Y]
-    &=Y(1,1)\cdot P\{(1,1)\}
-      +Y(1,2)\cdot P\{(1,2)\}
-      % +Y(1,3)\cdot P\{(1,3)\}
-      +\\
-    &\qquad\dotsb
-      +Y(6,5)\cdot P\{(6,5)\}
-      +Y(6,6)\cdot P\{(6,6)\}\\
-    &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
-    &=0
-  \end{align}
-  である．
-  #+end_quote
+- 二回の骰子振りの確率変数 \(Y\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
+   #+begin_quote
+   二つの目の大小関係で \(\{-1,0,1\}\) の値を取る確率変数 \(Y\) の平均値は
+   \begin{align}
+     \mathbb{E}[Y]
+     &=Y(1,1)\cdot P\{(1,1)\}
+       +Y(1,2)\cdot P\{(1,2)\}
+       % +Y(1,3)\cdot P\{(1,3)\}
+       +\\
+     &\qquad\dotsb
+       +Y(6,5)\cdot P\{(6,5)\}
+       +Y(6,6)\cdot P\{(6,6)\}\\
+     &=1\cdot\frac{15}{36}+0\cdot\frac{6}{36}+(-1)\cdot\frac{15}{36}\\
+     &=0
+   \end{align}
+   である．
+   #+end_quote
 	  
 ** 連続分布の平均値
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率測度 \(P\) に確率密度 \(f\) がある場合，
    その確率空間上で定義された
@@ -648,7 +698,9 @@
       平均値 \(\mathbb{E}[X]\) は \(\omega\) によらない量となっていることに注意する
 
 ** 平均値の例
-- [[color:green][ルーレット回しの確率変数]]
+- ルーレット回しの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    ルーレットの目盛りが有理数か無理数かで \(\{1,0\}\) の値を取る
    確率変数 \(X\) の平均値は
@@ -683,6 +735,8 @@
 
 ** 平均に関する注意
 - 標本空間の制限付平均値
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    標本空間を \(A\subset\Omega\) に制限した場合の平均値を
    \begin{align}
@@ -697,16 +751,20 @@
 
 #+reveal: split
 - 確率変数ベクトル
-  #+begin_quote
-  \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
-  \begin{equation}
-    \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
-    \in \mathbb{R}^n
-  \end{equation}
-  #+end_quote
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
+   #+begin_quote
+   \(\boldsymbol{X}\) がベクトルの場合は各成分ごとに計算すればよい．
+   \begin{equation}
+     \mathbb{E}[\boldsymbol{X}]=(\mathbb{E}[X_1],\mathbb{E}[X_2],\dotsc,\mathbb{E}[X_n])
+     \in \mathbb{R}^n
+   \end{equation}
+   #+end_quote
 
 ** 平均値の性質
 - 定理
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    平均値には以下のような性質がある．
    1. \(\Big.\mathbb{E}[aX+bY]=a\,\mathbb{E}[X]+b\,\mathbb{E}[Y]\) 
@@ -719,6 +777,8 @@
 
 #+reveal: split
 - 定理
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    \(X\) の確率分布が考えられ，
    \(X\) の確率分布が \(P^X\) 
@@ -735,7 +795,9 @@
    #+end_quote
 
 ** 平均値の計算の例
-- [[color:green][二回の骰子振りの確率変数]]
+- 二回の骰子振りの確率変数
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    出た目の和 \(X\) の平均値は平均の和の関係を用いると
    \begin{align}
@@ -814,6 +876,8 @@
 
 ** 分散
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率変数 \(X\) の *分散* (variance) 
    は平均値を用いて
@@ -828,6 +892,8 @@
 
 ** 共分散
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率変数 \(X,Y\) の *共分散*  (covariance)
    は
@@ -858,7 +924,9 @@
   #+end_quote
 
 ** 分散の計算例
-- [[color:green][二回の骰子振りの確率変数 \(X\)]]
+- 二回の骰子振りの確率変数 \(X\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    出た目の和 \(X\) の分散は
    \begin{align}
@@ -872,7 +940,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][二回の骰子振りの確率変数 \(Y\)]]
+- 二回の骰子振りの確率変数 \(Y\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    また二つの目の大小関係を表す \(Y\) の分散は
    \begin{align}
@@ -885,7 +955,9 @@
    #+end_quote
 
 #+reveal: split
-- [[color:green][ルーレット回しの確率変数 \(X\)]]
+- ルーレット回しの確率変数 \(X\)
+   #+attr_html: :class callout-tip
+   #+attr_latex: :environment callout-tip
    #+begin_quote
    有理数・無理数を区別する \(X\) の分散は
    \begin{equation}
@@ -905,6 +977,8 @@
 
 ** 分散・共分散の性質
 - 定理
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    分散・共分散には以下の性質がある．
    1. \(\Big.\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)\) (対称性)
@@ -922,6 +996,8 @@
 
 ** モーメント
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率変数 \(X\) の *k次モーメント* (積率; k-th moment) 
    は，確率変数の \(k\) 乗の平均
@@ -940,6 +1016,8 @@
 
 #+reveal: split
 - 絶対モーメント
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    確率変数の絶対値のk乗のモーメント
    \begin{equation}
@@ -995,6 +1073,8 @@
 
 ** 特性関数
 - 定義
+   #+attr_html: :class callout-important
+   #+attr_latex: :environment callout-important
    #+begin_quote
    *特性関数* (characteristic function) 
    は指数関数を用いて変数変換された確率変数の平均として
@@ -1007,6 +1087,8 @@
 
 ** 特性関数に関する注意
 - Fourier変換との関係
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    #   \begin{equation}
    #     \phi(z)=\int_Re^{izx}P(dx)
@@ -1028,6 +1110,8 @@
 
 #+reveal: split
 - 逆変換の存在
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    Fourier変換には逆Fourier変換が存在して
    もとの関数を再構成できるように，
@@ -1035,6 +1119,8 @@
    (*Levy-Havilandの反転公式*)．
    #+end_quote
 - 分布の同一性
+   #+attr_html: :class callout-warning
+   #+attr_latex: :environment callout-warning
    #+begin_quote
    2つの分布の特性関数が同じであれば，
    2つの分布が同じであることが言える．

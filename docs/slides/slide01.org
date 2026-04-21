@@ -4,7 +4,7 @@
 #+EMAIL: noboru.murata@gmail.com
 #+DATE: 
 #+STARTUP: hidestars content indent
-# Time-stamp: <2026-04-15 17:52:17 mura>
+# Time-stamp: <2026-04-21 11:01:37 mura>
 :REVEAL:
 #+SETUPFILE: "./reveal.js/local/lecture.org"
 # C-c C-x C-v でinlineを切り替え
@@ -633,7 +633,7 @@
 
 #+reveal: split
 - 任意の事象を考える
-  #+begin_callout-caution
+  #+begin_callout-warning
   事象 \(A\) を要素数が無限個の適当な数の集合として，
   これを \(A=\{a,b,c,\dotsc\}\) と書く．
   前出の加法性に従うなら事象 \(A=\{a,b,c,\dotsc\}\) に対して，
@@ -642,11 +642,11 @@
     P(A)=P\{a\}+P\{b\}+P\{c\}+\dotsb
   \end{equation}
   として良い．
-  #+end_callout-caution
+  #+end_callout-warning
 
 #+reveal: split
 - 確率の和を考える
-  #+begin_callout-caution
+  #+begin_callout-warning
   仮に各要素の出現確率が同じ \(\epsilon>0\) という値である場合
   \begin{equation}
     P\{a\}=P\{b\}=P\{c\}=\dotsb=\epsilon\quad (\not=0)
@@ -665,11 +665,11 @@
     P\{a\}=P\{b\}=P\{c\}=\dotsb=0
   \end{equation}
   でなくてはならない．
-  #+end_callout-caution
+  #+end_callout-warning
 
 #+reveal: split
 - 全確率を考える
-  #+begin_callout-caution
+  #+begin_callout-warning
   任意の標本点についてその確率が \(0\) なら，
   いくら足しても
   \begin{equation}
@@ -680,7 +680,7 @@
   標本空間全体についてこの議論を行えば
   \(P(\Omega)=0\) となってしまうので，
   全事象の確率がうまく定義できない．
-  #+end_callout-caution
+  #+end_callout-warning
 - この問題を解決するためには
   *加法性*
   を考え直す必要がある
